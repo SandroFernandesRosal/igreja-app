@@ -17,18 +17,14 @@ export default function Header() {
 
   return (
     <>
-      <header className="font-Roboto fixed z-30 flex h-20 w-[100vw]  items-center justify-evenly overflow-hidden border-b-2 border-solid border-y-black  bg-blue-300 text-white dark:border-y-white dark:bg-black">
+      <header className="font-Roboto fixed z-30 flex h-20 w-[100vw]  items-center justify-evenly overflow-hidden border-b-2 border-solid border-y-blue-300 bg-white   dark:bg-black">
         <Link href="/">
           <div>Alcançados Pela Graça</div>
         </Link>
-
-        <div className="hidden md:flex">
-          {' '}
-          <ChangeTheme />{' '}
-        </div>
-
         <NavBarMd handleMenu={handleMenu} />
-
+        <div className="hidden gap-10 md:flex">
+          <ChangeTheme />
+        </div>
         <div
           onClick={handleMenu}
           className={
@@ -42,6 +38,8 @@ export default function Header() {
           )}
         </div>
       </header>
+
+      <NavBarMd />
 
       {menu && <NavBar handleMenu={handleMenu} menu={menu} />}
     </>

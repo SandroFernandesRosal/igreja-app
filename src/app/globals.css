@@ -33,6 +33,10 @@ body::-webkit-scrollbar-thumb {
   
 }
 
+.social-header svg {
+font-size: 20px;
+}
+
 @layer base{
   body {
       @apply dark:bg-gray-950 bg-gray-200
