@@ -11,68 +11,68 @@ export default function NavBarMd({ handleMenu }) {
   return (
     <nav
       className={` font-Roboto
-      top-[90px] hidden  w-full items-center  justify-center gap-5 border-b-[1px]  border-solid  border-white pb-[5px] md:absolute  md:flex`}
+       hidden w-full  items-center justify-center gap-5  bg-white/30 p-3    pb-[5px]   backdrop-blur-md dark:bg-black/30 md:flex`}
     >
       <Link
         href="/quemsomos"
-        className=" flex flex-col items-center justify-center text-lg hover:text-blue-300"
+        className=" flex flex-col items-center justify-center text-lg hover:text-primary"
         onClick={handleMenu}
       >
-        <BiHomeHeart className="text-blue-300" /> <p>Quem Somos</p>
+        <BiHomeHeart className="text-primary" /> <p>Quem Somos</p>
       </Link>
       <Link
         href="/endereços"
-        className="flex flex-col items-center justify-center text-lg hover:text-blue-300"
+        className="flex flex-col items-center justify-center text-lg hover:text-primary"
         onClick={handleMenu}
       >
-        <FaMapMarkerAlt className="text-blue-300" /> <p>Endereços</p>
+        <FaMapMarkerAlt className="text-primary" /> <p>Endereços</p>
       </Link>
       <Link
         href="/liderancas"
-        className="flex flex-col items-center justify-center text-lg hover:text-blue-300"
+        className="flex flex-col items-center justify-center text-lg hover:text-primary"
         onClick={handleMenu}
       >
-        <BiHomeHeart className="text-blue-300" /> <p>Lideranças</p>
+        <BiHomeHeart className="text-primary" /> <p>Lideranças</p>
       </Link>
 
       <Link
         href="/doacao"
-        className="flex  flex-col  items-center justify-center text-lg hover:text-blue-300"
+        className="flex  flex-col  items-center justify-center text-lg hover:text-primary"
         onClick={handleMenu}
       >
-        <FaHandHoldingHeart className="text-blue-300" /> <p>Doação</p>
+        <FaHandHoldingHeart className="text-primary" /> <p>Doação</p>
       </Link>
 
       <Link
         href="/programacao"
-        className="flex  flex-col  items-center justify-center text-lg hover:text-blue-300"
+        className="flex  flex-col  items-center justify-center text-lg hover:text-primary"
         onClick={handleMenu}
       >
-        <AiOutlineSchedule className="text-blue-300" /> <p>Programação</p>
+        <AiOutlineSchedule className="text-primary" /> <p>Programação</p>
       </Link>
 
       <Link
         href="/biblia"
-        className="flex flex-col  items-center justify-center text-lg hover:text-blue-300"
+        className="flex flex-col  items-center justify-center text-lg hover:text-primary"
         onClick={handleMenu}
       >
-        <BsBook className="text-blue-300" /> <p>Bíblia</p>
+        <BsBook className="text-primary" /> <p>Bíblia</p>
       </Link>
 
       <Link
         href="/noticias"
-        className="flex flex-col  items-center justify-center text-lg hover:text-blue-300"
+        className="flex flex-col  items-center justify-center text-lg hover:text-primary"
         onClick={handleMenu}
       >
-        <BiNews className="text-blue-300" /> <p>Notícias</p>
+        <BiNews className="text-primary" /> <p>Notícias</p>
       </Link>
 
       <Link
         href="/contato"
-        className="flex  flex-col  items-center justify-center text-lg hover:text-blue-300"
+        className="flex  flex-col  items-center justify-center text-lg hover:text-primary"
         onClick={handleMenu}
       >
-        <TfiEmail className="text-blue-300" /> <p>Contato</p>
+        <TfiEmail className="text-primary" /> <p>Contato</p>
       </Link>
     </nav>
   )

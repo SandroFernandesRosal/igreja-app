@@ -7,6 +7,8 @@ import NavBarMd from './NavBarMd'
 import { useState } from 'react'
 import Link from 'next/link'
 import ChangeTheme from './ChangeTheme'
+import Image from 'next/image'
+import logo from '../../../public/img/logo.png'
 
 export default function Header() {
   const [menu, setMenu] = useState(false)
@@ -17,29 +19,30 @@ export default function Header() {
 
   return (
     <>
-      <header className="font-Roboto fixed z-30 flex h-20 w-[100vw]  items-center justify-evenly overflow-hidden border-b-2 border-solid border-y-blue-300 bg-white   dark:bg-black">
-        <Link href="/">
-          <div>Alcançados Pela Graça</div>
-        </Link>
-        <NavBarMd handleMenu={handleMenu} />
-        <div className="hidden gap-10 md:flex">
-          <ChangeTheme />
-        </div>
-        <div
-          onClick={handleMenu}
-          className={
-            'flex h-[50px] w-[50px] cursor-pointer items-center justify-center rounded-full  border-[2px] border-white hover:bg-blue-200  dark:hover:bg-gray-800 md:hidden'
-          }
-        >
-          {menu === false ? (
-            <GiHamburgerMenu className="text-[22px] text-white" />
-          ) : (
-            <AiOutlineClose className="text-[25px]  text-white" />
-          )}
-        </div>
-      </header>
+      <header className="font-Roboto fixed z-30 flex flex-col">
+        <div className="flex h-20 w-[100vw]  items-center justify-evenly overflow-hidden border-b-2 border-solid border-y-primary  bg-white/50        backdrop-blur-md    dark:bg-black/50">
+          <Link href="/">
+            <Image src={logo} alt="logo do site" width={200} height={50} />
+          </Link>
 
-      <NavBarMd />
+          <div className="hidden gap-10 md:flex">
+            <ChangeTheme />
+          </div>
+          <div
+            onClick={handleMenu}
+            className={
+              'flex h-[50px] w-[50px] cursor-pointer items-center justify-center rounded-full  border-[2px] border-primary hover:bg-blue-300  dark:hover:bg-gray-800 md:hidden'
+            }
+          >
+            {menu === false ? (
+              <GiHamburgerMenu className="text-[22px] text-primary" />
+            ) : (
+              <AiOutlineClose className="text-[25px]  text-primary" />
+            )}
+          </div>
+        </div>
+        <NavBarMd />
+      </header>
 
       {menu && <NavBar handleMenu={handleMenu} menu={menu} />}
     </>

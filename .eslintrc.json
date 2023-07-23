@@ -1,4 +1,13 @@
 {
-  "extends": "@rocketseat/eslint-config/react"
-  // "extends": "@rocketseat/eslint-config/node"
+  "extends": "@rocketseat/eslint-config/react",
+  
+    "plugins": ["react-hooks"],
+    // ...
+    "rules": {
+      "react-hooks/rules-of-hooks": true,
+      "react-hooks/exhaustive-deps": true // <--- THIS IS THE NEW RULE
+    }
+  
+  
+
 }
