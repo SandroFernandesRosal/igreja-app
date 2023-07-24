@@ -34,16 +34,16 @@ export default function Carousel({ imgs }) {
   }, [currentSlide])
 
   return (
-    <div className="relative">
+    <div className="relative z-10">
       <AiOutlineLeft
         onClick={handlePrevSlide}
-        className="absolute inset-y-1/2 left-2 z-10 m-auto cursor-pointer rounded-full bg-white/30 text-5xl text-white dark:bg-black/30"
+        className="absolute inset-y-1/2 left-2 z-10 m-auto p-1 cursor-pointer md:text-5xl rounded-full bg-white/30 text-4xl text-white dark:bg-black/30"
       />
-      <div className="relative m-auto flex  w-[80vw] max-w-[700px] overflow-hidden rounded-xl  md:w-[60vw] md:max-h-[400px] max-h-[300px]">
+      <div className="relative m-auto flex justify-center">
         <Swipe
           onSwipeLeft={handleNextSlide}
           onSwipeRight={handlePrevSlide}
-          className="relative  h-full w-full "
+          className="relative    md:w-[400px] md:h-[400px] w-[80vw] h-[400px]  overflow-hidden rounded-xl "
         >
           {imgs.map((image, index) => {
             if (index === currentSlide) {
@@ -52,9 +52,9 @@ export default function Carousel({ imgs }) {
                   key={image.id}
                   src={image.url}
                   width={500}
-                  height={250}
+                  height={500}
                   alt="..."
-                  className="animate-fadeIn object-cover h-[100%] w-[100%]"
+                  className="animate-fadeIn h-[100%] w-[100%]"
                   
                 />
               )
@@ -64,18 +64,18 @@ export default function Carousel({ imgs }) {
       </div>
       <AiOutlineRight
         onClick={handleNextSlide}
-        className="absolute inset-y-1/2 right-2 z-10 m-auto cursor-pointer rounded-full bg-white/30 text-5xl text-white dark:bg-black/30"
+        className="absolute inset-y-1/2  right-2 z-10 m-auto cursor-pointer p-1 rounded-full bg-white/30 text-4xl md:text-5xl text-white dark:bg-black/30"
         seconds={seconds}
       />
 
-      <div className="relative flex justify-center p-2">
+      <div className="absolute flex justify-center p-2 bottom-0  w-full items-evenly ">
         {imgs.map((_, index) => {
           return (
             <div
               className={
                 index === currentSlide
-                  ? 'mx-2 mb-2 h-4 w-4 cursor-pointer rounded-full bg-gray-700 dark:bg-white'
-                  : 'mx-2 mb-2 h-4 w-4 cursor-pointer rounded-full bg-gray-400 dark:bg-gray-700'
+                  ? 'mx-2 mb-2 h-4 w-4 cursor-pointer rounded-full bg-white'
+                  : 'mx-2 mb-2 h-4 w-4 cursor-pointer rounded-full bg-gray-700'
               }
               key={index}
               onClick={() => {
