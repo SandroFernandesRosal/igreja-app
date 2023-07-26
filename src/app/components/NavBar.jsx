@@ -10,7 +10,7 @@ export default function NavBar({ handleMenu }) {
   return (
     <nav
       className={` font-Roboto
-      fixed z-20 flex min-h-screen w-[100vw] flex-col  items-center justify-center gap-10    font-bold   md:hidden bg-white/90 dark:bg-black/90 backdrop-blur-md `}
+      fixed z-40 flex min-h-screen w-[100vw] flex-col  items-center justify-center gap-10    bg-white/90   font-bold backdrop-blur-md dark:bg-black/90 md:hidden `}
     >
       <ChangeTheme />
       <div className="flex  w-[80%] flex-col gap-5">

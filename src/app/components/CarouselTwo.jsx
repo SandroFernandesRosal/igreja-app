@@ -37,13 +37,13 @@ export default function Carousel({ imgs }) {
     <div className="relative z-10">
       <AiOutlineLeft
         onClick={handlePrevSlide}
-        className="absolute inset-y-1/2 left-2 z-10 m-auto p-1 cursor-pointer md:text-5xl rounded-full bg-white/30 text-4xl text-white dark:bg-black/30"
+        className="absolute inset-y-1/2 left-2 z-10 m-auto cursor-pointer rounded-full bg-white/30 p-1 text-4xl text-white dark:bg-black/30 md:text-5xl"
       />
       <div className="relative m-auto flex justify-center">
         <Swipe
           onSwipeLeft={handleNextSlide}
           onSwipeRight={handlePrevSlide}
-          className="relative    md:w-[400px] md:h-[400px] w-[80vw] h-[400px]  overflow-hidden rounded-xl "
+          className="relative    h-[400px] w-[80vw] overflow-hidden rounded-xl  md:h-[400px] md:w-[400px] "
         >
           {imgs.map((image, index) => {
             if (index === currentSlide) {
@@ -55,7 +55,6 @@ export default function Carousel({ imgs }) {
                   height={500}
                   alt="..."
                   className="animate-fadeIn h-[100%] w-[100%]"
-                  
                 />
               )
             }
@@ -64,11 +63,11 @@ export default function Carousel({ imgs }) {
       </div>
       <AiOutlineRight
         onClick={handleNextSlide}
-        className="absolute inset-y-1/2  right-2 z-10 m-auto cursor-pointer p-1 rounded-full bg-white/30 text-4xl md:text-5xl text-white dark:bg-black/30"
+        className="absolute inset-y-1/2  right-2 z-10 m-auto cursor-pointer rounded-full bg-white/30 p-1 text-4xl text-white dark:bg-black/30 md:text-5xl"
         seconds={seconds}
       />
 
-      <div className="absolute flex justify-center p-2 bottom-0  w-full items-evenly ">
+      <div className="items-evenly absolute bottom-0 flex w-full  justify-center p-2 ">
         {imgs.map((_, index) => {
           return (
             <div
