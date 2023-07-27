@@ -18,8 +18,8 @@ export default function Search() {
 
   return (
     <>
-      <div className="top-30 fixed left-0 z-20 flex gap-1">
-        <div className="flex h-[40px] w-[40px] items-center  justify-center rounded-e-lg bg-primary">
+      <div className="top-30 fixed left-0  z-20 flex gap-1 md:top-[150px]">
+        <div className="flex h-[40px] w-[36px] items-center  justify-center rounded-e-lg bg-primary">
           {!inputSearch ? (
             <BsSearch onClick={handleInput} className="text-2xl font-bold" />
           ) : (
@@ -43,13 +43,13 @@ export default function Search() {
       <div
         className={` ${
           search ? 'visible' : 'invisible'
-        } absolute bottom-0  z-30 flex h-[85vh] w-[80vw] max-w-[500px] flex-col items-center md:left-5 md:h-[75vh]`}
+        } absolute bottom-0  z-30 flex h-[80vh] w-[80vw] max-w-[500px] flex-col items-center md:left-5 md:h-[69vh]   md:w-[40vw]`}
       >
         {search &&
           results.map((item) => (
             <div
               key={item.id}
-              className=" m-2 flex w-[70vw] items-center justify-center rounded-lg bg-primary/40 backdrop-blur-lg"
+              className="fixed m-2 flex w-[77vw] items-center justify-center rounded-lg bg-primary/40 backdrop-blur-lg md:rounded-lg"
               onClick={() => setSearch('')}
             >
               <p className=" m-3 p-5">{item.title}</p>

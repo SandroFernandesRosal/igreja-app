@@ -48,7 +48,7 @@ export default function NavBar({ handleMenu }) {
           className="flex items-center gap-5 border-b-[1px] border-solid  border-primary text-2xl hover:text-primary "
           onClick={handleMenu}
         >
-          <AiOutlineSchedule className="text-primary" /> <p>Programação</p>
+          <AiOutlineSchedule className="text-primary" /> <p>Agenda</p>
         </Link>
 
         <Link

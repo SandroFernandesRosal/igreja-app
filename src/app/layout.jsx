@@ -10,8 +10,8 @@ const roboto = Roboto({
 })
 
 export const metadata = {
-  title: 'Template Next',
-  description: 'Template Next',
+  title: 'Igreja Alcançados pela Graça',
+  description: 'Site oficial da igreja Alcançados pela Graça',
 }
 
 export default function RootLayout({ children }) {
