@@ -22,7 +22,7 @@ export default function NavBarMd({ handleMenu }) {
         <BiHomeHeart className="text-primary" /> <p>Quem Somos</p>
       </Link>
       <Link
-        href="/endereços"
+        href="/enderecos"
         className="flex flex-col items-center justify-center text-lg hover:text-primary"
         onClick={handleMenu}
       >
@@ -45,7 +45,7 @@ export default function NavBarMd({ handleMenu }) {
       </Link>
 
       <Link
-        href="/programacao"
+        href="/agenda"
         className="flex  flex-col  items-center justify-center text-lg hover:text-primary"
         onClick={handleMenu}
       >

@@ -1,6 +1,7 @@
 'use client'
 import Search from '../components/Search'
 import { useSearch } from '../store/searchStore'
+import Locais from '../components/Locais'
 
 export default function Enderecos() {
   const search = useSearch((state) => state.search)
@@ -25,7 +26,7 @@ export default function Enderecos() {
           </div>
         ))
       ) : (
-        <p>alguma coisa antes de buscar</p>
+        <Locais />
       )}
     </main>
   )

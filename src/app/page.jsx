@@ -3,11 +3,12 @@ import CarouselTwo from './components/CarouselTwo'
 import Search from './components/Search'
 import News from './components/News'
 import { useSearch } from './store/searchStore'
+import Locais from './components/Locais'
 
 export default function Home() {
-  const search = useSearch((state) => state.search)
+  const { search } = useSearch()
   const { imgs } = useSearch()
-  const setSearch = useSearch((state) => state.setSearch)
+  const { setSearch } = useSearch()
 
   const results = imgs.filter(
     (item) => item.title.toLowerCase().indexOf(search) !== -1,
@@ -26,12 +27,15 @@ export default function Home() {
           </div>
         ))
       ) : (
-        <div className="flex w-[80vw] flex-col items-center justify-center gap-5 md:w-[100vw] md:flex-row md:items-stretch md:p-5 ">
-          <div className="flex  h-[400px] w-[400px]  justify-center overflow-hidden  md:h-[400px]   md:w-[400px]">
-            <CarouselTwo imgs={imgs} />
+        <>
+          <div className="flex w-[80vw] flex-col items-center justify-center gap-5 md:w-[100vw] md:flex-row md:items-stretch md:p-5 ">
+            <div className="flex  h-[400px] w-[400px]  justify-center overflow-hidden  md:h-[400px]   md:w-[400px]">
+              <CarouselTwo imgs={imgs} />
+            </div>
+            <News />
           </div>
-          <News />
-        </div>
+          <Locais />
+        </>
       )}
     </main>
   )

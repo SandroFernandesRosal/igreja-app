@@ -3,7 +3,6 @@ import { Roboto_Flex as Roboto } from 'next/font/google'
 import { Providers } from './providers'
 import Header from './components/Header'
 import Footer from './components/Footer'
-import NewsContextProvider from './context/NewsContext'
 
 const roboto = Roboto({
   subsets: ['latin'],
@@ -20,11 +19,9 @@ export default function RootLayout({ children }) {
     <html lang="pt-br" suppressHydrationWarning>
       <body className={`${roboto.variable}`}>
         <Providers>
-          <NewsContextProvider>
-            <Header />
-            {children}
-            <Footer />
-          </NewsContextProvider>
+          <Header />
+          {children}
+          <Footer />
         </Providers>
       </body>
     </html>

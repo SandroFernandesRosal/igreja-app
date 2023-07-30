@@ -7,22 +7,3 @@ export const useSearch = create((set) => ({
 
   imgs,
 }))
-
-export const useDataStore = create((set) => ({
-  data: [imgs], // Your data array
-  filterText: '',
-
-  setData: (newData) => set({ data: newData }),
-
-  setFilterText: (text) => set({ filterText: text }),
-
-  // Function to perform filtering on the data array
-
-  filteredData: () => {
-    const { data, filterText } = useDataStore.getState()
-
-    return data.filter((item) =>
-      item.toLowerCase().includes(filterText.toLowerCase()),
-    )
-  },
-}))
