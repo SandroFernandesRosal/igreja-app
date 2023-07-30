@@ -9,6 +9,7 @@ import Link from 'next/link'
 import ChangeTheme from './ChangeTheme'
 import Image from 'next/image'
 import logo from '../../../public/img/logo.png'
+import SearchMd from './SearchMd'
 
 export default function Header() {
   const [menu, setMenu] = useState(false)
@@ -24,6 +25,8 @@ export default function Header() {
           <Link href="/">
             <Image src={logo} alt="logo do site" width={200} height={50} />
           </Link>
+
+          <SearchMd />
 
           <div className="hidden gap-10 md:flex">
             <ChangeTheme />
