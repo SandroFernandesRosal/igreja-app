@@ -1,5 +1,5 @@
 import img1 from '../../../public/img/adoracao.webp'
-import img2 from '../../../public/img/02.jpeg'
+
 import img3 from '../../../public/img/familia.jpg'
 import img4 from '../../../public/img/jiujtsu.jpg'
 import img6 from '../../../public/img/alcoolatras.jpg'
