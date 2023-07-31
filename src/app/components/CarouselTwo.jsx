@@ -5,13 +5,6 @@ import { useState, useEffect } from 'react'
 import Swipe from 'react-easy-swipe'
 import { AiOutlineLeft, AiOutlineRight } from 'react-icons/ai'
 
-/**
- * Carousel component for nextJS and Tailwind.
- * Using external library react-easy-swipe for swipe gestures on mobile devices (optional)
- *
- * @param images - Array of images with src and alt attributes
- * @returns React component
- */
 export default function Carousel({ imgs }) {
   const [currentSlide, setCurrentSlide] = useState(0)
   const [seconds, setSeconds] = useState(0)
@@ -31,7 +24,7 @@ export default function Carousel({ imgs }) {
       setSeconds(handleNextSlide)
     }, 3000)
     return () => clearInterval(interval)
-  }, [currentSlide])
+  })
 
   return (
     <div className="relative z-10">
@@ -58,6 +51,7 @@ export default function Carousel({ imgs }) {
                 />
               )
             }
+            return null
           })}
         </Swipe>
       </div>
