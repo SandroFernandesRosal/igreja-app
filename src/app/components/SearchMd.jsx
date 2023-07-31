@@ -14,7 +14,7 @@ export default function SearchMd() {
     <input
       type="text"
       placeholder="Buscar..."
-      className="border:none hidden rounded-lg border-none bg-white/40 placeholder-black shadow-lg outline-none focus:ring-0 dark:bg-black/40 md:flex"
+      className="border:none hidden rounded-lg border-none bg-white/40 placeholder-black shadow-lg outline-none focus:ring-0 dark:bg-black/40 dark:placeholder-white md:flex"
       value={search}
       onChange={handleSearchChange}
     ></input>
