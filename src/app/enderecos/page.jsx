@@ -4,9 +4,9 @@ import { useSearch } from '../store/searchStore'
 import Locais from '../components/Locais'
 
 export default function Enderecos() {
-  const search = useSearch((state) => state.search)
+  const { search } = useSearch()
   const { imgs } = useSearch()
-  const setSearch = useSearch((state) => state.setSearch)
+  const { setSearch } = useSearch()
 
   const results = imgs.filter(
     (item) => item.title.toLowerCase().indexOf(search) !== -1,

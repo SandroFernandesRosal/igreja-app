@@ -11,8 +11,8 @@ export default function Search() {
     inputSearch === false ? setInputSearch(true) : setInputSearch(false)
   }
 
-  const search = useSearch((state) => state.search)
-  const setSearch = useSearch((state) => state.setSearch)
+  const { search } = useSearch()
+  const { setSearch } = useSearch()
 
   const handleSearchChange = (e) => {
     setSearch(e.target.value)
