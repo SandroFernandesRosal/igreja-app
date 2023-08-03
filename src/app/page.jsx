@@ -10,7 +10,9 @@ export default function Home() {
   const { imgs } = useSearch()
   const { setSearch } = useSearch()
 
-  const results = imgs.filter((item) => item.title.indexOf(search) !== -1)
+  const results = imgs.filter(
+    (item) => item.title.toLowerCase().indexOf(search) !== -1,
+  )
   return (
     <main className="flex min-h-screen flex-col items-center gap-10 pt-24 md:pt-48">
       <Search />

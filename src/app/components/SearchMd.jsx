@@ -5,7 +5,7 @@ export default function SearchMd() {
   const { setSearch } = useSearch()
 
   const handleSearchChange = (e) => {
-    setSearch(e.target.value)
+    setSearch(e.target.value.toLowerCase())
   }
 
   return (
