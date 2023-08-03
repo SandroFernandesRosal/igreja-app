@@ -1,4 +1,3 @@
-'use client'
 import { useState } from 'react'
 import { BsSearch } from 'react-icons/bs'
 import { useSearch } from '../store/searchStore'
