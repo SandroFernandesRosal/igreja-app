@@ -4,6 +4,7 @@ import Search from './components/Search'
 import News from './components/News'
 import { useSearch } from './store/searchStore'
 import Locais from './components/Locais'
+import Image from 'next/image'
 
 export default function Home() {
   const { search } = useSearch()
@@ -14,22 +15,39 @@ export default function Home() {
     (item) => item.title.toLowerCase().indexOf(search) !== -1,
   )
   return (
-    <main className="flex min-h-screen flex-col items-center gap-10 pt-24 md:pt-48">
+    <main
+      className={`flex min-h-screen  ${search ? 'flex-row' : 'flex-col'}   ${
+        search && 'justify-center'
+      } gap-10 pt-24 md:pt-48 ${search ? 'items-start' : 'items-center'} ${
+        search && 'flex-wrap'
+      } ${search ? 'pt-0' : 'pt-2'}
+      }`}
+    >
       <Search />
+
       {search ? (
         results.map((item) => (
-          <div
+          <article
             key={item.id}
-            className="flex h-[100px] w-[80vw] items-center justify-center rounded-lg bg-primary/40 backdrop-blur-lg md:rounded-lg"
             onClick={() => setSearch('')}
+            className="flex h-[200px] w-[200px] cursor-pointer justify-center  rounded-xl shadow-xl "
           >
-            {item.title}
-          </div>
+            <Image
+              src={item.url}
+              alt={item.title}
+              width={200}
+              height={200}
+              className="flex-1"
+            />
+            <p className="absolute flex min-h-[50px] w-[200px] items-center justify-center self-end rounded-lg bg-black/40 text-white backdrop-blur-sm">
+              {item.title}
+            </p>
+          </article>
         ))
       ) : (
         <>
           <div className="flex w-[100vw] flex-col items-center justify-center gap-5  rounded-lg bg-transparent md:gap-0 md:bg-white/20   md:p-5 md:dark:bg-black/20 lg:w-[80vw] ">
-            <h1 className=" hidden   text-lg font-bold text-primary md:flex">
+            <h1 className=" hidden text-lg font-bold text-primary md:flex">
               Notícias
             </h1>
             <p className="mb-5 hidden text-2xl md:flex">
