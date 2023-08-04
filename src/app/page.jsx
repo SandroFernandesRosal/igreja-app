@@ -28,8 +28,8 @@ export default function Home() {
         ))
       ) : (
         <>
-          <div className="flex w-[100vw] flex-col items-center justify-center gap-5 rounded-lg bg-transparent md:bg-white/20   md:p-5 md:dark:bg-black/20 lg:w-[80vw] ">
-            <h1 className="m-0 hidden text-lg font-bold text-primary md:flex">
+          <div className="flex w-[100vw] flex-col items-center justify-center gap-5  rounded-lg bg-transparent md:gap-0 md:bg-white/20   md:p-5 md:dark:bg-black/20 lg:w-[80vw] ">
+            <h1 className=" hidden   text-lg font-bold text-primary md:flex">
               Notícias
             </h1>
             <p className="mb-5 hidden text-2xl md:flex">

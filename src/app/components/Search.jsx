@@ -19,8 +19,8 @@ export default function Search() {
 
   return (
     <>
-      <div className="top-30 fixed left-0  z-20 flex gap-1 md:top-[150px] md:hidden">
-        <div className="flex h-[40px] w-[36px] items-center  justify-center rounded-e-lg bg-primary">
+      <div className="fixed left-0 top-[88px]  z-20 flex gap-1 md:hidden">
+        <div className="flex h-[40px] w-[35px] items-center  justify-center rounded-e-lg bg-primary">
           {!inputSearch ? (
             <BsSearch onClick={handleInput} className="text-2xl font-bold" />
           ) : (
