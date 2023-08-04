@@ -36,7 +36,7 @@ export default function Carousel({ imgs }) {
         <Swipe
           onSwipeLeft={handleNextSlide}
           onSwipeRight={handlePrevSlide}
-          className="relative    h-[400px] w-[80vw] overflow-hidden rounded-xl  md:h-[400px] md:w-[400px] "
+          className="relative    h-[400px] w-[80vw] overflow-hidden rounded-xl  md:h-[350px] md:w-[350px] lg:h-[400px] lg:w-[80vw] "
         >
           {imgs.map((image, index) => {
             if (index === currentSlide) {

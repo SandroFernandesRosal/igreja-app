@@ -28,11 +28,19 @@ export default function Home() {
         ))
       ) : (
         <>
-          <div className="flex w-[80vw] flex-col items-center justify-center gap-5 md:w-[100vw] md:flex-row md:items-stretch md:p-5 ">
-            <div className="flex  h-[400px] w-[400px]  justify-center overflow-hidden  md:h-[400px]   md:w-[400px]">
-              <CarouselTwo imgs={imgs} />
+          <div className="flex w-[100vw] flex-col items-center justify-center gap-5 rounded-lg bg-transparent md:bg-white/20   md:p-5 md:dark:bg-black/20 lg:w-[80vw] ">
+            <h1 className="m-0 hidden text-lg font-bold text-primary md:flex">
+              Notícias
+            </h1>
+            <p className="mb-5 hidden text-2xl md:flex">
+              Fique por dentro das últimas notícias
+            </p>
+            <div className="flex flex-col items-center  justify-center md:flex-row md:items-stretch md:gap-4 ">
+              <div className="flex  h-[400px] w-[400px]  justify-center overflow-hidden  md:h-[350px]   md:w-[350px] lg:h-[400px] lg:w-[400px]">
+                <CarouselTwo imgs={imgs} />
+              </div>
+              <News />
             </div>
-            <News />
           </div>
           <Locais />
         </>

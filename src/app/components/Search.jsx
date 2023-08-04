@@ -25,7 +25,10 @@ export default function Search() {
             <BsSearch onClick={handleInput} className="text-2xl font-bold" />
           ) : (
             <AiOutlineClose
-              onClick={handleInput}
+              onClick={() => {
+                handleInput()
+                setSearch('')
+              }}
               className="text-2xl font-bold"
             />
           )}

@@ -3,12 +3,14 @@ import Image from 'next/image'
 
 export default function News() {
   return (
-    <section className="flex w-[80vw] flex-col items-center  gap-5 rounded-lg bg-white/20    p-5 dark:bg-black/20 md:w-[50vw] lg:w-[40vw]">
-      <div className="flex flex-wrap justify-center gap-5">
+    <section className="mt-10 flex w-[80vw] flex-col items-center gap-5 rounded-lg    bg-white/20 p-0 pb-5 dark:bg-black/20 md:mt-0 md:w-[50vw] md:bg-transparent md:dark:bg-transparent lg:w-[40vw]">
+      <h1 className="m-0 text-lg font-bold text-primary md:hidden">Notícias</h1>
+      <p className="mb-5 text-2xl md:hidden">Fique por dentro das notícias</p>
+      <div className="flex  flex-wrap justify-center gap-5">
         {imgs.slice(0, 4).map((item) => (
           <article
             key={item.id}
-            className="flex h-[200px] w-[200px] cursor-pointer  justify-center rounded-xl  hover:bg-primary dark:bg-black dark:hover:bg-primary"
+            className="flex h-[200px] w-[200px] cursor-pointer  justify-center rounded-xl "
           >
             <Image
               src={item.url}
