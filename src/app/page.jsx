@@ -25,12 +25,12 @@ export default function Home() {
     >
       <Search />
       <div
-        className={`flex  gap-5  ${search ? 'flex-row' : 'flex-col'} ${
+        className={`flex  gap-2 md:gap-5  ${search ? 'flex-row' : 'flex-col'} ${
           search && 'flex-wrap'
         }  
       } ${search && 'justify-center'} ${
         search ? 'items-start' : 'items-center'
-      } pb-5 `}
+      } px-1 pb-5 `}
       >
         {search ? (
           results.map((item) => (
