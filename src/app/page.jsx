@@ -26,7 +26,7 @@ export default function Home() {
       <Search />
       {search ? (
         results.length === 0 ? (
-          <div className="mt-7 flex-col items-center text-center">
+          <div className="mt-10 flex-col items-center text-center">
             <h1 className="m-0 text-lg font-bold text-primary ">
               {' '}
               Nenhuma notícia encontrada{' '}
