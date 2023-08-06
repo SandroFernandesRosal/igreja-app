@@ -77,7 +77,9 @@ export default function Home() {
                       .reverse()
                       .slice(0, 4)
                       .map((item) => (
-                        <New key={item.id} url={item.url} title={item.title} />
+                        <Link key={item.id} href={'/noticias'}>
+                          <New url={item.url} title={item.title} />
+                        </Link>
                       ))}
                   </News>
                 </div>

@@ -1,14 +1,9 @@
 'use client'
 import Image from 'next/image'
-import { useSearch } from '../store/searchStore'
 
 export default function New({ url, title }) {
-  const { setSearch } = useSearch()
   return (
-    <article
-      onClick={() => setSearch('')}
-      className="flex h-[150px] w-[150px] cursor-pointer justify-center rounded-xl text-center  shadow-lg md:h-[200px] md:w-[200px] "
-    >
+    <article className="flex h-[150px] w-[150px] cursor-pointer justify-center rounded-xl text-center  shadow-lg md:h-[200px] md:w-[200px] ">
       <Image
         src={url}
         alt={title}
