@@ -24,6 +24,26 @@ export default function Home() {
          `}
     >
       <Search />
+      {search ? (
+        results.length === 0 ? (
+          <div className="mt-7 flex-col items-center text-center">
+            <h1 className="m-0 text-lg font-bold text-primary ">
+              {' '}
+              Nenhuma notícia encontrada{' '}
+            </h1>
+            <p className="text-xl ">Faça uma nova pesquisa</p>
+          </div>
+        ) : (
+          <div className=" mt-10 flex-col items-center text-center">
+            <h1 className="m-0 text-lg font-bold text-primary ">Notícias</h1>
+
+            <p className="text-xl ">
+              {results.length} notícia{results.length === 1 ? '' : 's'}{' '}
+              encontrada{results.length === 1 ? '' : 's'}{' '}
+            </p>
+          </div>
+        )
+      ) : null}
       <div
         className={`flex  gap-2 md:gap-5  ${search ? 'flex-row' : 'flex-col'} ${
           search && 'flex-wrap'
