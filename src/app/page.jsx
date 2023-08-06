@@ -30,7 +30,7 @@ export default function Home() {
         }  
       } ${search && 'justify-center'} ${
         search ? 'items-start' : 'items-center'
-      } `}
+      } pb-5 `}
       >
         {search ? (
           results.map((item) => (
@@ -51,7 +51,16 @@ export default function Home() {
                 <div className="flex  h-[400px] w-[400px]  justify-center overflow-hidden  md:h-[350px]   md:w-[350px] lg:h-[400px] lg:w-[400px]">
                   <CarouselTwo imgs={imgs} />
                 </div>
-                <News setSearch={setSearch} />
+                <div className="mt-10 flex w-[80vw] flex-col items-center rounded-lg bg-white/20    p-0 pb-10 pt-1 dark:bg-black/20 md:mt-0 md:w-[50vw] md:bg-transparent md:pt-0 md:dark:bg-transparent lg:w-[40vw]">
+                  <News setSearch={setSearch}>
+                    {imgs
+                      .reverse()
+                      .slice(0, 4)
+                      .map((item) => (
+                        <New key={item.id} url={item.url} title={item.title} />
+                      ))}
+                  </News>
+                </div>
               </div>
             </div>
             <Locais />
