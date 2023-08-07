@@ -50,7 +50,7 @@ export default function Home() {
         }  
       } ${search && 'justify-center'} ${
         search ? 'items-start' : 'items-center'
-      } px-1 pb-5 `}
+      } px-1 pb-5`}
       >
         {search ? (
           results.map((item) => (
@@ -60,18 +60,18 @@ export default function Home() {
           ))
         ) : (
           <>
-            <div className="flex w-[100vw] flex-col items-center justify-center gap-5  rounded-lg bg-transparent md:gap-0 md:bg-white/20   md:p-5 md:dark:bg-black/20 lg:w-[80vw] ">
+            <div className="flex w-[100vw] flex-col items-center justify-center gap-5  rounded-lg bg-transparent md:w-[90vw] md:gap-0   md:bg-white/20 md:p-5 md:dark:bg-black/20 lg:w-[80vw]">
               <h1 className=" hidden text-lg font-bold text-primary md:flex">
                 Notícias
               </h1>
               <p className="mb-5 hidden text-2xl md:flex">
                 Fique por dentro das últimas notícias
               </p>
-              <div className="flex flex-col items-center  justify-center md:flex-row md:items-stretch md:gap-4 ">
+              <div className="flex flex-col items-center justify-center md:flex-row md:items-stretch md:gap-4 ">
                 <div className="flex  h-[400px] w-[400px]  justify-center overflow-hidden  md:h-[350px]   md:w-[350px] lg:h-[400px] lg:w-[400px]">
                   <CarouselTwo imgs={imgs} />
                 </div>
-                <div className="mt-10 flex w-[80vw] flex-col items-center rounded-lg bg-white/20    p-0 pb-10 pt-1 dark:bg-black/20 md:mt-0 md:w-[50vw] md:bg-transparent md:pt-0 md:dark:bg-transparent lg:w-[40vw]">
+                <div className="mt-10 flex w-[80vw] flex-col items-center rounded-lg bg-white/20  p-0 pb-10 pt-1 dark:bg-black/20 md:mt-0 md:w-[40vw] md:bg-transparent md:pt-0 md:dark:bg-transparent">
                   <News setSearch={setSearch}>
                     {imgs
                       .reverse()
