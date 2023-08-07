@@ -8,6 +8,7 @@ import Locais from './components/Locais'
 import Link from 'next/link'
 
 import New from './components/New'
+import TimeLine from './components/TimeLine'
 
 export default function Home() {
   const { search } = useSearch()
@@ -86,6 +87,7 @@ export default function Home() {
               </div>
             </div>
             <Locais />
+            <TimeLine />
           </>
         )}
       </div>
