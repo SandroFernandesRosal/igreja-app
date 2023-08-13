@@ -8,10 +8,10 @@ import Locais from '../components/Locais'
 
 export default function Enderecos() {
   const { search } = useSearch()
-  const { imgs } = useSearch()
+  const { DataNews } = useSearch()
   const { setSearch } = useSearch()
 
-  const results = imgs.filter(
+  const results = DataNews.filter(
     (item) => item.title.toLowerCase().indexOf(search) !== -1,
   )
   return (

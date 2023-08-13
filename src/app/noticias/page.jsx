@@ -9,10 +9,10 @@ import Link from 'next/link'
 
 export default function Noticias() {
   const { search } = useSearch()
-  const { imgs } = useSearch()
+  const { DataNews } = useSearch()
   const { setSearch } = useSearch()
 
-  const results = imgs.filter(
+  const results = DataNews.filter(
     (item) => item.title.toLowerCase().indexOf(search) !== -1,
   )
   return (
@@ -60,7 +60,7 @@ export default function Noticias() {
               <p className="text-xl ">Fique por dentro das notícias</p>
             </div>
             <News>
-              {imgs.reverse().map((item) => (
+              {DataNews.reverse().map((item) => (
                 <New key={item.id} url={item.url} title={item.title} />
               ))}
             </News>

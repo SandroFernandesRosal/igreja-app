@@ -1,21 +1,22 @@
 'use client'
 import Image from 'next/image'
-
+import { useSearch } from '../store/searchStore'
 import { useState, useEffect } from 'react'
 import Swipe from 'react-easy-swipe'
 import { AiOutlineLeft, AiOutlineRight } from 'react-icons/ai'
 
-export default function Carousel({ imgs }) {
+export default function Carousel() {
+  const { DataNews } = useSearch()
   const [currentSlide, setCurrentSlide] = useState(0)
   const [seconds, setSeconds] = useState(0)
 
   const handleNextSlide = () => {
-    const newSlide = currentSlide === imgs.length - 1 ? 0 : currentSlide + 1
+    const newSlide = currentSlide === DataNews.length - 1 ? 0 : currentSlide + 1
     setCurrentSlide(newSlide)
   }
 
   const handlePrevSlide = () => {
-    const newSlide = currentSlide === 0 ? imgs.length - 1 : currentSlide - 1
+    const newSlide = currentSlide === 0 ? DataNews.length - 1 : currentSlide - 1
     setCurrentSlide(newSlide)
   }
 
@@ -38,7 +39,7 @@ export default function Carousel({ imgs }) {
           onSwipeRight={handlePrevSlide}
           className="relative    h-[400px] w-[80vw] overflow-hidden rounded-xl  md:h-[350px] md:w-[350px] lg:h-[400px] lg:w-[80vw]"
         >
-          {imgs.map((image, index) => {
+          {DataNews.map((image, index) => {
             if (index === currentSlide) {
               return (
                 <Image
@@ -62,7 +63,7 @@ export default function Carousel({ imgs }) {
       />
 
       <div className="items-evenly absolute bottom-0 flex w-full  justify-center p-2 ">
-        {imgs.map((_, index) => {
+        {DataNews.map((_, index) => {
           return (
             <div
               className={

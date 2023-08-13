@@ -12,10 +12,10 @@ import TimeLine from './components/TimeLine'
 
 export default function Home() {
   const { search } = useSearch()
-  const { imgs } = useSearch()
+  const { DataNews } = useSearch()
   const { setSearch } = useSearch()
 
-  const results = imgs.filter(
+  const results = DataNews.filter(
     (item) => item.title.toLowerCase().indexOf(search) !== -1,
   )
 
@@ -70,12 +70,11 @@ export default function Home() {
               </p>
               <div className="flex flex-col items-center justify-center md:flex-row md:items-stretch md:gap-4 ">
                 <div className="flex  h-[400px] w-[400px]  justify-center overflow-hidden  md:h-[350px]   md:w-[350px] lg:h-[400px] lg:w-[400px]">
-                  <CarouselTwo imgs={imgs} />
+                  <CarouselTwo />
                 </div>
                 <div className="mt-10 flex w-[80vw] flex-col items-center rounded-lg bg-white/20  p-0 pb-10 pt-1 dark:bg-black/20 md:mt-0 md:w-[40vw] md:bg-transparent md:pt-0 md:dark:bg-transparent">
                   <News setSearch={setSearch}>
-                    {imgs
-                      .reverse()
+                    {DataNews.reverse()
                       .slice(0, 4)
                       .map((item) => (
                         <Link key={item.id} href={'/noticias'}>
