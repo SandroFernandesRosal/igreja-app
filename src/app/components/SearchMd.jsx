@@ -15,6 +15,6 @@ export default function SearchMd() {
       className="border:none hidden rounded-lg border-none bg-white/40 placeholder-black shadow-lg outline-none focus:ring-0 dark:bg-black/40 dark:placeholder-white md:flex"
       value={search}
       onChange={handleSearchChange}
-    ></input>
+    />
   )
 }

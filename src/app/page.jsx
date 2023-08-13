@@ -73,7 +73,7 @@ export default function Home() {
                   <CarouselTwo />
                 </div>
                 <div className="mt-10 flex w-[80vw] flex-col items-center rounded-lg bg-white/20  p-0 pb-10 pt-1 dark:bg-black/20 md:mt-0 md:w-[40vw] md:bg-transparent md:pt-0 md:dark:bg-transparent">
-                  <News setSearch={setSearch}>
+                  <News>
                     {DataNews.reverse()
                       .slice(0, 4)
                       .map((item) => (

@@ -1,12 +1,12 @@
 'use client'
 import Image from 'next/image'
-import { useSearch } from '../store/searchStore'
+
 import { useState, useEffect } from 'react'
 import Swipe from 'react-easy-swipe'
 import { AiOutlineLeft, AiOutlineRight } from 'react-icons/ai'
+import { DataNews } from './DataNews'
 
 export default function Carousel() {
-  const { DataNews } = useSearch()
   const [currentSlide, setCurrentSlide] = useState(0)
   const [seconds, setSeconds] = useState(0)
 
@@ -45,10 +45,10 @@ export default function Carousel() {
                 <Image
                   key={image.id}
                   src={image.url}
-                  width={500}
-                  height={500}
+                  width={400}
+                  height={400}
                   alt="..."
-                  className="animate-fadeIn h-[100%] w-[100%]"
+                  className="animate-fadeIn h-[400px] w-[400px]"
                 />
               )
             }

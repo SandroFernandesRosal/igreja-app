@@ -41,7 +41,7 @@ export default function Search() {
             className="flex h-[40px] w-[200px] items-center justify-evenly rounded-lg border-none bg-white/40 placeholder-black shadow-lg focus:ring-0 dark:bg-black/40 dark:placeholder-white  "
             value={search}
             onChange={handleSearchChange}
-          ></input>
+          />
         )}
       </div>
     </>
