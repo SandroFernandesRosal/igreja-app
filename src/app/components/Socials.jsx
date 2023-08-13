@@ -1,4 +1,4 @@
-import { FaFacebook, FaLinkedin, FaWhatsapp } from 'react-icons/fa'
+import { FaFacebook, FaWhatsapp, FaInstagram } from 'react-icons/fa'
 import Link from 'next/link'
 
 export default function Socials() {
@@ -8,8 +8,8 @@ export default function Socials() {
         <FaWhatsapp className=" text-primary hover:text-blue-400" />
       </Link>
 
-      <Link href="https://www.linkedin.com/" target="blank">
-        <FaLinkedin className="text-primary hover:text-blue-400" />
+      <Link href="https://www.instagram.com/" target="blank">
+        <FaInstagram className="text-primary hover:text-blue-400" />
       </Link>
 
       <Link href="https://www.facebook.com/" target="blank">
