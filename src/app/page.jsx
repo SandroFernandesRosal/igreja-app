@@ -13,7 +13,6 @@ import TimeLine from './components/TimeLine'
 export default function Home() {
   const { search } = useSearch()
   const { DataNews } = useSearch()
-  const { setSearch } = useSearch()
 
   const results = DataNews.filter(
     (item) => item.title.toLowerCase().indexOf(search) !== -1,
@@ -55,8 +54,8 @@ export default function Home() {
       >
         {search ? (
           results.map((item) => (
-            <Link key={item.id} href={'/noticias'}>
-              <New url={item.url} title={item.title} setSearch={setSearch} />
+            <Link key={item.id} href={`/noticias/${item.id}`}>
+              <New url={item.url} title={item.title} />
             </Link>
           ))
         ) : (
@@ -77,7 +76,7 @@ export default function Home() {
                     {DataNews.reverse()
                       .slice(0, 4)
                       .map((item) => (
-                        <Link key={item.id} href={'/noticias'}>
+                        <Link key={item.id} href={`/noticias/${item.id}`}>
                           <New url={item.url} title={item.title} />
                         </Link>
                       ))}

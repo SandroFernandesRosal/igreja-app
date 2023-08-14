@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react'
 import Swipe from 'react-easy-swipe'
 import { AiOutlineLeft, AiOutlineRight } from 'react-icons/ai'
 import { DataNews } from './DataNews'
+import Link from 'next/link'
 
 export default function Carousel() {
   const [currentSlide, setCurrentSlide] = useState(0)
@@ -42,14 +43,15 @@ export default function Carousel() {
           {DataNews.map((image, index) => {
             if (index === currentSlide) {
               return (
-                <Image
-                  key={image.id}
-                  src={image.url}
-                  width={400}
-                  height={400}
-                  alt="..."
-                  className="animate-fadeIn h-[400px] w-[400px]"
-                />
+                <Link key={image.id} href={`/noticias/${image.id}`}>
+                  <Image
+                    src={image.url}
+                    width={400}
+                    height={400}
+                    alt="..."
+                    className="animate-fadeIn h-[400px] w-[400px]"
+                  />
+                </Link>
               )
             }
             return null

@@ -15,6 +15,7 @@ export default function Noticias() {
   const results = DataNews.filter(
     (item) => item.title.toLowerCase().indexOf(search) !== -1,
   )
+
   return (
     <main className="flex min-h-screen flex-col  items-center gap-5 pt-24 md:pt-[165px]">
       <Search />
@@ -48,7 +49,7 @@ export default function Noticias() {
       >
         {search ? (
           results.map((item) => (
-            <Link key={item.id} href={'/noticias'}>
+            <Link key={item.id} href={`/noticias/${item.id}`}>
               <New url={item.url} title={item.title} setSearch={setSearch} />
             </Link>
           ))
@@ -61,7 +62,9 @@ export default function Noticias() {
             </div>
             <News>
               {DataNews.reverse().map((item) => (
-                <New key={item.id} url={item.url} title={item.title} />
+                <Link key={item.id} href={`/noticias/${item.id}`}>
+                  <New key={item.id} url={item.url} title={item.title} />
+                </Link>
               ))}
             </News>
           </>

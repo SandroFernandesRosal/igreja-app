@@ -46,7 +46,7 @@ export default function Contato() {
       >
         {search ? (
           results.map((item) => (
-            <Link key={item.id} href={'/noticias'}>
+            <Link key={item.id} href={`/noticias/${item.id}`}>
               <New url={item.url} title={item.title} setSearch={setSearch} />
             </Link>
           ))
