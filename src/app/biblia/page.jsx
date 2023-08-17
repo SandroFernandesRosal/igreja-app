@@ -4,6 +4,8 @@ import Search from '../components/Search'
 import { useSearch } from '../store/searchStore'
 import Link from 'next/link'
 import New from '../components/New'
+import ContainerResults from '../components/ContainerResults'
+import ResultLength from '../components/ResultLength'
 
 export default function Biblia() {
   const { search } = useSearch()
@@ -16,34 +18,8 @@ export default function Biblia() {
   return (
     <main className="flex min-h-screen flex-col  items-center gap-5 pt-24 md:pt-[165px]">
       <Search />
-      {search ? (
-        results.length === 0 ? (
-          <div className="mt-10 flex-col items-center text-center">
-            <h1 className="m-0 text-lg font-bold text-primary ">
-              {' '}
-              Nenhuma notícia encontrada{' '}
-            </h1>
-            <p className="text-xl ">Faça uma nova pesquisa</p>
-          </div>
-        ) : (
-          <div className=" mt-10 flex-col items-center text-center">
-            <h1 className="m-0 text-lg font-bold text-primary ">Notícias</h1>
-
-            <p className="text-xl ">
-              {results.length} notícia{results.length === 1 ? '' : 's'}{' '}
-              encontrada{results.length === 1 ? '' : 's'}{' '}
-            </p>
-          </div>
-        )
-      ) : null}
-      <div
-        className={`flex  gap-2 md:gap-5  ${search ? 'flex-row' : 'flex-col'} ${
-          search && 'flex-wrap'
-        }  
-      } ${search && 'justify-center'} ${
-        search ? 'items-start' : 'items-center'
-      } px-1 pb-5`}
-      >
+      {search ? <ResultLength /> : null}
+      <ContainerResults>
         {search ? (
           results.map((item) => (
             <Link key={item.id} href={`/noticias/${item.id}`}>
@@ -55,7 +31,7 @@ export default function Biblia() {
             <h1>Página da bíblia(em breve)</h1>
           </>
         )}
-      </div>
+      </ContainerResults>
     </main>
   )
 }
