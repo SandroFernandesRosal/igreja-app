@@ -60,7 +60,7 @@ export default function Home() {
           ))
         ) : (
           <>
-            <div className="flex w-[100vw] flex-col items-center justify-center gap-5  rounded-lg bg-transparent md:w-[90vw] md:gap-0   md:bg-white/20 md:p-5 md:dark:bg-black/20 lg:w-[80vw]">
+            <div className="mb-5 flex w-[100vw] flex-col items-center justify-center  gap-5 rounded-lg bg-transparent md:mb-5   md:w-[90vw] md:gap-0 md:bg-white/20 md:p-1 md:dark:bg-black/20 lg:w-[80vw]">
               <h1 className=" hidden text-lg font-bold text-primary md:flex">
                 Notícias
               </h1>
@@ -80,6 +80,12 @@ export default function Home() {
                           <New url={item.url} title={item.title} />
                         </Link>
                       ))}
+
+                    <Link href={`/noticias/`}>
+                      <button className="mt-5 w-[200px] rounded-lg bg-white p-1 text-lg shadow-lg  hover:bg-primary dark:bg-black dark:hover:bg-primary">
+                        Mais notícias
+                      </button>
+                    </Link>
                   </News>
                 </div>
               </div>

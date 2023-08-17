@@ -3,7 +3,7 @@ import maps from '../../../public/img/maps.png'
 
 export default function Locais() {
   return (
-    <section className="mb-10 flex w-[80vw] flex-col items-center rounded-lg bg-white/20 pb-5 dark:bg-black/20 md:w-[90vw]  lg:w-[80vw]">
+    <section className="mb-5 flex w-[80vw] flex-col items-center rounded-lg bg-white/20 pb-5 dark:bg-black/20 md:w-[90vw]  lg:w-[80vw]">
       <h1 className="m-0 mt-1 text-lg font-bold text-primary">Endereços</h1>
       <p className="mb-5 text-xl">Todos os nossos endereços</p>
       <div className="mb-5 shadow-xl">
