@@ -12,7 +12,6 @@ export default function Noticia({ params }) {
 
   const { search } = useSearch()
   const { DataNews } = useSearch()
-  const { setSearch } = useSearch()
 
   const selectedItem = DataNews.find((item) => item.id === id)
 
@@ -28,7 +27,7 @@ export default function Noticia({ params }) {
         {search ? (
           results.map((item) => (
             <Link key={item.id} href={`/noticias/${item.id}`}>
-              <New url={item.url} title={item.title} setSearch={setSearch} />
+              <New url={item.url} title={item.title} />
             </Link>
           ))
         ) : (

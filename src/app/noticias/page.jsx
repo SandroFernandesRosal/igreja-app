@@ -24,8 +24,12 @@ export default function Noticias() {
       <ContainerResults>
         {search ? (
           results.map((item) => (
-            <Link key={item.id} href={`/noticias/${item.id}`}>
-              <New url={item.url} title={item.title} setSearch={setSearch} />
+            <Link
+              key={item.id}
+              href={`/noticias/${item.id}`}
+              onClick={() => setSearch('')}
+            >
+              <New url={item.url} title={item.title} />
             </Link>
           ))
         ) : (

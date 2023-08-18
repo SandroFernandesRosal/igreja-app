@@ -12,6 +12,7 @@ import ContainerResults from './components/ContainerResults'
 export default function Home() {
   const { search } = useSearch()
   const { DataNews } = useSearch()
+  const { setSearch } = useSearch()
 
   const results = DataNews.filter(
     (item) => item.title.toLowerCase().indexOf(search) !== -1,
@@ -23,12 +24,17 @@ export default function Home() {
          `}
     >
       <Search />
+
       {search ? <ResultLength /> : null}
 
       <ContainerResults>
         {search ? (
           results.map((item) => (
-            <Link key={item.id} href={`/noticias/${item.id}`}>
+            <Link
+              key={item.id}
+              href={`/noticias/${item.id}`}
+              onClick={() => setSearch('')}
+            >
               <New url={item.url} title={item.title} />
             </Link>
           ))
