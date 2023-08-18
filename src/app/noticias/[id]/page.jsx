@@ -37,17 +37,21 @@ export default function Noticia({ params }) {
           ))
         ) : (
           <>
-            <article className="mb-5 mt-10 flex flex-col items-center p-1">
+            <article className="mb-5 mt-10 flex flex-col items-center">
+              <h1 className="w-[90vw] max-w-[500px] border-b-[1px] border-solid border-primary text-center text-2xl font-bold">
+                {selectedItem.title}
+              </h1>
+              <p className=" w-[90vw] max-w-[500px] py-5 text-justify text-lg">
+                {selectedItem.description}
+              </p>
+
               <Image
                 src={selectedItem.url}
                 alt={selectedItem.title}
-                width={400}
-                height={400}
+                width={500}
+                height={500}
+                className="w-[90vw] max-w-[500px]"
               />
-              <h1 className="text-xl font-bold">{selectedItem.title}</h1>
-              <p className="w-[400px] text-justify">
-                {selectedItem.description}
-              </p>
             </article>
           </>
         )}

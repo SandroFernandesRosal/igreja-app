@@ -41,8 +41,8 @@ export const DataNews = [
   {
     id: '6',
     url: alcoolatras,
-    title: 'Álcoolatras anônimos',
+    title: 'Alcoólicos Anônimos',
     description:
-      'Quinta, às 18:30, uma vez por mês, temos um grande projeto para ajudar quem precisa deixar de vez o alcoolismo. O Alcóolatras anônimos está em varios países, ajudando milhares de pessoas. ',
+      'Quinta, às 18:30, uma vez por mês, temos um grande projeto para ajudar quem precisa deixar de vez o alcoolismo. O Alcoólicos Anônimos está em varios países, ajudando milhares de pessoas. ',
   },
 ]
