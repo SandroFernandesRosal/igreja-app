@@ -12,6 +12,7 @@ export default function Noticia({ params }) {
 
   const { search } = useSearch()
   const { DataNews } = useSearch()
+  const { setSearch } = useSearch()
 
   const selectedItem = DataNews.find((item) => item.id === id)
 
@@ -26,7 +27,11 @@ export default function Noticia({ params }) {
       <ContainerResults>
         {search ? (
           results.map((item) => (
-            <Link key={item.id} href={`/noticias/${item.id}`}>
+            <Link
+              key={item.id}
+              href={`/noticias/${item.id}`}
+              onClick={() => setSearch('')}
+            >
               <New url={item.url} title={item.title} />
             </Link>
           ))

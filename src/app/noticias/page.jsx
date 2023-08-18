@@ -41,7 +41,11 @@ export default function Noticias() {
             </div>
             <News>
               {DataNews.reverse().map((item) => (
-                <Link key={item.id} href={`/noticias/${item.id}`}>
+                <Link
+                  key={item.id}
+                  href={`/noticias/${item.id}`}
+                  onClick={() => setSearch('')}
+                >
                   <New key={item.id} url={item.url} title={item.title} />
                 </Link>
               ))}
