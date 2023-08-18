@@ -45,6 +45,9 @@ export default function Noticia({ params }) {
                 height={400}
               />
               <h1 className="text-xl font-bold">{selectedItem.title}</h1>
+              <p className="w-[400px] text-justify">
+                {selectedItem.description}
+              </p>
             </article>
           </>
         )}

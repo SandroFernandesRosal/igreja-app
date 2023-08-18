@@ -30,7 +30,7 @@ export default function NewsPenha() {
               ))}
 
             <Link href={`/noticias/`}>
-              <button className="flex  w-[150px] cursor-pointer items-center justify-center rounded-xl bg-black/20 p-1 text-center shadow-lg hover:bg-primary  dark:bg-white/20 dark:hover:bg-primary  md:w-[200px]  ">
+              <button className="mt-5 flex w-[150px] cursor-pointer items-center justify-center rounded-xl bg-primary p-1 text-center text-white shadow-lg  hover:bg-primary/50 md:w-[200px]  ">
                 Mais notícias
               </button>
             </Link>
