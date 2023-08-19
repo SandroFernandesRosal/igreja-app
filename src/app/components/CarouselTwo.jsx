@@ -38,7 +38,7 @@ export default function Carousel() {
         <Swipe
           onSwipeLeft={handleNextSlide}
           onSwipeRight={handlePrevSlide}
-          className="relative    h-[400px] w-[80vw] overflow-hidden rounded-xl  md:h-[350px] md:w-[350px] lg:h-[400px] lg:w-[80vw]"
+          className="relative    h-[400px] w-[80vw] overflow-hidden rounded-xl  md:h-[350px] md:w-[350px] lg:h-[400px] lg:w-[80vw] "
         >
           {DataNews.map((image, index) => {
             if (index === currentSlide) {
@@ -64,7 +64,7 @@ export default function Carousel() {
         seconds={seconds}
       />
 
-      <div className="items-evenly absolute bottom-0 flex w-full  justify-center p-2 ">
+      <div className="items-evenly absolute bottom-0 flex w-full   justify-center p-2 ">
         {DataNews.map((_, index) => {
           return (
             <div
