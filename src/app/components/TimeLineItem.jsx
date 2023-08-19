@@ -1,11 +1,4 @@
-export default function TimeLineItem({
-  children,
-  title,
-  titletwo,
-  hora,
-  horatwo,
-  day,
-}) {
+export default function TimeLineItem({ title, titletwo, hora, horatwo, day }) {
   return (
     <div className="flex  min-h-[350px] w-[250px] flex-col items-center rounded-xl bg-white p-3 shadow-xl dark:bg-black">
       <h1 className="mb-2 text-2xl text-primary">{day}</h1>
@@ -29,7 +22,6 @@ export default function TimeLineItem({
           <p className="text-base font-normal text-gray-500 dark:text-gray-400">
             {horatwo}
           </p>
-          {children}
         </li>
       </ul>
     </div>
