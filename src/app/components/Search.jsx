@@ -20,7 +20,7 @@ export default function Search() {
   return (
     <>
       <div className="fixed left-0 top-[88px]  z-20 flex gap-1 md:hidden">
-        <div className="flex h-[40px] w-[35px] items-center  justify-center rounded-e-lg bg-primary">
+        <div className="mb-5 mr-2 flex h-[40px]  w-[35px] items-center justify-center rounded-e-lg bg-primary shadow-lg dark:shadow-dark">
           {!inputSearch ? (
             <BsSearch onClick={handleInput} className="text-2xl font-bold" />
           ) : (
@@ -38,7 +38,7 @@ export default function Search() {
           <input
             type="text"
             placeholder="Buscar..."
-            className="flex h-[40px] w-[200px] items-center justify-evenly rounded-lg border-none bg-white/40 placeholder-black shadow-lg focus:ring-0 dark:bg-black/40 dark:placeholder-white  "
+            className="mb-5 mr-5 flex h-[40px] w-[200px] items-center justify-evenly rounded-lg border-none bg-white/40 placeholder-black shadow-lg focus:ring-0 dark:bg-black/40 dark:placeholder-white dark:shadow-dark  "
             value={search}
             onChange={handleSearchChange}
           />
