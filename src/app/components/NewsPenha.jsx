@@ -15,8 +15,8 @@ export default function NewsPenha() {
       <p className="mb-5 hidden text-2xl md:flex">
         Fique por dentro das últimas notícias
       </p>
-      <div className="flex flex-col items-center justify-center md:flex-row md:items-stretch md:gap-4 ">
-        <div className="mb-10 mt-10 flex h-[300px] w-[300px] justify-center  overflow-hidden rounded-xl shadow-xl dark:shadow-dark md:h-[350px] md:w-[350px] lg:h-[400px] lg:w-[400px]">
+      <div className="flex  flex-col items-center justify-center md:flex-row md:items-stretch md:gap-4 ">
+        <div className="mb-10 mt-10 md:ml-10 flex h-[300px] w-[300px] justify-center overflow-hidden  rounded-xl shadow-xl dark:shadow-dark md:mt-0 md:h-[350px] md:w-[350px] lg:h-[400px] lg:w-[400px]">
           <CarouselTwo />
         </div>
         <div className="m-5 flex w-[80vw] flex-col items-center rounded-lg   bg-white/20 shadow-lg dark:bg-black/20 dark:shadow-dark md:mt-0 md:w-[40vw] md:bg-transparent md:pt-0 md:shadow-none md:dark:bg-transparent dark:md:shadow-none">
