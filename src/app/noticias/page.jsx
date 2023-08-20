@@ -17,7 +17,7 @@ export default function Noticias() {
   )
 
   return (
-    <main className="flex min-h-screen flex-col  items-center gap-5 pt-24 md:pt-[165px]">
+    <main className="flex min-h-screen flex-col items-center gap-5 pt-24 md:pt-[165px]">
       <Search />
       {search ? <ResultLength /> : null}
 
@@ -39,17 +39,20 @@ export default function Noticias() {
 
               <p className="text-xl ">Fique por dentro das notícias</p>
             </div>
-            <News>
-              {DataNews.reverse().map((item) => (
-                <Link
-                  key={item.id}
-                  href={`/noticias/${item.id}`}
-                  onClick={() => setSearch('')}
-                >
-                  <New key={item.id} url={item.url} title={item.title} />
-                </Link>
-              ))}
-            </News>
+
+            <div className="mt-10">
+              <News>
+                {DataNews.reverse().map((item) => (
+                  <Link
+                    key={item.id}
+                    href={`/noticias/${item.id}`}
+                    onClick={() => setSearch('')}
+                  >
+                    <New key={item.id} url={item.url} title={item.title} />
+                  </Link>
+                ))}
+              </News>
+            </div>
           </>
         )}
       </ContainerResults>

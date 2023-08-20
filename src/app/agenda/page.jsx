@@ -32,7 +32,9 @@ export default function Agenda() {
           ))
         ) : (
           <>
-            <TimeLine />
+            <div className="mt-10">
+              <TimeLine />
+            </div>
           </>
         )}
       </ContainerResults>

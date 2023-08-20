@@ -32,7 +32,9 @@ export default function Biblia() {
           ))
         ) : (
           <>
-            <h1>Página da bíblia(em breve)</h1>
+            <div className="mt-10">
+              <h1>Página da bíblia(em breve)</h1>
+            </div>
           </>
         )}
       </ContainerResults>

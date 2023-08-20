@@ -32,7 +32,9 @@ export default function Doacao() {
           ))
         ) : (
           <>
-            <h1>Página de Doações(em breve)</h1>
+            <div className="mt-10">
+              <h1>Página de Doações(em breve)</h1>
+            </div>
           </>
         )}
       </ContainerResults>

@@ -16,7 +16,7 @@ export default function Liderancas() {
     (item) => item.title.toLowerCase().indexOf(search) !== -1,
   )
   return (
-    <main className="flex min-h-screen flex-col  items-center gap-5 pt-24 md:pt-[165px]">
+    <main className="flex min-h-screen flex-col items-center gap-5 pt-24 md:pt-[165px]">
       <Search />
       {search ? <ResultLength /> : null}
 
@@ -33,7 +33,9 @@ export default function Liderancas() {
           ))
         ) : (
           <>
-            <h1>Página de Lideranças(em breve)</h1>
+            <div className="mt-10">
+              <h1>Página de Lideranças(em breve)</h1>
+            </div>
           </>
         )}
       </ContainerResults>

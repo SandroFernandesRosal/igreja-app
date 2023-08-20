@@ -32,7 +32,9 @@ export default function Contato() {
           ))
         ) : (
           <>
-            <h1>Página de Contato(em breve)</h1>
+            <div className="mt-10">
+              <h1>Página de Contato(em breve)</h1>
+            </div>
           </>
         )}
       </ContainerResults>

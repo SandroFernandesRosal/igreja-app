@@ -30,7 +30,7 @@ export default function TimeLine() {
       <div className="relative z-10">
         <AiOutlineLeft
           onClick={handlePrevSlide}
-          className="absolute inset-y-1/2 left-0 top-[145px] z-10 m-auto cursor-pointer rounded-full bg-black/10 p-1 text-4xl text-primary dark:bg-white/10 md:hidden md:text-5xl"
+          className="absolute inset-y-1/2 left-1 top-[145px] z-10 m-auto cursor-pointer rounded-full bg-black/10 p-1 text-4xl text-primary dark:bg-white/10 md:hidden md:text-5xl"
         />
         <div className="relative m-auto flex justify-center">
           <Swipe
@@ -70,7 +70,7 @@ export default function TimeLine() {
         </div>
         <AiOutlineRight
           onClick={handleNextSlide}
-          className="absolute inset-y-1/2 right-0 top-[145px] z-10 m-auto cursor-pointer rounded-full bg-black/10 p-1  text-4xl text-primary dark:bg-white/10 md:hidden md:text-5xl"
+          className="absolute inset-y-1/2 right-1 top-[145px] z-10 m-auto cursor-pointer rounded-full bg-black/10 p-1  text-4xl text-primary dark:bg-white/10 md:hidden md:text-5xl"
         />
 
         <div className="items-evenly absolute bottom-10 flex w-full justify-center  p-2 md:hidden ">

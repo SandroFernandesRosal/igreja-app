@@ -33,7 +33,9 @@ export default function Enderecos() {
           ))
         ) : (
           <>
-            <Locais />
+            <div className="mt-10">
+              <Locais />
+            </div>
           </>
         )}
       </ContainerResults>
