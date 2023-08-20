@@ -38,7 +38,7 @@ export default function Carousel() {
         <Swipe
           onSwipeLeft={handleNextSlide}
           onSwipeRight={handlePrevSlide}
-          className="relative    min-h-[300px] min-w-[300px]  overflow-hidden rounded-xl  shadow-xl md:h-[350px] md:w-[350px] lg:h-[400px] lg:w-[400px]"
+          className="relative    min-h-[300px] min-w-[300px]  overflow-hidden rounded-xl  shadow-xl dark:shadow-dark md:h-[350px] md:w-[350px] lg:h-[400px] lg:w-[400px]"
         >
           {DataNews.map((image, index) => {
             if (index === currentSlide) {
