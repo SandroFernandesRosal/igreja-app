@@ -1,5 +1,5 @@
 import adoracao from '../../../public/img/adoracao.webp'
-import comidas from '../../../public/img/comidas.jpg'
+import comidas from '../../../public/img/docesalgado.jpg'
 import familia from '../../../public/img/familia.jpg'
 import jiujtsu from '../../../public/img/jiujtsu.jpg'
 import alcoolatras from '../../../public/img/alcoolatras.jpg'
