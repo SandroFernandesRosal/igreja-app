@@ -1,7 +1,8 @@
 'use client'
 import TimeLineItem from './TimeLineItem'
+import TimeLineItemMd from './TimeLineItemMd'
 import { useState } from 'react'
-import { FaArrowRight, FaArrowLeft } from 'react-icons/fa'
+import { AiOutlineLeft, AiOutlineRight } from 'react-icons/ai'
 import Swipe from 'react-easy-swipe'
 import { dataLocais } from './dataLocais'
 
@@ -21,21 +22,21 @@ export default function TimeLine() {
   }
 
   return (
-    <div className="flex w-[80vw]  flex-col rounded-xl bg-white/20 pb-5 dark:bg-black/20">
+    <div className="flex w-[80vw]  flex-col rounded-xl bg-white/20 pb-10 dark:bg-black/20">
       <div className="mb-5 flex-col items-center text-center">
         <h1 className="m-0 text-lg font-bold text-primary ">Agenda</h1>
         <p className="text-xl ">Agenda semanal</p>
       </div>
       <div className="relative z-10">
-        <FaArrowLeft
+        <AiOutlineLeft
           onClick={handlePrevSlide}
-          className="absolute inset-y-1/2 left-2 z-10 m-auto cursor-pointer rounded-full bg-white/30 p-1 text-4xl text-white dark:bg-black/30 md:text-5xl"
+          className="absolute inset-y-1/2 left-2 top-[145px] z-10 m-auto cursor-pointer rounded-full bg-black/10 p-1 text-4xl text-primary dark:bg-white/10 md:hidden md:text-5xl"
         />
         <div className="relative m-auto flex justify-center">
           <Swipe
             onSwipeLeft={handleNextSlide}
             onSwipeRight={handlePrevSlide}
-            className="relative  flex h-[400px] justify-center  gap-10 overflow-hidden  rounded-xl md:h-[350px] md:w-[350px] lg:h-[400px] lg:w-[80vw] "
+            className="relative flex  justify-center gap-10 overflow-hidden  rounded-xl md:flex-wrap  md:overflow-visible  lg:w-[80vw] "
           >
             {dataLocais.map((item, index) => {
               if (index === currentSlide) {
@@ -52,20 +53,33 @@ export default function TimeLine() {
               }
               return null
             })}
+
+            {dataLocais.map((item, index) => {
+              return (
+                <TimeLineItemMd
+                  key={index}
+                  day={item.day}
+                  title={item.title}
+                  hora={item.hora}
+                  titletwo={item.titletwo}
+                  horatwo={item.horatwo}
+                />
+              )
+            })}
           </Swipe>
         </div>
-        <FaArrowRight
+        <AiOutlineRight
           onClick={handleNextSlide}
-          className="absolute inset-y-1/2  right-2 z-10 m-auto cursor-pointer rounded-full bg-white/30 p-1 text-4xl text-white dark:bg-black/30 md:text-5xl"
+          className="absolute inset-y-1/2 right-2 top-[145px] z-10 m-auto cursor-pointer rounded-full bg-black/10 p-1  text-4xl text-primary dark:bg-white/10 md:hidden md:text-5xl"
         />
 
-        <div className="items-evenly absolute bottom-0 flex w-full   justify-center p-2 ">
+        <div className="items-evenly absolute bottom-10 flex w-full justify-center  p-2 md:hidden ">
           {dataLocais.map((_, index) => {
             return (
               <div
                 className={
                   index === currentSlide
-                    ? 'mx-2 mb-2 h-4 w-4 cursor-pointer rounded-full bg-white'
+                    ? 'mx-2 mb-2 h-4 w-4 cursor-pointer rounded-full bg-primary'
                     : 'mx-2 mb-2 h-4 w-4 cursor-pointer rounded-full bg-gray-700'
                 }
                 key={index}

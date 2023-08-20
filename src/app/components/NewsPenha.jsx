@@ -16,10 +16,10 @@ export default function NewsPenha() {
         Fique por dentro das últimas notícias
       </p>
       <div className="flex flex-col items-center justify-center md:flex-row md:items-stretch md:gap-4 ">
-        <div className="flex  h-[400px] w-[400px]  justify-center overflow-hidden  md:h-[350px]   md:w-[350px] lg:h-[400px] lg:w-[400px]">
+        <div className="mb-10 mt-10 flex h-[300px] w-[300px] justify-center  overflow-hidden rounded-xl  shadow-xl   md:h-[350px] md:w-[350px] lg:h-[400px] lg:w-[400px]">
           <CarouselTwo />
         </div>
-        <div className="mt-10 flex w-[80vw] flex-col items-center rounded-lg bg-white/20  p-0 pb-10 pt-1 dark:bg-black/20 md:mt-0 md:w-[40vw] md:bg-transparent md:pt-0 md:dark:bg-transparent">
+        <div className=" flex w-[80vw] flex-col items-center rounded-lg bg-white/20  p-0 pb-10 pt-1 dark:bg-black/20 md:mt-0 md:w-[40vw] md:bg-transparent md:pt-0 md:dark:bg-transparent">
           <News>
             {DataNews.reverse()
               .slice(0, 4)
@@ -29,8 +29,11 @@ export default function NewsPenha() {
                 </Link>
               ))}
 
-            <Link href={`/noticias/`}>
-              <button className="mt-5 flex w-[150px] cursor-pointer items-center justify-center rounded-xl bg-primary p-1 text-center text-white shadow-lg  hover:bg-primary/50 md:w-[200px]  ">
+            <Link
+              href={`/noticias/`}
+              className="h-[40px] w-[150px]   rounded-xl "
+            >
+              <button className="flex w-full cursor-pointer items-center justify-center rounded-xl bg-primary p-1 text-center text-white shadow-xl  hover:bg-primary/50  ">
                 Mais notícias
               </button>
             </Link>

@@ -29,16 +29,16 @@ export default function Carousel() {
   })
 
   return (
-    <div className="relative z-10">
+    <div className="relative z-10 h-[300px] w-[300px] md:h-[350px] md:w-[350px] lg:h-[400px] lg:w-[400px]">
       <AiOutlineLeft
         onClick={handlePrevSlide}
-        className="absolute inset-y-1/2 left-2 z-10 m-auto cursor-pointer rounded-full bg-white/30 p-1 text-4xl text-white dark:bg-black/30 md:text-5xl"
+        className="absolute inset-y-1/2 left-2 z-10 m-auto cursor-pointer rounded-full bg-black/10 p-1 text-4xl text-primary dark:bg-white/10 md:text-5xl"
       />
-      <div className="relative m-auto flex justify-center">
+      <div className="relative m-auto flex justify-center shadow-xl">
         <Swipe
           onSwipeLeft={handleNextSlide}
           onSwipeRight={handlePrevSlide}
-          className="relative    h-[400px] w-[80vw] overflow-hidden rounded-xl  md:h-[350px] md:w-[350px] lg:h-[400px] lg:w-[80vw] "
+          className="relative    min-h-[300px] min-w-[300px]  overflow-hidden rounded-xl  shadow-xl md:h-[350px] md:w-[350px] lg:h-[400px] lg:w-[400px]"
         >
           {DataNews.map((image, index) => {
             if (index === currentSlide) {
@@ -49,7 +49,7 @@ export default function Carousel() {
                     width={400}
                     height={400}
                     alt="..."
-                    className="animate-fadeIn h-[400px] w-[400px]"
+                    className="animate-fadeIn h-[300px] w-[400px] md:h-[350px] md:w-[350px]  lg:h-[400px] lg:w-[400px]"
                   />
                 </Link>
               )
@@ -60,7 +60,7 @@ export default function Carousel() {
       </div>
       <AiOutlineRight
         onClick={handleNextSlide}
-        className="absolute inset-y-1/2  right-2 z-10 m-auto cursor-pointer rounded-full bg-white/30 p-1 text-4xl text-white dark:bg-black/30 md:text-5xl"
+        className="absolute inset-y-1/2  right-2 z-10 m-auto cursor-pointer rounded-full bg-black/10 p-1 text-4xl text-primary dark:bg-white/10 md:text-5xl"
         seconds={seconds}
       />
 
@@ -70,7 +70,7 @@ export default function Carousel() {
             <div
               className={
                 index === currentSlide
-                  ? 'mx-2 mb-2 h-4 w-4 cursor-pointer rounded-full bg-white'
+                  ? 'mx-2 mb-2 h-4 w-4 cursor-pointer rounded-full bg-primary'
                   : 'mx-2 mb-2 h-4 w-4 cursor-pointer rounded-full bg-gray-700'
               }
               key={index}
