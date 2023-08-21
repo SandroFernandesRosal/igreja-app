@@ -1,28 +1,29 @@
-import adoracao from '../../../public/img/adoracao.webp'
 import comidas from '../../../public/img/docesalgado.jpg'
-import familia from '../../../public/img/familia.jpg'
 import jiujtsu from '../../../public/img/jiujtsu.jpg'
 import alcoolatras from '../../../public/img/alcoolatras.jpg'
+import domingo from '../../../public/img/domingo.jpg'
+import segunda from '../../../public/img/segunda2.jpg'
+import quarta from '../../../public/img/quarta2.jpg'
 
 export const DataNews = [
   {
     id: '1',
-    url: adoracao,
+    url: domingo,
     title: 'Domingo - Culto de adoração',
-    description: 'Toda domingo, às 10:00h da manhã, culto para adorar Deus',
+    description: 'Todo domingo, às 10:00/12:00, culto para adorar a Deus',
   },
   {
     id: '2',
-    url: adoracao,
-    title: 'Segunda - Culto de oração',
-    description: 'Toda segunda, às 19:30h, culto para adorar Deus',
+    url: segunda,
+    title: 'Segunda - Culto de consagração',
+    description: 'Toda segunda, às 19:30/21:30, culto para adorar Deus',
   },
   {
     id: '3',
-    url: familia,
-    title: 'Quarta - Culto da família',
+    url: quarta,
+    title: 'Quarta - Culto em busca do  Espírito Santo',
     description:
-      'Toda quarta, às 18:30h, culto da família. Vamos orar pela sua família',
+      'Toda quarta, às 18:30/20:30, culto em busca do Espírito Santo. ',
   },
   {
     id: '4',
