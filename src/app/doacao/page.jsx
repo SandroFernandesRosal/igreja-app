@@ -6,6 +6,7 @@ import Link from 'next/link'
 import New from '../components/New'
 import ContainerResults from '../components/ContainerResults'
 import ResultLength from '../components/ResultLength'
+import Doe from '../components/Doe'
 
 export default function Doacao() {
   const { search } = useSearch()
@@ -35,6 +36,7 @@ export default function Doacao() {
             <div className="mt-10">
               <h1>Página de Doações(em breve)</h1>
             </div>
+            <Doe />
           </>
         )}
       </ContainerResults>

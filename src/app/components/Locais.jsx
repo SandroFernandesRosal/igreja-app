@@ -10,7 +10,7 @@ export default function Locais() {
       <div className="mb-5 shadow-xl dark:shadow-dark">
         <div className="flex  w-[230px] flex-col items-center rounded-lg bg-white shadow-lg dark:bg-black dark:shadow-dark md:w-[350px]">
           <div className="flex w-[80%] flex-1  flex-col justify-center gap-2 p-3">
-            <h1 className="text-2xl font-bold">Vila da Penha</h1>
+            <h1 className="text-2xl font-bold text-primary">Vila da Penha</h1>
             <p>Rua Tomas Lopes 84, Vila da Penha, Rio de Janeiro</p>
             <p>CEP: 21221210</p>
           </div>

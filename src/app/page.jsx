@@ -8,6 +8,7 @@ import New from './components/New'
 import TimeLine from './components/TimeLine'
 import ResultLength from './components/ResultLength'
 import ContainerResults from './components/ContainerResults'
+import Doe from './components/Doe'
 
 export default function Home() {
   const { search } = useSearch()
@@ -43,6 +44,7 @@ export default function Home() {
             <NewsPenha />
             <Locais />
             <TimeLine />
+            <Doe />
           </>
         )}
       </ContainerResults>
