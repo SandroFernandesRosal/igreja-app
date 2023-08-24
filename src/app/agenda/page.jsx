@@ -32,7 +32,7 @@ export default function Agenda() {
           ))
         ) : (
           <>
-            <div className="mt-10">
+            <div className="mt-10 md:mt-5">
               <TimeLine />
             </div>
           </>

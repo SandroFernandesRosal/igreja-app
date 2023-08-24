@@ -33,7 +33,7 @@ export default function Enderecos() {
           ))
         ) : (
           <>
-            <div className="mt-10">
+            <div className="mt-10 md:mt-5">
               <Locais />
             </div>
           </>

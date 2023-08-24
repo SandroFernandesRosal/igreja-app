@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 export default function Socials({ whatsapp, instagram, facebook }) {
   return (
-    <div className="mb-[7px]  flex items-center justify-evenly gap-1 text-xl">
+    <div className="mb-[7px]  flex items-center justify-evenly gap-1 text-2xl">
       <Link href={String(whatsapp)} target="blank">
         <FaWhatsapp className=" text-primary hover:text-primary/50" />
       </Link>

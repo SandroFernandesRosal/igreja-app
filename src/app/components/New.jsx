@@ -1,19 +1,30 @@
 'use client'
 import Image from 'next/image'
+import Link from 'next/link'
 
-export default function New({ url, title }) {
+export default function New({ url, title, id }) {
   return (
-    <article className="flex h-[150px] w-[150px] cursor-pointer justify-center rounded-xl text-center shadow-lg dark:shadow-dark md:h-[200px] md:w-[200px]  ">
+    <article className="mx-2 mb-4 flex h-[300px] w-[150px]  flex-col justify-center rounded-xl bg-white text-center shadow-lg dark:bg-black dark:shadow-dark md:h-[300px] md:w-[200px] ">
       <Image
         src={url}
         alt={title}
         width={200}
         height={200}
-        className="flex-1"
+        className="flex-1 border-b-[1px] border-gray-200 dark:border-gray-600"
       />
-      <p className="absolute flex min-h-[50px] w-[150px] items-center justify-center self-end rounded-lg bg-black/40 text-white shadow-lg backdrop-blur-sm md:w-[200px] ">
-        {title}
-      </p>
+      <div className=" flex flex-1 flex-col items-center justify-between p-1">
+        <p>{title}</p>
+
+        <Link
+          href={`/noticias/${id}`}
+          className=" h-[40px] w-[80%] rounded-xl "
+        >
+          <button className="flex w-full  cursor-pointer items-center justify-center rounded-xl bg-primary p-1 text-center text-white shadow-lg hover:bg-primary/50  dark:shadow-dark  ">
+            {' '}
+            Saiba mais
+          </button>
+        </Link>
+      </div>
     </article>
   )
 }

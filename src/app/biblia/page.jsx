@@ -32,7 +32,7 @@ export default function Biblia() {
           ))
         ) : (
           <>
-            <div className="mt-10">
+            <div className="mt-10 md:mt-5">
               <h1>Página da bíblia(em breve)</h1>
             </div>
           </>

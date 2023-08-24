@@ -33,27 +33,19 @@ export default function Noticias() {
             </Link>
           ))
         ) : (
-          <>
-            <div className="hidden flex-col items-center text-center md:flex">
-              <h1 className="m-0 text-lg font-bold text-primary ">Notícias</h1>
-
-              <p className="text-xl ">Fique por dentro das notícias</p>
-            </div>
-
-            <div className="mt-10">
-              <News>
-                {DataNews.reverse().map((item) => (
-                  <Link
-                    key={item.id}
-                    href={`/noticias/${item.id}`}
-                    onClick={() => setSearch('')}
-                  >
-                    <New key={item.id} url={item.url} title={item.title} />
-                  </Link>
-                ))}
-              </News>
-            </div>
-          </>
+          <div className="mt-10 md:mt-5">
+            <News>
+              {DataNews.reverse().map((item) => (
+                <Link
+                  key={item.id}
+                  href={`/noticias/${item.id}`}
+                  onClick={() => setSearch('')}
+                >
+                  <New key={item.id} url={item.url} title={item.title} />
+                </Link>
+              ))}
+            </News>
+          </div>
         )}
       </ContainerResults>
     </main>
