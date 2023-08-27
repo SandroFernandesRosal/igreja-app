@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import maps from '../../../public/img/maps.png'
+import maps from '../../../public/img/mapvp3.jpg'
 
 export default function LocaisItem({ title, rua, cep }) {
   return (
@@ -16,7 +16,7 @@ export default function LocaisItem({ title, rua, cep }) {
         alt="..."
         width={350}
         height={100}
-        className="w-full flex-1"
+        className="w-full  flex-1"
       />
     </div>
   )

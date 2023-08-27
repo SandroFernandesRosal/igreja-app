@@ -36,7 +36,7 @@ export default function TimeLine() {
           <Swipe
             onSwipeLeft={handleNextSlide}
             onSwipeRight={handlePrevSlide}
-            className="relative flex  justify-center gap-10 overflow-hidden  rounded-xl md:flex-wrap  md:overflow-visible  lg:w-[80vw] "
+            className="relative flex  justify-center gap-x-5 overflow-hidden  rounded-xl md:flex-wrap  md:overflow-visible  lg:w-[80vw] "
           >
             {dataLocais.map((item, index) => {
               if (index === currentSlide) {
