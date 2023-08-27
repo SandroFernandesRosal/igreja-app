@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 export default function New({ url, title, id }) {
   return (
-    <article className="mx-2 mb-4 flex h-[300px] w-[150px]  flex-col justify-center rounded-xl bg-white text-center shadow-lg dark:bg-black dark:shadow-dark md:h-[300px] md:w-[200px] ">
+    <article className="mb-3 flex  min-h-[350px] w-[45%] max-w-[150px] flex-col items-center rounded-lg bg-white shadow-lg dark:bg-black dark:shadow-dark md:mb-5 md:w-[200px] md:max-w-[200px]">
       <Image
         src={url}
         alt={title}

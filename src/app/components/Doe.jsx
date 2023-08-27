@@ -8,11 +8,25 @@ export default function Doe() {
           Faça uma doação por pix ou transferência bancária
         </p>
       </div>
-      <DoeItem
-        title="Vila da Penha"
-        pix="emailparapix@ gmail.com"
-        bank="0000000-00"
-      />
+      <div className=" mb-5 flex w-full  flex-wrap justify-center gap-x-3 p-1 md:gap-x-5">
+        <DoeItem
+          title="Vila da Penha"
+          pix="emailparapix@ gmail.com"
+          bank="0000000-00"
+        />
+
+        <DoeItem
+          title="Bairro 2"
+          pix="emailparapix@ gmail.com"
+          bank="0000000-00"
+        />
+
+        <DoeItem
+          title="Bairro 3"
+          pix="emailparapix@ gmail.com"
+          bank="0000000-00"
+        />
+      </div>
     </div>
   )
 }
