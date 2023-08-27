@@ -4,7 +4,7 @@ import ContainerResults from '@/app/components/ContainerResults'
 import ResultLength from '@/app/components/ResultLength'
 import { useSearch } from '@/app/store/searchStore'
 import Search from '@/app/components/Search'
-import Link from 'next/link'
+
 import New from '@/app/components/New'
 
 export default function Noticia({ params }) {
@@ -27,13 +27,13 @@ export default function Noticia({ params }) {
       <ContainerResults>
         {search ? (
           results.map((item) => (
-            <Link
+            <New
               key={item.id}
-              href={`/noticias/${item.id}`}
-              onClick={() => setSearch('')}
-            >
-              <New url={item.url} title={item.title} />
-            </Link>
+              url={item.url}
+              title={item.title}
+              id={item.id}
+              setSearch={setSearch}
+            />
           ))
         ) : (
           <>

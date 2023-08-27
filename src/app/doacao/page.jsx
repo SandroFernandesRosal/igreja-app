@@ -2,7 +2,7 @@
 
 import Search from '../components/Search'
 import { useSearch } from '../store/searchStore'
-import Link from 'next/link'
+
 import New from '../components/New'
 import ContainerResults from '../components/ContainerResults'
 import ResultLength from '../components/ResultLength'
@@ -23,13 +23,13 @@ export default function Doacao() {
       <ContainerResults>
         {search ? (
           results.map((item) => (
-            <Link
+            <New
               key={item.id}
-              href={`/noticias/${item.id}`}
-              onClick={() => setSearch('')}
-            >
-              <New url={item.url} title={item.title} />
-            </Link>
+              url={item.url}
+              title={item.title}
+              id={item.id}
+              setSearch={setSearch}
+            />
           ))
         ) : (
           <>

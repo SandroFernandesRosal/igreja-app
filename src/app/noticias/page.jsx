@@ -3,7 +3,7 @@ import News from '../components/News'
 import New from '../components/New'
 import Search from '../components/Search'
 import { useSearch } from '../store/searchStore'
-import Link from 'next/link'
+
 import ContainerResults from '../components/ContainerResults'
 import ResultLength from '../components/ResultLength'
 
@@ -24,25 +24,25 @@ export default function Noticias() {
       <ContainerResults>
         {search ? (
           results.map((item) => (
-            <Link
+            <New
               key={item.id}
-              href={`/noticias/${item.id}`}
-              onClick={() => setSearch('')}
-            >
-              <New url={item.url} title={item.title} />
-            </Link>
+              url={item.url}
+              title={item.title}
+              id={item.id}
+              setSearch={setSearch}
+            />
           ))
         ) : (
           <div className="mt-10 md:mt-5">
             <News>
               {DataNews.reverse().map((item) => (
-                <Link
+                <New
                   key={item.id}
-                  href={`/noticias/${item.id}`}
-                  onClick={() => setSearch('')}
-                >
-                  <New key={item.id} url={item.url} title={item.title} />
-                </Link>
+                  url={item.url}
+                  title={item.title}
+                  id={item.id}
+                  setSearch={setSearch}
+                />
               ))}
             </News>
           </div>

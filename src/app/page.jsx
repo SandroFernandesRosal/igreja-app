@@ -3,7 +3,7 @@ import Search from './components/Search'
 import { useSearch } from './store/searchStore'
 import Locais from './components/Locais'
 import NewsPenha from './components/NewsPenha'
-import Link from 'next/link'
+
 import New from './components/New'
 import TimeLine from './components/TimeLine'
 import ResultLength from './components/ResultLength'
@@ -21,7 +21,7 @@ export default function Home() {
 
   return (
     <main
-      className={`flex min-h-screen flex-col  items-center gap-5 pt-24 md:pt-[165px] 
+      className={`flex min-h-screen flex-col   items-center gap-5 pt-24 md:pt-[165px] 
          `}
     >
       <Search />
@@ -31,13 +31,13 @@ export default function Home() {
       <ContainerResults>
         {search ? (
           results.map((item) => (
-            <Link
+            <New
               key={item.id}
-              href={`/noticias/${item.id}`}
-              onClick={() => setSearch('')}
-            >
-              <New url={item.url} title={item.title} />
-            </Link>
+              url={item.url}
+              title={item.title}
+              id={item.id}
+              setSearch={setSearch}
+            />
           ))
         ) : (
           <>

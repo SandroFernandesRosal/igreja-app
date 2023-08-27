@@ -2,7 +2,7 @@
 
 import Search from '../components/Search'
 import { useSearch } from '../store/searchStore'
-import Link from 'next/link'
+
 import New from '../components/New'
 import Locais from '../components/Locais'
 import ContainerResults from '../components/ContainerResults'
@@ -23,13 +23,13 @@ export default function Enderecos() {
       <ContainerResults>
         {search ? (
           results.map((item) => (
-            <Link
+            <New
               key={item.id}
-              href={`/noticias/${item.id}`}
-              onClick={() => setSearch('')}
-            >
-              <New url={item.url} title={item.title} />
-            </Link>
+              url={item.url}
+              title={item.title}
+              id={item.id}
+              setSearch={setSearch}
+            />
           ))
         ) : (
           <>
