@@ -13,7 +13,7 @@ export default function News({ children }) {
         href={`/noticias/`}
         className="mb-5 mt-5   h-[40px] w-[150px] rounded-xl "
       >
-        <button className="flex w-full  cursor-pointer items-center justify-center rounded-xl bg-primary p-1 text-center text-white shadow-lg hover:bg-primary/50  dark:shadow-dark  ">
+        <button className="flex w-full cursor-pointer items-center justify-center rounded-xl bg-primary p-1 text-center font-bold text-white shadow-lg hover:bg-primary/50  dark:shadow-dark  ">
           Mais notícias
         </button>
       </Link>

@@ -13,13 +13,13 @@ export default function New({ url, title, id }) {
         className="flex-1 border-b-[1px] border-gray-200 dark:border-gray-600"
       />
       <div className=" flex flex-1 flex-col items-center justify-between p-1">
-        <p>{title}</p>
+        <p className="font-bold text-primary">{title}</p>
 
         <Link
           href={`/noticias/${id}`}
           className=" h-[40px] w-[80%] rounded-xl "
         >
-          <button className="flex w-full  cursor-pointer items-center justify-center rounded-xl bg-primary p-1 text-center text-white shadow-lg hover:bg-primary/50  dark:shadow-dark  ">
+          <button className="flex w-full cursor-pointer items-center justify-center rounded-xl bg-primary p-1 text-center font-bold text-white shadow-lg hover:bg-primary/50  dark:shadow-dark  ">
             {' '}
             Saiba mais
           </button>

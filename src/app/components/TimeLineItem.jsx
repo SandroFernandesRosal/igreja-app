@@ -1,6 +1,6 @@
 export default function TimeLineItem({ title, titletwo, hora, horatwo, day }) {
   return (
-    <div className="mb-10 ml-3 mr-3  flex  min-h-[350px] w-[250px] flex-col items-center rounded-xl bg-white p-3 shadow-xl dark:bg-black dark:shadow-dark md:hidden">
+    <div className="mb-10 ml-3 mr-3  flex  min-h-[350px] w-[250px] flex-col items-center rounded-xl bg-white/60 p-3 shadow-xl dark:bg-black/60 dark:shadow-dark md:hidden">
       <h1 className="mb-2 text-2xl text-primary">{day}</h1>
       <ul className="relative  w-[85%] overflow-visible border-l border-gray-700 dark:border-gray-700 md:w-[85%]">
         <li className="mb-10 ml-6">
