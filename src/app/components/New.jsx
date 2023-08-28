@@ -5,7 +5,7 @@ import Link from 'next/link'
 export default function New({ url, title, id, setSearch }) {
   return (
     <article
-      className="dark:hover-shadow-md mb-5  flex h-[250px] w-[45%] max-w-[150px] flex-col items-center rounded-lg bg-white shadow-lg  hover:shadow-primary  dark:bg-black dark:shadow-dark dark:hover:shadow-primary md:mb-5 md:w-[200px] md:max-w-[200px]"
+      className="dark:hover-shadow-md mb-5  flex h-[250px] w-[45%] max-w-[150px] flex-col items-center rounded-lg bg-white shadow-xl hover:shadow-lg  hover:shadow-primary  dark:bg-black dark:shadow-dark  dark:hover:shadow-primary md:h-[300px] md:w-[200px] md:max-w-[200px]"
       onClick={() => setSearch('')}
     >
       <Image
@@ -13,7 +13,7 @@ export default function New({ url, title, id, setSearch }) {
         alt={title}
         width={200}
         height={200}
-        className="flex-1 border-b-[1px] border-gray-200 dark:border-gray-600"
+        className="flex-1  border-b-[1px] border-gray-200 dark:border-gray-600"
       />
       <div className=" flex flex-1 flex-col items-center justify-between p-1">
         <p className="font-bold text-primary">{title}</p>

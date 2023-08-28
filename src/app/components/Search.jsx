@@ -38,7 +38,7 @@ export default function Search() {
           <input
             type="text"
             placeholder="Buscar..."
-            className="mb-5 ml-1 mr-5  flex h-[40px] w-[200px] items-center justify-evenly rounded-lg border-none bg-white/40 placeholder-black shadow-lg focus:ring-0 dark:bg-black/40 dark:placeholder-white dark:shadow-dark  "
+            className="dark:hover-shadow-primary mb-5 ml-1  mr-5 flex h-[40px] w-[200px] items-center justify-evenly rounded-lg border-none bg-white/40 placeholder-black shadow-lg hover:shadow-md hover:shadow-primary focus:ring-0 dark:bg-black/40 dark:placeholder-white dark:shadow-dark dark:hover:shadow-md dark:hover:shadow-primary "
             value={search}
             onChange={handleSearchChange}
           />

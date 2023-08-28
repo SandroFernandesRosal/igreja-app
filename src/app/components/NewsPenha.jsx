@@ -13,7 +13,7 @@ export default function NewsPenha() {
 
       <News>
         {DataNews.reverse()
-          .slice(0, 4)
+          .slice(0, 10)
           .map((item) => (
             <New key={item.id} url={item.url} title={item.title} id={item.id} />
           ))}
