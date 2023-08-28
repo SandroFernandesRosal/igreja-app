@@ -4,7 +4,7 @@ import Socials from './Socials'
 
 export default function DoeItem({ title, pix, bank }) {
   return (
-    <div className="mb-3 flex  min-h-[250px] w-[45%] max-w-[150px] flex-col items-center justify-between rounded-xl  bg-white p-1 shadow-lg dark:bg-black dark:shadow-dark md:mb-5 md:w-[200px]  md:max-w-[200px]">
+    <div className="mb-5 flex  min-h-[250px] w-[45%] max-w-[150px] flex-col items-center justify-between rounded-xl  bg-white p-1 shadow-lg hover:shadow-primary dark:bg-black dark:shadow-dark dark:hover:shadow-primary  md:mb-5 md:w-[200px] md:max-w-[200px]">
       <h1 className=" text-xl font-bold text-primary">{title}</h1>
 
       <di className="flex w-full flex-col justify-center gap-2 p-2 ">

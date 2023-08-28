@@ -23,7 +23,7 @@ export default function TimeLine() {
 
   return (
     <div className="flex w-[90vw] flex-col  rounded-xl bg-white/20 shadow-lg dark:bg-black/20 dark:shadow-dark md:pb-5">
-      <div className="mb-5 flex-col items-center text-center">
+      <div className=" flex-col items-center text-center">
         <h1 className="m-0 text-lg font-bold text-primary ">Agenda</h1>
         <p className="text-xl ">Agenda semanal</p>
       </div>
@@ -36,7 +36,7 @@ export default function TimeLine() {
           <Swipe
             onSwipeLeft={handleNextSlide}
             onSwipeRight={handlePrevSlide}
-            className="relative flex  justify-center gap-x-5 overflow-hidden  rounded-xl md:flex-wrap  md:overflow-visible  lg:w-[80vw] "
+            className="relative flex  justify-center gap-x-5 overflow-hidden rounded-xl  md:mb-10 md:flex-wrap  md:overflow-visible  lg:w-[80vw] "
           >
             {dataLocais.map((item, index) => {
               if (index === currentSlide) {
@@ -73,7 +73,7 @@ export default function TimeLine() {
           className="absolute inset-y-1/2 right-1 top-[145px] z-10 m-auto cursor-pointer rounded-full bg-black/10 p-1  text-4xl text-primary dark:bg-white/10 md:hidden md:text-5xl"
         />
 
-        <div className="items-evenly absolute bottom-10 flex w-full justify-center  p-2 md:hidden ">
+        <div className="items-evenly absolute bottom-[45px] flex w-full justify-center   p-2 md:hidden ">
           {dataLocais.map((_, index) => {
             return (
               <div
