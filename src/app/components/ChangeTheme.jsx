@@ -16,8 +16,12 @@ export default function ChangeTheme() {
       className="flex items-center justify-center"
       onChange={changeTheme}
       checked={theme === 'light'}
-      checkedIcon={<BsFillMoonFill color="#c96dfd" fontSize="26" />}
-      uncheckedIcon={<BsFillSunFill color="yellow" fontSize="26" />}
+      checkedIcon={
+        <BsFillMoonFill color="#c96dfd" fontSize="26" className="p-[3px]" />
+      }
+      uncheckedIcon={
+        <BsFillSunFill color="yellow" fontSize="26" className="p-[3px]" />
+      }
       onColor={'#0e0e0e'}
       offColor={'#4F4F4F'}
       onHandleColor={'#fff'}

@@ -9,6 +9,7 @@ import TimeLine from './components/TimeLine'
 import ResultLength from './components/ResultLength'
 import ContainerResults from './components/ContainerResults'
 import Doe from './components/Doe'
+import Lideres from './components/Lideres'
 
 export default function Home() {
   const { search } = useSearch()
@@ -45,6 +46,7 @@ export default function Home() {
             <Locais />
             <TimeLine />
             <Doe />
+            <Lideres />
           </>
         )}
       </ContainerResults>

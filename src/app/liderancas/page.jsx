@@ -6,6 +6,7 @@ import { useSearch } from '../store/searchStore'
 import New from '../components/New'
 import ContainerResults from '../components/ContainerResults'
 import ResultLength from '../components/ResultLength'
+import Lideres from '../components/Lideres'
 
 export default function Liderancas() {
   const { search } = useSearch()
@@ -33,9 +34,7 @@ export default function Liderancas() {
           ))
         ) : (
           <>
-            <div className="mt-10 md:mt-5">
-              <h1>Página de Lideranças(em breve)</h1>
-            </div>
+            <Lideres />
           </>
         )}
       </ContainerResults>
