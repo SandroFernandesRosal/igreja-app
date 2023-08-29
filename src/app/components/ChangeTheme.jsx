@@ -13,7 +13,7 @@ export default function ChangeTheme() {
 
   return (
     <ReactSwitch
-      className="switch"
+      className="flex items-center justify-center"
       onChange={changeTheme}
       checked={theme === 'light'}
       checkedIcon={<BsFillMoonFill color="#c96dfd" fontSize="26" />}
