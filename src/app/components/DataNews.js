@@ -1,5 +1,5 @@
-import comidas from '../../../public/img/docesalgado.jpg'
-import jiujtsu from '../../../public/img/jiujtsu.jpg'
+import comidas from '../../../public/img/delicias.jpg'
+import jiujtsu from '../../../public/img/projetojiujitsu.jpg'
 import alcoolatras from '../../../public/img/alcoolatras.jpg'
 import domingo from '../../../public/img/domingo.jpg'
 import segunda from '../../../public/img/segunda2.jpg'
@@ -37,7 +37,7 @@ export const DataNews = [
     url: comidas,
     title: 'Sábado - dia das delícias',
     description:
-      'Sábado, às 19:00h, dia das delícias. Uma vez por mês, temos nosso evento com diversas comidas para você e sua família',
+      'Sábado, às 18:30h, dia das delícias. Uma vez por mês, temos nosso evento com diversas comidas para você e sua família',
   },
   {
     id: '6',
