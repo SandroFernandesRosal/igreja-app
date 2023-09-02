@@ -14,6 +14,7 @@ export default function Lideres() {
             nome={item.nome}
             titulo={item.titulo}
             local={item.local}
+            img={item.img}
           />
         ))}
       </div>
