@@ -1,11 +1,13 @@
 'use client'
-import TimeLine from '../components/TimeLine'
+
 import Search from '../components/Search'
 import { useSearch } from '../store/searchStore'
 
 import New from '../components/New'
 import ResultLength from '../components/ResultLength'
 import ContainerResults from '../components/ContainerResults'
+
+import TimeLine from '../components/TimeLine'
 
 export default function Agenda() {
   const { search } = useSearch()
@@ -16,7 +18,7 @@ export default function Agenda() {
     (item) => item.title.toLowerCase().indexOf(search) !== -1,
   )
   return (
-    <main className="flex min-h-screen flex-col  items-center gap-5 pt-24 md:pt-[165px]">
+    <main className="flex min-h-screen  flex-col  items-center gap-5 pt-24 md:pt-[165px]">
       <Search />
       {search ? <ResultLength /> : null}
       <ContainerResults>
@@ -32,7 +34,7 @@ export default function Agenda() {
           ))
         ) : (
           <>
-            <div className="mt-10 md:mt-5">
+            <div className="mt-10 flex min-h-screen w-full justify-center md:mt-5">
               <TimeLine />
             </div>
           </>
