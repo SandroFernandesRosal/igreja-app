@@ -48,6 +48,7 @@ export default function TimeLine() {
                     hora={item.hora}
                     titletwo={item.titletwo}
                     horatwo={item.horatwo}
+                    trueitem={item.trueitem}
                   />
                 )
               }
