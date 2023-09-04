@@ -22,7 +22,7 @@ export default function New({ url, title, id, setSearch, description }) {
           onClick={() => setSearch('')}
           className="flex items-center  justify-center gap-2 font-bold text-primary hover:text-primary/40"
         >
-          <p>Leia Mais</p> <FaLongArrowAltRight className="text-xl" />
+          <p>Leia mais</p> <FaLongArrowAltRight className="text-xl" />
         </Link>
       </div>
     </article>
