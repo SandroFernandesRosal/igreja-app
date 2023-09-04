@@ -5,7 +5,7 @@ import News from './News'
 import CarouselTwo from './CarouselTwo'
 import { useSearch } from '../store/searchStore'
 
-export default function NewsPenha() {
+export default function NewsPenha({ children }) {
   const { DataNews } = useSearch()
   return (
     <div className="flex w-[100vw]  flex-col items-center    justify-center bg-transparent">
@@ -13,11 +13,19 @@ export default function NewsPenha() {
 
       <News>
         {DataNews.reverse()
-          .slice(0, 10)
+          .slice(0, 6)
           .map((item) => (
-            <New key={item.id} url={item.url} title={item.title} id={item.id} />
+            <New
+              key={item.id}
+              url={item.url}
+              title={item.title}
+              id={item.id}
+              description={item.description.slice(0, 30)}
+            />
           ))}
       </News>
+
+      {children}
     </div>
   )
 }

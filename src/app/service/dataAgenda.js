@@ -1,4 +1,4 @@
-export const dataLocais = [
+export const dataAgenda = [
   {
     day: 'Domingo',
     title: 'Escola bíblica dominical',
@@ -16,6 +16,14 @@ export const dataLocais = [
     trueitem: false,
   },
   {
+    day: 'Terça',
+    title: 'Projeto Jiu-Jitsu',
+    hora: '19:00/21:00',
+    titletwo: false,
+    horatwo: false,
+    trueitem: false,
+  },
+  {
     day: 'Quarta',
     title: 'Culto em busca do  Espírito Santo',
     hora: '18:30/20:30',
@@ -26,7 +34,7 @@ export const dataLocais = [
   {
     day: 'Sexta',
     title: 'Projeto Jiu-Jitsu',
-    hora: '18:30/20:30',
+    hora: '19:00/21:00',
     titletwo: false,
     horatwo: false,
     trueitem: false,

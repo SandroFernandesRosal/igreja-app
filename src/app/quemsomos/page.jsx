@@ -28,6 +28,7 @@ export default function QuemSomos() {
               title={item.title}
               id={item.id}
               setSearch={setSearch}
+              description={item.description.slice(0, 30)}
             />
           ))
         ) : (

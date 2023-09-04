@@ -3,7 +3,7 @@ import renata from '../../../public/img/renata.jpg'
 import celio from '../../../public/img/celio.jpg'
 import fabio from '../../../public/img/fabio.jpg'
 
-export const DataLideresPenha = [
+export const DataMinisterioPenha = [
   {
     id: '1',
     nome: 'Rodrigo Macedo',
@@ -27,7 +27,7 @@ export const DataLideresPenha = [
   },
   {
     id: '4',
-    nome: 'Célio Maurício',
+    nome: 'Célio Nascimento',
     titulo: 'Diácono',
     local: 'Vila da Penha',
     img: celio,

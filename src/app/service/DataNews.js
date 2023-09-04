@@ -4,6 +4,7 @@ import alcoolatras from '../../../public/img/alcoolatras.jpg'
 import domingo from '../../../public/img/domingo.jpg'
 import segunda from '../../../public/img/segunda2.jpg'
 import quarta from '../../../public/img/quarta2.jpg'
+import terça from '../../../public/img/jiu.jpg'
 
 export const DataNews = [
   {
@@ -27,20 +28,27 @@ export const DataNews = [
   },
   {
     id: '4',
-    url: jiujtsu,
-    title: 'Sexta - projeto jiu-jítsu',
+    url: terça,
+    title: 'Terça - projeto jiu-jítsu',
     description:
-      'Toda sexta, às 18:30h, nosso projeto social de Jiujtsu. Venha fazer parte!',
+      'Toda terça e sexta, de 19:00h até 21:00h, nosso projeto social de Jiujtsu. Venha fazer parte!',
   },
   {
     id: '5',
+    url: jiujtsu,
+    title: 'Sexta - projeto jiu-jítsu',
+    description:
+      'Toda sexta, de 19:00h até 21:00h, nosso projeto social de Jiujtsu. Venha fazer parte!',
+  },
+  {
+    id: '6',
     url: comidas,
     title: 'Sábado - dia das delícias',
     description:
       'Sábado, às 18:30h, dia das delícias. Uma vez por mês, temos nosso evento com diversas comidas para você e sua família',
   },
   {
-    id: '6',
+    id: '7',
     url: alcoolatras,
     title: 'Alcoólicos Anônimos',
     description:

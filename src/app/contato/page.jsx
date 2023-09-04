@@ -28,6 +28,7 @@ export default function Contato() {
               title={item.title}
               id={item.id}
               setSearch={setSearch}
+              description={item.description.slice(0, 30)}
             />
           ))
         ) : (

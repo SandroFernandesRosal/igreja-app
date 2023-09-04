@@ -4,7 +4,7 @@ import Image from 'next/image'
 import { useState, useEffect } from 'react'
 import Swipe from 'react-easy-swipe'
 import { AiOutlineLeft, AiOutlineRight } from 'react-icons/ai'
-import { DataNews } from './DataNews'
+import { DataNews } from '../service/DataNews'
 import Link from 'next/link'
 
 export default function Carousel() {

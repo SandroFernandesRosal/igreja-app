@@ -30,11 +30,12 @@ export default function Agenda() {
               title={item.title}
               id={item.id}
               setSearch={setSearch}
+              description={item.description.slice(0, 30)}
             />
           ))
         ) : (
           <>
-            <div className="mt-10 flex min-h-screen w-full justify-center md:mt-5">
+            <div className="mt-10 flex  w-full justify-center md:mt-5">
               <TimeLine />
             </div>
           </>

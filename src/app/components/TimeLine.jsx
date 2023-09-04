@@ -1,98 +1,34 @@
-'use client'
 import TimeLineItem from './TimeLineItem'
-import TimeLineItemMd from './TimeLineItemMd'
-import { useState } from 'react'
-import { AiOutlineLeft, AiOutlineRight } from 'react-icons/ai'
-import Swipe from 'react-easy-swipe'
-import { dataLocais } from './dataLocais'
+import { dataAgenda } from '../service/dataAgenda'
 
-export default function TimeLine() {
-  const [currentSlide, setCurrentSlide] = useState(0)
-
-  const handleNextSlide = () => {
-    const newSlide =
-      currentSlide === dataLocais.length - 1 ? 0 : currentSlide + 1
-    setCurrentSlide(newSlide)
-  }
-
-  const handlePrevSlide = () => {
-    const newSlide =
-      currentSlide === 0 ? dataLocais.length - 1 : currentSlide - 1
-    setCurrentSlide(newSlide)
-  }
-
+export default function TimeLine({ children }) {
   return (
-    <div className="mb-5 flex w-[90vw] flex-col rounded-xl bg-white/20 shadow-lg dark:bg-black/20 dark:shadow-dark ">
+    <div className="mb-10 flex w-[90vw] flex-col items-center rounded-xl bg-white/20 shadow-lg dark:bg-black/20 dark:shadow-dark ">
       <div className=" flex-col items-center text-center">
         <h1 className="m-0 text-lg font-bold text-primary ">Agenda</h1>
         <p className="text-xl ">Agenda semanal</p>
       </div>
-      <div className="relative z-10">
-        <AiOutlineLeft
-          onClick={handlePrevSlide}
-          className="absolute inset-y-1/2 left-1 top-[145px] z-10 m-auto cursor-pointer rounded-full bg-black/10 p-1 text-4xl text-primary dark:bg-white/10 md:hidden md:text-5xl"
-        />
-        <div className="relative m-auto flex justify-center">
-          <Swipe
-            onSwipeLeft={handleNextSlide}
-            onSwipeRight={handlePrevSlide}
-            className="relative flex  justify-center gap-x-5 overflow-hidden rounded-xl  md:mb-10 md:flex-wrap  md:overflow-visible  lg:w-[80vw] "
-          >
-            {dataLocais.map((item, index) => {
-              if (index === currentSlide) {
-                return (
-                  <TimeLineItem
-                    key={index}
-                    day={item.day}
-                    title={item.title}
-                    hora={item.hora}
-                    titletwo={item.titletwo}
-                    horatwo={item.horatwo}
-                    trueitem={item.trueitem}
-                  />
-                )
-              }
-              return null
-            })}
 
-            {dataLocais.map((item, index) => {
-              return (
-                <TimeLineItemMd
-                  key={index}
-                  day={item.day}
-                  title={item.title}
-                  hora={item.hora}
-                  titletwo={item.titletwo}
-                  horatwo={item.horatwo}
-                  trueitem={item.trueitem}
-                />
-              )
-            })}
-          </Swipe>
-        </div>
-        <AiOutlineRight
-          onClick={handleNextSlide}
-          className="absolute inset-y-1/2 right-1 top-[145px] z-10 m-auto cursor-pointer rounded-full bg-black/10 p-1  text-4xl text-primary dark:bg-white/10 md:hidden md:text-5xl"
-        />
-
-        <div className="items-evenly absolute bottom-[45px] flex w-full justify-center   p-2 md:hidden ">
-          {dataLocais.map((_, index) => {
+      <div className="flex flex-wrap  justify-center gap-x-5 overflow-hidden rounded-xl  px-5 pb-10   md:overflow-visible ">
+        {dataAgenda
+          .reverse()
+          .slice(0, 6)
+          .map((item, index) => {
             return (
-              <div
-                className={
-                  index === currentSlide
-                    ? 'mx-2 mb-2 h-4 w-4 cursor-pointer rounded-full bg-primary'
-                    : 'mx-2 mb-2 h-4 w-4 cursor-pointer rounded-full bg-gray-700'
-                }
+              <TimeLineItem
                 key={index}
-                onClick={() => {
-                  setCurrentSlide(index)
-                }}
+                day={item.day}
+                title={item.title}
+                hora={item.hora}
+                titletwo={item.titletwo}
+                horatwo={item.horatwo}
+                trueitem={item.trueitem}
               />
             )
           })}
-        </div>
       </div>
+
+      {children}
     </div>
   )
 }

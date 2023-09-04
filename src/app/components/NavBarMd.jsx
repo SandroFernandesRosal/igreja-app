@@ -29,11 +29,11 @@ export default function NavBarMd({ handleMenu }) {
         <FaMapMarkerAlt className="text-primary" /> <p>Endereços</p>
       </Link>
       <Link
-        href="/liderancas"
+        href="/ministerio"
         className="flex flex-col items-center justify-center text-lg hover:text-primary"
         onClick={handleMenu}
       >
-        <BiHomeHeart className="text-primary" /> <p>Lideranças</p>
+        <BiHomeHeart className="text-primary" /> <p>Ministério</p>
       </Link>
 
       <Link

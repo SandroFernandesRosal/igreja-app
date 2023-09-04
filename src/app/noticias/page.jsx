@@ -30,6 +30,7 @@ export default function Noticias() {
               title={item.title}
               id={item.id}
               setSearch={setSearch}
+              description={item.description.slice(0, 30)}
             />
           ))
         ) : (
@@ -42,6 +43,7 @@ export default function Noticias() {
                   title={item.title}
                   id={item.id}
                   setSearch={setSearch}
+                  description={item.description.slice(0, 30)}
                 />
               ))}
             </News>

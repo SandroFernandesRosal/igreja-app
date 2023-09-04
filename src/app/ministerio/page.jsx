@@ -6,7 +6,7 @@ import { useSearch } from '../store/searchStore'
 import New from '../components/New'
 import ContainerResults from '../components/ContainerResults'
 import ResultLength from '../components/ResultLength'
-import Lideres from '../components/Lideres'
+import Ministerio from '../components/Ministerio'
 
 export default function Liderancas() {
   const { search } = useSearch()
@@ -30,11 +30,12 @@ export default function Liderancas() {
               title={item.title}
               id={item.id}
               setSearch={setSearch}
+              description={item.description.slice(0, 30)}
             />
           ))
         ) : (
           <>
-            <Lideres />
+            <Ministerio />
           </>
         )}
       </ContainerResults>
