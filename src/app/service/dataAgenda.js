@@ -41,7 +41,7 @@ export const dataAgenda = [
   },
   {
     day: 'Sábado',
-    title: 'Culto e fraternização de dia das delícias',
+    title: 'Dia das delícias',
     hora: '18:30/22:00',
     titletwo: false,
     horatwo: false,

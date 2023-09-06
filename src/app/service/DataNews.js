@@ -1,5 +1,5 @@
 import comidas from '../../../public/img/delicias.jpg'
-import jiujtsu from '../../../public/img/projetojiujitsu.jpg'
+import jiujitsu from '../../../public/img/projetojiujitsu.jpg'
 import alcoolatras from '../../../public/img/alcoolatras.jpg'
 import domingo from '../../../public/img/domingo.jpg'
 import segunda from '../../../public/img/segunda2.jpg'
@@ -31,21 +31,21 @@ export const DataNews = [
     url: terça,
     title: 'Terça - projeto jiu-jítsu',
     description:
-      'Toda terça e sexta, de 19:00 até 21:00, nosso projeto social de Jiujtsu. Venha fazer parte!',
+      'Toda terça e sexta, de 19:00 até 21:00, nosso projeto social de Jiu-jítsu. Venha fazer parte!',
   },
   {
     id: '5',
-    url: jiujtsu,
+    url: jiujitsu,
     title: 'Sexta - projeto jiu-jítsu',
     description:
-      'Toda sexta, de 19:00 até 21:00, nosso projeto social de Jiujtsu. Venha fazer parte!',
+      'Toda sexta, de 19:00 até 21:00, nosso projeto social de Jiu-jítsu. Venha fazer parte!',
   },
   {
     id: '6',
     url: comidas,
     title: 'Sábado - dia das delícias',
     description:
-      'Sábado, às 18:30, dia das delícias. Uma vez por mês, temos nosso evento com diversas comidas para você e sua família',
+      'Sábado, às 18:30, dia das delícias. Uma vez por mês, temos nosso evento com diversas comidas para você e sua família.',
   },
   {
     id: '7',
