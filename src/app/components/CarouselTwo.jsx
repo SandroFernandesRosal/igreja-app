@@ -29,7 +29,7 @@ export default function Carousel() {
   })
 
   return (
-    <div className="relative z-10 mb-10 mt-10 h-[300px] w-[300px] rounded-xl shadow-lg hover:shadow-primary dark:shadow-dark dark:hover:shadow-primary md:mt-5 md:h-[350px] md:w-[350px] lg:h-[400px] lg:w-[400px] ">
+    <div className="relative z-10 mb-10 mt-10 h-[300px] w-[300px] rounded-xl shadow-lg hover:shadow-primary dark:shadow-dark dark:hover:shadow-primary md:mt-5 md:h-[400px] md:w-[500px] lg:h-[500px] lg:w-[800px] ">
       <AiOutlineLeft
         onClick={handlePrevSlide}
         className="absolute inset-y-1/2 left-2 z-10 m-auto cursor-pointer rounded-full bg-black/10 p-1 text-4xl text-primary dark:bg-white/10 md:text-5xl"
@@ -38,7 +38,7 @@ export default function Carousel() {
         <Swipe
           onSwipeLeft={handleNextSlide}
           onSwipeRight={handlePrevSlide}
-          className="relative    min-h-[300px] min-w-[300px]  overflow-hidden rounded-xl  shadow-xl dark:shadow-dark md:h-[350px] md:w-[350px] lg:h-[400px] lg:w-[400px]"
+          className="relative    min-h-[300px] min-w-[300px]  overflow-hidden rounded-xl  shadow-xl dark:shadow-dark md:h-[400px] md:w-[500px] lg:h-[500px] lg:w-[800px]"
         >
           {DataNews.map((image, index) => {
             if (index === currentSlide) {
@@ -46,10 +46,10 @@ export default function Carousel() {
                 <Link key={image.id} href={`/noticias/${image.id}`}>
                   <Image
                     src={image.url}
-                    width={400}
-                    height={400}
+                    width={800}
+                    height={500}
                     alt="..."
-                    className="animate-fadeIn h-[300px] w-[400px] md:h-[350px] md:w-[350px]  lg:h-[400px] lg:w-[400px]"
+                    className="animate-fadeIn h-[300px] w-[400px] md:h-[400px] md:w-[500px]  lg:h-[500px] lg:w-[800px]"
                   />
                 </Link>
               )
