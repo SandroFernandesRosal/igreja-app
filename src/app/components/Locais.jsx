@@ -2,7 +2,7 @@ import LocaisItem from './LocaisItem'
 
 export default function Locais() {
   return (
-    <section className="mb-10 flex w-[90vw] flex-col items-center  rounded-lg bg-white/20  shadow-lg dark:bg-black/20 dark:shadow-dark">
+    <section className="mb-5 flex w-[90vw] flex-col items-center  rounded-lg bg-white/20  shadow-lg dark:bg-black/20 dark:shadow-dark">
       <h1 className="m-0 mt-1 text-lg font-bold text-primary">Endereços</h1>
       <p className="mb-5 text-xl">Todos os nossos endereços</p>
       <div className="mb-5 flex w-full flex-wrap justify-center  gap-x-5 p-1 md:gap-x-5">

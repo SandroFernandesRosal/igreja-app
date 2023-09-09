@@ -1,12 +1,9 @@
-'use client'
 import Link from 'next/link'
-
 import { BiNews, BiHomeHeart } from 'react-icons/bi'
 import { TfiEmail } from 'react-icons/tfi'
 import { AiOutlineSchedule } from 'react-icons/ai'
 import { BsBook } from 'react-icons/bs'
 import { FaHandHoldingHeart, FaMapMarkerAlt } from 'react-icons/fa'
-import Search from './Search'
 
 export default function NavBarMd({ handleMenu }) {
   return (
@@ -75,7 +72,6 @@ export default function NavBarMd({ handleMenu }) {
       >
         <TfiEmail className="text-primary" /> <p>Contato</p>
       </Link>
-      <Search />
     </nav>
   )
 }

@@ -1,15 +1,7 @@
-import { useState } from 'react'
-import { BsSearch } from 'react-icons/bs'
 import { useSearch } from '../store/searchStore'
-import { AiOutlineClose } from 'react-icons/ai'
+import { FaSearch } from 'react-icons/fa'
 
-export default function Search() {
-  const [inputSearch, setInputSearch] = useState(false)
-
-  const handleInput = () => {
-    inputSearch === false ? setInputSearch(true) : setInputSearch(false)
-  }
-
+export default function SearchMd() {
   const { search } = useSearch()
   const { setSearch } = useSearch()
 
@@ -19,31 +11,14 @@ export default function Search() {
 
   return (
     <>
-      <div className="fixed left-0 top-[88px]  z-20 flex gap-1 md:hidden">
-        <div className="mb-5 mr-2 flex h-[40px]  w-[35px] items-center justify-center rounded-e-lg bg-primary shadow-lg dark:shadow-dark">
-          {!inputSearch ? (
-            <BsSearch onClick={handleInput} className="text-2xl font-bold" />
-          ) : (
-            <AiOutlineClose
-              onClick={() => {
-                handleInput()
-                setSearch('')
-              }}
-              className="text-2xl font-bold"
-            />
-          )}
-        </div>
-
-        {inputSearch && (
-          <input
-            type="text"
-            placeholder="Buscar..."
-            className="dark:hover-shadow-primary mb-5 ml-1  mr-5 flex h-[40px] w-[200px] items-center justify-evenly rounded-lg border-none bg-white/40 placeholder-black shadow-lg hover:shadow-md hover:shadow-primary focus:ring-0 dark:bg-black/40 dark:placeholder-white dark:shadow-dark dark:hover:shadow-md dark:hover:shadow-primary "
-            value={search}
-            onChange={handleSearchChange}
-          />
-        )}
-      </div>
+      <input
+        type="text"
+        placeholder="Buscar notícia..."
+        className="border:none  flex  rounded-lg border-none bg-white/40 placeholder-black shadow-lg outline-none hover:shadow-md hover:shadow-primary focus:ring-0 dark:bg-black/40 dark:placeholder-white dark:shadow-dark dark:hover:shadow-md dark:hover:shadow-primary"
+        value={search}
+        onChange={handleSearchChange}
+      />
+      <FaSearch className="pointer-events-none relative -top-[27px] left-[85px] mb-1 text-primary" />
     </>
   )
 }

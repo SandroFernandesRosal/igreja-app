@@ -1,7 +1,7 @@
 import DoeItem from './DoeItem'
 export default function Doe() {
   return (
-    <div className="mt-5 flex w-[90vw] flex-col items-center rounded-xl  bg-white/20 shadow-lg  dark:bg-black/20 dark:shadow-dark md:mb-5">
+    <div className="mb-5 flex w-[90vw] flex-col items-center rounded-xl  bg-white/20 shadow-lg  dark:bg-black/20 dark:shadow-dark md:mb-5">
       <div className="mb-5 flex-col items-center text-center">
         <h1 className="m-0 text-lg font-bold text-primary ">Ajude a igreja</h1>
         <p className="text-xl ">
