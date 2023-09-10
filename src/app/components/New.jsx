@@ -1,4 +1,3 @@
-'use client'
 import Image from 'next/image'
 import Link from 'next/link'
 import { FaLongArrowAltRight } from 'react-icons/fa'
@@ -11,7 +10,13 @@ export default function New({ url, title, id, setSearch, description }) {
         onClick={() => setSearch('')}
         className="flex-1 border-b-[1px] border-gray-200 dark:border-gray-600"
       >
-        <Image src={url} alt={title} className="h-[100%] w-[100vw]" />
+        <Image
+          width={300}
+          height={300}
+          src={url}
+          alt={title}
+          className="h-full object-fill"
+        />
       </Link>
       <div className=" flex flex-1 flex-col items-center justify-between p-1">
         <p className="font-bold text-primary">{title}</p>

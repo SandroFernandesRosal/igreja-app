@@ -1,10 +1,4 @@
-'use client'
-import { useSearch } from '../store/searchStore'
-
-export default function ResultLength() {
-  const { DataNews } = useSearch()
-  const { search } = useSearch()
-
+export default function ResultLength({ search, DataNews }) {
   const results = DataNews.filter(
     (item) => item.title.toLowerCase().indexOf(search) !== -1,
   )

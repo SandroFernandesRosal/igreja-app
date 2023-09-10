@@ -1,3 +1,4 @@
+'use client'
 import Link from 'next/link'
 import Search from './Search'
 import ResultLength from './ResultLength'
@@ -18,7 +19,7 @@ export default function News({ children }) {
       <p className="mb-5 text-xl">Fique por dentro das notícias</p>
       <Search />
 
-      {search ? <ResultLength /> : null}
+      {search ? <ResultLength search={search} DataNews={DataNews} /> : null}
       <div className="flex w-full  flex-wrap justify-center gap-x-5 p-1 md:gap-x-5">
         {search ? (
           results.map((item) => (

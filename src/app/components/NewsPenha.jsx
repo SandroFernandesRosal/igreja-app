@@ -2,14 +2,14 @@
 
 import New from './New'
 import News from './News'
-import CarouselTwo from './CarouselTwo'
+import Carousel from './Carousel'
 import { useSearch } from '../store/searchStore'
 
 export default function NewsPenha({ children }) {
   const { DataNews } = useSearch()
   return (
     <div className="flex w-[100vw]  flex-col items-center    justify-center bg-transparent">
-      <CarouselTwo />
+      <Carousel />
 
       <News>
         {DataNews.reverse()

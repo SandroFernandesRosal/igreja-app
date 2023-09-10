@@ -4,12 +4,12 @@ import Image from 'next/image'
 import { useState, useEffect } from 'react'
 import Swipe from 'react-easy-swipe'
 import { AiOutlineLeft, AiOutlineRight } from 'react-icons/ai'
-import { DataNews } from '../service/DataNews'
+import { useSearch } from '../store/searchStore'
 import Link from 'next/link'
 
 export default function Carousel() {
+  const { DataNews } = useSearch()
   const [currentSlide, setCurrentSlide] = useState(0)
-  const [seconds, setSeconds] = useState(0)
 
   const handleNextSlide = () => {
     const newSlide = currentSlide === DataNews.length - 1 ? 0 : currentSlide + 1
@@ -23,7 +23,7 @@ export default function Carousel() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setSeconds(handleNextSlide)
+      handleNextSlide()
     }, 3000)
     return () => clearInterval(interval)
   })
@@ -49,7 +49,7 @@ export default function Carousel() {
                     width={800}
                     height={500}
                     alt="..."
-                    className="animate-fadeIn h-[300px] w-[400px] md:h-[400px] md:w-[500px]  lg:h-[500px] lg:w-[800px]"
+                    className="animate-fadeIn h-full object-fill"
                   />
                 </Link>
               )
@@ -61,7 +61,6 @@ export default function Carousel() {
       <AiOutlineRight
         onClick={handleNextSlide}
         className="absolute inset-y-1/2  right-2 z-10 m-auto cursor-pointer rounded-full bg-black/10 p-1 text-4xl text-primary dark:bg-white/10 md:text-5xl"
-        seconds={seconds}
       />
 
       <div className="items-evenly absolute bottom-0 flex w-full   justify-center p-2 ">
