@@ -29,7 +29,7 @@ export default function Noticia({ params }) {
           {selectedItem.description}
         </p>
       </article>
-      <h1 className="text-2xl font-bold">Leia mais notícias</h1>
+      <h1 className="text-2xl font-bold">Leia também as últimas notícias</h1>
       <div className="flex w-full  flex-wrap justify-center gap-x-5 p-1 md:gap-x-5">
         {DataNews.reverse()
           .slice(0, 6)
