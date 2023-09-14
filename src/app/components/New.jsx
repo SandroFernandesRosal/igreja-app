@@ -19,7 +19,9 @@ export default function New({ url, title, id, setSearch, description }) {
         />
       </Link>
       <div className=" flex flex-1 flex-col items-center justify-between p-1">
-        <p className="font-bold text-primary">{title}</p>
+        <Link href={`/noticias/${id}`}>
+          <p className="font-bold text-primary">{title}</p>
+        </Link>
         <p>{description}...</p>
 
         <Link
