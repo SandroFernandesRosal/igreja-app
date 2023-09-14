@@ -3,7 +3,7 @@ import { dataAgenda } from '../service/dataAgenda'
 
 export default function TimeLine({ children }) {
   return (
-    <div className=" mb-5 flex w-[100vw] flex-col items-center rounded-3xl bg-white/20 shadow-lg dark:bg-black/20 dark:shadow-dark md:w-[90vw] md:rounded-xl ">
+    <div className=" mb-5 flex w-[100vw] flex-col items-center rounded-[35px]  bg-white/20 shadow-lg dark:bg-black/20 dark:shadow-dark md:w-[90vw] md:rounded-xl ">
       <div className=" flex-col items-center text-center">
         <h1 className="m-0 text-lg font-bold text-primary ">Agenda</h1>
         <p className="text-xl ">Agenda semanal</p>
