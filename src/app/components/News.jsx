@@ -20,7 +20,7 @@ export default function News({ children }) {
       <Search />
 
       {search ? <ResultLength search={search} DataNews={DataNews} /> : null}
-      <div className="flex w-full  flex-wrap justify-center gap-x-5 p-1 md:gap-x-5">
+      <div className="flex w-full flex-wrap justify-center gap-x-5 p-1 px-2 md:gap-x-5">
         {search ? (
           results.map((item) => (
             <New
