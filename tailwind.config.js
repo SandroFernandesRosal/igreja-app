@@ -18,7 +18,17 @@ module.exports = {
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
       animate: {
-        fadeIn: 'animate-fadeOutLeft 2s',
+        fadeIn: 'fadeOut 2s ease-in-out',
+      },
+      keyframes: {
+        fadeOut: {
+          from: {
+            transform: 'translateY(-300px)',
+          },
+          to: {
+            transform: 'translateY(40)',
+          },
+        },
       },
       boxShadow: {
         dark: '0 3px 10px 3px rgba(255, 255, 255, 0.1), 0 3px 6px 1px rgba(255, 255, 255, 0.05)',
