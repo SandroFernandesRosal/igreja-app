@@ -23,10 +23,10 @@ module.exports = {
       keyframes: {
         fadeOut: {
           from: {
-            transform: 'translateY(-300px)',
+            opacity: '0',
           },
           to: {
-            transform: 'translateY(40)',
+            opacity: '1',
           },
         },
       },

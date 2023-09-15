@@ -47,7 +47,7 @@ export default function Carousel() {
                     width={800}
                     height={500}
                     alt="..."
-                    className=" animate-fadeIn h-full object-fill"
+                    className=" h-full object-fill"
                   />
                 </Link>
               )
