@@ -40,9 +40,9 @@ export default function News({ children }) {
 
             <Link
               href={`/noticias/`}
-              className="mb-5   h-[30px] w-[150px] rounded-xl shadow-lg dark:shadow-dark  "
+              className="mb-5   h-[30px] w-[150px] rounded-xl shadow-light dark:shadow-dark  "
             >
-              <button className="flex h-full w-full cursor-pointer items-center justify-center rounded-xl bg-primary  font-bold text-white  hover:bg-primary/50  ">
+              <button className="flex h-full w-full cursor-pointer items-center justify-center rounded-xl bg-primary  font-bold text-black  hover:bg-primary/50  ">
                 Mais notícias
               </button>
             </Link>
