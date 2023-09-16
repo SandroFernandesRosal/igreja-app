@@ -7,7 +7,7 @@ export default function TimeLineItem({
   trueitem,
 }) {
   return (
-    <div className="mt-5 h-[300px] w-[45%] max-w-[150px] flex-col items-center overflow-hidden rounded-xl bg-white p-2 px-4 shadow-xl hover:shadow-lg hover:shadow-primary dark:bg-black dark:shadow-dark dark:hover:shadow-primary md:h-[300px] md:w-[200px] md:max-w-[200px]">
+    <div className="mt-5 h-[300px] w-[45%] max-w-[150px] flex-col items-center overflow-hidden rounded-xl bg-white p-2 px-4 shadow-light hover:shadow-lg hover:shadow-primary dark:bg-black dark:shadow-dark dark:hover:shadow-primary md:h-[300px] md:w-[200px] md:max-w-[200px]">
       <h1 className="mb-2 flex w-full justify-center text-lg font-bold text-primary">
         {day}
       </h1>

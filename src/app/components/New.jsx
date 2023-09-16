@@ -4,7 +4,7 @@ import { FaLongArrowAltRight } from 'react-icons/fa'
 
 export default function New({ url, title, id, setSearch, description }) {
   return (
-    <article className="dark:hover-shadow-md mb-5  flex h-[300px] w-[45%] max-w-[150px] flex-col items-center rounded-lg bg-white shadow-xl hover:shadow-lg  hover:shadow-primary  dark:bg-black dark:shadow-dark  dark:hover:shadow-primary md:h-[300px] md:w-[200px] md:max-w-[200px]">
+    <article className="dark:hover-shadow-md mb-5  flex h-[300px] w-[45%] max-w-[150px] flex-col items-center rounded-lg bg-white shadow-light hover:shadow-lg  hover:shadow-primary  dark:bg-black dark:shadow-dark  dark:hover:shadow-primary md:h-[300px] md:w-[200px] md:max-w-[200px]">
       <Link
         href={`/noticias/${id}`}
         onClick={() => setSearch('')}
