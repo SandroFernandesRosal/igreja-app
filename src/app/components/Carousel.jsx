@@ -27,7 +27,7 @@ export default function Carousel() {
   })
 
   return (
-    <div className="relative z-10 mb-10 h-[300px] w-[100%]   md:mt-5 md:h-[400px] md:w-[500px] md:max-w-[500px] md:rounded-xl md:shadow-lg md:hover:shadow-primary md:dark:shadow-dark md:dark:hover:shadow-primary lg:h-[500px] lg:w-[800px] lg:max-w-[800px] ">
+    <div className="relative z-10 mb-5 h-[300px] w-[100%]   md:mt-5 md:h-[400px] md:w-[500px] md:max-w-[500px] md:rounded-xl md:shadow-lg md:hover:shadow-primary md:dark:shadow-dark md:dark:hover:shadow-primary lg:h-[500px] lg:w-[800px] lg:max-w-[800px] ">
       <AiOutlineLeft
         onClick={handlePrevSlide}
         className="absolute inset-y-1/2 left-2 z-10 m-auto cursor-pointer rounded-full bg-black/10 p-1 text-4xl text-primary dark:bg-white/10 md:text-5xl"

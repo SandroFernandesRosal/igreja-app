@@ -20,7 +20,7 @@ export default function Header() {
   return (
     <>
       <header className="font-Roboto fixed z-50 flex flex-col">
-        <div className="flex h-20 w-[100vw]  items-center justify-evenly overflow-hidden border-b-2 border-solid border-y-primary  bg-white/50        backdrop-blur-md    dark:bg-black/50">
+        <div className="flex h-20 w-[100vw]  items-center justify-evenly overflow-hidden border-b-2 border-solid border-y-primary  bg-white/50        backdrop-blur-md    dark:bg-bgdarksecundary">
           <Link href="/">
             <Image src={logo} alt="logo do site" width={200} height={50} />
           </Link>
