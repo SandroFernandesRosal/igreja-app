@@ -30,7 +30,9 @@ export default function Noticia({ params }) {
         </p>
       </article>
       <article className="mb-10 flex flex-col items-center rounded-[35px] bg-bglightsecundary shadow-light dark:bg-bgdarksecundary dark:shadow-dark md:w-[90vw]">
-        <h1 className="text-2xl font-bold">Leia também as últimas notícias</h1>
+        <h1 className=" w-[90vw] max-w-[500px]  text-center text-2xl font-bold">
+          Leia também as últimas notícias
+        </h1>
         <div className=" flex  w-full flex-wrap justify-center gap-x-5  p-1 pt-5   md:gap-x-5">
           {DataNews.reverse()
             .slice(0, 6)
