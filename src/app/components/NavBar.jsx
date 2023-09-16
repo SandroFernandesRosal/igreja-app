@@ -3,7 +3,7 @@ import ChangeTheme from './ChangeTheme'
 import { BiNews, BiHomeHeart } from 'react-icons/bi'
 import { TfiEmail } from 'react-icons/tfi'
 import { AiOutlineSchedule } from 'react-icons/ai'
-import { BsBook } from 'react-icons/bs'
+import { BsBook, BsFillPersonLinesFill } from 'react-icons/bs'
 import { FaHandHoldingHeart, FaMapMarkerAlt } from 'react-icons/fa'
 
 export default function NavBar({ handleMenu }) {
@@ -30,10 +30,10 @@ export default function NavBar({ handleMenu }) {
         </Link>
         <Link
           href="/ministerio"
-          className="flex items-center gap-5 border-b-[1px] border-solid  border-primary text-2xl hover:text-blue-300"
+          className="flex items-center gap-5 border-b-[1px] border-solid  border-primary text-2xl hover:text-primary"
           onClick={handleMenu}
         >
-          <BiHomeHeart className="text-primary" /> <p>Ministério</p>
+          <BsFillPersonLinesFill className="text-primary" /> <p>Ministério</p>
         </Link>
 
         <Link
@@ -61,7 +61,7 @@ export default function NavBar({ handleMenu }) {
 
         <Link
           href="/noticias"
-          className="flex items-center gap-5 border-b-[1px] border-solid border-primary  text-2xl hover:text-blue-300 "
+          className="flex items-center gap-5 border-b-[1px] border-solid border-primary  text-2xl hover:text-primary"
           onClick={handleMenu}
         >
           <BiNews className="text-primary" /> <p>Notícias</p>

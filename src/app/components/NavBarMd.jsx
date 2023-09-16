@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { BiNews, BiHomeHeart } from 'react-icons/bi'
 import { TfiEmail } from 'react-icons/tfi'
 import { AiOutlineSchedule } from 'react-icons/ai'
-import { BsBook } from 'react-icons/bs'
+import { BsBook, BsFillPersonLinesFill } from 'react-icons/bs'
 import { FaHandHoldingHeart, FaMapMarkerAlt } from 'react-icons/fa'
 
 export default function NavBarMd({ handleMenu }) {
@@ -30,7 +30,7 @@ export default function NavBarMd({ handleMenu }) {
         className="flex flex-col items-center justify-center text-lg hover:text-primary"
         onClick={handleMenu}
       >
-        <BiHomeHeart className="text-primary" /> <p>Ministério</p>
+        <BsFillPersonLinesFill className="text-primary" /> <p>Ministério</p>
       </Link>
 
       <Link
