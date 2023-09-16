@@ -14,6 +14,9 @@ module.exports = {
         bgdark: '#000000',
         bgdarksecundary: '#202020',
         textdark: '#EEEEEE',
+        bglight: '',
+        bglightsecundary: '#D1D9DC',
+        textlight: '#262626',
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
@@ -34,7 +37,9 @@ module.exports = {
         },
       },
       boxShadow: {
-        dark: '0 3px 10px 3px rgba(255, 255, 255, 0.1), 0 3px 6px 1px rgba(255, 255, 255, 0.05)',
+        dark: '0 0px 4px 0px rgba(255, 255, 255, 0.5), 0 3px 4px 1px rgba(255, 255, 255, 0.1)',
+        light:
+          '0 0px 4px 0px rgba(000, 000, 000, 0.5), 0 3px 4px 1px rgba(000, 000, 000, 0.1)',
       },
     },
   },

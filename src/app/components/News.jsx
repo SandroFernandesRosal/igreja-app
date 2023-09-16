@@ -14,7 +14,7 @@ export default function News({ children }) {
     (item) => item.title.toLowerCase().indexOf(search) !== -1,
   )
   return (
-    <section className="bg-white-/20 mb-5  flex w-[100vw] flex-col items-center rounded-[35px] bg-white/20 shadow-lg dark:bg-bgdarksecundary dark:shadow-dark md:w-[90vw] md:rounded-xl ">
+    <section className="bg-white-/20 mb-5  flex w-[100vw] flex-col items-center rounded-[35px] bg-bglightsecundary shadow-light dark:bg-bgdarksecundary dark:shadow-dark md:w-[90vw] md:rounded-xl  ">
       <h1 className="m-0 text-lg font-bold text-primary ">Notícias</h1>
       <p className="mb-5 text-xl">Fique por dentro das notícias</p>
       <Search />
