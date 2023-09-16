@@ -40,6 +40,8 @@ module.exports = {
         dark: '0 0px 4px 0px rgba(255, 255, 255, 0.5), 0 3px 4px 1px rgba(255, 255, 255, 0.1)',
         light:
           '0 0px 4px 0px rgba(000, 000, 000, 0.5), 0 3px 4px 1px rgba(000, 000, 000, 0.1)',
+        hover:
+          '0 4px 7px 4px rgba(31,182,255, 0.5), 0 4px 4px 2px rgba(31,182,255, 0.1)',
       },
     },
   },

@@ -14,7 +14,7 @@ export default function SearchMd() {
       <input
         type="text"
         placeholder="Buscar notícia..."
-        className="border:none  flex  rounded-lg border-none bg-white/40 placeholder-black shadow-light outline-none hover:shadow-md hover:shadow-primary focus:ring-0 dark:bg-black/40 dark:placeholder-white dark:shadow-dark dark:hover:shadow-md dark:hover:shadow-primary"
+        className="border:none  flex  rounded-lg border-none bg-white/40 placeholder-black shadow-light outline-none hover:shadow-hover focus:ring-0 dark:bg-black/40 dark:placeholder-white dark:shadow-dark dark:hover:shadow-hover"
         value={search}
         onChange={handleSearchChange}
       />
