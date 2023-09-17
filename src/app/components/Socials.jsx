@@ -19,7 +19,7 @@ export default function Socials({
         className="flex items-center gap-2"
       >
         <FaWhatsapp className=" text-2xl text-primary hover:text-primary/50 " />
-        <p>{numerowhatsapp}</p>
+        <p className="text-textlight dark:text-textdark">{numerowhatsapp}</p>
       </Link>
 
       <Link
@@ -28,7 +28,7 @@ export default function Socials({
         className="flex items-center gap-2"
       >
         <FaInstagram className="text-2xl text-primary hover:text-primary/50" />
-        <p>{nomeinstagram}</p>
+        <p className="text-textlight dark:text-textdark">{nomeinstagram}</p>
       </Link>
 
       <Link
@@ -37,7 +37,7 @@ export default function Socials({
         className="flex items-center gap-2"
       >
         <FaFacebook className="text-2xl text-primary hover:text-primary/50" />
-        <p>{nomefacebook}</p>
+        <p className="text-textlight dark:text-textdark">{nomefacebook}</p>
       </Link>
     </div>
   )
