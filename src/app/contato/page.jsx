@@ -1,8 +1,164 @@
+'use client'
+import { useState, useRef } from 'react'
+import { BiHappyAlt } from 'react-icons/bi'
+import emailjs from '@emailjs/browser'
+import Socials from '../components/Socials'
 export default function Contato() {
+  const form = useRef()
+
+  const [nameInput, setNameInput] = useState('')
+  const [emailInput, setEmailInput] = useState('')
+  const [assuntoInput, setAssuntoInput] = useState('')
+  const [textInput, setTextInput] = useState('')
+  const [alert, setAlert] = useState(false)
+
+  const timeoutRef = useRef()
+
+  const onSubmit = (e) => {
+    e.preventDefault()
+
+    emailjs
+      .sendForm(
+        'gmailsfr',
+        'template_mumsd62',
+        form.current,
+        'n_VePloj0wX6t-MH9',
+      )
+      .then(
+        () => {
+          alert === false ? setAlert(true) : setAlert(false)
+
+          clearTimeout(timeoutRef.current)
+          timeoutRef.current = setTimeout(() => {
+            setAlert(false)
+          }, 2000)
+        },
+        (error) => {
+          alert(error.mensagem)
+        },
+      )
+    setNameInput('')
+    setEmailInput('')
+    setAssuntoInput('')
+    setTextInput('')
+  }
   return (
     <main className="flex min-h-screen flex-col  items-center gap-5 pt-24 md:pt-[165px]">
-      <div>
-        <h1>Página de Contato(em breve)</h1>
+      <div className=" mb-10 mt-5 flex  min-h-screen w-[100vw] flex-col items-center rounded-[35px] bg-bglightsecundary shadow-light dark:bg-bgdarksecundary dark:shadow-dark md:w-[90vw] md:rounded-xl ">
+        {alert && (
+          <div className="absolute top-[50%] z-20 flex items-center justify-center rounded-lg bg-bglightsecundary font-bold dark:bg-bgdarksecundary">
+            Mensagem enviada com sucesso!{' '}
+            <BiHappyAlt className="text-[30px] text-primary" />
+          </div>
+        )}
+
+        <h1 className="m-0 text-lg font-bold text-primary ">
+          Entre em contato
+        </h1>
+        <p className="mb-5 text-xl">Por email ou por nossas redes sociais</p>
+
+        <form
+          ref={form}
+          onSubmit={onSubmit}
+          name="form"
+          className="mb-5 mt-3 flex w-[75%] max-w-[500px] flex-col items-center rounded-xl bg-bglight p-4 shadow-light dark:bg-bgdark dark:shadow-dark md:mb-5"
+        >
+          <input
+            required={true}
+            type="text"
+            name="nome"
+            id="nome"
+            placeholder="Digite seu nome"
+            value={nameInput}
+            onChange={(e) => setNameInput(e.target.value)}
+            className="shadow-ligh mb-[10px] w-[90%] cursor-pointer rounded-lg border-none  bg-bglightsecundary p-[5px] text-center font-bold placeholder-textlight shadow-light outline-none focus:ring-0  dark:bg-bgdarksecundary dark:placeholder-textdark dark:shadow-dark"
+          />
+
+          <input
+            required={true}
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Digite seu email"
+            value={emailInput}
+            onChange={(e) => setEmailInput(e.target.value)}
+            className="shadow-ligh mb-[10px] w-[90%] cursor-pointer rounded-lg border-none bg-bglightsecundary p-[5px] text-center font-bold placeholder-textlight shadow-light  outline-none focus:ring-0  dark:bg-bgdarksecundary dark:placeholder-textdark dark:shadow-dark "
+          />
+
+          <input
+            required={true}
+            type="text"
+            name="assunto"
+            id="assunto"
+            placeholder="Digite o assunto"
+            value={assuntoInput}
+            onChange={(e) => setAssuntoInput(e.target.value)}
+            className="shadow-ligh mb-[10px] w-[90%] cursor-pointer rounded-lg border-none  bg-bglightsecundary p-[5px] text-center font-bold placeholder-textlight shadow-light  outline-none focus:ring-0  dark:bg-bgdarksecundary dark:placeholder-textdark  dark:shadow-dark "
+          />
+
+          <textarea
+            required={true}
+            name="mensagem"
+            id="mensagem"
+            cols="30"
+            rows="10"
+            placeholder="Digite sua mensagem"
+            value={textInput}
+            onChange={(e) => setTextInput(e.target.value)}
+            className="shadow-ligh w-[90%]  cursor-pointer rounded-lg border-none  bg-bglightsecundary p-[5px] text-center font-bold placeholder-textlight shadow-light  outline-none focus:ring-0  dark:bg-bgdarksecundary dark:placeholder-textdark dark:shadow-dark "
+          ></textarea>
+
+          <button
+            type="submit"
+            name="submit"
+            className="mt-5 h-[30px] w-[150px] rounded-xl bg-primary font-bold text-black  shadow-light  hover:bg-primary/50  dark:shadow-dark"
+          >
+            Enviar
+          </button>
+        </form>
+
+        <section className=" mb-5 flex w-[100%] flex-col items-center md:mb-5">
+          <div className="flex w-[100%] flex-col items-center gap-5 md:flex-row md:flex-wrap md:justify-center md:py-5">
+            <div className="mt-5 flex w-[100%] justify-center rounded-[35px] bg-bglight shadow-light dark:bg-bgdark dark:shadow-dark md:mt-0 md:w-[40%] md:max-w-[400px]">
+              <Socials
+                className="cor"
+                title="Vila da Penha"
+                numerowhatsapp="21999999999"
+                nomefacebook="alcancadospelagraca"
+                nomeinstagram="@alcancadospelagraca"
+                whatsapp="https://api.whatsapp.com/send?phone="
+                instagram="https://www.instagram.com/"
+                facebook="https://www.facebook.com/"
+              />
+            </div>
+
+            <div className="flex w-[100%] justify-center rounded-[35px] bg-bglight shadow-light dark:bg-bgdark dark:shadow-dark md:w-[40%] md:max-w-[400px] ">
+              <Socials
+                className="cor"
+                title="Vila da Penha"
+                numerowhatsapp="21999999999"
+                nomefacebook="alcancadospelagraca"
+                nomeinstagram="@alcancadospelagraca"
+                whatsapp="https://api.whatsapp.com/send?phone="
+                instagram="https://www.instagram.com/"
+                facebook="https://www.facebook.com/"
+              />
+            </div>
+
+            <div className="mb-5 flex w-[100%] justify-center rounded-[35px] bg-bglight shadow-light dark:bg-bgdark dark:shadow-dark md:w-[40%] md:max-w-[400px]">
+              <Socials
+                className="cor"
+                title="Vila da Penha"
+                numerowhatsapp="21999999999"
+                nomefacebook="alcancadospelagraca"
+                nomeinstagram="@alcancadospelagraca"
+                whatsapp="https://api.whatsapp.com/send?phone="
+                instagram="https://www.instagram.com/"
+                facebook="https://www.facebook.com/"
+              />
+            </div>
+          </div>
+        </section>
       </div>
     </main>
   )

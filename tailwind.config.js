@@ -12,9 +12,9 @@ module.exports = {
       colors: {
         primary: '#1fb6ff',
         bgdark: '#000000',
-        bgdarksecundary: '#1C2025',
+        bgdarksecundary: '#0e0e0e',
         textdark: '#EEEEEE',
-        bglight: '',
+        bglight: '#FFFFFF',
         bglightsecundary: '#D1D9DC',
         textlight: '#262626',
       },
