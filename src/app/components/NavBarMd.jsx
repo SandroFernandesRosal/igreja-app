@@ -9,7 +9,7 @@ export default function NavBarMd({ handleMenu }) {
   return (
     <nav
       className={` font-Roboto
-       hidden w-full  items-center justify-center gap-5  bg-white/30 p-3    pb-[5px]   backdrop-blur-md dark:bg-black/30 md:flex`}
+       hidden w-full  items-center justify-center gap-5  bg-bglight/30 p-3    pb-[5px]   backdrop-blur-md dark:bg-bgdark/30 md:flex`}
     >
       <Link
         href="/quemsomos"

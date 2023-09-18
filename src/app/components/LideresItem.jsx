@@ -2,7 +2,7 @@ import Image from 'next/image'
 
 export default function LideresItem({ nome, titulo, local, img }) {
   return (
-    <div className="mb-5 flex h-[300px] w-[45%]  max-w-[150px] flex-col items-center justify-evenly rounded-xl bg-white shadow-light transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:shadow-hover hover:shadow-primary dark:bg-black dark:shadow-dark dark:hover:shadow-hover md:h-[300px] md:w-[200px] md:max-w-[200px]">
+    <div className="mb-5 flex h-[300px] w-[45%]  max-w-[150px] flex-col items-center justify-evenly rounded-xl bg-bglight shadow-light transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:shadow-hover hover:shadow-primary dark:bg-bgdark dark:shadow-dark dark:hover:shadow-hover md:h-[300px] md:w-[200px] md:max-w-[200px]">
       <Image
         width={120}
         height={120}
