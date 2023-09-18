@@ -3,13 +3,13 @@ import { dataAgenda } from '../service/dataAgenda'
 
 export default function TimeLine({ children }) {
   return (
-    <div className=" mb-5 flex w-[100vw] flex-col items-center rounded-[35px]  bg-bglightsecundary shadow-light dark:bg-bgdarksecundary dark:shadow-dark md:w-[90vw] md:rounded-xl ">
+    <div className=" mb-5 flex w-[100vw] flex-col items-center rounded-[35px] bg-bglightsecundary  pb-5 shadow-light dark:bg-bgdarksecundary dark:shadow-dark md:w-[90vw] md:rounded-xl ">
       <div className=" flex-col items-center text-center">
         <h1 className="m-0 text-lg font-bold text-primary ">Agenda</h1>
         <p className="text-xl ">Agenda semanal</p>
       </div>
 
-      <div className="flex flex-wrap  justify-center gap-x-5 overflow-hidden rounded-xl  px-5 pb-10   md:overflow-visible ">
+      <div className="relative -top-[30px] flex flex-wrap justify-center  gap-x-5 overflow-hidden rounded-xl px-5  pb-10 pt-10   md:overflow-visible ">
         {dataAgenda
           .reverse()
           .slice(0, 6)

@@ -7,7 +7,7 @@ export default function Ministerio() {
       <h1 className="m-0 mt-1 text-lg font-bold text-primary">Ministério</h1>
       <p className="mb-5 text-xl">Todos os nossos Lideres</p>
 
-      <div className="mb-5 flex w-full flex-wrap justify-center  gap-x-5 p-1 md:gap-x-5">
+      <div className="relative -top-[30px] mb-5 flex w-full flex-wrap justify-center gap-x-5 p-1 pt-10 md:gap-x-5">
         {DataMinisterioPenha.map((item) => (
           <LideresItem
             key={item.id}

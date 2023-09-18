@@ -8,7 +8,7 @@ export default function Doe() {
           Faça uma doação por pix ou transferência bancária
         </p>
       </div>
-      <div className=" mb-5 flex w-full flex-wrap justify-center gap-x-5 p-1 px-2 md:gap-x-5">
+      <div className="relative -top-[30px] mb-5 flex w-full flex-wrap justify-center gap-x-5 p-1 px-2 pt-10 md:gap-x-5">
         <DoeItem
           title="Vila da Penha"
           pix="emailparapix@ gmail.com"
