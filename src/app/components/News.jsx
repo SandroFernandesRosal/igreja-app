@@ -5,12 +5,11 @@ import ResultLength from './ResultLength'
 import { useSearch } from '../store/searchStore'
 import New from './New'
 
-export default function News({ children }) {
-  const { DataNews } = useSearch()
+export default function News({ children, data }) {
   const { search } = useSearch()
   const { setSearch } = useSearch()
 
-  const results = DataNews.filter(
+  const results = data.filter(
     (item) => item.title.toLowerCase().indexOf(search) !== -1,
   )
   return (
@@ -19,7 +18,7 @@ export default function News({ children }) {
       <p className="mb-5 px-2 text-xl">Fique por dentro das notícias</p>
       <Search />
 
-      {search ? <ResultLength search={search} DataNews={DataNews} /> : null}
+      {search ? <ResultLength search={search} DataNews={data} /> : null}
       <div className="relative -top-[30px] flex w-full flex-wrap justify-center gap-x-5 p-1 px-2 pt-10 md:gap-x-5">
         {search ? (
           results.map((item) => (
@@ -36,7 +35,6 @@ export default function News({ children }) {
           <>{children}</>
         )}
       </div>
-
       <Link
         href={`/noticias/`}
         className="mb-10 h-[30px] w-[150px] rounded-xl shadow-light dark:shadow-dark  "
