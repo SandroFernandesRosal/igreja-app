@@ -2,6 +2,7 @@ import Socials from './Socials'
 import logo from '../../../public/img/logo.png'
 import Image from 'next/image'
 import Link from 'next/link'
+import { RxOpenInNewWindow } from 'react-icons/rx'
 
 export default function Footer() {
   return (
@@ -44,9 +45,10 @@ export default function Footer() {
         <Link
           href="https://sandrofernandesdev.netlify.app/"
           target="blank"
-          className="mb-5 text-textlight dark:text-textdark"
+          className="mb-5 flex items-center gap-1 text-textlight dark:text-textdark"
         >
-          Desenvolvido por: Sandro Fernandes
+          <p>Desenvolvido por: Sandro Fernandes</p>
+          <RxOpenInNewWindow className="text-xl text-primary" />
         </Link>
       </div>
     </footer>
