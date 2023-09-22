@@ -5,9 +5,10 @@ import ResultLength from './ResultLength'
 import { useSearch } from '../store/searchStore'
 import New from './New'
 
-export default function News({ children, data }) {
+export default function News({ children }) {
   const { search } = useSearch()
   const { setSearch } = useSearch()
+  const { data } = useSearch()
 
   const results = data?.filter(
     (item) => item.title.toLowerCase().indexOf(search) !== -1,
