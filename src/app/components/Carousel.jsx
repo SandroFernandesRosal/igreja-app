@@ -40,7 +40,10 @@ export default function Carousel({ data }) {
           {data.map((image, index) => {
             if (index === currentSlide) {
               return (
-                <Link key={image.id} href={`/noticias/${image.id}`}>
+                <Link
+                  key={image.id}
+                  href={`/noticias/${image.page}/${image.id}`}
+                >
                   <Image
                     src={image.url}
                     width={800}

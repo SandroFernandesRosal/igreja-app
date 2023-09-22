@@ -9,7 +9,7 @@ export default function News({ children, data }) {
   const { search } = useSearch()
   const { setSearch } = useSearch()
 
-  const results = data.filter(
+  const results = data?.filter(
     (item) => item.title.toLowerCase().indexOf(search) !== -1,
   )
   return (
@@ -30,6 +30,7 @@ export default function News({ children, data }) {
               setSearch={setSearch}
               description={item.description.slice(0, 30)}
               page={item.page}
+              data={data}
             />
           ))
         ) : (
