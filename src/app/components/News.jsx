@@ -5,7 +5,7 @@ import ResultLength from './ResultLength'
 import { useSearch } from '../store/searchStore'
 import New from './New'
 
-export default function News({ children, data }) {
+export default function News({ children, data, setData }) {
   const { search } = useSearch()
   const { setSearch } = useSearch()
 
@@ -29,6 +29,8 @@ export default function News({ children, data }) {
               id={item.id}
               setSearch={setSearch}
               description={item.description.slice(0, 30)}
+              data={data}
+              setData={setData}
             />
           ))
         ) : (
