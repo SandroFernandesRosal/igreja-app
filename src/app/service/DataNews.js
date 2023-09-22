@@ -12,12 +12,14 @@ export const DataNews = [
     url: domingo,
     title: 'Domingo - Culto de adoração',
     description: 'Todo domingo, de 10:00 até 12:00, culto para adorar a Deus',
+    page: 'viladapenha',
   },
   {
     id: '2',
     url: segunda,
     title: 'Segunda - Culto de consagração',
     description: 'Toda segunda, de 19:30 até 21:30, culto para adorar Deus',
+    page: 'viladapenha',
   },
   {
     id: '3',
@@ -25,6 +27,7 @@ export const DataNews = [
     title: 'Quarta - Culto em busca do  Espírito Santo',
     description:
       'Toda quarta, de 18:30 até 20:30, culto em busca do Espírito Santo. ',
+    page: 'viladapenha',
   },
   {
     id: '4',
@@ -32,6 +35,7 @@ export const DataNews = [
     title: 'Terça - projeto jiu-jítsu',
     description:
       'Toda terça e sexta, de 19:00 até 21:00, nosso projeto social de Jiu-jítsu. Venha fazer parte!',
+    page: 'viladapenha',
   },
   {
     id: '5',
@@ -39,6 +43,7 @@ export const DataNews = [
     title: 'Sexta - projeto jiu-jítsu',
     description:
       'Toda sexta, de 19:00 até 21:00, nosso projeto social de Jiu-jítsu. Venha fazer parte!',
+    page: 'viladapenha',
   },
   {
     id: '6',
@@ -46,6 +51,7 @@ export const DataNews = [
     title: 'Sábado - dia das delícias',
     description:
       'Sábado, às 18:30, dia das delícias. Uma vez por mês, temos nosso evento com diversas comidas para você e sua família.',
+    page: 'viladapenha',
   },
   {
     id: '7',
@@ -53,5 +59,6 @@ export const DataNews = [
     title: 'Alcoólicos Anônimos',
     description:
       'Quinta, às 18:30, uma vez por mês, temos um grande projeto para ajudar quem precisa deixar de vez o alcoolismo. O Alcoólicos Anônimos está em varios países, ajudando milhares de pessoas. ',
+    page: 'viladapenha',
   },
 ]

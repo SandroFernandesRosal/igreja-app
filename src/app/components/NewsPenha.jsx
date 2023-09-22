@@ -34,6 +34,7 @@ export default function NewsPenha({ children }) {
                 id={item.id}
                 description={item.description.slice(0, 30)}
                 setData={setData}
+                page={item.page}
               />
             ))}
       </News>
