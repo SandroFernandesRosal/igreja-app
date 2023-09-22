@@ -4,7 +4,7 @@ import { DataNews } from '@/app/service/DataNews'
 import New from '@/app/components/New'
 import { useSearch } from '@/app/store/searchStore'
 
-export default function Noticia({ params }) {
+export default function NoticiaVilaDaPenha({ params }) {
   const id = params.id
   const { setSearch } = useSearch()
 
