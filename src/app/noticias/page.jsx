@@ -2,16 +2,16 @@
 import News from '../components/News'
 import New from '../components/New'
 
-import { useSearch } from '../store/searchStore'
+import { useSearch, useHook } from '../store/searchStore'
 
 export default function Noticias() {
-  const { DataNews } = useSearch()
   const { setSearch } = useSearch()
+  const { data } = useHook()
 
   return (
     <main className="flex min-h-screen flex-col items-center gap-5 pt-24 md:pt-[165px]">
       <News>
-        {DataNews.reverse().map((item) => (
+        {data.reverse().map((item) => (
           <New
             key={item.id}
             url={item.url}

@@ -1,11 +1,14 @@
 import { create } from 'zustand'
 import { DataNews } from '../service/DataNews'
-import { DataNews2 } from '../service/DataNews2'
+
 export const useSearch = create((set) => ({
   search: '',
   setSearch: (query) => set({ search: query }),
 
   DataNews,
+}))
+
+export const useHook = create((set) => ({
   data: DataNews,
-  setData: () => set({ Datanews2: DataNews2 }),
+  setData: (state) => set({ data: state }),
 }))
