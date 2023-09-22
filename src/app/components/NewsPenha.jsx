@@ -12,8 +12,13 @@ export default function NewsPenha({ children }) {
   return (
     <div className="flex w-[100vw]  flex-col items-center    justify-center bg-transparent">
       <div className="flex gap-3  text-primary">
-        <p className="cursor-pointer" onClick={() => setData(DataNews)}>Vila da Penha</p>{' '} |
-        <p className="cursor-pointer" onClick={() => setData(DataNews2)}>igreja 2</p>
+        <p className="cursor-pointer" onClick={() => setData(DataNews)}>
+          Vila da Penha
+        </p>{' '}
+        |
+        <p className="cursor-pointer" onClick={() => setData(DataNews2)}>
+          igreja 2
+        </p>
       </div>
       <Carousel data={data} />
       <News data={data} setData={setData}>
