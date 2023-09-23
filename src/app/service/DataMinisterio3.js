@@ -1,4 +1,4 @@
-import placeholder from '../../../public/img/placeholder.png'
+import placeholder from '../../../public/img/placeholder2.jpg'
 
 export const DataMinisterio3 = [
   {
