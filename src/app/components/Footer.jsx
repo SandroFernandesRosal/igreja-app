@@ -24,7 +24,7 @@ export default function Footer() {
         <div className="w-[40%] max-w-[200px] md:border-r-[1px] md:pr-5">
           <Socials
             className="cor"
-            title="Vila da Penha"
+            title="Igreja 2"
             numerowhatsapp="21999999999"
             nomefacebook="alcancadospelagraca"
             nomeinstagram="@alcancadospelagraca"
@@ -34,7 +34,7 @@ export default function Footer() {
         <div className="w-[40%] max-w-[200px]">
           <Socials
             className="cor"
-            title="Vila da Penha"
+            title="Igreja 3"
             numerowhatsapp="21999999999"
             nomefacebook="alcancadospelagraca"
             nomeinstagram="@alcancadospelagraca"

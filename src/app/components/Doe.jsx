@@ -16,13 +16,13 @@ export default function Doe() {
         />
 
         <DoeItem
-          title="Bairro 2"
+          title="Igreja 2"
           pix="emailparapix@ gmail.com"
           bank="0000000-00"
         />
 
         <DoeItem
-          title="Bairro 3"
+          title="Igreja 3"
           pix="emailparapix@ gmail.com"
           bank="0000000-00"
         />
