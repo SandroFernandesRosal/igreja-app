@@ -26,7 +26,7 @@ export const DataMinisterio3 = [
     id: '4',
     nome: 'Nome 4',
     titulo: 'Diácono',
-    local: 'Igreja 3.',
+    local: 'Igreja 3',
     img: placeholder,
   },
 ]
