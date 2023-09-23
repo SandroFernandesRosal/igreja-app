@@ -1,19 +1,19 @@
+'use client'
 import Link from 'next/link'
 import Search from './Search'
 import ResultLength from './ResultLength'
-
+import { useNews, useSearch } from '../store/useStore'
 import New from './New'
 import { DataNews } from '../service/DataNews'
 import { DataNews2 } from '../service/DataNews2'
+import { DataNews3 } from '../service/DataNews3'
 
-export default function News({
-  children,
-  news,
-  setNews,
-  search,
-  setSearch,
-  results,
-}) {
+export default function News({ children }) {
+  const { news, setNews } = useNews()
+  const { search, setSearch } = useSearch()
+  const results = news.filter(
+    (item) => item.title.toLowerCase().indexOf(search) !== -1,
+  )
   return (
     <section className=" mb-5  flex w-[100vw] flex-col items-center rounded-[35px] bg-bglightsecundary shadow-light dark:bg-bgdarksecundary dark:shadow-dark md:w-[90vw] md:rounded-xl  ">
       <h1 className="m-0 text-lg font-bold text-primary ">Notícias</h1>
@@ -25,6 +25,10 @@ export default function News({
         |
         <p className="cursor-pointer" onClick={() => setNews(DataNews2)}>
           igreja 2
+        </p>
+        |
+        <p className="cursor-pointer" onClick={() => setNews(DataNews3)}>
+          igreja 3
         </p>
       </div>
       <Search />

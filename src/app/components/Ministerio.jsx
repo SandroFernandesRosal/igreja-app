@@ -3,6 +3,7 @@ import LideresItem from './LideresItem'
 import { usemMinisterio } from '../store/useStore'
 import { DataMinisterioPenha } from '../service/DataMinisterioPenha'
 import { DataMinisterio2 } from '../service/DataMinisterio2'
+import { DataMinisterio3 } from '../service/DataMinisterio3'
 
 export default function Ministerio() {
   const { ministerio, setMinisterio } = usemMinisterio()
@@ -24,6 +25,13 @@ export default function Ministerio() {
           onClick={() => setMinisterio(DataMinisterio2)}
         >
           igreja 2
+        </p>
+        |
+        <p
+          className="cursor-pointer"
+          onClick={() => setMinisterio(DataMinisterio3)}
+        >
+          igreja 3
         </p>
       </div>
 

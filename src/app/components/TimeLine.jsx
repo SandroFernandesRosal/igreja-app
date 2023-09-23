@@ -3,6 +3,7 @@ import TimeLineItem from './TimeLineItem'
 import { dataAgenda } from '../service/dataAgenda'
 import { DataAgenda2 } from '../service/DataAgenda2'
 import { useAgenda } from '../store/useStore'
+import { DataAgenda3 } from '../service/DataAfenda3'
 
 export default function TimeLine({ children }) {
   const { agenda, setAgenda } = useAgenda()
@@ -20,6 +21,10 @@ export default function TimeLine({ children }) {
         |
         <p className="cursor-pointer" onClick={() => setAgenda(DataAgenda2)}>
           igreja 2
+        </p>
+        |
+        <p className="cursor-pointer" onClick={() => setAgenda(DataAgenda3)}>
+          igreja 3
         </p>
       </div>
 
