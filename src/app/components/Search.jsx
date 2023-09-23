@@ -1,4 +1,4 @@
-import { useSearch } from '../store/searchStore'
+import { useSearch } from '../store/useStore'
 import { FaSearch } from 'react-icons/fa'
 
 export default function SearchMd() {

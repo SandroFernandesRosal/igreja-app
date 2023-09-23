@@ -2,7 +2,7 @@
 import TimeLineItem from './TimeLineItem'
 import { dataAgenda } from '../service/dataAgenda'
 import { DataAgenda2 } from '../service/DataAgenda2'
-import { useAgenda } from '../store/searchStore'
+import { useAgenda } from '../store/useStore'
 
 export default function TimeLine({ children }) {
   const { agenda, setAgenda } = useAgenda()

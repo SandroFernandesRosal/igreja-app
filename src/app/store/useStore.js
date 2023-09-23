@@ -8,9 +8,9 @@ export const useSearch = create((set) => ({
   setSearch: (query) => set({ search: query }),
 }))
 
-export const useHook = create((set) => ({
-  data: DataNews,
-  setData: (state) => set({ data: state }),
+export const useNews = create((set) => ({
+  news: DataNews,
+  setNews: (state) => set({ news: state }),
 }))
 
 export const useAgenda = create((set) => ({

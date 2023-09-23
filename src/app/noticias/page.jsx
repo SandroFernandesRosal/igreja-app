@@ -2,7 +2,7 @@
 import News from '../components/News'
 import New from '../components/New'
 
-import { useSearch, useHook } from '../store/searchStore'
+import { useSearch, useHook } from '../store/useStore'
 
 export default function Noticias() {
   const { setSearch } = useSearch()

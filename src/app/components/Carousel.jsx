@@ -5,16 +5,16 @@ import { AiOutlineLeft, AiOutlineRight } from 'react-icons/ai'
 
 import Link from 'next/link'
 
-export default function Carousel({ data }) {
+export default function Carousel({ news }) {
   const [currentSlide, setCurrentSlide] = useState(0)
 
   const handleNextSlide = () => {
-    const newSlide = currentSlide === data.length - 1 ? 0 : currentSlide + 1
+    const newSlide = currentSlide === news.length - 1 ? 0 : currentSlide + 1
     setCurrentSlide(newSlide)
   }
 
   const handlePrevSlide = () => {
-    const newSlide = currentSlide === 0 ? data.length - 1 : currentSlide - 1
+    const newSlide = currentSlide === 0 ? news.length - 1 : currentSlide - 1
     setCurrentSlide(newSlide)
   }
 
@@ -37,7 +37,7 @@ export default function Carousel({ data }) {
           onSwipeRight={handlePrevSlide}
           className="relative    h-[300px] w-[100vw] overflow-hidden rounded-[35px] shadow-xl  dark:shadow-dark md:h-[400px] md:w-[500px] md:rounded-xl lg:h-[500px] lg:w-[800px]"
         >
-          {data.map((image, index) => {
+          {news.map((image, index) => {
             if (index === currentSlide) {
               return (
                 <Link
@@ -64,7 +64,7 @@ export default function Carousel({ data }) {
       />
 
       <div className="items-evenly absolute bottom-0 flex w-full   justify-center p-2 ">
-        {data.map((_, index) => {
+        {news.map((_, index) => {
           return (
             <div
               className={

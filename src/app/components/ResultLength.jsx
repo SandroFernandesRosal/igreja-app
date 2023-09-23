@@ -1,5 +1,5 @@
-export default function ResultLength({ search, DataNews }) {
-  const results = DataNews.filter(
+export default function ResultLength({ search, news }) {
+  const results = news.filter(
     (item) => item.title.toLowerCase().indexOf(search) !== -1,
   )
   return (

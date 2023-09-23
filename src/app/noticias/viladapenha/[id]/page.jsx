@@ -2,7 +2,7 @@
 import Image from 'next/image'
 import { DataNews } from '@/app/service/DataNews'
 import New from '@/app/components/New'
-import { useSearch } from '@/app/store/searchStore'
+import { useSearch } from '@/app/store/useStore'
 
 export default function NoticiaVilaDaPenha({ params }) {
   const id = params.id

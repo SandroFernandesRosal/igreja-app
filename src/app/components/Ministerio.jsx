@@ -1,6 +1,6 @@
 'use client'
 import LideresItem from './LideresItem'
-import { usemMinisterio } from '../store/searchStore'
+import { usemMinisterio } from '../store/useStore'
 import { DataMinisterioPenha } from '../service/DataMinisterioPenha'
 import { DataMinisterio2 } from '../service/DataMinisterio2'
 
