@@ -22,7 +22,7 @@ export default function Doe() {
         />
 
         <DoeItem
-          title="Igreja 3."
+          title="Igreja 3"
           pix="emailparapix@ gmail.com"
           bank="0000000-00"
         />
