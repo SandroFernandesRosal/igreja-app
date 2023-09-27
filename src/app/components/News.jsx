@@ -7,6 +7,7 @@ import New from './New'
 import { DataNews } from '../service/DataNews'
 import { DataNews2 } from '../service/DataNews2'
 import { DataNews3 } from '../service/DataNews3'
+import { useEffect } from 'react'
 
 export default function News({ children }) {
   const { news, setNews } = useNews()
@@ -14,6 +15,16 @@ export default function News({ children }) {
   const results = news.filter(
     (item) => item.title.toLowerCase().indexOf(search) !== -1,
   )
+  useEffect(() => {
+    const newsFromLocalStorage = localStorage.getItem('news')
+    if (newsFromLocalStorage) {
+      setNews(JSON.parse(newsFromLocalStorage))
+    }
+  }, [setNews])
+
+  useEffect(() => {
+    localStorage.setItem('news', JSON.stringify(news))
+  }, [news])
   return (
     <section className=" mb-5  flex w-[100vw] flex-col items-center rounded-[35px] bg-bglightsecundary shadow-light dark:bg-bgdarksecundary dark:shadow-dark md:w-[90vw] md:rounded-xl  ">
       <h1 className="m-0 text-lg font-bold text-primary ">Notícias</h1>

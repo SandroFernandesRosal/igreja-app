@@ -10,7 +10,7 @@ export const useSearch = create((set) => ({
 
 export const useNews = create((set) => ({
   news: DataNews,
-  setNews: (state) => set({ news: state }),
+  setNews: (state) => set({ news: JSON.parse(state) }),
 }))
 
 export const useAgenda = create((set) => ({
