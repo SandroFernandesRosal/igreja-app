@@ -4,9 +4,20 @@ import { usemMinisterio } from '../store/useStore'
 import { DataMinisterioPenha } from '../service/DataMinisterioPenha'
 import { DataMinisterio2 } from '../service/DataMinisterio2'
 import { DataMinisterio3 } from '../service/DataMinisterio3'
+import { useEffect } from 'react'
 
 export default function Ministerio() {
   const { ministerio, setMinisterio } = usemMinisterio()
+  useEffect(() => {
+    const newsFromLocalStorage = localStorage.getItem('ministerio')
+    if (newsFromLocalStorage) {
+      setMinisterio(JSON.parse(newsFromLocalStorage))
+    }
+  }, [setMinisterio])
+
+  useEffect(() => {
+    localStorage.setItem('ministerio', JSON.stringify(ministerio))
+  }, [ministerio])
   return (
     <section className="mb-10  flex w-[100vw] flex-col items-center rounded-[35px]  bg-bglightsecundary  px-1 shadow-light dark:bg-bgdarksecundary dark:shadow-dark  md:w-[90vw] md:rounded-xl">
       <h1 className="m-0 mt-1 text-lg font-bold text-primary">Ministério</h1>

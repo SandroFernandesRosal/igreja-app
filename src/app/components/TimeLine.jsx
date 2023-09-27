@@ -4,9 +4,20 @@ import { dataAgenda } from '../service/dataAgenda'
 import { DataAgenda2 } from '../service/DataAgenda2'
 import { useAgenda } from '../store/useStore'
 import { DataAgenda3 } from '../service/DataAfenda3'
+import { useEffect } from 'react'
 
 export default function TimeLine({ children }) {
   const { agenda, setAgenda } = useAgenda()
+  useEffect(() => {
+    const newsFromLocalStorage = localStorage.getItem('agenda')
+    if (newsFromLocalStorage) {
+      setAgenda(JSON.parse(newsFromLocalStorage))
+    }
+  }, [setAgenda])
+
+  useEffect(() => {
+    localStorage.setItem('agenda', JSON.stringify(agenda))
+  }, [agenda])
   return (
     <div className=" mb-5 flex w-[100vw] flex-col items-center rounded-[35px] bg-bglightsecundary  pb-5 shadow-light dark:bg-bgdarksecundary dark:shadow-dark md:w-[90vw] md:rounded-xl ">
       <div className=" flex-col items-center text-center">
