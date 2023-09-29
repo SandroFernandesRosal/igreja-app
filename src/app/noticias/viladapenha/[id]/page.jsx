@@ -1,14 +1,14 @@
 'use client'
 import Image from 'next/image'
-import { DataNews } from '@/app/service/DataVp'
 import New from '@/app/components/New'
-import { useSearch } from '@/app/store/useStore'
+import { useSearch, useData } from '@/app/store/useStore'
 
 export default function NoticiaVilaDaPenha({ params }) {
   const id = params.id
   const { setSearch } = useSearch()
+  const { data } = useData()
 
-  const selectedItem = DataNews.find((item) => item.id === id)
+  const selectedItem = data.news.find((item) => item.id === id)
 
   return (
     <main className="flex min-h-screen flex-col  items-center gap-5 pt-24 md:pt-[165px]">
@@ -34,7 +34,8 @@ export default function NoticiaVilaDaPenha({ params }) {
           Leia também as últimas notícias
         </h1>
         <div className=" flex  w-full flex-wrap justify-center gap-x-5  p-1 pt-5   md:gap-x-5">
-          {DataNews.reverse()
+          {data.news
+            .reverse()
             .slice(0, 6)
             .map((item) => (
               <New

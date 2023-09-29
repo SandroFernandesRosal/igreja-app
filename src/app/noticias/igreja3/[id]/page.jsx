@@ -1,6 +1,6 @@
 'use client'
 import Image from 'next/image'
-import { DataNews2 } from '@/app/service/Data2'
+import { Data3 } from '@/app/service/Data3'
 import New from '@/app/components/New'
 import { useSearch } from '@/app/store/useStore'
 
@@ -8,7 +8,7 @@ export default function NoticiaIgreja3({ params }) {
   const id = params.id
   const { setSearch } = useSearch()
 
-  const selectedItem = DataNews2.find((item) => item.id === id)
+  const selectedItem = Data3.news.find((item) => item.id === id)
 
   return (
     <main className="flex min-h-screen flex-col  items-center gap-5 pt-24 md:pt-[165px]">
@@ -34,7 +34,8 @@ export default function NoticiaIgreja3({ params }) {
           Leia também as últimas notícias
         </h1>
         <div className=" flex  w-full flex-wrap justify-center gap-x-5  p-1 pt-5   md:gap-x-5">
-          {DataNews2.reverse()
+          {Data3.news
+            .reverse()
             .slice(0, 6)
             .map((item) => (
               <New
