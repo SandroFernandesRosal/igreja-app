@@ -45,6 +45,7 @@ export default function NoticiaVilaDaPenha({ params }) {
                 id={item.id}
                 setSearch={setSearch}
                 description={item.description.slice(0, 30)}
+                page={item.page}
               />
             ))}
         </div>
