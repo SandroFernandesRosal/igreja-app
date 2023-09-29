@@ -4,27 +4,27 @@ import New from './New'
 import News from './News'
 import Carousel from './Carousel'
 
-import { useNews, useSearch } from '../store/useStore'
+import { useData, useSearch } from '../store/useStore'
 
 export default function NewsPenha({ children }) {
-  const { news, setNews } = useNews()
+  const { data, setData } = useData()
   const { search, setSearch } = useSearch()
-  const results = news.filter(
+  const results = data.news.filter(
     (item) => item.title.toLowerCase().indexOf(search) !== -1,
   )
 
   return (
     <div className="flex w-[100vw]  flex-col items-center    justify-center bg-transparent">
-      <Carousel news={news} />
+      <Carousel data={data.news} />
       <News
-        news={news}
-        setNews={setNews}
+        data={data.news}
+        setData={setData}
         search={search}
         setSearch={setSearch}
         results={results}
       >
-        {news &&
-          news
+        {data.news &&
+          data.news
             .reverse()
             .slice(0, 6)
             .map((item) => (
@@ -34,9 +34,9 @@ export default function NewsPenha({ children }) {
                 title={item.title}
                 id={item.id}
                 description={item.description.slice(0, 30)}
-                setNews={setNews}
+                setNews={setData}
                 page={item.page}
-                news={setNews}
+                data={data}
               />
             ))}
       </News>

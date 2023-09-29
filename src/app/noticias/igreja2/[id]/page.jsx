@@ -1,6 +1,6 @@
 'use client'
 import Image from 'next/image'
-import { DataNews2 } from '@/app/service/DataNews2'
+import { DataNews2 } from '@/app/service/Data2'
 import New from '@/app/components/New'
 import { useSearch } from '@/app/store/useStore'
 

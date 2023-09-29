@@ -1,24 +1,12 @@
 import { create } from 'zustand'
-import { DataNews } from '../service/DataNews'
-import { dataAgenda } from '../service/dataAgenda'
-import { DataMinisterioPenha } from '../service/DataMinisterioPenha'
+import { DataVp } from '../service/DataVp'
 
 export const useSearch = create((set) => ({
   search: '',
   setSearch: (query) => set({ search: query }),
 }))
 
-export const useNews = create((set) => ({
-  news: DataNews,
-  setNews: (state) => set({ news: state }),
-}))
-
-export const useAgenda = create((set) => ({
-  agenda: dataAgenda,
-  setAgenda: (state) => set({ agenda: state }),
-}))
-
-export const usemMinisterio = create((set) => ({
-  ministerio: DataMinisterioPenha,
-  setMinisterio: (state) => set({ ministerio: state }),
+export const useData = create((set) => ({
+  data: DataVp,
+  setData: (state) => set({ data: state }),
 }))
