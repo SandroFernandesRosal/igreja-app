@@ -2,13 +2,25 @@
 import Image from 'next/image'
 import New from '@/app/components/New'
 import { useSearch, useData } from '@/app/store/useStore'
+import { useEffect } from 'react'
 
 export default function NoticiaVilaDaPenha({ params }) {
   const id = params.id
   const { setSearch } = useSearch()
-  const { data } = useData()
+  const { data, setData } = useData()
 
   const selectedItem = data.news.find((item) => item.id === id)
+
+  useEffect(() => {
+    const newsFromLocalStorage = localStorage.getItem('data')
+    if (newsFromLocalStorage) {
+      setData(JSON.parse(newsFromLocalStorage))
+    }
+  }, [setData])
+
+  useEffect(() => {
+    localStorage.setItem('data', JSON.stringify(data))
+  }, [data])
 
   return (
     <main className="flex min-h-screen flex-col  items-center gap-5 pt-24 md:pt-[165px]">
