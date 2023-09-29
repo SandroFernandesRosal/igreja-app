@@ -4,9 +4,21 @@ import { useData } from '../store/useStore'
 import { DataVp } from '../service/DataVp'
 import { Data2 } from '../service/Data2'
 import { Data3 } from '../service/Data3'
+import { useEffect } from 'react'
 
 export default function Ministerio() {
   const { data, setData } = useData()
+
+  useEffect(() => {
+    const newsFromLocalStorage = localStorage.getItem('data')
+    if (newsFromLocalStorage) {
+      setData(JSON.parse(newsFromLocalStorage))
+    }
+  }, [setData])
+
+  useEffect(() => {
+    localStorage.setItem('data', JSON.stringify(data))
+  }, [data])
 
   return (
     <section className="mb-10  flex w-[100vw] flex-col items-center rounded-[35px]  bg-bglightsecundary  px-1 shadow-light dark:bg-bgdarksecundary dark:shadow-dark  md:w-[90vw] md:rounded-xl">
