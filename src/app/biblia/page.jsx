@@ -45,14 +45,14 @@ export default function Biblia() {
     <main className="flex min-h-screen flex-col items-center gap-5 pt-24 md:pt-[165px]">
       <div>
         <div className="flex flex-col content-center items-center justify-center self-center">
-          <div className="flex gap-3 text-primary">
+          <div className="mx-5 flex gap-3 text-primary">
             {loading ? (
               <p>Carregando livros...</p>
             ) : (
               <select
                 value={book}
                 onChange={(e) => setBook(e.target.value)}
-                className="m-1 rounded-lg border-none bg-bglightsecundary shadow-light outline-none focus:ring-0 dark:bg-bgdarksecundary dark:shadow-dark"
+                className="m-1 w-full rounded-lg border-none bg-bglightsecundary shadow-light outline-none focus:ring-0 dark:bg-bgdarksecundary dark:shadow-dark"
               >
                 {dataBook.map((item) => (
                   <option
@@ -103,7 +103,7 @@ export default function Biblia() {
               data.verses.map((item) => (
                 <li
                   key={item.number}
-                  className="border-b-[1px] pb-3 dark:border-gray-900"
+                  className="border-b-[1px] border-white pb-3 dark:border-black"
                 >
                   {item.number} - {item.text}
                 </li>
