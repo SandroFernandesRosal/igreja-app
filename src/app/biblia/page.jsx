@@ -8,6 +8,7 @@ export default function Biblia() {
   const [dataBook, setDataBook] = useState([])
   const [book, setBook] = useState('gn')
   const [chapter, setChapter] = useState(1)
+  const [chapterCount, setChapterCount] = useState(0)
 
   useEffect(() => {
     api
@@ -26,21 +27,24 @@ export default function Biblia() {
       )
       const data = await response.json()
       setDataBook(data)
+
+      const selectedBook = data.find((item) => item.abbrev.pt === book)
+      if (selectedBook) {
+        setChapterCount(selectedBook.chapters)
+      }
     }
     fetchBooks()
   }, [book])
 
   const chaptersMap = new Map()
-  if (dataBook && dataBook.length > 0) {
-    for (let i = 1; i <= dataBook[0].chapters; i++) {
-      chaptersMap.set(i, i)
-    }
+  for (let i = 1; i <= chapterCount; i++) {
+    chaptersMap.set(i, i)
   }
 
   return (
-    <main className="flex min-h-screen flex-col  items-center gap-5 pt-24 md:pt-[165px]">
+    <main className="flex min-h-screen flex-col items-center gap-5 pt-24 md:pt-[165px]">
       <div>
-        <div className="flex  flex-col content-center items-center justify-center self-center">
+        <div className="flex flex-col content-center items-center justify-center self-center">
           <div className="flex gap-3 text-primary">
             {loading ? (
               <p>Carregando livros...</p>
@@ -81,7 +85,7 @@ export default function Biblia() {
             )}
           </div>
 
-          <ul className="mb-10 mt-5 flex min-h-screen w-[100vw] flex-col gap-2 rounded-[35px] bg-bglightsecundary px-10 pt-5 shadow-light dark:bg-bgdarksecundary dark:shadow-dark md:mx-5 md:w-[90vw] md:rounded-xl">
+          <ul className="mb-10 mt-5 flex min-h-screen w-[100vw] flex-col gap-2 rounded-[35px] bg-bglightsecundary px-10 pb-10 pt-5 shadow-light dark:bg-bgdarksecundary dark:shadow-dark md:mx-5 md:w-[90vw] md:rounded-xl">
             <div className="flex w-full justify-center gap-5 text-primary">
               {loading ? <p>Carregando livro...</p> : <p>{data.book.name}</p>}|
               {loading ? (
@@ -99,7 +103,7 @@ export default function Biblia() {
               data.verses.map((item) => (
                 <li
                   key={item.number}
-                  className="border-b-[1px] pb-3  dark:border-gray-900"
+                  className="border-b-[1px] pb-3 dark:border-gray-900"
                 >
                   {item.number} - {item.text}
                 </li>
