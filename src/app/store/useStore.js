@@ -10,3 +10,8 @@ export const useData = create((set) => ({
   data: DataVp,
   setData: (state) => set({ data: state }),
 }))
+
+export const useLocal = create((set) => ({
+  local: 'vp',
+  setLocal: (state) => set({ local: state }),
+}))

@@ -5,18 +5,15 @@ export default function SearchMd() {
   const { search } = useSearch()
   const { setSearch } = useSearch()
 
-  const handleSearchChange = (e) => {
-    setSearch(e.target.value.toLowerCase())
-  }
-
   return (
     <>
       <input
+        name="search"
         type="text"
         placeholder="Buscar notícia..."
         className="border:none  flex  rounded-lg border-none bg-bglight placeholder-black shadow-light outline-none hover:shadow-hover focus:ring-0 dark:bg-bgdark dark:placeholder-white dark:shadow-dark dark:hover:shadow-hover"
         value={search}
-        onChange={handleSearchChange}
+        onChange={(e) => setSearch(e.target.value)}
       />
       <FaSearch className="pointer-events-none relative -top-[27px] left-[85px] mb-1 text-primary" />
     </>

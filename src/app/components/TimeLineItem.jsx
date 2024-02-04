@@ -1,10 +1,9 @@
 export default function TimeLineItem({
   title,
-  titletwo,
+
   hora,
-  horatwo,
+
   day,
-  trueitem,
 }) {
   return (
     <div className="mt-5 h-[300px] w-[45%] max-w-[150px]  flex-col items-center overflow-hidden rounded-xl bg-bglight p-2 px-4 shadow-light transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:shadow-hover  dark:bg-bgdark dark:shadow-dark dark:hover:shadow-hover md:h-[300px] md:w-[200px] md:max-w-[200px]">
@@ -22,18 +21,6 @@ export default function TimeLineItem({
             {hora}
           </p>
         </li>
-        {trueitem === true && (
-          <li className=" ml-6">
-            <span className="absolute -left-1 flex h-2 w-2 items-center justify-center rounded-full bg-primary ring-8 ring-primary/20"></span>
-            <h3 className="mb-1  font-semibold text-gray-900 dark:text-white">
-              {titletwo}
-            </h3>
-
-            <p className=" font-normal text-gray-500 dark:text-gray-400">
-              {horatwo}
-            </p>
-          </li>
-        )}
       </ul>
     </div>
   )

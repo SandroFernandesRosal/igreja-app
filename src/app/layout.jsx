@@ -3,6 +3,7 @@ import { Roboto_Flex as Roboto } from 'next/font/google'
 import { Providers } from './providers'
 import Header from './components/Header'
 import Footer from './components/Footer'
+import NextAuthSessionProvider from '@/providers/sessionProvider'
 
 const roboto = Roboto({
   subsets: ['latin'],
@@ -18,11 +19,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="pt-br" suppressHydrationWarning>
       <body className={`${roboto.variable}`}>
-        <Providers>
-          <Header />
-          {children}
-          <Footer />
-        </Providers>
+        <NextAuthSessionProvider>
+          <Providers>
+            <Header />
+            {children}
+            <Footer />
+          </Providers>
+        </NextAuthSessionProvider>
       </body>
     </html>
   )

@@ -8,7 +8,7 @@ export default function LideresItem({ nome, titulo, local, img }) {
         height={120}
         src={img}
         alt={nome}
-        className="flex  items-center justify-center rounded-full border-2  border-primary"
+        className="flex  h-[120px] w-[120px] items-center justify-center rounded-full border-2  border-primary"
       />
 
       <div className="text-center font-bold text-primary md:text-lg">

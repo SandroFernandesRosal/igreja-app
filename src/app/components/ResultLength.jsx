@@ -1,10 +1,7 @@
-export default function ResultLength({ search, data }) {
-  const results = data.filter(
-    (item) => item.title.toLowerCase().indexOf(search) !== -1,
-  )
+export default function ResultLength({ dataSearch }) {
   return (
     <>
-      {results.length === 0 ? (
+      {dataSearch.length === 0 ? (
         <div className=" flex-col items-center text-center">
           <h1 className="m-0 px-2 text-lg font-bold text-primary ">
             {' '}
@@ -17,8 +14,9 @@ export default function ResultLength({ search, data }) {
       ) : (
         <div className=" mb-4 flex-col items-center text-center">
           <p className="text-xl font-bold text-primary ">
-            {results.length} notícia{results.length === 1 ? '' : 's'} encontrada
-            {results.length === 1 ? '' : 's'}{' '}
+            {dataSearch.length} notícia{dataSearch.length === 1 ? '' : 's'}{' '}
+            encontrada
+            {dataSearch.length === 1 ? '' : 's'}{' '}
           </p>
         </div>
       )}
