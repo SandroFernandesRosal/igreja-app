@@ -3,7 +3,7 @@ export default function SelectLocal() {
   const { setLocal } = useLocal()
   return (
     <div className="mb-5 flex gap-3 text-primary">
-      <p className="cursor-pointer" onClick={() => setLocal('vp')}>
+      <p className="cursor-pointer" onClick={() => setLocal('viladapenha')}>
         Vila da Penha
       </p>{' '}
       |
