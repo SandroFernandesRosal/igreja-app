@@ -1,5 +1,4 @@
 import { create } from 'zustand'
-import { DataVp } from '../service/DataVp'
 
 export const useSearch = create((set) => ({
   search: '',
@@ -7,11 +6,21 @@ export const useSearch = create((set) => ({
 }))
 
 export const useData = create((set) => ({
-  data: DataVp,
+  data: [],
   setData: (state) => set({ data: state }),
 }))
 
 export const useLocal = create((set) => ({
   local: 'viladapenha',
   setLocal: (state) => set({ local: state }),
+}))
+
+export const useLoading = create((set) => ({
+  loading: true,
+  setLoading: (state) => set({ loading: state }),
+}))
+
+export const useDataSearch = create((set) => ({
+  dataSearch: [],
+  setDataSearch: (state) => set({ dataSearch: state }),
 }))

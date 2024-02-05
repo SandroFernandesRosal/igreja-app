@@ -3,15 +3,15 @@
 import New from './New'
 import News from './News'
 import Carousel from './Carousel'
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import { api } from '@/lib/api'
-import { useSearch, useLocal } from '../store/useStore'
+import { useSearch, useLocal, useData, useLoading } from '../store/useStore'
 
 export default function NewsPenha({ children }) {
-  const [data, setData] = useState([])
+  const { data, setData } = useData()
   const { local, setLocal } = useLocal()
   const { search, setSearch } = useSearch()
-  const [loading, setLoading] = useState(true)
+  const { loading, setLoading } = useLoading()
 
   useEffect(() => {
     api
@@ -21,7 +21,7 @@ export default function NewsPenha({ children }) {
         setLoading(false)
       })
       .catch((err) => console.log(err))
-  }, [local])
+  }, [local, setData, setLoading])
 
   return (
     <div className="flex w-[100vw]  flex-col items-center    justify-center bg-transparent">
@@ -45,9 +45,9 @@ export default function NewsPenha({ children }) {
               id={item.id}
               description={item.content.slice(0, 30)}
               setData={setData}
-              page={item.page}
               data={data}
               local={local}
+              page={item.page}
               setLocal={setLocal}
             />
           ))}

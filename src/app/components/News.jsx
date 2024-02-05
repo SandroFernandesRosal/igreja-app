@@ -2,7 +2,7 @@
 import Link from 'next/link'
 import Search from './Search'
 import ResultLength from './ResultLength'
-import { useSearch, useLocal } from '../store/useStore'
+import { useSearch, useLocal, useDataSearch } from '../store/useStore'
 import Cookies from 'js-cookie'
 import { ImNewspaper } from 'react-icons/im'
 import SelectLocal from './SelectLocal'
@@ -14,7 +14,7 @@ import AddNew from './AddNew'
 import SkeletonNew from './SkeletonNew'
 
 export default function News({ children, setLocal, loading }) {
-  const [dataSearch, setDataSearch] = useState([])
+  const { dataSearch, setDataSearch } = useDataSearch()
   const { search, setSearch } = useSearch()
   const { local } = useLocal()
   const token = Cookies.get('tokennn')
@@ -27,7 +27,7 @@ export default function News({ children, setLocal, loading }) {
         setDataSearch(response.data)
       })
       .catch((err) => console.log(err))
-  }, [search, local])
+  }, [local, setDataSearch, search])
   return (
     <section className=" mb-5  flex w-[100vw] flex-col items-center rounded-[35px] bg-bglightsecundary shadow-light dark:bg-bgdarksecundary dark:shadow-dark md:w-[90vw] md:rounded-xl  ">
       <div
