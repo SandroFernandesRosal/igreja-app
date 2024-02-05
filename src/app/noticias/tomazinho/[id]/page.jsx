@@ -5,7 +5,7 @@ import { useLocal, useSearch } from '@/app/store/useStore'
 import { useEffect, useState } from 'react'
 import { api } from '@/lib/api'
 
-export default function NoticiaVilaDaPenha({ params }) {
+export default function NoticiaTomazinho({ params }) {
   const id = params.id
   const { setSearch } = useSearch()
   const { local, setLocal } = useLocal()
