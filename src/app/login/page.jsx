@@ -34,8 +34,10 @@ export default function Register() {
 
     if (res.ok && user) {
       const token = user.token
-      Cookies.set('tokennn', token) // Salva o token nos cookies
-      console.log(token)
+      Cookies.set('tokennn', token)
+      Cookies.set('login', login, { httpOnly: true })
+      Cookies.set('password', password, { httpOnly: true })
+      console.log(token, login, password)
       router.push('/')
       return token
     }
