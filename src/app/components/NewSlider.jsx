@@ -37,8 +37,6 @@ export default function NewSlider({ data, loading }) {
             navigation={true}
             pagination={{ clickable: true }}
             scrollbar={false}
-            onSwiper={(swiper) => console.log(swiper)}
-            onSlideChange={() => console.log('slide change')}
             autoplay={{ delay: 3000 }}
             loop={true}
             effect="flip"

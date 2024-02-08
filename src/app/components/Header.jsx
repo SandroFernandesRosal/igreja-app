@@ -22,7 +22,13 @@ export default function Header() {
       <header className="font-Roboto fixed z-50 flex flex-col">
         <div className="flex h-20 w-[100vw]  items-center justify-evenly overflow-hidden border-b-2 border-solid border-b-primary  bg-bglightsecundary       backdrop-blur-md    dark:bg-bgdarksecundary">
           <Link href="/">
-            <Image src={logo} alt="logo do site" width={200} height={50} />
+            <Image
+              src={logo}
+              alt="logo do site"
+              width={200}
+              height={50}
+              className="h-[50px] w-[200px]"
+            />
           </Link>
 
           <div className="hidden gap-10 md:flex">

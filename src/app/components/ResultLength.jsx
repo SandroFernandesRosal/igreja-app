@@ -7,9 +7,7 @@ export default function ResultLength({ dataSearch }) {
             {' '}
             Nenhuma notícia encontrada{' '}
           </h1>
-          <p className="px-2 text-xl ">
-            Faça uma nova pesquisa ou clique em Mais notícias
-          </p>
+          <p className="px-2 text-xl ">Faça uma nova pesquisa</p>
         </div>
       ) : (
         <div className=" mb-4 flex-col items-center text-center">
