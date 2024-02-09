@@ -40,39 +40,33 @@ export default function TimeLine({ children }) {
 
   return (
     <div className=" mb-5 flex w-[100vw] flex-col items-center rounded-[35px] bg-bglightsecundary  pb-5 shadow-light dark:bg-bgdarksecundary dark:shadow-dark md:w-[90vw] md:rounded-xl ">
-      <div
-        className={`w-full  justify-center ${
-          openNew === true ? 'md:flex' : 'md:flex-col'
-        }`}
-      >
-        <div className="flex flex-col items-center  md:min-w-[35%]">
-          <h1 className="m-0 text-lg font-bold text-primary ">Agenda</h1>
-          <p className="text-xl ">Todos os nossos eventos</p>
+      <div className="flex flex-col items-center  md:min-w-[35%]">
+        <h1 className="m-0 text-lg font-bold text-primary ">Agenda</h1>
+        <p className="text-xl ">Todos os nossos eventos</p>
 
-          <SelectLocal />
-        </div>
-
-        {token && (
-          <>
-            {openNew === false ? (
-              <div
-                className="mb-4 flex  cursor-pointer items-center justify-center gap-2 text-lg font-bold"
-                onClick={() => setOpenNew(true)}
-              >
-                <ImNewspaper className="text-2xl text-primary" />
-                Adicionar evento
-              </div>
-            ) : null}
-
-            {openNew && (
-              <div className="md:min-w-[35%]">
-                {' '}
-                <AddAgenda openNew={openNew} setOpenNew={setOpenNew} />
-              </div>
-            )}
-          </>
-        )}
+        <SelectLocal />
       </div>
+
+      {token && (
+        <>
+          {openNew === false ? (
+            <div
+              className="mb-4 flex  cursor-pointer items-center justify-center gap-2 text-lg font-bold"
+              onClick={() => setOpenNew(true)}
+            >
+              <ImNewspaper className="text-2xl text-primary" />
+              Adicionar evento
+            </div>
+          ) : null}
+
+          {openNew && (
+            <div className="md:min-w-[35%]">
+              {' '}
+              <AddAgenda openNew={openNew} setOpenNew={setOpenNew} />
+            </div>
+          )}
+        </>
+      )}
 
       <div className="relative -top-[30px] flex flex-wrap justify-center  gap-x-5 overflow-hidden rounded-xl px-5  pb-10 pt-10   md:overflow-visible ">
         {!loading ? (
@@ -87,6 +81,7 @@ export default function TimeLine({ children }) {
                   title={item.name}
                   hora={item.hour}
                   trueitem={item.isPublic}
+                  id={item.id}
                 />
               )
             })

@@ -27,38 +27,48 @@ export default function EditNew({ openNew, setOpenNew, setOpenEdit, id }) {
     let coverUrl = ''
 
     if (fileToUpload) {
-      const uploadFormData = new FormData()
-      uploadFormData.append('file', fileToUpload)
+      try {
+        const uploadFormData = new FormData()
+        uploadFormData.append('file', fileToUpload)
 
-      const uploadResponse = await api.post('/upload', uploadFormData)
-      coverUrl = uploadResponse.data.fileUrl
+        const uploadResponse = await api.post('/upload', uploadFormData)
+        coverUrl = uploadResponse.data.fileUrl
+      } catch (error) {
+        console.error('Erro ao enviar imagem:', error)
+        // Exibir mensagem de erro ao usuário
+        return // Impedir envio dos dados caso o upload falhe
+      }
     }
 
-    const res = await fetch(`http://localhost:3333/news/${local}/${id}`, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${token}`,
-      },
-      body: JSON.stringify({
-        title: `${title}`,
-        content: `${content}`,
-        coverUrl: `${coverUrl}`,
-        page: `${local}`,
-      }),
-    })
+    try {
+      const response = await api.put(
+        `/news/${local}/${id}`,
+        {
+          title,
+          content,
+          coverUrl,
+          page: local,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        },
+      )
 
-    const newss = await res.json()
+      if (response.status === 200) {
+        router.push('/')
+        return response.data
+      }
 
-    if (res.ok && newss) {
-      router.push('/')
-      return newss
+      console.error('Erro ao editar notícia:', response.statusText)
+    } catch (error) {
+      console.error('Erro ao editar notícia:', error)
+      // Exibir mensagem de erro ao usuário
     }
 
-    console.log(newss)
     return null
   }
-
   function onFileSelected(event) {
     const { files } = event.target
 

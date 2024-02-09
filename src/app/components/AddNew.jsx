@@ -27,36 +27,51 @@ export default function AddNew({ openNew, setOpenNew }) {
     let coverUrl = ''
 
     if (fileToUpload) {
-      const uploadFormData = new FormData()
-      uploadFormData.append('file', fileToUpload)
+      const formData = new FormData()
+      formData.append('file', fileToUpload)
 
-      const uploadResponse = await api.post('/upload', uploadFormData)
-      coverUrl = uploadResponse.data.fileUrl
+      try {
+        const uploadResponse = await api.post('/upload', formData, {
+          headers: { 'Content-Type': 'multipart/form-data' }, // Definir cabeçalho apropriado para uploads de arquivos
+        })
+        coverUrl = uploadResponse.data.fileUrl
+      } catch (error) {
+        console.error('Erro ao carregar arquivo:', error)
+        // Tratar erros de upload aqui
+      }
     }
 
-    const res = await fetch(`http://localhost:3333/news/${local}`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${token}`,
-      },
-      body: JSON.stringify({
-        title: `${title}`,
-        content: `${content}`,
-        coverUrl: `${coverUrl}`,
-        page: `${local}`,
-      }),
-    })
+    try {
+      const response = await api.post(
+        `/news/${local}`,
+        {
+          title,
+          content,
+          coverUrl,
+          page: local,
+        },
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`,
+          },
+        },
+      )
 
-    const newss = await res.json()
+      const newss = response.data
 
-    if (res.ok && newss) {
-      router.push('/')
-      return newss
+      if (response.status === 200 && newss) {
+        setOpenNew(false)
+        router.push('/')
+        return newss
+      }
+
+      console.log(newss)
+      return null
+    } catch (error) {
+      console.error('Erro ao criar notícia:', error)
+      // Tratar outros erros de requisição aqui
     }
-
-    console.log(newss)
-    return null
   }
 
   function onFileSelected(event) {
@@ -74,7 +89,7 @@ export default function AddNew({ openNew, setOpenNew }) {
   return (
     <form
       ref={formRef}
-      className="flex  flex-col items-center justify-center"
+      className="fixed left-0 top-0 z-20 flex h-[100vh] w-[100vw] flex-col items-center justify-center bg-black/50 backdrop-blur-lg"
       onSubmit={handleSubmit}
     >
       <h1 className="mb-2 flex items-center justify-center gap-3 text-lg font-bold text-primary">

@@ -1,11 +1,12 @@
 'use client'
 import Cookies from 'js-cookie'
-import { api } from '@/lib/api'
+
 import { useRouter } from 'next/navigation'
 import { useLocal } from '../store/useStore'
 import { useState } from 'react'
+import { api } from '@/lib/api'
 
-export default function RemoveNew({ id }) {
+export default function RemoveAgenda({ id }) {
   const { local } = useLocal()
   const router = useRouter()
   const token = Cookies.get('tokennn')
@@ -18,8 +19,9 @@ export default function RemoveNew({ id }) {
     setIsDeleting(true)
 
     try {
-      const response = await api.delete(`/news/${local}/${id}`, {
+      const response = await api.delete(`/agenda/${local}/${id}`, {
         headers: {
+          'Content-Type': 'application/json',
           Authorization: `Bearer ${token}`,
         },
       })
@@ -27,11 +29,11 @@ export default function RemoveNew({ id }) {
       if (response.status === 200) {
         router.push('/') // Recarregue a página ou atualize a interface
       } else {
-        console.error('Erro ao remover notícia:', response.statusText)
+        console.error('Erro ao remover da agenda:', response.statusText)
         // Exiba uma mensagem de erro ao usuário
       }
     } catch (error) {
-      console.error('Erro ao remover notícia:', error)
+      console.error('Erro ao remover da agenda:', error)
       // Exiba uma mensagem de erro ao usuário
     } finally {
       setIsDeleting(false)

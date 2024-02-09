@@ -30,38 +30,32 @@ export default function News({ children, setLocal, loading }) {
   }, [local, setDataSearch, search])
   return (
     <section className=" mb-5  flex w-[100vw] flex-col items-center rounded-[35px] bg-bglightsecundary shadow-light dark:bg-bgdarksecundary dark:shadow-dark md:w-[90vw] md:rounded-xl  ">
-      <div
-        className={`w-full  justify-center ${
-          openNew === true ? 'md:flex' : 'md:flex-col'
-        }`}
-      >
-        <div className="flex flex-col items-center  md:min-w-[35%]">
-          <h1 className="m-0 text-lg font-bold text-primary ">Notícias</h1>
-          <p className=" px-2 text-xl">Fique por dentro das notícias</p>
-          <SelectLocal />
-          <Search />
-        </div>
-        {token && (
-          <>
-            {openNew === false ? (
-              <div
-                className="mb-4 flex  cursor-pointer items-center justify-center gap-2 text-lg font-bold"
-                onClick={() => setOpenNew(true)}
-              >
-                <ImNewspaper className="text-2xl text-primary" />
-                Adicionar Notícia
-              </div>
-            ) : null}
-
-            {openNew && (
-              <div className="md:min-w-[35%]">
-                {' '}
-                <AddNew openNew={openNew} setOpenNew={setOpenNew} />
-              </div>
-            )}
-          </>
-        )}
+      <div className="flex flex-col items-center  md:min-w-[35%]">
+        <h1 className="m-0 text-lg font-bold text-primary ">Notícias</h1>
+        <p className=" px-2 text-xl">Fique por dentro das notícias</p>
+        <SelectLocal />
+        <Search />
       </div>
+      {token && (
+        <>
+          {openNew === false ? (
+            <div
+              className="mb-4 flex  cursor-pointer items-center justify-center gap-2 text-lg font-bold"
+              onClick={() => setOpenNew(true)}
+            >
+              <ImNewspaper className="text-2xl text-primary" />
+              Adicionar Notícia
+            </div>
+          ) : null}
+
+          {openNew && (
+            <div className="md:min-w-[35%]">
+              {' '}
+              <AddNew openNew={openNew} setOpenNew={setOpenNew} />
+            </div>
+          )}
+        </>
+      )}
 
       {search ? <ResultLength search={search} dataSearch={dataSearch} /> : null}
       <div className="relative -top-[30px] flex w-full flex-wrap justify-center gap-x-5 p-1 px-2 pt-10 md:gap-x-5">
