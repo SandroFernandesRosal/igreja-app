@@ -13,6 +13,7 @@ export default function EditNew({ setOpenEdit, id, img, titulo, conteudo }) {
   const [content, setContent] = useState('')
 
   const [preview, setPreview] = useState(null)
+
   const formRef = useRef(null)
 
   const { local } = useLocal()
@@ -39,14 +40,16 @@ export default function EditNew({ setOpenEdit, id, img, titulo, conteudo }) {
         // Exibir mensagem de erro ao usuário
         return // Impedir envio dos dados caso o upload falhe
       }
+    } else {
+      coverUrl = img
     }
 
     try {
       const response = await api.put(
         `/news/${local}/${id}`,
         {
-          title,
-          content,
+          title: title || titulo,
+          content: content || conteudo,
           coverUrl,
           page: local,
         },
@@ -125,29 +128,25 @@ export default function EditNew({ setOpenEdit, id, img, titulo, conteudo }) {
         )}
       </label>
 
-      <label htmlFor="title" className="font-bold">
-        Escreva um novo título
-      </label>
-
       <input
         className="mb-4 mt-2 w-[70%] cursor-pointer rounded-lg border-none  bg-bglightsecundary p-2 text-center font-bold placeholder-textlight shadow-light outline-none focus:ring-0 dark:bg-bgdarksecundary dark:placeholder-textdark dark:shadow-dark md:w-[50%]"
         type="text"
         name="title"
         id="title"
-        required
+        required={true}
         defaultValue={titulo}
+        placeholder="Você precisa digitar um título"
         onChange={(e) => setTitle(e.target.value)}
       />
-      <label htmlFor="content" className="font-bold">
-        Escreva um novo conteúdo
-      </label>
+
       <textarea
         className="mb-1 mt-2 w-[70%] cursor-pointer rounded-lg border-none  bg-bglightsecundary p-2 text-center font-bold placeholder-textlight shadow-light outline-none focus:ring-0 dark:bg-bgdarksecundary dark:placeholder-textdark dark:shadow-dark md:w-[50%]"
         type="text"
         name="content"
         id="content"
-        required
+        required={true}
         defaultValue={conteudo}
+        placeholder="Você precisa digitar um conteúdo"
         onChange={(e) => setContent(e.target.value)}
       />
 
@@ -156,7 +155,6 @@ export default function EditNew({ setOpenEdit, id, img, titulo, conteudo }) {
         type="file"
         name="coverUrl"
         id="coverUrl"
-        required
         onChange={onFileSelected}
       />
 
