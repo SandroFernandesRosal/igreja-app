@@ -8,7 +8,7 @@ export default function TimeLineItem({ title, hora, day, id }) {
   const token = Cookies.get('tokennn')
   return (
     <>
-      <div className=" mb-5  flex h-[300px] w-[45%] min-w-[150px] flex-col items-center rounded-lg bg-bglight shadow-light   transition  delay-150 duration-300  ease-in-out hover:-translate-y-1 hover:scale-110 hover:shadow-hover dark:bg-bgdark dark:shadow-dark dark:hover:shadow-hover  md:h-[300px] md:w-[200px]  md:max-w-[200px]">
+      <div className=" mb-5  flex h-[300px] w-[45%] min-w-[150px] flex-col items-center gap-5 rounded-lg bg-bglight shadow-light   transition  delay-150 duration-300  ease-in-out hover:-translate-y-1 hover:scale-110 hover:shadow-hover dark:bg-bgdark dark:shadow-dark dark:hover:shadow-hover  md:h-[300px] md:w-[200px]  md:max-w-[200px]">
         <h1 className="mb-2 flex w-full justify-center text-lg font-bold text-primary">
           {day}
         </h1>
@@ -23,23 +23,31 @@ export default function TimeLineItem({ title, hora, day, id }) {
               {hora}
             </p>
           </li>
-
-          {token && (
-            <div className="flex gap-2">
-              {openEdit === false && (
-                <button
-                  className="text-lg font-bold text-green-500"
-                  onClick={() => setOpenEdit(true)}
-                >
-                  Editar
-                </button>
-              )}
-              <RemoveAgenda id={id} />
-            </div>
-          )}
         </ul>
+
+        {token && (
+          <div className="mt-[95px] flex w-full justify-around">
+            {openEdit === false && (
+              <button
+                className="font-bold text-green-500 md:text-lg"
+                onClick={() => setOpenEdit(true)}
+              >
+                Editar
+              </button>
+            )}
+            <RemoveAgenda id={id} />
+          </div>
+        )}
       </div>
-      {openEdit && <EditAgenda id={id} setOpenEdit={setOpenEdit} />}
+      {openEdit && (
+        <EditAgenda
+          id={id}
+          title={title}
+          hora={hora}
+          dia={day}
+          setOpenEdit={setOpenEdit}
+        />
+      )}
     </>
   )
 }

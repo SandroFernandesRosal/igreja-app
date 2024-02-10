@@ -8,10 +8,17 @@ import { useLocal } from '../store/useStore'
 import { api } from '@/lib/api'
 import Image from 'next/image'
 
-export default function EditNew({ setOpenEdit, id, img, titulo, conteudo }) {
+export default function EditMinisterio({
+  setOpenEdit,
+  id,
+  nome,
+  lugar,
+  titulo,
+  img,
+}) {
   const [title, setTitle] = useState('')
-  const [content, setContent] = useState('')
-
+  const [name, setName] = useState('')
+  const [igreja, setIgreja] = useState('')
   const [preview, setPreview] = useState(null)
   const formRef = useRef(null)
 
@@ -43,12 +50,12 @@ export default function EditNew({ setOpenEdit, id, img, titulo, conteudo }) {
 
     try {
       const response = await api.put(
-        `/news/${local}/${id}`,
+        `/ministerio/${local}/${id}`,
         {
           title,
-          content,
+          name,
+          local: `${igreja}`,
           coverUrl,
-          page: local,
         },
         {
           headers: {
@@ -58,13 +65,14 @@ export default function EditNew({ setOpenEdit, id, img, titulo, conteudo }) {
       )
 
       if (response.status === 200) {
+        setOpenEdit(false)
         router.push('/')
         return response.data
       }
 
-      console.error('Erro ao editar notícia:', response.statusText)
+      console.error('Erro ao editar um líder:', response.statusText)
     } catch (error) {
-      console.error('Erro ao editar notícia:', error)
+      console.error('Erro ao editar um líder:', error)
       // Exibir mensagem de erro ao usuário
     }
 
@@ -85,11 +93,11 @@ export default function EditNew({ setOpenEdit, id, img, titulo, conteudo }) {
   return (
     <form
       ref={formRef}
-      className="fixed left-0 top-0 mt-10 flex h-[100vh] w-[100vw] flex-col items-center justify-center bg-black/50 backdrop-blur-lg md:mt-20"
+      className="fixed left-0 top-0 flex h-[100vh] w-[100vw] flex-col items-center justify-center bg-black/50 backdrop-blur-lg md:mt-5"
       onSubmit={handleSubmit}
     >
       <h1 className="z-20 mb-2 flex items-center justify-center gap-3 text-lg font-bold text-primary">
-        Editar Notícia{' '}
+        Editar Líder{' '}
         <AiFillCloseCircle
           onClick={() => setOpenEdit(false)}
           className="cursor-pointer text-2xl font-bold text-black dark:text-white"
@@ -100,55 +108,56 @@ export default function EditNew({ setOpenEdit, id, img, titulo, conteudo }) {
         htmlFor="coverUrl"
         className="mb-3 flex cursor-pointer flex-col items-center gap-2  font-bold"
       >
+        {' '}
         <p className="flex items-center gap-3">
           {' '}
-          <FaCameraRetro className="text-xl text-primary" /> Anexar nava imagem
-          (até 5mb){' '}
+          <FaCameraRetro className="text-xl text-primary" /> Anexar foto (até
+          5mb){' '}
         </p>
-
         {preview ? (
           <Image
+            width={120}
+            height={120}
             src={preview}
-            width={200}
-            height={100}
-            alt={titulo}
-            className=" aspect-video"
+            alt={nome}
+            className="flex  h-[120px] w-[120px] items-center justify-center rounded-full border-2  border-primary"
           />
         ) : (
           <Image
+            width={120}
+            height={120}
             src={img}
-            alt={titulo}
-            width={500}
-            height={250}
-            className=" aspect-video w-[70%] md:w-[50%]"
+            alt={nome}
+            className="flex  h-[120px] w-[120px] items-center justify-center rounded-full border-2  border-primary"
           />
         )}
       </label>
 
-      <label htmlFor="title" className="font-bold">
-        Escreva um novo título
-      </label>
-
       <input
-        className="mb-4 mt-2 w-[70%] cursor-pointer rounded-lg border-none  bg-bglightsecundary p-2 text-center font-bold placeholder-textlight shadow-light outline-none focus:ring-0 dark:bg-bgdarksecundary dark:placeholder-textdark dark:shadow-dark md:w-[50%]"
+        className="mb-4 mt-2 w-[200px] cursor-pointer rounded-lg  border-none bg-bglightsecundary p-2 text-center font-bold placeholder-textlight shadow-light outline-none focus:ring-0 dark:bg-bgdarksecundary dark:placeholder-textdark dark:shadow-dark"
         type="text"
         name="title"
-        id="title"
         required
-        defaultValue={titulo}
+        placeholder={nome}
+        onChange={(e) => setName(e.target.value)}
+      />
+
+      <input
+        className="mb-1 w-[200px] cursor-pointer rounded-lg  border-none bg-bglightsecundary p-2 text-center font-bold placeholder-textlight shadow-light outline-none focus:ring-0 dark:bg-bgdarksecundary dark:placeholder-textdark dark:shadow-dark"
+        type="text"
+        name="title"
+        required
+        placeholder={titulo}
         onChange={(e) => setTitle(e.target.value)}
       />
-      <label htmlFor="content" className="font-bold">
-        Escreva um novo conteúdo
-      </label>
-      <textarea
-        className="mb-1 mt-2 w-[70%] cursor-pointer rounded-lg border-none  bg-bglightsecundary p-2 text-center font-bold placeholder-textlight shadow-light outline-none focus:ring-0 dark:bg-bgdarksecundary dark:placeholder-textdark dark:shadow-dark md:w-[50%]"
+
+      <input
+        className="mb-4  w-[200px] cursor-pointer rounded-lg  border-none bg-bglightsecundary p-2 text-center font-bold placeholder-textlight shadow-light outline-none focus:ring-0 dark:bg-bgdarksecundary dark:placeholder-textdark dark:shadow-dark"
         type="text"
-        name="content"
-        id="content"
+        name="local"
         required
-        defaultValue={conteudo}
-        onChange={(e) => setContent(e.target.value)}
+        placeholder={lugar}
+        onChange={(e) => setIgreja(e.target.value)}
       />
 
       <input
@@ -157,6 +166,7 @@ export default function EditNew({ setOpenEdit, id, img, titulo, conteudo }) {
         name="coverUrl"
         id="coverUrl"
         required
+        placeholder="Digite a url da notícia"
         onChange={onFileSelected}
       />
 

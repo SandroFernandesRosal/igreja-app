@@ -8,7 +8,7 @@ import { api } from '@/lib/api'
 import { AiFillCloseCircle } from 'react-icons/ai'
 import { FaCameraRetro } from 'react-icons/fa'
 
-export default function AddLider({ openNew, setOpenNew }) {
+export default function AddLider({ openMinisterio, setOpenMinisterio }) {
   const [title, setTitle] = useState('')
   const [name, setName] = useState('')
   const formRef = useRef(null)
@@ -31,32 +31,46 @@ export default function AddLider({ openNew, setOpenNew }) {
       const uploadFormData = new FormData()
       uploadFormData.append('file', fileToUpload)
 
-      const uploadResponse = await api.post('/upload', uploadFormData)
-      coverUrl = uploadResponse.data.fileUrl
+      try {
+        const uploadResponse = await api.post('/upload', uploadFormData)
+        coverUrl = uploadResponse.data.fileUrl
+      } catch (error) {
+        console.error('Error uploading file:', error)
+        // Handle the error appropriately, e.g., display an error message to the user
+        return
+      }
     }
 
-    const res = await fetch(`http://localhost:3333/ministerio/${local}`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${token}`,
-      },
-      body: JSON.stringify({
-        name: `${name}`,
-        title: `${title}`,
-        local: `${igreja}`,
-        coverUrl: `${coverUrl}`,
-      }),
-    })
+    try {
+      const res = await api.post(
+        `/ministerio/${local}`,
+        {
+          name,
+          title,
+          local: `${igreja}`,
+          coverUrl,
+        },
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`,
+          },
+        },
+      )
 
-    const lider = await res.json()
+      const lider = res.data
 
-    if (res.ok && lider) {
-      router.push('/')
-      return lider
+      if (res.status === 200 && lider) {
+        setOpenMinisterio(false)
+        router.push('/')
+        return lider
+      }
+      console.log(lider)
+      return null
+    } catch (error) {
+      console.error('Error during API request:', error)
+      // Handle the error appropriately, e.g., display an error message to the user
     }
-    console.log(lider)
-    return null
   }
 
   function onFileSelected(event) {
@@ -74,14 +88,14 @@ export default function AddLider({ openNew, setOpenNew }) {
   return (
     <form
       ref={formRef}
-      className="flex  flex-col items-center justify-center"
+      className="fixed left-0 top-0 z-20 flex h-[100vh] w-[100vw] flex-col items-center justify-center bg-black/50 backdrop-blur-lg"
       onSubmit={handleSubmit}
     >
       <h1 className="z-20 mb-2 flex items-center justify-center gap-3 text-lg font-bold text-primary">
         Adicionar lider{' '}
-        {openNew === true && (
+        {openMinisterio === true && (
           <AiFillCloseCircle
-            onClick={() => setOpenNew(false)}
+            onClick={() => setOpenMinisterio(false)}
             className="cursor-pointer text-2xl font-bold text-black dark:text-white"
           />
         )}

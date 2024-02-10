@@ -7,7 +7,7 @@ import { useLocal } from '../store/useStore'
 import { AiFillCloseCircle } from 'react-icons/ai'
 import { api } from '@/lib/api'
 
-export default function EditAgenda({ setOpenEdit, id }) {
+export default function EditAgenda({ setOpenEdit, id, title, hora, dia }) {
   const [day, setDay] = useState('')
   const [name, setName] = useState('')
   const [hour, setHour] = useState('')
@@ -53,7 +53,7 @@ export default function EditAgenda({ setOpenEdit, id }) {
 
   return (
     <form
-      className="fixed left-0 top-0 z-30 flex h-[100vh] w-[100vw] flex-col items-center justify-center bg-black/50 backdrop-blur-lg"
+      className="fixed left-0 top-0 z-30 flex h-[100vh] w-[100vw] flex-col items-center justify-center bg-black/50 backdrop-blur-lg md:mt-5"
       onSubmit={handleSubmit}
     >
       <h1 className="z-20 mb-2 flex items-center justify-center gap-3 text-lg font-bold text-primary">
@@ -67,7 +67,7 @@ export default function EditAgenda({ setOpenEdit, id }) {
         className="mb-4 mt-2 w-[200px] cursor-pointer rounded-lg  border-none bg-bglightsecundary p-2 text-center font-bold placeholder-textlight shadow-light outline-none focus:ring-0 dark:bg-bgdarksecundary dark:placeholder-textdark dark:shadow-dark"
         type="text"
         name="day"
-        placeholder="Dia da semana"
+        placeholder={dia}
         onChange={(e) => setDay(e.target.value)}
       />
 
@@ -75,7 +75,7 @@ export default function EditAgenda({ setOpenEdit, id }) {
         className="mb-4 w-[200px] cursor-pointer rounded-lg  border-none bg-bglightsecundary p-2 text-center font-bold placeholder-textlight shadow-light outline-none focus:ring-0 dark:bg-bgdarksecundary dark:placeholder-textdark dark:shadow-dark"
         type="text"
         name="name"
-        placeholder="Nome do evento"
+        placeholder={title}
         onChange={(e) => setName(e.target.value)}
       />
 
@@ -83,7 +83,7 @@ export default function EditAgenda({ setOpenEdit, id }) {
         className="mb-4 w-[200px] cursor-pointer rounded-lg  border-none bg-bglightsecundary p-2 text-center font-bold placeholder-textlight shadow-light outline-none focus:ring-0 dark:bg-bgdarksecundary dark:placeholder-textdark dark:shadow-dark"
         type="text"
         name="hour"
-        placeholder="Horário do evento"
+        placeholder={hora}
         onChange={(e) => setHour(e.target.value)}
       />
 

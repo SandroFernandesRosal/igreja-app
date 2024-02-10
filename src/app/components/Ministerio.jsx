@@ -6,13 +6,13 @@ import { useEffect, useState } from 'react'
 import SelectLocal from './SelectLocal'
 import { api } from '@/lib/api'
 import Cookies from 'js-cookie'
-import AddLider from './AddLider'
+import AddLider from './AddMinisterio'
 import { ImNewspaper } from 'react-icons/im'
 import SkeletonLider from './SkeletonLider'
 
 export default function Ministerio() {
   const [data, setData] = useState([])
-  const [openNew, setOpenNew] = useState(false)
+  const [openMinisterio, setOpenMinisterio] = useState(false)
   const [loading, setLoading] = useState(true)
   const { local } = useLocal()
   const token = Cookies.get('tokennn')
@@ -29,39 +29,36 @@ export default function Ministerio() {
 
   return (
     <section className="mb-10  flex w-[100vw] flex-col items-center rounded-[35px]  bg-bglightsecundary  px-1 shadow-light dark:bg-bgdarksecundary dark:shadow-dark  md:w-[90vw] md:rounded-xl">
-      <div
-        className={`w-full  justify-center ${
-          openNew === true ? 'md:flex' : 'md:flex-col'
-        }`}
-      >
-        <div className="flex flex-col items-center  md:min-w-[35%]">
-          <h1 className="m-0 text-lg font-bold text-primary ">Ministério</h1>
-          <p className="text-xl ">Todos os nossos lideres</p>
+      <div className="flex flex-col items-center  md:min-w-[35%]">
+        <h1 className="m-0 text-lg font-bold text-primary ">Ministério</h1>
+        <p className="text-xl ">Todos os nossos lideres</p>
 
-          <SelectLocal />
-        </div>
-
-        {token && (
-          <>
-            {openNew === false ? (
-              <div
-                className="mb-4 flex  cursor-pointer items-center justify-center gap-2 text-lg font-bold"
-                onClick={() => setOpenNew(true)}
-              >
-                <ImNewspaper className="text-2xl text-primary" />
-                Adicionar lider
-              </div>
-            ) : null}
-
-            {openNew && (
-              <div className="md:min-w-[35%]">
-                {' '}
-                <AddLider openNew={openNew} setOpenNew={setOpenNew} />
-              </div>
-            )}
-          </>
-        )}
+        <SelectLocal />
       </div>
+
+      {token && (
+        <>
+          {openMinisterio === false ? (
+            <div
+              className="mb-4 flex  cursor-pointer items-center justify-center gap-2 text-lg font-bold"
+              onClick={() => setOpenMinisterio(true)}
+            >
+              <ImNewspaper className="text-2xl text-primary" />
+              Adicionar lider
+            </div>
+          ) : null}
+
+          {openMinisterio && (
+            <div className="md:min-w-[35%]">
+              {' '}
+              <AddLider
+                openMinisterio={openMinisterio}
+                setOpenMinisterio={setOpenMinisterio}
+              />
+            </div>
+          )}
+        </>
+      )}
 
       <div className="relative -top-[30px] mb-5 flex w-full flex-wrap justify-center gap-x-5 p-1 pt-10 md:gap-x-5">
         {!loading ? (
@@ -72,6 +69,7 @@ export default function Ministerio() {
               titulo={item.title}
               local={item.local}
               img={item.coverUrl}
+              id={item.id}
             />
           ))
         ) : (
