@@ -46,15 +46,17 @@ export default function EditMinisterio({
         // Exibir mensagem de erro ao usuário
         return // Impedir envio dos dados caso o upload falhe
       }
+    } else {
+      coverUrl = img
     }
 
     try {
       const response = await api.put(
         `/ministerio/${local}/${id}`,
         {
-          title,
-          name,
-          local: `${igreja}`,
+          title: title || titulo,
+          name: name || nome,
+          local: igreja || lugar,
           coverUrl,
         },
         {
@@ -93,7 +95,7 @@ export default function EditMinisterio({
   return (
     <form
       ref={formRef}
-      className="fixed left-0 top-0 flex h-[100vh] w-[100vw] flex-col items-center justify-center bg-black/50 backdrop-blur-lg md:mt-5"
+      className="fixed left-0 top-0 z-30 mt-10 flex h-[100vh] w-[100vw] flex-col items-center justify-center bg-black/50 backdrop-blur-lg md:mt-20"
       onSubmit={handleSubmit}
     >
       <h1 className="z-20 mb-2 flex items-center justify-center gap-3 text-lg font-bold text-primary">
@@ -111,8 +113,8 @@ export default function EditMinisterio({
         {' '}
         <p className="flex items-center gap-3">
           {' '}
-          <FaCameraRetro className="text-xl text-primary" /> Anexar foto (até
-          5mb){' '}
+          <FaCameraRetro className="text-xl text-primary" /> Anexar nova foto
+          (até 5mb){' '}
         </p>
         {preview ? (
           <Image
@@ -136,9 +138,10 @@ export default function EditMinisterio({
       <input
         className="mb-4 mt-2 w-[200px] cursor-pointer rounded-lg  border-none bg-bglightsecundary p-2 text-center font-bold placeholder-textlight shadow-light outline-none focus:ring-0 dark:bg-bgdarksecundary dark:placeholder-textdark dark:shadow-dark"
         type="text"
-        name="title"
-        required
-        placeholder={nome}
+        name="name"
+        required={true}
+        defaultValue={nome}
+        placeholder="Digite um nome"
         onChange={(e) => setName(e.target.value)}
       />
 
@@ -146,8 +149,9 @@ export default function EditMinisterio({
         className="mb-1 w-[200px] cursor-pointer rounded-lg  border-none bg-bglightsecundary p-2 text-center font-bold placeholder-textlight shadow-light outline-none focus:ring-0 dark:bg-bgdarksecundary dark:placeholder-textdark dark:shadow-dark"
         type="text"
         name="title"
-        required
-        placeholder={titulo}
+        required={true}
+        defaultValue={titulo}
+        placeholder="Digite um título"
         onChange={(e) => setTitle(e.target.value)}
       />
 
@@ -155,8 +159,9 @@ export default function EditMinisterio({
         className="mb-4  w-[200px] cursor-pointer rounded-lg  border-none bg-bglightsecundary p-2 text-center font-bold placeholder-textlight shadow-light outline-none focus:ring-0 dark:bg-bgdarksecundary dark:placeholder-textdark dark:shadow-dark"
         type="text"
         name="local"
-        required
-        placeholder={lugar}
+        required={true}
+        defaultValue={lugar}
+        placeholder="Digite um local"
         onChange={(e) => setIgreja(e.target.value)}
       />
 
@@ -165,7 +170,6 @@ export default function EditMinisterio({
         type="file"
         name="coverUrl"
         id="coverUrl"
-        required
         placeholder="Digite a url da notícia"
         onChange={onFileSelected}
       />

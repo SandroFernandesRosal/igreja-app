@@ -22,9 +22,9 @@ export default function EditAgenda({ setOpenEdit, id, title, hora, dia }) {
       const response = await api.put(
         `/agenda/${local}/${id}`,
         {
-          day,
-          name,
-          hour,
+          day: day || dia,
+          name: name || title,
+          hour: hour || hora,
         },
         {
           headers: {
@@ -67,7 +67,9 @@ export default function EditAgenda({ setOpenEdit, id, title, hora, dia }) {
         className="mb-4 mt-2 w-[200px] cursor-pointer rounded-lg  border-none bg-bglightsecundary p-2 text-center font-bold placeholder-textlight shadow-light outline-none focus:ring-0 dark:bg-bgdarksecundary dark:placeholder-textdark dark:shadow-dark"
         type="text"
         name="day"
-        placeholder={dia}
+        required={true}
+        placeholder="Digite o dia"
+        defaultValue={dia}
         onChange={(e) => setDay(e.target.value)}
       />
 
@@ -75,7 +77,9 @@ export default function EditAgenda({ setOpenEdit, id, title, hora, dia }) {
         className="mb-4 w-[200px] cursor-pointer rounded-lg  border-none bg-bglightsecundary p-2 text-center font-bold placeholder-textlight shadow-light outline-none focus:ring-0 dark:bg-bgdarksecundary dark:placeholder-textdark dark:shadow-dark"
         type="text"
         name="name"
-        placeholder={title}
+        required={true}
+        placeholder="Digite nome do evento"
+        defaultValue={title}
         onChange={(e) => setName(e.target.value)}
       />
 
@@ -83,7 +87,9 @@ export default function EditAgenda({ setOpenEdit, id, title, hora, dia }) {
         className="mb-4 w-[200px] cursor-pointer rounded-lg  border-none bg-bglightsecundary p-2 text-center font-bold placeholder-textlight shadow-light outline-none focus:ring-0 dark:bg-bgdarksecundary dark:placeholder-textdark dark:shadow-dark"
         type="text"
         name="hour"
-        placeholder={hora}
+        required={true}
+        placeholder="Digite o horário"
+        defaultValue={hora}
         onChange={(e) => setHour(e.target.value)}
       />
 
