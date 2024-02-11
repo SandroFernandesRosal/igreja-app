@@ -36,7 +36,7 @@ export default function Locais() {
               onClick={() => setOpenEndereco(true)}
             >
               <ImNewspaper className="text-2xl text-primary" />
-              Adicionar lider
+              Adicionar endereço
             </div>
           ) : null}
 
