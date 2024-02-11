@@ -62,16 +62,20 @@ export default function Ministerio() {
 
       <div className="relative -top-[30px] mb-5 flex w-full flex-wrap justify-center gap-x-5 p-1 pt-10 md:gap-x-5">
         {!loading ? (
-          data.map((item) => (
-            <LideresItem
-              key={item.id}
-              nome={item.name}
-              titulo={item.title}
-              local={item.local}
-              img={item.coverUrl}
-              id={item.id}
-            />
-          ))
+          data.length < 1 ? (
+            <p>Nenhum líder cadastrado.</p>
+          ) : (
+            data.map((item) => (
+              <LideresItem
+                key={item.id}
+                nome={item.name}
+                titulo={item.title}
+                local={item.local}
+                img={item.coverUrl}
+                id={item.id}
+              />
+            ))
+          )
         ) : (
           <SkeletonLider />
         )}

@@ -22,41 +22,52 @@ export default function NewSlider({ data, loading }) {
   return (
     <>
       {!loading ? (
-        <div className="flex w-full justify-center py-5">
-          <Swiper
-            modules={[
-              Navigation,
-              Pagination,
-              A11y,
-              EffectFlip,
-              Scrollbar,
-              Autoplay,
-            ]}
-            spaceBetween={50}
-            slidesPerView={1}
-            navigation={true}
-            pagination={{ clickable: true }}
-            scrollbar={false}
-            autoplay={{ delay: 3000 }}
-            loop={true}
-            effect="flip"
-            className="h-[300px] w-[100vw]  rounded-[35px] shadow-xl  dark:shadow-dark md:h-[400px] md:w-[500px] md:rounded-xl lg:h-[500px] lg:w-[800px]"
-          >
-            {data.map((item) => (
-              <SwiperSlide key={item.id}>
-                <Link key={item.id} href={`/noticias/${item.page}/${item.id}`}>
-                  <Image
-                    src={item.coverUrl}
-                    width={800}
-                    height={500}
-                    className=" h-full rounded-[35px] object-fill md:rounded-xl"
-                    alt="..."
-                  />
-                </Link>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
+        data.length < 1 ? (
+          <div className="my-5 flex h-[300px] w-[100vw] flex-col items-center justify-center  rounded-[35px] shadow-xl  dark:shadow-dark md:h-[400px] md:w-[500px] md:rounded-xl lg:h-[500px] lg:w-[800px]">
+            {' '}
+            <p>NENHUMA NOTÍCIA CADASTRADA.</p>
+            <p>Aguarde as postagens.</p>
+          </div>
+        ) : (
+          <div className="flex w-full justify-center py-5">
+            <Swiper
+              modules={[
+                Navigation,
+                Pagination,
+                A11y,
+                EffectFlip,
+                Scrollbar,
+                Autoplay,
+              ]}
+              spaceBetween={50}
+              slidesPerView={1}
+              navigation={true}
+              pagination={{ clickable: true }}
+              scrollbar={false}
+              autoplay={{ delay: 3000 }}
+              loop={true}
+              effect="flip"
+              className="h-[300px] w-[100vw]  rounded-[35px] shadow-xl  dark:shadow-dark md:h-[400px] md:w-[500px] md:rounded-xl lg:h-[500px] lg:w-[800px]"
+            >
+              {data.map((item) => (
+                <SwiperSlide key={item.id}>
+                  <Link
+                    key={item.id}
+                    href={`/noticias/${item.page}/${item.id}`}
+                  >
+                    <Image
+                      src={item.coverUrl}
+                      width={800}
+                      height={500}
+                      className=" h-full rounded-[35px] object-fill md:rounded-xl"
+                      alt="..."
+                    />
+                  </Link>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
+        )
       ) : (
         <SkeletonSlider />
       )}

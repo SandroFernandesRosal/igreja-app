@@ -13,7 +13,7 @@ import NewSearch from './NewSearch'
 import AddNew from './AddNew'
 import SkeletonNew from './SkeletonNew'
 
-export default function News({ children, setLocal, loading }) {
+export default function News({ children, setLocal, loading, data }) {
   const { dataSearch, setDataSearch } = useDataSearch()
   const { search, setSearch } = useSearch()
   const { local } = useLocal()
@@ -75,7 +75,11 @@ export default function News({ children, setLocal, loading }) {
             />
           ))
         ) : !loading ? (
-          <>{children}</>
+          data.length < 1 ? (
+            <p>Nenhuma notícia cadastrada.</p>
+          ) : (
+            <>{children}</>
+          )
         ) : (
           <SkeletonNew />
         )}

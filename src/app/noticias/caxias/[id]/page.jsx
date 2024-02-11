@@ -68,7 +68,15 @@ export default function NoticiaCaxias({ params }) {
                 </button>
               )}
 
-              {openEdit && <EditNew id={id} setOpenEdit={setOpenEdit} />}
+              {openEdit && (
+                <EditNew
+                  img={selectedItem.coverUrl}
+                  titulo={selectedItem.title}
+                  conteudo={selectedItem.content}
+                  id={id}
+                  setOpenEdit={setOpenEdit}
+                />
+              )}
               <RemoveNew id={id} />
             </div>
           )}

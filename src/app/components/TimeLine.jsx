@@ -70,21 +70,25 @@ export default function TimeLine({ children }) {
 
       <div className="relative -top-[30px] flex flex-wrap justify-center  gap-x-5 overflow-hidden rounded-xl px-5  pb-10 pt-10   md:overflow-visible ">
         {!loading ? (
-          data
-            .reverse()
-            .slice(0, 6)
-            .map((item) => {
-              return (
-                <TimeLineItem
-                  key={item.id}
-                  day={item.day}
-                  title={item.name}
-                  hora={item.hour}
-                  trueitem={item.isPublic}
-                  id={item.id}
-                />
-              )
-            })
+          data.length < 1 ? (
+            <p>Nenhum evento cadastrado.</p>
+          ) : (
+            data
+              .reverse()
+              .slice(0, 6)
+              .map((item) => {
+                return (
+                  <TimeLineItem
+                    key={item.id}
+                    day={item.day}
+                    title={item.name}
+                    hora={item.hour}
+                    trueitem={item.isPublic}
+                    id={item.id}
+                  />
+                )
+              })
+          )
         ) : (
           <SkeletonAgenda />
         )}
