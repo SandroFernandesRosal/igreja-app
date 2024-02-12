@@ -1,9 +1,9 @@
 'use client'
 import Image from 'next/image'
 import New from '@/app/components/New'
-import { useLocal, useSearch } from '@/app/store/useStore'
+import { useLocal, useSearch, useData } from '@/app/store/useStore'
 import { useEffect, useState } from 'react'
-import { api } from '@/lib/api'
+
 import RemoveNew from '@/app/components/RemoveNew'
 import EditNew from '@/app/components/EditNew'
 import Cookies from 'js-cookie'
@@ -12,20 +12,11 @@ import { format } from 'date-fns'
 export default function NoticiaTomazinho({ params }) {
   const id = params.id
   const { setSearch } = useSearch()
-  const { local, setLocal } = useLocal()
-  const [data, setData] = useState([])
+  const { setLocal } = useLocal()
+  const { data, setData } = useData()
   const [openEdit, setOpenEdit] = useState(false)
 
   const token = Cookies.get('tokennn')
-
-  useEffect(() => {
-    api
-      .get(`/news/${local}`)
-      .then((response) => {
-        setData(response.data)
-      })
-      .catch((err) => console.log(err))
-  }, [local])
 
   const selectedItem = data.find((item) => item.id === id)
 

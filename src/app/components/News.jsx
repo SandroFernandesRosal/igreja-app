@@ -2,21 +2,30 @@
 import Link from 'next/link'
 import Search from './Search'
 import ResultLength from './ResultLength'
-import { useSearch, useLocal, useDataSearch } from '../store/useStore'
+import {
+  useSearch,
+  useLocal,
+  useDataSearch,
+  useData,
+  useLoading,
+} from '../store/useStore'
 import Cookies from 'js-cookie'
 import { ImNewspaper } from 'react-icons/im'
 import SelectLocal from './SelectLocal'
 import { api } from '@/lib/api'
+import New from './New'
 
 import { useEffect, useState } from 'react'
 import NewSearch from './NewSearch'
 import AddNew from './AddNew'
 import SkeletonNew from './SkeletonNew'
 
-export default function News({ children, setLocal, loading, data }) {
+export default function News() {
   const { dataSearch, setDataSearch } = useDataSearch()
+  const { data, setData } = useData()
   const { search, setSearch } = useSearch()
-  const { local } = useLocal()
+  const { local, setLocal } = useLocal()
+  const { loading, setLoading } = useLoading()
   const token = Cookies.get('tokennn')
   const [openNew, setOpenNew] = useState(false)
 
@@ -28,6 +37,16 @@ export default function News({ children, setLocal, loading, data }) {
       })
       .catch((err) => console.log(err))
   }, [local, setDataSearch, search])
+
+  useEffect(() => {
+    api
+      .get(`/news/${local}`)
+      .then((response) => {
+        setData(response.data)
+        setLoading(false)
+      })
+      .catch((err) => console.log(err))
+  }, [local, setData, setLoading])
   return (
     <section className=" mb-5  flex w-[100vw] flex-col items-center rounded-[35px] bg-bglightsecundary shadow-light dark:bg-bgdarksecundary dark:shadow-dark md:w-[90vw] md:rounded-xl  ">
       <div className="flex flex-col items-center  md:min-w-[35%]">
@@ -75,10 +94,25 @@ export default function News({ children, setLocal, loading, data }) {
             />
           ))
         ) : !loading ? (
-          data.length < 1 ? (
+          data && data.length < 1 ? (
             <p>Nenhuma notícia cadastrada.</p>
           ) : (
-            <>{children}</>
+            <>
+              {data &&
+                data.map((item) => (
+                  <New
+                    key={item.id}
+                    url={item.coverUrl}
+                    title={item.title}
+                    id={item.id}
+                    setSearch={setSearch}
+                    description={item.content.slice(0, 30)}
+                    page={item.page}
+                    data={data}
+                    setLocal={setLocal}
+                  />
+                ))}
+            </>
           )
         ) : (
           <SkeletonNew />

@@ -1,3 +1,4 @@
+'use client'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import {
   Navigation,
@@ -9,6 +10,7 @@ import {
 } from 'swiper/modules'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useData, useLoading } from '../store/useStore'
 
 import 'swiper/css'
 import 'swiper/css/navigation'
@@ -18,7 +20,9 @@ import 'swiper/css/effect-flip'
 import 'swiper/css/autoplay'
 import SkeletonSlider from './SkeletonSlider'
 
-export default function NewSlider({ data, loading }) {
+export default function NewSlider() {
+  const { data } = useData()
+  const { loading } = useLoading()
   return (
     <>
       {!loading ? (
