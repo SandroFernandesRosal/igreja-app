@@ -68,8 +68,12 @@ export default function Doe() {
                   key={item.id}
                   id={item.id}
                   local={item.local}
+                  banco={item.banco}
                   conta={item.conta}
+                  agencia={item.agencia}
+                  nomebanco={item.nomebanco}
                   pix={item.pix}
+                  nomepix={item.nomepix}
                 />
               )
             })

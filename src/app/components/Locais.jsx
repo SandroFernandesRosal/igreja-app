@@ -55,7 +55,7 @@ export default function Locais() {
       <div className="relative -top-[30px] mb-5 flex w-full flex-wrap justify-center gap-x-5 p-1  px-2 pt-10 md:gap-x-5">
         {!loading ? (
           data.length < 1 ? (
-            <p>Nenhum evento cadastrado.</p>
+            <p>Nenhum endereço cadastrado.</p>
           ) : (
             data.map((item) => {
               return (
