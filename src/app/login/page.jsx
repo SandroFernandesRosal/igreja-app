@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Cookies from 'js-cookie'
+import { api } from '@/lib/api'
 
 export default function Register() {
   const [login, setLogin] = useState('')
@@ -11,38 +12,38 @@ export default function Register() {
 
   async function handleSubmit(event) {
     event.preventDefault()
-    const res = await fetch('http://localhost:3333/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        login: `${login}`,
-        password: `${password}`,
-      }),
-    })
 
-    const user = await res.json()
+    // Utilize axios para fazer a requisição POST
+    try {
+      const response = await api.post('/login', {
+        login,
+        password,
+      })
 
-    if (user.error) {
-      const message = user.error
-        ? 'Login ou senha incorreta'
-        : 'Erro desconhecido'
-      alert(message)
-      return null
+      const user = response.data
+
+      if (user.error) {
+        const message = user.error
+          ? 'Login ou senha incorreta'
+          : 'Erro desconhecido'
+        alert(message)
+        return null
+      }
+
+      if (response.status === 200 && user) {
+        const token = user.token
+        Cookies.set('tokennn', token)
+        Cookies.set('login', login, { httpOnly: true })
+        Cookies.set('password', password, { httpOnly: true })
+        console.log(token, login, password)
+        router.push('/')
+        return token
+      }
+    } catch (error) {
+      console.error('Erro ao fazer requisição:', error)
+      // Tratar o erro de forma adequada, por exemplo, exibindo uma mensagem ao usuário
     }
 
-    if (res.ok && user) {
-      const token = user.token
-      Cookies.set('tokennn', token)
-      Cookies.set('login', login, { httpOnly: true })
-      Cookies.set('password', password, { httpOnly: true })
-      console.log(token, login, password)
-      router.push('/')
-      return token
-    }
-
-    console.log(user)
     return null
   }
 
