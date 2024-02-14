@@ -27,6 +27,11 @@ export default function AddLider({ openMinisterio, setOpenMinisterio }) {
 
     let coverUrl = ''
 
+    if (!fileToUpload) {
+      alert('Você precisa adicionar uma imagem.')
+      return
+    }
+
     if (fileToUpload) {
       const uploadFormData = new FormData()
       uploadFormData.append('file', fileToUpload)

@@ -26,6 +26,11 @@ export default function AddNew({ openNew, setOpenNew }) {
 
     let coverUrl = ''
 
+    if (!fileToUpload) {
+      alert('você precisa adicionar uma imagem.')
+      return
+    }
+
     if (fileToUpload) {
       const formData = new FormData()
       formData.append('file', fileToUpload)
@@ -136,7 +141,7 @@ export default function AddNew({ openNew, setOpenNew }) {
         type="file"
         name="coverUrl"
         id="coverUrl"
-        required
+        required={true}
         placeholder="Digite a url da notícia"
         onChange={onFileSelected}
       />

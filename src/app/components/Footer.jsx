@@ -1,8 +1,8 @@
-import Socials from './Socials'
 import logo from '../../../public/img/logo.png'
 import Image from 'next/image'
 import Link from 'next/link'
 import { RxOpenInNewWindow } from 'react-icons/rx'
+import Contatos from './Contatos'
 
 export default function Footer() {
   return (
@@ -11,43 +11,15 @@ export default function Footer() {
         <Image src={logo} alt="logo do site" width={200} height={50} />
       </Link>
       <div className="mb-5 flex w-full flex-wrap justify-center gap-5 pt-5">
-        <div className="w-[40%] max-w-[200px]  border-r-[1px] border-textlight pr-5 dark:border-textdark">
-          <Socials
-            className="cor"
-            title="Vila da Penha"
-            numerowhatsapp="21999999999"
-            nomefacebook="alcancadospelagraca"
-            nomeinstagram="@alcancadospelagraca"
-          />
-        </div>
-
-        <div className="w-[40%] max-w-[200px] md:border-r-[1px] md:pr-5">
-          <Socials
-            className="cor"
-            title="Igreja 2"
-            numerowhatsapp="21999999999"
-            nomefacebook="alcancadospelagraca"
-            nomeinstagram="@alcancadospelagraca"
-          />
-        </div>
-
-        <div className="w-[40%] max-w-[200px]">
-          <Socials
-            className="cor"
-            title="Igreja 3"
-            numerowhatsapp="21999999999"
-            nomefacebook="alcancadospelagraca"
-            nomeinstagram="@alcancadospelagraca"
-          />
-        </div>
+        <Contatos />
       </div>
       <div>
         <Link
           href="https://sandrofernandesdev.netlify.app/"
           target="blank"
-          className="mb-5 flex items-center gap-1 text-textlight dark:text-textdark"
+          className="mb-5 flex w-full flex-wrap	 items-center justify-center gap-1 text-textlight dark:text-textdark"
         >
-          <p>Desenvolvido por: Sandro Fernandes</p>
+          <p>Desenvolvido por:</p> <p>Sandro Fernandes</p>
           <RxOpenInNewWindow className="text-xl text-primary" />
         </Link>
       </div>

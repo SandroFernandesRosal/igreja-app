@@ -2,7 +2,9 @@
 import { useState, useRef } from 'react'
 import { BiHappyAlt } from 'react-icons/bi'
 import emailjs from '@emailjs/browser'
-import Socials from '../components/Socials'
+
+import Contatos from '../components/Contatos'
+
 export default function Contato() {
   const form = useRef()
 
@@ -61,8 +63,11 @@ export default function Contato() {
           ref={form}
           onSubmit={onSubmit}
           name="form"
-          className="mb-5 mt-3 flex w-[75%] max-w-[500px] flex-col items-center rounded-xl bg-bglight p-4 shadow-light dark:bg-bgdark dark:shadow-dark md:mb-5"
+          className="mb-5 mt-3 flex w-[75%] max-w-[500px] flex-col items-center gap-3 rounded-xl bg-bglight p-3 shadow-light dark:bg-bgdark dark:shadow-dark md:mb-5"
         >
+          <h1 className="text-xl font-bold text-primary">
+            Preencha os campos abaixo:
+          </h1>
           <input
             required={true}
             type="text"
@@ -119,44 +124,7 @@ export default function Contato() {
 
         <section className=" mb-5 flex w-[100%] flex-col items-center md:mb-5">
           <div className="flex w-[100%] flex-col items-center gap-5 md:flex-row md:flex-wrap md:justify-center md:py-5">
-            <div className="mt-5 flex w-[100%] justify-center rounded-[35px] bg-bglight shadow-light dark:bg-bgdark dark:shadow-dark md:mt-0 md:w-[40%] md:max-w-[400px]">
-              <Socials
-                className="cor"
-                title="Vila da Penha"
-                numerowhatsapp="21999999999"
-                nomefacebook="alcancadospelagraca"
-                nomeinstagram="@alcancadospelagraca"
-                whatsapp="https://api.whatsapp.com/send?phone="
-                instagram="https://www.instagram.com/"
-                facebook="https://www.facebook.com/"
-              />
-            </div>
-
-            <div className="flex w-[100%] justify-center rounded-[35px] bg-bglight shadow-light dark:bg-bgdark dark:shadow-dark md:w-[40%] md:max-w-[400px] ">
-              <Socials
-                className="cor"
-                title="Vila da Penha"
-                numerowhatsapp="21999999999"
-                nomefacebook="alcancadospelagraca"
-                nomeinstagram="@alcancadospelagraca"
-                whatsapp="https://api.whatsapp.com/send?phone="
-                instagram="https://www.instagram.com/"
-                facebook="https://www.facebook.com/"
-              />
-            </div>
-
-            <div className="mb-5 flex w-[100%] justify-center rounded-[35px] bg-bglight shadow-light dark:bg-bgdark dark:shadow-dark md:w-[40%] md:max-w-[400px]">
-              <Socials
-                className="cor"
-                title="Vila da Penha"
-                numerowhatsapp="21999999999"
-                nomefacebook="alcancadospelagraca"
-                nomeinstagram="@alcancadospelagraca"
-                whatsapp="https://api.whatsapp.com/send?phone="
-                instagram="https://www.instagram.com/"
-                facebook="https://www.facebook.com/"
-              />
-            </div>
+            <Contatos />
           </div>
         </section>
       </div>
