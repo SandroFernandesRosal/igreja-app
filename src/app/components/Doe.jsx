@@ -5,7 +5,7 @@ import { api } from '@/lib/api'
 import { useEffect, useState } from 'react'
 
 import SkeletonAgenda from './SkeletonAgenda'
-import { ImNewspaper } from 'react-icons/im'
+
 import AddDoacao from './AddDoacao'
 
 export default function Doe() {
@@ -35,15 +35,14 @@ export default function Doe() {
 
       {token && (
         <>
-          {openDoacao === false ? (
+          {openDoacao === false && (
             <div
               className="mb-4 flex  cursor-pointer items-center justify-center gap-2 text-lg font-bold"
               onClick={() => setOpenDoacao(true)}
             >
-              <ImNewspaper className="text-2xl text-primary" />
               Adicionar doação
             </div>
-          ) : null}
+          )}
 
           {openDoacao && (
             <div className="md:min-w-[35%]">
@@ -62,6 +61,7 @@ export default function Doe() {
           data.length < 1 ? (
             <p>Nenhuma igreja cadastrada.</p>
           ) : (
+            data &&
             data.map((item) => {
               return (
                 <DoeItem

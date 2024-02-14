@@ -102,19 +102,22 @@ export default function NoticiaCaxias({ params }) {
           Leia também as últimas notícias
         </h1>
         <div className=" flex  w-full flex-wrap justify-center gap-x-5  p-1 pt-5   md:gap-x-5">
-          {data.slice(0, 6).map((item) => (
-            <New
-              key={item.id}
-              url={item.coverUrl}
-              title={item.title}
-              id={item.id}
-              setSearch={setSearch}
-              description={item.content.slice(0, 30)}
-              page={item.page}
-              data={data}
-              setLocal={setLocal}
-            />
-          ))}
+          {data &&
+            data
+              .slice(0, 6)
+              .map((item) => (
+                <New
+                  key={item.id}
+                  url={item.coverUrl}
+                  title={item.title}
+                  id={item.id}
+                  setSearch={setSearch}
+                  description={item.content.slice(0, 30)}
+                  page={item.page}
+                  data={data}
+                  setLocal={setLocal}
+                />
+              ))}
         </div>
       </article>
     </main>

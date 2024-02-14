@@ -10,7 +10,7 @@ import {
   useLoading,
 } from '../store/useStore'
 import Cookies from 'js-cookie'
-import { ImNewspaper } from 'react-icons/im'
+
 import SelectLocal from './SelectLocal'
 import { api } from '@/lib/api'
 import New from './New'
@@ -57,15 +57,14 @@ export default function News() {
       </div>
       {token && (
         <>
-          {openNew === false ? (
+          {openNew === false && (
             <div
               className="mb-4 flex  cursor-pointer items-center justify-center gap-2 text-lg font-bold"
               onClick={() => setOpenNew(true)}
             >
-              <ImNewspaper className="text-2xl text-primary" />
               Adicionar Notícia
             </div>
-          ) : null}
+          )}
 
           {openNew && (
             <div className="md:min-w-[35%]">

@@ -33,9 +33,7 @@ export default function Register() {
       if (response.status === 200 && user) {
         const token = user.token
         Cookies.set('tokennn', token)
-        Cookies.set('login', login, { httpOnly: true })
-        Cookies.set('password', password, { httpOnly: true })
-        console.log(token, login, password)
+
         router.push('/')
         return token
       }

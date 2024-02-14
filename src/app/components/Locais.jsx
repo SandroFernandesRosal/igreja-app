@@ -4,7 +4,7 @@ import { api } from '@/lib/api'
 import { useEffect, useState } from 'react'
 import Cookies from 'js-cookie'
 import SkeletonAgenda from './SkeletonAgenda'
-import { ImNewspaper } from 'react-icons/im'
+
 import AddEndereco from './AddEndereco'
 
 export default function Locais() {
@@ -30,15 +30,14 @@ export default function Locais() {
 
       {token && (
         <>
-          {openEndereco === false ? (
+          {openEndereco === false && (
             <div
               className="mb-4 flex  cursor-pointer items-center justify-center gap-2 text-lg font-bold"
               onClick={() => setOpenEndereco(true)}
             >
-              <ImNewspaper className="text-2xl text-primary" />
               Adicionar endereço
             </div>
-          ) : null}
+          )}
 
           {openEndereco && (
             <div className="md:min-w-[35%]">
@@ -57,6 +56,7 @@ export default function Locais() {
           data.length < 1 ? (
             <p>Nenhum endereço cadastrado.</p>
           ) : (
+            data &&
             data.map((item) => {
               return (
                 <LocaisItem

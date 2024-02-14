@@ -7,7 +7,7 @@ import SelectLocal from './SelectLocal'
 import { api } from '@/lib/api'
 import Cookies from 'js-cookie'
 import AddLider from './AddMinisterio'
-import { ImNewspaper } from 'react-icons/im'
+
 import SkeletonLider from './SkeletonLider'
 
 export default function Ministerio() {
@@ -38,15 +38,14 @@ export default function Ministerio() {
 
       {token && (
         <>
-          {openMinisterio === false ? (
+          {openMinisterio === false && (
             <div
               className="mb-4 flex  cursor-pointer items-center justify-center gap-2 text-lg font-bold"
               onClick={() => setOpenMinisterio(true)}
             >
-              <ImNewspaper className="text-2xl text-primary" />
               Adicionar lider
             </div>
-          ) : null}
+          )}
 
           {openMinisterio && (
             <div className="md:min-w-[35%]">
@@ -65,6 +64,7 @@ export default function Ministerio() {
           data.length < 1 ? (
             <p>Nenhum líder cadastrado.</p>
           ) : (
+            data &&
             data.map((item) => (
               <LideresItem
                 key={item.id}

@@ -7,7 +7,7 @@ import { useLocal } from '../store/useStore'
 import SelectLocal from './SelectLocal'
 import AddAgenda from './AddAgenda'
 import Cookies from 'js-cookie'
-import { ImNewspaper } from 'react-icons/im'
+
 import SkeletonAgenda from './SkeletonAgenda'
 
 export default function TimeLine({ children }) {
@@ -49,15 +49,14 @@ export default function TimeLine({ children }) {
 
       {token && (
         <>
-          {openNew === false ? (
+          {openNew === false && (
             <div
               className="mb-4 flex  cursor-pointer items-center justify-center gap-2 text-lg font-bold"
               onClick={() => setOpenNew(true)}
             >
-              <ImNewspaper className="text-2xl text-primary" />
               Adicionar evento
             </div>
-          ) : null}
+          )}
 
           {openNew && (
             <div className="md:min-w-[35%]">
@@ -73,21 +72,19 @@ export default function TimeLine({ children }) {
           data.length < 1 ? (
             <p>Nenhum evento cadastrado.</p>
           ) : (
-            data
-              .reverse()
-              .slice(0, 6)
-              .map((item) => {
-                return (
-                  <TimeLineItem
-                    key={item.id}
-                    day={item.day}
-                    title={item.name}
-                    hora={item.hour}
-                    trueitem={item.isPublic}
-                    id={item.id}
-                  />
-                )
-              })
+            data &&
+            data.slice(0, 6).map((item) => {
+              return (
+                <TimeLineItem
+                  key={item.id}
+                  day={item.day}
+                  title={item.name}
+                  hora={item.hour}
+                  trueitem={item.isPublic}
+                  id={item.id}
+                />
+              )
+            })
           )
         ) : (
           <SkeletonAgenda />
