@@ -19,7 +19,6 @@ export default function NoticiaVilaDaPenha({ params }) {
   const token = Cookies.get('tokennn')
 
   const selectedItem = data.find((item) => item.id === id)
-  console.log(selectedItem.coverUrl)
 
   useEffect(() => {
     const newsFromLocalStorage = localStorage.getItem('data')
