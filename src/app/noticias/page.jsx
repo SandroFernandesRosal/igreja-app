@@ -1,5 +1,5 @@
 'use client'
-import News from '../components/News'
+import News from '../../components/News'
 
 export default function Noticias() {
   return (

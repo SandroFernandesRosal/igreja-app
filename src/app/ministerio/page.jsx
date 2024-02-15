@@ -1,4 +1,4 @@
-import Ministerio from '../components/Ministerio'
+import Ministerio from '../../components/Ministerio'
 
 export default function Liderancas() {
   return (

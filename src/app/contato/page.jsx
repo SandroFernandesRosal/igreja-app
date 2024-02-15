@@ -3,7 +3,7 @@ import { useState, useRef } from 'react'
 import { BiHappyAlt } from 'react-icons/bi'
 import emailjs from '@emailjs/browser'
 
-import Contatos from '../components/Contatos'
+import Contatos from '../../components/Contatos'
 
 export default function Contato() {
   const form = useRef()

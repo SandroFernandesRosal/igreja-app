@@ -1,11 +1,11 @@
 'use client'
 import Image from 'next/image'
-import New from '@/app/components/New'
-import { useLocal, useSearch, useData } from '@/app/store/useStore'
+import New from '@/components/New'
+import { useLocal, useSearch, useData } from '@/store/useStore'
 import { useEffect, useState } from 'react'
 
-import RemoveNew from '@/app/components/RemoveNew'
-import EditNew from '@/app/components/EditNew'
+import RemoveNew from '@/components/RemoveNew'
+import EditNew from '@/components/EditNew'
 import Cookies from 'js-cookie'
 import { format } from 'date-fns'
 

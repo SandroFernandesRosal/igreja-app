@@ -1,4 +1,4 @@
-import Locais from '../components/Locais'
+import Locais from '../../components/Locais'
 
 export default function Enderecos() {
   return (

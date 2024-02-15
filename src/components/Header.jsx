@@ -8,7 +8,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 import ChangeTheme from './ChangeTheme'
 import Image from 'next/image'
-import logo from '../../../public/img/logo.png'
+import logo from '../../public/img/logo.png'
 
 export default function Header() {
   const [menu, setMenu] = useState(false)

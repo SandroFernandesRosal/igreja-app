@@ -1,6 +1,6 @@
 'use client'
 import { useState, useEffect } from 'react'
-import api from '../service/api'
+import api from '../../service/api'
 
 export default function Biblia() {
   const [loading, setLoading] = useState(true)

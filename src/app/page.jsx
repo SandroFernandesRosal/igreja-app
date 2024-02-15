@@ -1,9 +1,9 @@
-import Locais from './components/Locais'
-import NewsPenha from './components/NewsPenha'
-import TimeLine from './components/TimeLine'
-import Doe from './components/Doe'
-import Lideres from './components/Ministerio'
-import UserComponent from './components/User'
+import Locais from '../components/Locais'
+import NewsPenha from '../components/NewsPenha'
+import TimeLine from '../components/TimeLine'
+import Doe from '../components/Doe'
+import Lideres from '../components/Ministerio'
+import UserComponent from '../components/User'
 
 export default async function Home() {
   return (
