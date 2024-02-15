@@ -19,6 +19,7 @@ export default function NoticiaVilaDaPenha({ params }) {
   const token = Cookies.get('tokennn')
 
   const selectedItem = data.find((item) => item.id === id)
+  console.log(selectedItem.coverUrl)
 
   useEffect(() => {
     const newsFromLocalStorage = localStorage.getItem('data')
@@ -112,7 +113,7 @@ export default function NoticiaVilaDaPenha({ params }) {
                   title={item.title}
                   id={item.id}
                   setSearch={setSearch}
-                  description={item.content.slice(0, 30)}
+                  description={item.content ? item.content.slice(0, 30) : ''}
                   page={item.page}
                   data={data}
                   setLocal={setLocal}
