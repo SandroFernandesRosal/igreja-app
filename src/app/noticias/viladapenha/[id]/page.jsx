@@ -110,7 +110,7 @@ export default function NoticiaVilaDaPenha({ params }) {
                 title={item.title}
                 id={item.id}
                 setSearch={setSearch}
-                description={item.content.slice(0, 30)}
+                description={item.content}
                 page={item.page}
                 data={data}
                 setLocal={setLocal}
