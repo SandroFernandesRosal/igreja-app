@@ -1,7 +1,7 @@
 'use client'
 import Image from 'next/image'
 import New from '@/components/New'
-import { useLocal, useSearch, useData } from '@/store/useStore'
+import { useData, useSearch, useLocal } from '@/store/useStore'
 import { useEffect, useState } from 'react'
 
 import RemoveNew from '@/components/RemoveNew'
