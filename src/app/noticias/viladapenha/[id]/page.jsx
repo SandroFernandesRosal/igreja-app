@@ -83,9 +83,9 @@ export default function NoticiaVilaDaPenha({ params }) {
         </div>
         <h1 className="w-[90vw] max-w-[500px]  text-center text-2xl font-bold">
           {selectedItem && selectedItem.title ? (
-            <h1 className="...">{selectedItem.title}</h1>
+            <>{selectedItem.title}</>
           ) : (
-            <h1 className="...">Carregando...</h1>
+            <>Carregando...</>
           )}
         </h1>
         {selectedItem ? (
