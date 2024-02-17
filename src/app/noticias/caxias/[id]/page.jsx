@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react'
 
 import RemoveNew from '@/components/RemoveNew'
 import EditNew from '@/components/EditNew'
-import Cookies from 'js-cookie'
+import { useToken } from '@/hooks/useToken'
 import { format } from 'date-fns'
 
 export default function NoticiaCaxias({ params }) {
@@ -16,7 +16,7 @@ export default function NoticiaCaxias({ params }) {
   const { data, setData } = useData()
   const [openEdit, setOpenEdit] = useState(false)
 
-  const token = Cookies.get('tokennn')
+  const token = useToken()
 
   const selectedItem = data.find((item) => item.id === id)
 

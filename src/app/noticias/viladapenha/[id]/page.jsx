@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react'
 import { api } from '@/lib/api'
 import RemoveNew from '@/components/RemoveNew'
 import EditNew from '@/components/EditNew'
-import Cookies from 'js-cookie'
+import { useToken } from '@/hooks/useToken'
 import { format } from 'date-fns'
 
 export default function NoticiaVilaDaPenha({ params }) {
@@ -16,7 +16,7 @@ export default function NoticiaVilaDaPenha({ params }) {
   const { data, setData } = useData()
   const [openEdit, setOpenEdit] = useState(false)
 
-  const token = Cookies.get('tokennn')
+  const token = useToken()
 
   const selectedItem = data.find((item) => item.id === id)
 
