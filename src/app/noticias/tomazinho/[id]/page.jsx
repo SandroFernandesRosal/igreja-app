@@ -1,9 +1,9 @@
 'use client'
 import Image from 'next/image'
 import New from '@/components/New'
-import { useLocal, useSearch, useData } from '@/store/useStore'
+import { useData, useSearch, useLocal } from '@/store/useStore'
 import { useEffect, useState } from 'react'
-import api from '@/service/api'
+import { api } from '@/lib/api'
 import RemoveNew from '@/components/RemoveNew'
 import EditNew from '@/components/EditNew'
 import { useToken } from '@/hooks/useToken'
@@ -31,12 +31,6 @@ export default function NoticiaTomazinho({ params }) {
     localStorage.setItem('data', JSON.stringify(data))
   }, [data])
 
-  function formatDate(dateString) {
-    const date = new Date(dateString)
-    const formattedDate = format(date, 'dd/MM/yyyy HH:mm') // Formato desejado
-    return formattedDate
-  }
-
   useEffect(() => {
     api
       .get(`/news/${local}`)
@@ -45,6 +39,12 @@ export default function NoticiaTomazinho({ params }) {
       })
       .catch((err) => console.log(err))
   }, [local, setData])
+
+  function formatDate(dateString) {
+    const date = new Date(dateString)
+    const formattedDate = format(date, 'dd/MM/yyyy HH:mm') // Formato desejado
+    return formattedDate
+  }
 
   return (
     <main className="flex min-h-screen flex-col  items-center gap-5 pt-24 md:pt-[165px]">
@@ -83,9 +83,9 @@ export default function NoticiaTomazinho({ params }) {
         </div>
         <h1 className="w-[90vw] max-w-[500px]  text-center text-2xl font-bold">
           {selectedItem && selectedItem.title ? (
-            <h1 className="...">{selectedItem.title}</h1>
+            <>{selectedItem.title}</>
           ) : (
-            <h1 className="...">Carregando...</h1>
+            <>Carregando...</>
           )}
         </h1>
         {selectedItem ? (
@@ -112,21 +112,19 @@ export default function NoticiaTomazinho({ params }) {
         </h1>
         <div className=" flex  w-full flex-wrap justify-center gap-x-5  p-1 pt-5   md:gap-x-5">
           {data &&
-            data
-              .slice(0, 6)
-              .map((item) => (
-                <New
-                  key={item.id}
-                  url={item.coverUrl}
-                  title={item.title}
-                  id={item.id}
-                  setSearch={setSearch}
-                  description={item.content.slice(0, 30)}
-                  page={item.page}
-                  data={data}
-                  setLocal={setLocal}
-                />
-              ))}
+            data.map((item) => (
+              <New
+                key={item.id}
+                url={item.coverUrl}
+                title={item.title}
+                id={item.id}
+                setSearch={setSearch}
+                description={item.content}
+                page={item.page}
+                data={data}
+                setLocal={setLocal}
+              />
+            ))}
         </div>
       </article>
     </main>
