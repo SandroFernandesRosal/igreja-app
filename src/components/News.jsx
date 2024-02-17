@@ -47,6 +47,7 @@ export default function News() {
       })
       .catch((err) => console.log(err))
   }, [local, setData, setLoading])
+
   return (
     <section className=" mb-5  flex w-[100vw] flex-col items-center rounded-[35px] bg-bglightsecundary shadow-light dark:bg-bgdarksecundary dark:shadow-dark md:w-[90vw] md:rounded-xl  ">
       <div className="flex flex-col items-center  md:min-w-[35%]">
@@ -105,7 +106,7 @@ export default function News() {
                     title={item.title}
                     id={item.id}
                     setSearch={setSearch}
-                    description={item.content.slice(0, 30)}
+                    description={item.content}
                     page={item.page}
                     data={data}
                     setLocal={setLocal}

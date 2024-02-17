@@ -3,7 +3,7 @@ import Image from 'next/image'
 import New from '@/components/New'
 import { useData, useSearch, useLocal } from '@/store/useStore'
 import { useEffect, useState } from 'react'
-
+import { api } from '@/lib/api'
 import RemoveNew from '@/components/RemoveNew'
 import EditNew from '@/components/EditNew'
 import Cookies from 'js-cookie'
@@ -12,7 +12,7 @@ import { format } from 'date-fns'
 export default function NoticiaVilaDaPenha({ params }) {
   const id = params.id
   const { setSearch } = useSearch()
-  const { setLocal } = useLocal()
+  const { setLocal, local } = useLocal()
   const { data, setData } = useData()
   const [openEdit, setOpenEdit] = useState(false)
 
@@ -30,6 +30,15 @@ export default function NoticiaVilaDaPenha({ params }) {
   useEffect(() => {
     localStorage.setItem('data', JSON.stringify(data))
   }, [data])
+
+  useEffect(() => {
+    api
+      .get(`/news/${local}`)
+      .then((response) => {
+        setData(response.data)
+      })
+      .catch((err) => console.log(err))
+  }, [local, setData])
 
   function formatDate(dateString) {
     const date = new Date(dateString)
