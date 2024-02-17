@@ -3,9 +3,10 @@ import LideresItem from './LideresItem'
 import { useLocal } from '../store/useStore'
 
 import { useEffect, useState } from 'react'
+import { useToken } from '@/hooks/useToken'
 import SelectLocal from './SelectLocal'
 import { api } from '@/lib/api'
-import Cookies from 'js-cookie'
+
 import AddLider from './AddMinisterio'
 
 import SkeletonLider from './SkeletonLider'
@@ -15,7 +16,7 @@ export default function Ministerio() {
   const [openMinisterio, setOpenMinisterio] = useState(false)
   const [loading, setLoading] = useState(true)
   const { local } = useLocal()
-  const token = Cookies.get('tokennn')
+  const token = useToken()
 
   useEffect(() => {
     api

@@ -2,7 +2,7 @@
 import LocaisItem from './LocaisItem'
 import { api } from '@/lib/api'
 import { useEffect, useState } from 'react'
-import Cookies from 'js-cookie'
+import { useToken } from '@/hooks/useToken'
 import SkeletonAgenda from './SkeletonAgenda'
 
 import AddEndereco from './AddEndereco'
@@ -11,7 +11,7 @@ export default function Locais() {
   const [data, setData] = useState([])
   const [loading, setLoading] = useState(true)
   const [openEndereco, setOpenEndereco] = useState(false)
-  const token = Cookies.get('tokennn')
+  const token = useToken()
 
   useEffect(() => {
     api

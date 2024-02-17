@@ -1,5 +1,5 @@
 'use client'
-import Cookies from 'js-cookie'
+import { useToken } from '@/hooks/useToken'
 import DoeItem from './DoeItem'
 import { api } from '@/lib/api'
 import { useEffect, useState } from 'react'
@@ -12,7 +12,7 @@ export default function Doe() {
   const [data, setData] = useState([])
   const [loading, setLoading] = useState(true)
   const [openDoacao, setOpenDoacao] = useState(false)
-  const token = Cookies.get('tokennn')
+  const token = useToken()
 
   useEffect(() => {
     api

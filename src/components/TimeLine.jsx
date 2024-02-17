@@ -6,7 +6,8 @@ import { api } from '@/lib/api'
 import { useLocal } from '../store/useStore'
 import SelectLocal from './SelectLocal'
 import AddAgenda from './AddAgenda'
-import Cookies from 'js-cookie'
+
+import { useToken } from '@/hooks/useToken'
 
 import SkeletonAgenda from './SkeletonAgenda'
 
@@ -15,7 +16,7 @@ export default function TimeLine({ children }) {
   const [data, setData] = useState([])
   const [openNew, setOpenNew] = useState(false)
   const [loading, setLoading] = useState(true)
-  const token = Cookies.get('tokennn')
+  const token = useToken()
 
   useEffect(() => {
     const newsFromLocalStorage = localStorage.getItem('data')

@@ -24,3 +24,8 @@ export const useDataSearch = create((set) => ({
   dataSearch: [],
   setDataSearch: (state) => set({ dataSearch: state }),
 }))
+
+export const useOpen = create((set) => ({
+  open: false,
+  openSet: (state) => set({ open: state }),
+}))

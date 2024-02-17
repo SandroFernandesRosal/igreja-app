@@ -1,7 +1,7 @@
 'use client'
 import { api } from '@/lib/api'
 import { useEffect, useState } from 'react'
-import Cookies from 'js-cookie'
+import { useToken } from '@/hooks/useToken'
 import SkeletonAgenda from './SkeletonAgenda'
 
 import Socials from './Socials'
@@ -11,7 +11,7 @@ export default function Contatos() {
   const [data, setData] = useState([])
   const [loading, setLoading] = useState(true)
   const [openContato, setOpenContato] = useState(false)
-  const token = Cookies.get('tokennn')
+  const token = useToken()
 
   useEffect(() => {
     api

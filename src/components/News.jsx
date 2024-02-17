@@ -9,7 +9,8 @@ import {
   useData,
   useLoading,
 } from '../store/useStore'
-import Cookies from 'js-cookie'
+
+import { useToken } from '@/hooks/useToken'
 
 import SelectLocal from './SelectLocal'
 import { api } from '@/lib/api'
@@ -26,7 +27,7 @@ export default function News() {
   const { search, setSearch } = useSearch()
   const { local, setLocal } = useLocal()
   const { loading, setLoading } = useLoading()
-  const token = Cookies.get('tokennn')
+  const token = useToken()
   const [openNew, setOpenNew] = useState(false)
 
   useEffect(() => {
