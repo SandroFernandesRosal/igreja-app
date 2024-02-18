@@ -10,7 +10,10 @@ export default function Logout() {
     router.push('/login')
   }
   return (
-    <button className="rounded-md bg-red-500 px-2 font-bold" onClick={Sair}>
+    <button
+      className="w-[60px] rounded-md bg-red-500 p-1 font-bold"
+      onClick={Sair}
+    >
       Sair
     </button>
   )
