@@ -8,6 +8,8 @@ export default function Logout() {
   function Sair() {
     Cookies.remove('tokennn')
     router.push('/login')
+
+    window.location.href = '/login'
   }
   return (
     <button

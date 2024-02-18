@@ -39,6 +39,8 @@ export default function AddAgenda({ openNew, setOpenNew }) {
       if (response.status === 200 && agenda) {
         setOpenNew(false)
         router.push('/')
+        window.location.href = '/'
+
         return agenda
       }
 

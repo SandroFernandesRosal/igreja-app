@@ -35,6 +35,7 @@ export default function Register() {
         Cookies.set('tokennn', token)
 
         router.push('/')
+        window.location.href = '/'
         return token
       }
     } catch (error) {

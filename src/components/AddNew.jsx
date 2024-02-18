@@ -68,6 +68,7 @@ export default function AddNew({ openNew, setOpenNew }) {
       if (response.status === 200 && newss) {
         setOpenNew(false)
         router.push('/')
+        window.location.href = '/'
         return newss
       }
 

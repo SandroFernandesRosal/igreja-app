@@ -57,6 +57,7 @@ export default function EditDoacao({
       if (response.status === 200 && doacao) {
         setOpenEdit(false)
         router.push('/')
+        window.location.href = '/'
         return doacao
       }
 

@@ -45,6 +45,7 @@ export default function EditEndereco({
       if (response.status === 200 && endereco) {
         setOpenEdit(false)
         router.push('/')
+        window.location.href = '/'
         return endereco
       }
 

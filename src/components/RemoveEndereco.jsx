@@ -26,7 +26,8 @@ export default function RemoveEndereco({ id }) {
       })
 
       if (response.status === 200) {
-        router.push('/') // Recarregue a página ou atualize a interface
+        router.push('/')
+        window.location.href = '/' // Recarregue a página ou atualize a interface
       } else {
         console.error('Erro ao remover endereço:', response.statusText)
         // Exiba uma mensagem de erro ao usuário

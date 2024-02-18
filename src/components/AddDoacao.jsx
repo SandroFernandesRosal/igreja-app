@@ -39,6 +39,7 @@ export default function AddDoacao({ openDoacao, setOpenDoacao }) {
       if (response.status === 200 && doacao) {
         setOpenDoacao(false)
         router.push('/')
+        window.location.href = '/'
         return doacao
       }
 

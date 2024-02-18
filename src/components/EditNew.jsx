@@ -62,6 +62,7 @@ export default function EditNew({ setOpenEdit, id, img, titulo, conteudo }) {
 
       if (response.status === 200) {
         router.push('/')
+        window.location.href = '/'
         return response.data
       }
 

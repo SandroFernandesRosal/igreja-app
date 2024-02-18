@@ -41,6 +41,7 @@ export default function AddContatos({ openContato, setOpenContato }) {
       if (response.status === 200 && contato) {
         setOpenContato(false)
         router.push('/')
+        window.location.href = '/'
         return contato
       }
 

@@ -69,6 +69,7 @@ export default function EditMinisterio({
       if (response.status === 200) {
         setOpenEdit(false)
         router.push('/')
+        window.location.href = '/'
         return response.data
       }
 

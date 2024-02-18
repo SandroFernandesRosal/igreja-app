@@ -68,6 +68,7 @@ export default function AddLider({ openMinisterio, setOpenMinisterio }) {
       if (res.status === 200 && lider) {
         setOpenMinisterio(false)
         router.push('/')
+        window.location.href = '/'
         return lider
       }
       console.log(lider)

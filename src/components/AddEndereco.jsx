@@ -39,6 +39,7 @@ export default function AddEndereco({ openEndereco, setOpenEndereco }) {
       if (response.status === 200 && endereco) {
         setOpenEndereco(false)
         router.push('/')
+        window.location.href = '/'
         return endereco
       }
 

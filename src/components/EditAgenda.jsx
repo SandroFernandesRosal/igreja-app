@@ -39,6 +39,7 @@ export default function EditAgenda({ setOpenEdit, id, title, hora, dia }) {
       if (response.status === 200 && agenda) {
         setOpenEdit(false)
         router.push('/')
+        window.location.href = '/'
         return agenda
       }
 

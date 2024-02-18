@@ -48,6 +48,7 @@ export default function EditContatos({
       if (response.status === 200 && contato) {
         setOpenEdit(false)
         router.push('/')
+        window.location.href = '/'
         return contato
       }
 
