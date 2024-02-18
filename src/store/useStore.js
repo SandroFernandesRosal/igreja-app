@@ -29,3 +29,13 @@ export const useOpen = create((set) => ({
   open: false,
   openSet: (state) => set({ open: state }),
 }))
+
+export const useDataContato = create((set) => ({
+  dataContato: [],
+  setDataContato: (state) => set({ dataContato: state }),
+}))
+
+export const useMenu = create((set) => ({
+  menu: false,
+  setMenu: (state) => set({ menu: state }),
+}))

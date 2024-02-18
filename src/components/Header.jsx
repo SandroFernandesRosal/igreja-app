@@ -9,9 +9,11 @@ import Link from 'next/link'
 import ChangeTheme from './ChangeTheme'
 import Image from 'next/image'
 import logo from '../../public/img/logo.png'
+import { useToken } from '@/hooks/useToken'
 
-export default function Header() {
+export default function Header({ children }) {
   const [menu, setMenu] = useState(false)
+  const token = useToken()
 
   const handleMenu = () => {
     menu === false ? setMenu(true) : setMenu(false)
@@ -31,9 +33,11 @@ export default function Header() {
             />
           </Link>
 
-          <div className="hidden gap-10 md:flex">
+          <div className="hidden  md:flex">
             <ChangeTheme />
           </div>
+          {token && <div className="hidden md:flex">{children}</div>}
+
           <div
             onClick={handleMenu}
             className={
@@ -50,7 +54,7 @@ export default function Header() {
         <NavBarMd />
       </header>
 
-      {menu && <NavBar handleMenu={handleMenu} menu={menu} />}
+      {menu && <NavBar handleMenu={handleMenu} menu={menu} user={children} />}
     </>
   )
 }

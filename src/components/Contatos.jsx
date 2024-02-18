@@ -3,12 +3,13 @@ import { api } from '@/lib/api'
 import { useEffect, useState } from 'react'
 import { useToken } from '@/hooks/useToken'
 import SkeletonAgenda from './SkeletonAgenda'
+import { useDataContato } from '@/store/useStore'
 
 import Socials from './Socials'
 import AddContatos from './AddContatos'
 
 export default function Contatos() {
-  const [data, setData] = useState([])
+  const { dataContato, setDataContato } = useDataContato()
   const [loading, setLoading] = useState(true)
   const [openContato, setOpenContato] = useState(false)
   const token = useToken()
@@ -17,11 +18,11 @@ export default function Contatos() {
     api
       .get(`/contato`)
       .then((response) => {
-        setData(response.data)
+        setDataContato(response.data)
         setLoading(false)
       })
       .catch((err) => console.log(err))
-  }, [])
+  }, [setDataContato])
   return (
     <div>
       {token && (
@@ -49,10 +50,10 @@ export default function Contatos() {
 
       <div className="m-2 flex w-full flex-wrap justify-center gap-5">
         {!loading ? (
-          data && data.length < 1 ? (
+          dataContato && dataContato.length < 1 ? (
             <p>Nenhum contato cadastrado.</p>
           ) : (
-            data.map((item) => {
+            dataContato.map((item) => {
               return (
                 <Socials
                   className="cor"
