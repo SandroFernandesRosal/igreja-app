@@ -10,7 +10,9 @@ import {
 } from 'swiper/modules'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useData, useLoading } from '../store/useStore'
+import { useData, useLoading, useLocal } from '../store/useStore'
+import { useEffect } from 'react'
+import api from '@/service/api'
 
 import 'swiper/css'
 import 'swiper/css/navigation'
@@ -21,8 +23,19 @@ import 'swiper/css/autoplay'
 import SkeletonSlider from './SkeletonSlider'
 
 export default function NewSlider() {
-  const { data } = useData()
-  const { loading } = useLoading()
+  const { data, setData } = useData()
+  const { loading, setLoading } = useLoading()
+  const { local } = useLocal()
+
+  useEffect(() => {
+    api
+      .get(`/news/${local}`)
+      .then((response) => {
+        setData(response.data)
+        setLoading(false)
+      })
+      .catch((err) => console.log(err))
+  }, [local, setData, setLoading])
   return (
     <>
       {!loading ? (

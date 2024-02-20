@@ -1,3 +1,4 @@
+'use client'
 import { useSearch } from '../store/useStore'
 import { FaSearch } from 'react-icons/fa'
 
