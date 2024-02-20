@@ -62,11 +62,11 @@ export default function AddDoacao({ openDoacao, setOpenDoacao }) {
 
   return (
     <form
-      className="fixed left-0 top-0 z-20 flex h-[100vh] w-[100vw] flex-col items-center justify-center bg-black/50 backdrop-blur-lg"
+      className=" fixed left-0 top-0 z-20 mt-10 flex min-h-screen w-[100vw] flex-col items-center justify-center bg-black/50 p-5 backdrop-blur-lg md:mt-20"
       onSubmit={handleSubmit}
     >
       <h1 className="z-20 mb-2 flex items-center justify-center gap-3 text-lg font-bold text-primary">
-        Adicionar endereço{' '}
+        Adicionar igreja{' '}
         {openDoacao === true && (
           <AiFillCloseCircle
             onClick={() => setOpenDoacao(false)}
@@ -75,7 +75,7 @@ export default function AddDoacao({ openDoacao, setOpenDoacao }) {
         )}
       </h1>
       <input
-        className="mb-4 mt-2 w-[200px] cursor-pointer rounded-lg  border-none bg-bglightsecundary p-2 text-center font-bold placeholder-textlight shadow-light outline-none focus:ring-0 dark:bg-bgdarksecundary dark:placeholder-textdark dark:shadow-dark"
+        className="mt-2 w-[200px] cursor-pointer rounded-lg  border-none bg-bglightsecundary p-2 text-center font-bold placeholder-textlight shadow-light outline-none focus:ring-0 dark:bg-bgdarksecundary dark:placeholder-textdark dark:shadow-dark"
         type="text"
         name="local"
         placeholder="Digite um local"
@@ -83,7 +83,7 @@ export default function AddDoacao({ openDoacao, setOpenDoacao }) {
       />
 
       <input
-        className="mb-4 mt-2 w-[200px] cursor-pointer rounded-lg  border-none bg-bglightsecundary p-2 text-center font-bold placeholder-textlight shadow-light outline-none focus:ring-0 dark:bg-bgdarksecundary dark:placeholder-textdark dark:shadow-dark"
+        className="my-2 w-[200px] cursor-pointer rounded-lg  border-none bg-bglightsecundary p-2 text-center font-bold placeholder-textlight shadow-light outline-none focus:ring-0 dark:bg-bgdarksecundary dark:placeholder-textdark dark:shadow-dark"
         type="text"
         name="banco"
         placeholder="Digite o nome do banco"
@@ -91,7 +91,7 @@ export default function AddDoacao({ openDoacao, setOpenDoacao }) {
       />
 
       <input
-        className="mb-4 w-[200px] cursor-pointer rounded-lg  border-none bg-bglightsecundary p-2 text-center font-bold placeholder-textlight shadow-light outline-none focus:ring-0 dark:bg-bgdarksecundary dark:placeholder-textdark dark:shadow-dark"
+        className="mb-2 w-[200px] cursor-pointer rounded-lg  border-none bg-bglightsecundary p-2 text-center font-bold placeholder-textlight shadow-light outline-none focus:ring-0 dark:bg-bgdarksecundary dark:placeholder-textdark dark:shadow-dark"
         type="text"
         name="conta"
         placeholder="Digite número da conta"
@@ -99,18 +99,18 @@ export default function AddDoacao({ openDoacao, setOpenDoacao }) {
       />
 
       <input
-        className="mb-4 mt-2 w-[200px] cursor-pointer rounded-lg  border-none bg-bglightsecundary p-2 text-center font-bold placeholder-textlight shadow-light outline-none focus:ring-0 dark:bg-bgdarksecundary dark:placeholder-textdark dark:shadow-dark"
+        className="mb-2 w-[200px] cursor-pointer rounded-lg  border-none bg-bglightsecundary p-2 text-center font-bold placeholder-textlight shadow-light outline-none focus:ring-0 dark:bg-bgdarksecundary dark:placeholder-textdark dark:shadow-dark"
         type="text"
         name="agencia"
-        placeholder="Digite o número da agência"
+        placeholder="Digite a agência"
         onChange={(e) => setAgencia(e.target.value)}
       />
 
       <input
-        className="mb-4 mt-2 w-[200px] cursor-pointer rounded-lg  border-none bg-bglightsecundary p-2 text-center font-bold placeholder-textlight shadow-light outline-none focus:ring-0 dark:bg-bgdarksecundary dark:placeholder-textdark dark:shadow-dark"
+        className="mb-4 w-[200px] cursor-pointer rounded-lg  border-none bg-bglightsecundary p-2 text-center font-bold placeholder-textlight shadow-light outline-none focus:ring-0 dark:bg-bgdarksecundary dark:placeholder-textdark dark:shadow-dark"
         type="text"
         name="nomeBanco"
-        placeholder="Nome completo do beneficiário"
+        placeholder="Nome do beneficiário"
         onChange={(e) => setNomeBanco(e.target.value)}
       />
 
@@ -123,10 +123,10 @@ export default function AddDoacao({ openDoacao, setOpenDoacao }) {
       />
 
       <input
-        className="mb-4 mt-2 w-[200px] cursor-pointer rounded-lg  border-none bg-bglightsecundary p-2 text-center font-bold placeholder-textlight shadow-light outline-none focus:ring-0 dark:bg-bgdarksecundary dark:placeholder-textdark dark:shadow-dark"
+        className="mb-4 w-[200px] cursor-pointer rounded-lg  border-none bg-bglightsecundary p-2 text-center font-bold placeholder-textlight shadow-light outline-none focus:ring-0 dark:bg-bgdarksecundary dark:placeholder-textdark dark:shadow-dark"
         type="text"
         name="local"
-        placeholder="Nome completo do beneficiário"
+        placeholder="Nome do beneficiário"
         onChange={(e) => setNomePix(e.target.value)}
       />
 
