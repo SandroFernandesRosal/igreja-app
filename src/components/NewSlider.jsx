@@ -40,13 +40,13 @@ export default function NewSlider() {
     <>
       {!loading ? (
         data && data.length < 1 ? (
-          <div className="my-5 flex h-[300px] w-[100vw] flex-col items-center justify-center rounded-[35px]  shadow-xl dark:shadow-dark  md:my-10 md:h-[400px] md:w-[500px] md:rounded-xl lg:h-[500px] lg:w-[800px]">
+          <div className="my-5 flex h-[300px] w-[100vw] flex-col items-center justify-center rounded-[35px] shadow-xl dark:shadow-dark  md:h-[400px] md:w-[500px] md:rounded-xl lg:h-[500px] lg:w-[800px]">
             {' '}
             <p>NENHUMA NOTÍCIA CADASTRADA.</p>
             <p>Aguarde as postagens.</p>
           </div>
         ) : (
-          <div className="my-5 flex w-full justify-center">
+          <div className="flex w-full justify-center py-5">
             <Swiper
               modules={[
                 Navigation,
