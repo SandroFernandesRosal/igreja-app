@@ -9,8 +9,12 @@ import { api } from '@/lib/api'
 
 export default function AddDoacao({ openDoacao, setOpenDoacao }) {
   const [local, setLocal] = useState('')
+  const [banco, setBanco] = useState('')
   const [conta, setConta] = useState('')
+  const [agencia, setAgencia] = useState('')
+  const [nomeBanco, setNomeBanco] = useState('')
   const [pix, setPix] = useState('')
+  const [nomePix, setNomePix] = useState('')
 
   const router = useRouter()
   const token = Cookies.get('tokennn')
@@ -23,8 +27,12 @@ export default function AddDoacao({ openDoacao, setOpenDoacao }) {
         '/doacao',
         {
           local,
+          banco,
           conta,
+          agencia,
+          nomeBanco,
           pix,
+          nomePix,
         },
         {
           headers: {
@@ -75,6 +83,14 @@ export default function AddDoacao({ openDoacao, setOpenDoacao }) {
       />
 
       <input
+        className="mb-4 mt-2 w-[200px] cursor-pointer rounded-lg  border-none bg-bglightsecundary p-2 text-center font-bold placeholder-textlight shadow-light outline-none focus:ring-0 dark:bg-bgdarksecundary dark:placeholder-textdark dark:shadow-dark"
+        type="text"
+        name="banco"
+        placeholder="Digite o nome do banco"
+        onChange={(e) => setBanco(e.target.value)}
+      />
+
+      <input
         className="mb-4 w-[200px] cursor-pointer rounded-lg  border-none bg-bglightsecundary p-2 text-center font-bold placeholder-textlight shadow-light outline-none focus:ring-0 dark:bg-bgdarksecundary dark:placeholder-textdark dark:shadow-dark"
         type="text"
         name="conta"
@@ -83,11 +99,35 @@ export default function AddDoacao({ openDoacao, setOpenDoacao }) {
       />
 
       <input
+        className="mb-4 mt-2 w-[200px] cursor-pointer rounded-lg  border-none bg-bglightsecundary p-2 text-center font-bold placeholder-textlight shadow-light outline-none focus:ring-0 dark:bg-bgdarksecundary dark:placeholder-textdark dark:shadow-dark"
+        type="text"
+        name="agencia"
+        placeholder="Digite o número da agência"
+        onChange={(e) => setAgencia(e.target.value)}
+      />
+
+      <input
+        className="mb-4 mt-2 w-[200px] cursor-pointer rounded-lg  border-none bg-bglightsecundary p-2 text-center font-bold placeholder-textlight shadow-light outline-none focus:ring-0 dark:bg-bgdarksecundary dark:placeholder-textdark dark:shadow-dark"
+        type="text"
+        name="nomeBanco"
+        placeholder="Nome completo do beneficiário"
+        onChange={(e) => setNomeBanco(e.target.value)}
+      />
+
+      <input
         className="mb-4 w-[200px] cursor-pointer rounded-lg  border-none bg-bglightsecundary p-2 text-center font-bold placeholder-textlight shadow-light outline-none focus:ring-0 dark:bg-bgdarksecundary dark:placeholder-textdark dark:shadow-dark"
         type="text"
         name="pix"
-        placeholder="Digite o pix"
+        placeholder="Digite a chave pix"
         onChange={(e) => setPix(e.target.value)}
+      />
+
+      <input
+        className="mb-4 mt-2 w-[200px] cursor-pointer rounded-lg  border-none bg-bglightsecundary p-2 text-center font-bold placeholder-textlight shadow-light outline-none focus:ring-0 dark:bg-bgdarksecundary dark:placeholder-textdark dark:shadow-dark"
+        type="text"
+        name="local"
+        placeholder="Nome completo do beneficiário"
+        onChange={(e) => setNomePix(e.target.value)}
       />
 
       <button
