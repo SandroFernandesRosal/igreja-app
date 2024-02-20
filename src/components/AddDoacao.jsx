@@ -12,9 +12,9 @@ export default function AddDoacao({ openDoacao, setOpenDoacao }) {
   const [banco, setBanco] = useState('')
   const [conta, setConta] = useState('')
   const [agencia, setAgencia] = useState('')
-  const [nomeBanco, setNomeBanco] = useState('')
+  const [nomebanco, setNomeBanco] = useState('')
   const [pix, setPix] = useState('')
-  const [nomePix, setNomePix] = useState('')
+  const [nomepix, setNomePix] = useState('')
 
   const router = useRouter()
   const token = Cookies.get('tokennn')
@@ -30,9 +30,9 @@ export default function AddDoacao({ openDoacao, setOpenDoacao }) {
           banco,
           conta,
           agencia,
-          nomeBanco,
+          nomebanco,
           pix,
-          nomePix,
+          nomepix,
         },
         {
           headers: {
@@ -125,7 +125,7 @@ export default function AddDoacao({ openDoacao, setOpenDoacao }) {
       <input
         className="mb-4 w-[200px] cursor-pointer rounded-lg  border-none bg-bglightsecundary p-2 text-center font-bold placeholder-textlight shadow-light outline-none focus:ring-0 dark:bg-bgdarksecundary dark:placeholder-textdark dark:shadow-dark"
         type="text"
-        name="local"
+        name="nomePix"
         placeholder="Nome do beneficiário"
         onChange={(e) => setNomePix(e.target.value)}
       />
