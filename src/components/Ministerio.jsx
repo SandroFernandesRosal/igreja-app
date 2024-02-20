@@ -29,7 +29,7 @@ export default function Ministerio() {
   }, [local])
 
   return (
-    <section className="mb-10  flex w-[100vw] flex-col items-center rounded-[35px]  bg-bglightsecundary  px-1 shadow-light dark:bg-bgdarksecundary dark:shadow-dark  md:w-[90vw] md:rounded-xl">
+    <section className="mb-5  flex w-[100vw] flex-col items-center rounded-[35px]  bg-bglightsecundary  px-1 shadow-light dark:bg-bgdarksecundary dark:shadow-dark  md:w-[90vw] md:rounded-xl">
       <div className="flex flex-col items-center  md:min-w-[35%]">
         <h1 className="m-0 text-lg font-bold text-primary ">Ministério</h1>
         <p className="text-xl ">Todos os nossos lideres</p>

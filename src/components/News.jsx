@@ -50,7 +50,7 @@ export default function News() {
   }, [local, setData, setLoading])
 
   return (
-    <section className=" mb-5  flex w-[100vw] flex-col items-center rounded-[35px] bg-bglightsecundary shadow-light dark:bg-bgdarksecundary dark:shadow-dark md:w-[90vw] md:rounded-xl  ">
+    <section className=" my-5 flex  w-[100vw] flex-col items-center rounded-[35px] bg-bglightsecundary shadow-light dark:bg-bgdarksecundary dark:shadow-dark  md:w-[90vw] md:rounded-xl  ">
       <div className="flex flex-col items-center  md:min-w-[35%]">
         <h1 className="m-0 text-lg font-bold text-primary ">Notícias</h1>
         <p className=" px-2 text-xl">Fique por dentro das notícias</p>
