@@ -8,6 +8,7 @@ import { api } from '@/lib/api'
 export default function Register() {
   const [login, setLogin] = useState('')
   const [password, setPassword] = useState('')
+  const [error, setError] = useState(false)
   const router = useRouter()
 
   async function handleSubmit(event) {
@@ -23,10 +24,7 @@ export default function Register() {
       const user = response.data
 
       if (user.error) {
-        const message = user.error
-          ? 'Login ou senha incorreta'
-          : 'Erro desconhecido'
-        alert(message)
+        setError(true)
         return null
       }
 
@@ -47,33 +45,47 @@ export default function Register() {
   }
 
   return (
-    <div className="flex h-screen w-full flex-col items-center justify-center">
-      <h1 className="mb-6 text-3xl">Login</h1>
+    <div className="mt-[80px] flex w-full  justify-center md:mt-[140px]">
+      <div className="my-10 flex min-h-screen w-[100vw] flex-col items-center rounded-[35px] bg-bglightsecundary shadow-light dark:bg-bgdarksecundary dark:shadow-dark  md:w-[90vw] md:rounded-xl">
+        <h1 className="mt-2 text-lg font-bold text-primary ">Login Adm</h1>
+        <p className="mb-5 text-xl">Use suas credenciais</p>
 
-      <form className="flex w-[400px] flex-col gap-6" onSubmit={handleSubmit}>
-        <input
-          className="h-12 rounded-md border border-gray-300 bg-transparent p-2"
-          type="text"
-          name="login"
-          placeholder="Digite seu e-mail"
-          onChange={(e) => setLogin(e.target.value)}
-        />
-
-        <input
-          className="h-12 rounded-md border border-gray-300 bg-transparent p-2"
-          type="password"
-          name="password"
-          placeholder="Digite sua senha"
-          onChange={(e) => setPassword(e.target.value)}
-        />
-
-        <button
-          type="submit"
-          className="h-12 rounded-md bg-gray-300 text-gray-800 hover:bg-gray-400"
+        <form
+          className="flex w-[75%] max-w-[500px] flex-col items-center gap-3 rounded-xl bg-bglight p-3 shadow-light dark:bg-bgdark dark:shadow-dark md:mb-5"
+          onSubmit={handleSubmit}
         >
-          Entrar
-        </button>
-      </form>
+          <h1 className="text-xl font-bold text-primary">
+            Preencha os campos abaixo:
+          </h1>
+
+          {error && (
+            <p className="font-bold text-red-700">Login ou senha incorreta</p>
+          )}
+
+          <input
+            className="shadow-ligh mb-[10px] w-[90%] cursor-pointer rounded-lg border-none  bg-bglightsecundary p-[5px] text-center font-bold placeholder-textlight shadow-light outline-none focus:ring-0  dark:bg-bgdarksecundary dark:placeholder-textdark dark:shadow-dark"
+            type="text"
+            name="login"
+            placeholder="Digite seu e-mail"
+            onChange={(e) => setLogin(e.target.value)}
+          />
+
+          <input
+            className="shadow-ligh mb-[10px] w-[90%] cursor-pointer rounded-lg border-none  bg-bglightsecundary p-[5px] text-center font-bold placeholder-textlight shadow-light outline-none focus:ring-0  dark:bg-bgdarksecundary dark:placeholder-textdark dark:shadow-dark"
+            type="password"
+            name="password"
+            placeholder="Digite sua senha"
+            onChange={(e) => setPassword(e.target.value)}
+          />
+
+          <button
+            type="submit"
+            className="h-[30px] w-[150px] rounded-xl bg-primary font-bold text-black  shadow-light  hover:bg-primary/50  dark:shadow-dark"
+          >
+            Entrar
+          </button>
+        </form>
+      </div>
     </div>
   )
 }

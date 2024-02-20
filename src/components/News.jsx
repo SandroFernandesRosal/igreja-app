@@ -61,7 +61,7 @@ export default function News() {
         <>
           {openNew === false && (
             <div
-              className="mb-4 flex  cursor-pointer items-center justify-center gap-2 text-lg font-bold"
+              className="mb-4 flex cursor-pointer rounded-lg border-none bg-bglight p-2 placeholder-black shadow-light outline-none hover:shadow-hover focus:ring-0 dark:bg-bgdark dark:placeholder-white dark:shadow-dark dark:hover:shadow-hover"
               onClick={() => setOpenNew(true)}
             >
               Adicionar Notícia
