@@ -12,7 +12,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useData, useLoading, useLocal } from '../store/useStore'
 import { useEffect } from 'react'
-import api from '@/service/api'
+import { api } from '@/lib/api'
 
 import 'swiper/css'
 import 'swiper/css/navigation'
