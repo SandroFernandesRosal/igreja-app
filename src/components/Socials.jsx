@@ -6,9 +6,6 @@ import EditContatos from './crud/EditContatos'
 import RemoveContatos from './crud/RemoveContatos'
 
 export default function Socials({
-  whatsapp,
-  instagram,
-  facebook,
   numerowhatsapp,
   nomeinstagram,
   nomefacebook,
@@ -22,7 +19,7 @@ export default function Socials({
       <div className="mb-[7px]  flex flex-col  justify-center gap-2">
         <h1 className="text-lg">{title}</h1>
         <Link
-          href={String(whatsapp)}
+          href={`https://api.whatsapp.com/send?phone=${numerowhatsapp}`}
           target="blank"
           className="flex items-center gap-2"
         >
@@ -31,7 +28,7 @@ export default function Socials({
         </Link>
 
         <Link
-          href={String(instagram)}
+          href={`https://www.facebook.com/${nomeinstagram}`}
           target="blank"
           className="flex items-center gap-2"
         >
@@ -40,7 +37,7 @@ export default function Socials({
         </Link>
 
         <Link
-          href={String(facebook)}
+          href={`https://www.facebook.com/${nomefacebook}`}
           target="blank"
           className="flex items-center gap-2"
         >
