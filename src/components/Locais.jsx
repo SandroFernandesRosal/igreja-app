@@ -3,9 +3,9 @@ import LocaisItem from './LocaisItem'
 import { api } from '@/lib/api'
 import { useEffect, useState } from 'react'
 import { useToken } from '@/hooks/useToken'
-import SkeletonAgenda from './SkeletonAgenda'
 
-import AddEndereco from './AddEndereco'
+import AddEndereco from './crud/AddEndereco'
+import SkeletonEndereco from './skeleton/SkeletonEndereco'
 
 export default function Locais() {
   const [data, setData] = useState([])
@@ -70,7 +70,7 @@ export default function Locais() {
             })
           )
         ) : (
-          <SkeletonAgenda />
+          <SkeletonEndereco />
         )}
       </div>
     </section>

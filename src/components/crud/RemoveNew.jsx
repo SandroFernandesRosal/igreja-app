@@ -2,7 +2,7 @@
 import Cookies from 'js-cookie'
 import { api } from '@/lib/api'
 import { useRouter } from 'next/navigation'
-import { useLocal } from '../store/useStore'
+import { useLocal } from '../../store/useStore'
 import { useState } from 'react'
 
 export default function RemoveNew({ id }) {

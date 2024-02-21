@@ -1,8 +1,8 @@
 'use client'
 import Image from 'next/image'
 import maps from '../../public/img/mapvp3.jpg'
-import EditEndereco from './EditEndereco'
-import RemoveEndereco from './RemoveEndereco'
+import EditEndereco from './crud/EditEndereco'
+import RemoveEndereco from './crud/RemoveEndereco'
 import Cookies from 'js-cookie'
 import { useState } from 'react'
 

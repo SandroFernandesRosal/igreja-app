@@ -18,8 +18,8 @@ import New from './New'
 
 import { useEffect, useState } from 'react'
 import NewSearch from './NewSearch'
-import AddNew from './AddNew'
-import SkeletonNew from './SkeletonNew'
+import AddNew from './crud/AddNew'
+import SkeletonNew from './skeleton/SkeletonNew'
 
 export default function News() {
   const { dataSearch, setDataSearch } = useDataSearch()

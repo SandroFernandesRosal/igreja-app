@@ -2,8 +2,8 @@
 
 import { BsBank } from 'react-icons/bs'
 import { MdOutlinePix } from 'react-icons/md'
-import EditDoacao from './EditDoacao'
-import RemoveDoacao from './RemoveDoacao'
+import EditDoacao from './crud/EditDoacao'
+import RemoveDoacao from './crud/RemoveDoacao'
 import Cookies from 'js-cookie'
 import { useState } from 'react'
 

@@ -1,19 +1,18 @@
 'use client'
 import Cookies from 'js-cookie'
-
+import { FaCameraRetro } from 'react-icons/fa'
+import { AiFillCloseCircle } from 'react-icons/ai'
 import { useState, useRef } from 'react'
 import { useRouter } from 'next/navigation'
-import { useLocal } from '../store/useStore'
+import { useLocal } from '../../store/useStore'
 import { api } from '@/lib/api'
-import { AiFillCloseCircle } from 'react-icons/ai'
-import { FaCameraRetro } from 'react-icons/fa'
 
-export default function AddLider({ openMinisterio, setOpenMinisterio }) {
+export default function AddNew({ openNew, setOpenNew }) {
   const [title, setTitle] = useState('')
-  const [name, setName] = useState('')
-  const formRef = useRef(null)
-  const [igreja, setIgreja] = useState('')
+  const [content, setContent] = useState('')
+
   const [preview, setPreview] = useState(null)
+  const formRef = useRef(null)
 
   const { local } = useLocal()
   const router = useRouter()
@@ -28,32 +27,33 @@ export default function AddLider({ openMinisterio, setOpenMinisterio }) {
     let coverUrl = ''
 
     if (!fileToUpload) {
-      alert('Você precisa adicionar uma imagem.')
+      alert('você precisa adicionar uma imagem.')
       return
     }
 
     if (fileToUpload) {
-      const uploadFormData = new FormData()
-      uploadFormData.append('file', fileToUpload)
+      const formData = new FormData()
+      formData.append('file', fileToUpload)
 
       try {
-        const uploadResponse = await api.post('/upload', uploadFormData)
+        const uploadResponse = await api.post('/upload', formData, {
+          headers: { 'Content-Type': 'multipart/form-data' }, // Definir cabeçalho apropriado para uploads de arquivos
+        })
         coverUrl = uploadResponse.data.fileUrl
       } catch (error) {
-        console.error('Error uploading file:', error)
-        // Handle the error appropriately, e.g., display an error message to the user
-        return
+        console.error('Erro ao carregar arquivo:', error)
+        // Tratar erros de upload aqui
       }
     }
 
     try {
-      const res = await api.post(
-        `/ministerio/${local}`,
+      const response = await api.post(
+        `/news/${local}`,
         {
-          name,
           title,
-          local: `${igreja}`,
+          content,
           coverUrl,
+          page: local,
         },
         {
           headers: {
@@ -63,19 +63,20 @@ export default function AddLider({ openMinisterio, setOpenMinisterio }) {
         },
       )
 
-      const lider = res.data
+      const newss = response.data
 
-      if (res.status === 200 && lider) {
-        setOpenMinisterio(false)
+      if (response.status === 200 && newss) {
+        setOpenNew(false)
         router.push('/')
         window.location.href = '/'
-        return lider
+        return newss
       }
-      console.log(lider)
+
+      console.log(newss)
       return null
     } catch (error) {
-      console.error('Error during API request:', error)
-      // Handle the error appropriately, e.g., display an error message to the user
+      console.error('Erro ao criar notícia:', error)
+      // Tratar outros erros de requisição aqui
     }
   }
 
@@ -97,11 +98,11 @@ export default function AddLider({ openMinisterio, setOpenMinisterio }) {
       className="fixed left-0 top-0 z-20 flex h-[100vh] w-[100vw] flex-col items-center justify-center bg-black/50 backdrop-blur-lg"
       onSubmit={handleSubmit}
     >
-      <h1 className="z-20 mb-2 flex items-center justify-center gap-3 text-lg font-bold text-primary">
-        Adicionar lider{' '}
-        {openMinisterio === true && (
+      <h1 className="mb-2 flex items-center justify-center gap-3 text-lg font-bold text-primary">
+        Adicionar Notícia{' '}
+        {openNew === true && (
           <AiFillCloseCircle
-            onClick={() => setOpenMinisterio(false)}
+            onClick={() => setOpenNew(false)}
             className="cursor-pointer text-2xl font-bold text-black dark:text-white"
           />
         )}
@@ -121,25 +122,19 @@ export default function AddLider({ openMinisterio, setOpenMinisterio }) {
       <input
         className="mb-4 mt-2 w-[200px] cursor-pointer rounded-lg  border-none bg-bglightsecundary p-2 text-center font-bold placeholder-textlight shadow-light outline-none focus:ring-0 dark:bg-bgdarksecundary dark:placeholder-textdark dark:shadow-dark"
         type="text"
-        name="name"
-        placeholder="Nome"
-        onChange={(e) => setName(e.target.value)}
-      />
-
-      <input
-        className="mb-4  w-[200px] cursor-pointer rounded-lg  border-none bg-bglightsecundary p-2 text-center font-bold placeholder-textlight shadow-light outline-none focus:ring-0 dark:bg-bgdarksecundary dark:placeholder-textdark dark:shadow-dark"
-        type="text"
         name="title"
-        placeholder="Cargo de liderança"
+        required
+        placeholder="Título da notícia"
         onChange={(e) => setTitle(e.target.value)}
       />
 
-      <input
-        className="mb-4  w-[200px] cursor-pointer rounded-lg  border-none bg-bglightsecundary p-2 text-center font-bold placeholder-textlight shadow-light outline-none focus:ring-0 dark:bg-bgdarksecundary dark:placeholder-textdark dark:shadow-dark"
+      <textarea
+        className="mb-1 w-[200px] cursor-pointer rounded-lg  border-none bg-bglightsecundary p-2 text-center font-bold placeholder-textlight shadow-light outline-none focus:ring-0 dark:bg-bgdarksecundary dark:placeholder-textdark dark:shadow-dark"
         type="text"
-        name="name"
-        placeholder="Igreja (local)"
-        onChange={(e) => setIgreja(e.target.value)}
+        name="content"
+        required
+        placeholder="Conteúdo da notícia"
+        onChange={(e) => setContent(e.target.value)}
       />
 
       <input
@@ -147,7 +142,8 @@ export default function AddLider({ openMinisterio, setOpenMinisterio }) {
         type="file"
         name="coverUrl"
         id="coverUrl"
-        placeholder="Digite a url do perfil"
+        required={true}
+        placeholder="Digite a url da notícia"
         onChange={onFileSelected}
       />
 

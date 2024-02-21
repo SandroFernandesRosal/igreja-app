@@ -5,11 +5,11 @@ import { useEffect, useState } from 'react'
 import { api } from '@/lib/api'
 import { useLocal } from '../store/useStore'
 import SelectLocal from './SelectLocal'
-import AddAgenda from './AddAgenda'
+import AddAgenda from './crud/AddAgenda'
 
 import { useToken } from '@/hooks/useToken'
 
-import SkeletonAgenda from './SkeletonAgenda'
+import SkeletonAgenda from './skeleton/SkeletonAgenda'
 
 export default function TimeLine({ children }) {
   const { local } = useLocal()

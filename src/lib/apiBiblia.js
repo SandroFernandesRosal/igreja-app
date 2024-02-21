@@ -1,7 +1,7 @@
 import axios from 'axios'
 
-const api = axios.create({
+const apiBiblia = axios.create({
   baseURL: 'https://www.abibliadigital.com.br/api/verses/nvi',
 })
 
-export default api
+export default apiBiblia

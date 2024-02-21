@@ -7,9 +7,9 @@ import { useToken } from '@/hooks/useToken'
 import SelectLocal from './SelectLocal'
 import { api } from '@/lib/api'
 
-import AddLider from './AddMinisterio'
+import AddLider from './crud/AddMinisterio'
 
-import SkeletonLider from './SkeletonLider'
+import SkeletonLider from './skeleton/SkeletonLider'
 
 export default function Ministerio() {
   const [data, setData] = useState([])

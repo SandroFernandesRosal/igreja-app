@@ -20,7 +20,7 @@ import 'swiper/css/pagination'
 import 'swiper/css/scrollbar'
 import 'swiper/css/effect-flip'
 import 'swiper/css/autoplay'
-import SkeletonSlider from './SkeletonSlider'
+import SkeletonSlider from './skeleton/SkeletonSlider'
 
 export default function NewSlider() {
   const { data, setData } = useData()

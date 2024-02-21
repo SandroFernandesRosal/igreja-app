@@ -1,8 +1,8 @@
 import Image from 'next/image'
 import Cookies from 'js-cookie'
 import { useState } from 'react'
-import RemoveMinisterio from './RemoveMinisterio'
-import EditMinisterio from './EditMinisterio'
+import RemoveMinisterio from './crud/RemoveMinisterio'
+import EditMinisterio from './crud/EditMinisterio'
 
 export default function LideresItem({ nome, titulo, local, img, id }) {
   const [openEdit, setOpenEdit] = useState(false)

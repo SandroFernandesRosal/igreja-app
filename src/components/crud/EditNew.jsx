@@ -4,22 +4,16 @@ import { FaCameraRetro } from 'react-icons/fa'
 import { AiFillCloseCircle } from 'react-icons/ai'
 import { useState, useRef } from 'react'
 import { useRouter } from 'next/navigation'
-import { useLocal } from '../store/useStore'
+import { useLocal } from '../../store/useStore'
 import { api } from '@/lib/api'
 import Image from 'next/image'
 
-export default function EditMinisterio({
-  setOpenEdit,
-  id,
-  nome,
-  lugar,
-  titulo,
-  img,
-}) {
+export default function EditNew({ setOpenEdit, id, img, titulo, conteudo }) {
   const [title, setTitle] = useState('')
-  const [name, setName] = useState('')
-  const [igreja, setIgreja] = useState('')
+  const [content, setContent] = useState('')
+
   const [preview, setPreview] = useState(null)
+
   const formRef = useRef(null)
 
   const { local } = useLocal()
@@ -52,12 +46,12 @@ export default function EditMinisterio({
 
     try {
       const response = await api.put(
-        `/ministerio/${local}/${id}`,
+        `/news/${local}/${id}`,
         {
           title: title || titulo,
-          name: name || nome,
-          local: igreja || lugar,
+          content: content || conteudo,
           coverUrl,
+          page: local,
         },
         {
           headers: {
@@ -67,15 +61,14 @@ export default function EditMinisterio({
       )
 
       if (response.status === 200) {
-        setOpenEdit(false)
         router.push('/')
         window.location.href = '/'
         return response.data
       }
 
-      console.error('Erro ao editar um líder:', response.statusText)
+      console.error('Erro ao editar notícia:', response.statusText)
     } catch (error) {
-      console.error('Erro ao editar um líder:', error)
+      console.error('Erro ao editar notícia:', error)
       // Exibir mensagem de erro ao usuário
     }
 
@@ -96,11 +89,11 @@ export default function EditMinisterio({
   return (
     <form
       ref={formRef}
-      className="fixed left-0 top-0 z-30 mt-10 flex h-[100vh] w-[100vw] flex-col items-center justify-center bg-black/50 backdrop-blur-lg md:mt-20"
+      className="fixed left-0 top-0 mt-10 flex h-[100vh] w-[100vw] flex-col items-center justify-center bg-black/50 backdrop-blur-lg md:mt-20"
       onSubmit={handleSubmit}
     >
       <h1 className="z-20 mb-2 flex items-center justify-center gap-3 text-lg font-bold text-primary">
-        Editar Líder{' '}
+        Editar Notícia{' '}
         <AiFillCloseCircle
           onClick={() => setOpenEdit(false)}
           className="cursor-pointer text-2xl font-bold text-black dark:text-white"
@@ -111,59 +104,51 @@ export default function EditMinisterio({
         htmlFor="coverUrl"
         className="mb-3 flex cursor-pointer flex-col items-center gap-2  font-bold"
       >
-        {' '}
         <p className="flex items-center gap-3">
           {' '}
-          <FaCameraRetro className="text-xl text-primary" /> Anexar nova foto
+          <FaCameraRetro className="text-xl text-primary" /> Anexar nava imagem
           (até 5mb){' '}
         </p>
+
         {preview ? (
           <Image
-            width={120}
-            height={120}
             src={preview}
-            alt={nome}
-            className="flex  h-[120px] w-[120px] items-center justify-center rounded-full border-2  border-primary"
+            width={200}
+            height={100}
+            alt={titulo}
+            className=" aspect-video"
           />
         ) : (
           <Image
-            width={120}
-            height={120}
             src={img}
-            alt={nome}
-            className="flex  h-[120px] w-[120px] items-center justify-center rounded-full border-2  border-primary"
+            alt={titulo}
+            width={500}
+            height={250}
+            className=" aspect-video w-[70%] md:w-[50%]"
           />
         )}
       </label>
 
       <input
-        className="mb-4 mt-2 w-[200px] cursor-pointer rounded-lg  border-none bg-bglightsecundary p-2 text-center font-bold placeholder-textlight shadow-light outline-none focus:ring-0 dark:bg-bgdarksecundary dark:placeholder-textdark dark:shadow-dark"
-        type="text"
-        name="name"
-        required={true}
-        defaultValue={nome}
-        placeholder="Digite um nome"
-        onChange={(e) => setName(e.target.value)}
-      />
-
-      <input
-        className="mb-1 w-[200px] cursor-pointer rounded-lg  border-none bg-bglightsecundary p-2 text-center font-bold placeholder-textlight shadow-light outline-none focus:ring-0 dark:bg-bgdarksecundary dark:placeholder-textdark dark:shadow-dark"
+        className="mb-4 mt-2 w-[70%] cursor-pointer rounded-lg border-none  bg-bglightsecundary p-2 text-center font-bold placeholder-textlight shadow-light outline-none focus:ring-0 dark:bg-bgdarksecundary dark:placeholder-textdark dark:shadow-dark md:w-[50%]"
         type="text"
         name="title"
+        id="title"
         required={true}
         defaultValue={titulo}
-        placeholder="Digite um título"
+        placeholder="Você precisa digitar um título"
         onChange={(e) => setTitle(e.target.value)}
       />
 
-      <input
-        className="mb-4  w-[200px] cursor-pointer rounded-lg  border-none bg-bglightsecundary p-2 text-center font-bold placeholder-textlight shadow-light outline-none focus:ring-0 dark:bg-bgdarksecundary dark:placeholder-textdark dark:shadow-dark"
+      <textarea
+        className="mb-1 mt-2 w-[70%] cursor-pointer rounded-lg border-none  bg-bglightsecundary p-2 text-center font-bold placeholder-textlight shadow-light outline-none focus:ring-0 dark:bg-bgdarksecundary dark:placeholder-textdark dark:shadow-dark md:w-[50%]"
         type="text"
-        name="local"
+        name="content"
+        id="content"
         required={true}
-        defaultValue={lugar}
-        placeholder="Digite um local"
-        onChange={(e) => setIgreja(e.target.value)}
+        defaultValue={conteudo}
+        placeholder="Você precisa digitar um conteúdo"
+        onChange={(e) => setContent(e.target.value)}
       />
 
       <input
@@ -171,7 +156,6 @@ export default function EditMinisterio({
         type="file"
         name="coverUrl"
         id="coverUrl"
-        placeholder="Digite a url da notícia"
         onChange={onFileSelected}
       />
 

@@ -1,7 +1,7 @@
 import Cookies from 'js-cookie'
-import EditAgenda from './EditAgenda'
+import EditAgenda from './crud/EditAgenda'
 import { useState } from 'react'
-import RemoveAgenda from './RemoveAgenda'
+import RemoveAgenda from './crud/RemoveAgenda'
 
 export default function TimeLineItem({ title, hora, day, id }) {
   const [openEdit, setOpenEdit] = useState(false)

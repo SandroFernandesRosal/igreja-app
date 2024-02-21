@@ -2,8 +2,8 @@ import { FaFacebook, FaWhatsapp, FaInstagram } from 'react-icons/fa'
 import Link from 'next/link'
 import Cookies from 'js-cookie'
 import { useState } from 'react'
-import EditContatos from './EditContatos'
-import RemoveContatos from './RemoveContatos'
+import EditContatos from './crud/EditContatos'
+import RemoveContatos from './crud/RemoveContatos'
 
 export default function Socials({
   whatsapp,

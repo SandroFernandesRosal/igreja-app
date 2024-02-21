@@ -4,9 +4,8 @@ import DoeItem from './DoeItem'
 import { api } from '@/lib/api'
 import { useEffect, useState } from 'react'
 
-import SkeletonAgenda from './SkeletonAgenda'
-
-import AddDoacao from './AddDoacao'
+import AddDoacao from './crud/AddDoacao'
+import SkeletonDoe from './skeleton/SkeletonDoe'
 
 export default function Doe() {
   const [data, setData] = useState([])
@@ -79,7 +78,7 @@ export default function Doe() {
             })
           )
         ) : (
-          <SkeletonAgenda />
+          <SkeletonDoe />
         )}
       </div>
     </div>

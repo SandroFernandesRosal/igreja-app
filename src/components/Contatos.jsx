@@ -2,11 +2,12 @@
 import { api } from '@/lib/api'
 import { useEffect, useState } from 'react'
 import { useToken } from '@/hooks/useToken'
-import SkeletonAgenda from './SkeletonAgenda'
+
 import { useDataContato } from '@/store/useStore'
 
 import Socials from './Socials'
-import AddContatos from './AddContatos'
+import AddContatos from './crud/AddContatos'
+import SkeletonContato from './skeleton/SkeletonContato'
 
 export default function Contatos() {
   const { dataContato, setDataContato } = useDataContato()
@@ -68,7 +69,7 @@ export default function Contatos() {
             })
           )
         ) : (
-          <SkeletonAgenda />
+          <SkeletonContato />
         )}
       </div>
     </div>

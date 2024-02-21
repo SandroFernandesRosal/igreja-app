@@ -2,7 +2,7 @@
 import Cookies from 'js-cookie'
 
 import { useRouter } from 'next/navigation'
-import { useLocal } from '../store/useStore'
+import { useLocal } from '../../store/useStore'
 import { useState } from 'react'
 import { api } from '@/lib/api'
 

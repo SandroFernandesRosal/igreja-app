@@ -1,18 +1,19 @@
 'use client'
 import Cookies from 'js-cookie'
-import { FaCameraRetro } from 'react-icons/fa'
-import { AiFillCloseCircle } from 'react-icons/ai'
+
 import { useState, useRef } from 'react'
 import { useRouter } from 'next/navigation'
-import { useLocal } from '../store/useStore'
+import { useLocal } from '../../store/useStore'
 import { api } from '@/lib/api'
+import { AiFillCloseCircle } from 'react-icons/ai'
+import { FaCameraRetro } from 'react-icons/fa'
 
-export default function AddNew({ openNew, setOpenNew }) {
+export default function AddLider({ openMinisterio, setOpenMinisterio }) {
   const [title, setTitle] = useState('')
-  const [content, setContent] = useState('')
-
-  const [preview, setPreview] = useState(null)
+  const [name, setName] = useState('')
   const formRef = useRef(null)
+  const [igreja, setIgreja] = useState('')
+  const [preview, setPreview] = useState(null)
 
   const { local } = useLocal()
   const router = useRouter()
@@ -27,33 +28,32 @@ export default function AddNew({ openNew, setOpenNew }) {
     let coverUrl = ''
 
     if (!fileToUpload) {
-      alert('você precisa adicionar uma imagem.')
+      alert('Você precisa adicionar uma imagem.')
       return
     }
 
     if (fileToUpload) {
-      const formData = new FormData()
-      formData.append('file', fileToUpload)
+      const uploadFormData = new FormData()
+      uploadFormData.append('file', fileToUpload)
 
       try {
-        const uploadResponse = await api.post('/upload', formData, {
-          headers: { 'Content-Type': 'multipart/form-data' }, // Definir cabeçalho apropriado para uploads de arquivos
-        })
+        const uploadResponse = await api.post('/upload', uploadFormData)
         coverUrl = uploadResponse.data.fileUrl
       } catch (error) {
-        console.error('Erro ao carregar arquivo:', error)
-        // Tratar erros de upload aqui
+        console.error('Error uploading file:', error)
+        // Handle the error appropriately, e.g., display an error message to the user
+        return
       }
     }
 
     try {
-      const response = await api.post(
-        `/news/${local}`,
+      const res = await api.post(
+        `/ministerio/${local}`,
         {
+          name,
           title,
-          content,
+          local: `${igreja}`,
           coverUrl,
-          page: local,
         },
         {
           headers: {
@@ -63,20 +63,19 @@ export default function AddNew({ openNew, setOpenNew }) {
         },
       )
 
-      const newss = response.data
+      const lider = res.data
 
-      if (response.status === 200 && newss) {
-        setOpenNew(false)
+      if (res.status === 200 && lider) {
+        setOpenMinisterio(false)
         router.push('/')
         window.location.href = '/'
-        return newss
+        return lider
       }
-
-      console.log(newss)
+      console.log(lider)
       return null
     } catch (error) {
-      console.error('Erro ao criar notícia:', error)
-      // Tratar outros erros de requisição aqui
+      console.error('Error during API request:', error)
+      // Handle the error appropriately, e.g., display an error message to the user
     }
   }
 
@@ -98,11 +97,11 @@ export default function AddNew({ openNew, setOpenNew }) {
       className="fixed left-0 top-0 z-20 flex h-[100vh] w-[100vw] flex-col items-center justify-center bg-black/50 backdrop-blur-lg"
       onSubmit={handleSubmit}
     >
-      <h1 className="mb-2 flex items-center justify-center gap-3 text-lg font-bold text-primary">
-        Adicionar Notícia{' '}
-        {openNew === true && (
+      <h1 className="z-20 mb-2 flex items-center justify-center gap-3 text-lg font-bold text-primary">
+        Adicionar lider{' '}
+        {openMinisterio === true && (
           <AiFillCloseCircle
-            onClick={() => setOpenNew(false)}
+            onClick={() => setOpenMinisterio(false)}
             className="cursor-pointer text-2xl font-bold text-black dark:text-white"
           />
         )}
@@ -122,19 +121,25 @@ export default function AddNew({ openNew, setOpenNew }) {
       <input
         className="mb-4 mt-2 w-[200px] cursor-pointer rounded-lg  border-none bg-bglightsecundary p-2 text-center font-bold placeholder-textlight shadow-light outline-none focus:ring-0 dark:bg-bgdarksecundary dark:placeholder-textdark dark:shadow-dark"
         type="text"
+        name="name"
+        placeholder="Nome"
+        onChange={(e) => setName(e.target.value)}
+      />
+
+      <input
+        className="mb-4  w-[200px] cursor-pointer rounded-lg  border-none bg-bglightsecundary p-2 text-center font-bold placeholder-textlight shadow-light outline-none focus:ring-0 dark:bg-bgdarksecundary dark:placeholder-textdark dark:shadow-dark"
+        type="text"
         name="title"
-        required
-        placeholder="Título da notícia"
+        placeholder="Cargo de liderança"
         onChange={(e) => setTitle(e.target.value)}
       />
 
-      <textarea
-        className="mb-1 w-[200px] cursor-pointer rounded-lg  border-none bg-bglightsecundary p-2 text-center font-bold placeholder-textlight shadow-light outline-none focus:ring-0 dark:bg-bgdarksecundary dark:placeholder-textdark dark:shadow-dark"
+      <input
+        className="mb-4  w-[200px] cursor-pointer rounded-lg  border-none bg-bglightsecundary p-2 text-center font-bold placeholder-textlight shadow-light outline-none focus:ring-0 dark:bg-bgdarksecundary dark:placeholder-textdark dark:shadow-dark"
         type="text"
-        name="content"
-        required
-        placeholder="Conteúdo da notícia"
-        onChange={(e) => setContent(e.target.value)}
+        name="name"
+        placeholder="Igreja (local)"
+        onChange={(e) => setIgreja(e.target.value)}
       />
 
       <input
@@ -142,8 +147,7 @@ export default function AddNew({ openNew, setOpenNew }) {
         type="file"
         name="coverUrl"
         id="coverUrl"
-        required={true}
-        placeholder="Digite a url da notícia"
+        placeholder="Digite a url do perfil"
         onChange={onFileSelected}
       />
 

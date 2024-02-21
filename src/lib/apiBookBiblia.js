@@ -1,7 +1,7 @@
 import axios from 'axios'
 
-const apiBook = axios.create({
+const apiBookBiblia = axios.create({
   baseURL: 'https://www.abibliadigital.com.br/api/books',
 })
 
-export default apiBook
+export default apiBookBiblia
