@@ -5,6 +5,7 @@ const nextConfig = {
       'avatars.githubusercontent.com',
       'localhost',
       'api-igreja-2swu.onrender.com',
+      'dsiufhsdiufhsdfhdss.com',
     ],
   },
 }

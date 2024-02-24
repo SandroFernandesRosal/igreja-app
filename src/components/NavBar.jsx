@@ -15,7 +15,7 @@ export default function NavBar({ handleMenu, user }) {
       fixed z-40 flex min-h-screen w-[100vw] flex-col  items-center justify-center gap-10    bg-white/90   font-bold backdrop-blur-md dark:bg-black/90 md:hidden `}
     >
       <div className="flex w-full items-center justify-around">
-        {token ? <div onClick={handleMenu}>{user}</div> : <ChangeTheme />}
+        {token ? <div>{user}</div> : <ChangeTheme />}
       </div>
 
       <div className="flex  w-[80%] flex-col gap-5">
