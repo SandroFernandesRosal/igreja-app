@@ -6,6 +6,7 @@ const nextConfig = {
       'localhost',
       'api-igreja-2swu.onrender.com',
       'dsiufhsdiufhsdfhdss.com',
+      'https://api-igreja-2swu.onrender.com',
     ],
   },
 }
