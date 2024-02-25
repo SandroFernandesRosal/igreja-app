@@ -67,7 +67,7 @@ export default function Register() {
             type="text"
             name="login"
             placeholder="Digite seu e-mail"
-            onChange={(e) => setLogin(e.target.value)}
+            onChange={(e) => setLogin(e.target.value.toLowerCase())}
           />
 
           <input
