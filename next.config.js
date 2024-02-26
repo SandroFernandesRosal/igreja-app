@@ -8,6 +8,7 @@ const nextConfig = {
       'dsiufhsdiufhsdfhdss.com',
       'https://api-igreja-2swu.onrender.com',
       'drive.google.com',
+      'https://drive.google.com',
     ],
   },
 }
