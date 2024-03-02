@@ -57,7 +57,7 @@ export default function NoticiaVilaDaPenha({ params }) {
           ) : (
             <h1 className="...">Carregando...</h1>
           )}
-          {token && (
+          {token && selectedItem && (
             <div className="flex gap-2">
               {openEdit === false && (
                 <button

@@ -25,7 +25,7 @@ export default function SelectLocal() {
         } ${local === 'caxias' ? 'text-primary' : ''}`}
         onClick={() => handleLocalSelection('caxias')}
       >
-        Caxias
+        Vila Maria Helena
       </p>
       <p
         className={`m-2 flex cursor-pointer rounded-lg border-none bg-bglight p-2 placeholder-black shadow-light outline-none hover:shadow-hover focus:ring-0 dark:bg-bgdark dark:placeholder-white dark:shadow-dark dark:hover:shadow-hover ${
