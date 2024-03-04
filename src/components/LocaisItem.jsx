@@ -21,10 +21,10 @@ export default function LocaisItem({ local, rua, cep, id }) {
         </div>
 
         {token && (
-          <div className="flex w-full justify-around">
+          <div className="mb-2 flex w-full justify-around">
             {openEdit === false && (
               <button
-                className="font-bold text-green-500 md:text-lg"
+                className="rounded-lg bg-green-500  px-1 font-bold md:px-3 md:text-lg"
                 onClick={() => setOpenEdit(true)}
               >
                 Editar

@@ -15,6 +15,7 @@ export default function NoticiaCaxias({ params }) {
   const { setLocal, local } = useLocal()
   const { data, setData } = useData()
   const [openEdit, setOpenEdit] = useState(false)
+  const [updated, setUpdated] = useState(false)
 
   const token = useToken()
 
@@ -40,6 +41,18 @@ export default function NoticiaCaxias({ params }) {
       .catch((err) => console.log(err))
   }, [local, setData])
 
+  useEffect(() => {
+    // Verifica se a notícia foi atualizada
+    if (selectedItem && selectedItem.updatedAt) {
+      const updatedAtLocal = localStorage.getItem(`updated_${id}`)
+      if (!updatedAtLocal || updatedAtLocal !== selectedItem.updatedAt) {
+        // Se houver uma atualização, atualize o estado e o armazenamento local
+        setUpdated(true)
+        localStorage.setItem(`updated_${id}`, selectedItem.updatedAt)
+      }
+    }
+  }, [selectedItem, id])
+
   function formatDate(dateString) {
     const date = new Date(dateString)
     const formattedDate = format(date, 'dd/MM/yyyy HH:mm') // Formato desejado
@@ -50,18 +63,11 @@ export default function NoticiaCaxias({ params }) {
     <main className="flex min-h-screen flex-col  items-center gap-5 pt-24 md:pt-[165px]">
       <article className="mb-5  flex w-full flex-col items-center  rounded-[35px] bg-bglightsecundary shadow-light dark:bg-bgdarksecundary dark:shadow-dark md:w-[90vw]">
         <div className="flex w-full items-center justify-around">
-          {selectedItem && selectedItem.createdAt ? (
-            <h1 className="text-sm">
-              Postado em: {formatDate(selectedItem.createdAt)}
-            </h1>
-          ) : (
-            <h1 className="...">Carregando...</h1>
-          )}
-          {token && (
-            <div className="flex gap-2">
+          {token && selectedItem && (
+            <div className="mt-2 flex gap-3">
               {openEdit === false && (
                 <button
-                  className="text-lg font-bold text-green-500"
+                  className="rounded-lg bg-green-500  p-1 px-3 text-lg font-bold"
                   onClick={() => setOpenEdit(true)}
                 >
                   Editar
@@ -97,6 +103,19 @@ export default function NoticiaCaxias({ params }) {
               height={500}
               className="w-[100vw] max-w-[500px] pt-2"
             />
+
+            {selectedItem && selectedItem.createdAt ? (
+              <h1 className="flex w-[100vw] max-w-[500px] justify-between text-sm">
+                <span>Postado em: {formatDate(selectedItem.createdAt)}</span>
+                {selectedItem && updated && selectedItem.updatedAt && (
+                  <span>
+                    Atualizado em: {formatDate(selectedItem.updatedAt)}
+                  </span>
+                )}
+              </h1>
+            ) : (
+              <h1 className="...">Carregando...</h1>
+            )}
 
             <p className=" w-[90vw] max-w-[500px] py-5 text-justify text-lg">
               {selectedItem.content}

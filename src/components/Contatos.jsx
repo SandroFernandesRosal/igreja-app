@@ -29,11 +29,14 @@ export default function Contatos() {
       {token && (
         <>
           {openContato === false && (
-            <div
-              className="m-4 flex  w-[150px] cursor-pointer justify-center rounded-lg border-none bg-bglight p-2 font-normal placeholder-black shadow-light outline-none hover:shadow-hover focus:ring-0 dark:bg-bgdark dark:placeholder-white dark:shadow-dark dark:hover:shadow-hover"
-              onClick={() => setOpenContato(true)}
-            >
-              Adicionar contato
+            <div className="flex w-full justify-center">
+              {' '}
+              <button
+                className="m-4 flex  w-[150px] cursor-pointer justify-center rounded-lg border-none bg-bglight p-2 font-normal placeholder-black shadow-light outline-none hover:shadow-hover focus:ring-0 dark:bg-bgdark dark:placeholder-white dark:shadow-dark dark:hover:shadow-hover"
+                onClick={() => setOpenContato(true)}
+              >
+                Adicionar contato
+              </button>{' '}
             </div>
           )}
 

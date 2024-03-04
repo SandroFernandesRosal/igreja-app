@@ -30,7 +30,7 @@ export default function TimeLineItem({ title, hora, day, id }) {
         </ul>
 
         {token && (
-          <div className="mt-[95px] flex w-full justify-around">
+          <div className="mb-1 mt-[95px] flex w-full justify-around">
             {openEdit === false && (
               <button
                 className="rounded-lg bg-green-500  px-1 font-bold md:px-3 md:text-lg"
