@@ -64,10 +64,10 @@ export default function NoticiaVilaDaPenha({ params }) {
       <article className="mb-5  flex w-full flex-col items-center  rounded-[35px] bg-bglightsecundary shadow-light dark:bg-bgdarksecundary dark:shadow-dark md:w-[90vw]">
         <div className="flex w-full items-center justify-around">
           {token && selectedItem && (
-            <div className="flex gap-2">
+            <div className="mt-2 flex gap-3">
               {openEdit === false && (
                 <button
-                  className="text-lg font-bold text-green-500"
+                  className="rounded-lg bg-green-500  p-1 px-3 text-lg font-bold"
                   onClick={() => setOpenEdit(true)}
                 >
                   Editar

@@ -8,8 +8,8 @@ export default function TimeLineItem({ title, hora, day, id }) {
   const token = Cookies.get('tokennn')
   return (
     <>
-      <div
-        className={`mb-5  flex h-[300px] w-[45%] max-w-[150px] flex-col items-center  ${
+      <article
+        className={`mb-5  flex h-[300px]  max-w-[150px] flex-col items-center  ${
           token ? 'justify-between' : 'justify-start gap-5 pt-1'
         } rounded-lg bg-bglight pb-1 shadow-light   transition  delay-150 duration-300  ease-in-out hover:-translate-y-1 hover:scale-110 hover:shadow-hover dark:bg-bgdark dark:shadow-dark dark:hover:shadow-hover  md:h-[300px] md:w-[200px]  md:max-w-[200px]`}
       >
@@ -33,7 +33,7 @@ export default function TimeLineItem({ title, hora, day, id }) {
           <div className="mt-[95px] flex w-full justify-around">
             {openEdit === false && (
               <button
-                className="font-bold text-green-500 md:text-lg"
+                className="rounded-lg bg-green-500  px-1 font-bold md:px-3 md:text-lg"
                 onClick={() => setOpenEdit(true)}
               >
                 Editar
@@ -42,7 +42,7 @@ export default function TimeLineItem({ title, hora, day, id }) {
             <RemoveAgenda id={id} />
           </div>
         )}
-      </div>
+      </article>
       {openEdit && (
         <EditAgenda
           id={id}

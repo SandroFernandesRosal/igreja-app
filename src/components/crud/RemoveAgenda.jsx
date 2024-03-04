@@ -45,7 +45,7 @@ export default function RemoveAgenda({ id }) {
     <button
       onClick={handleSubmit}
       disabled={isDeleting}
-      className="font-bold text-red-500 md:text-lg"
+      className="rounded-lg bg-red-500  px-1 font-bold md:px-3 md:text-lg"
     >
       {isDeleting ? 'Removendo...' : 'Remover'}
     </button>

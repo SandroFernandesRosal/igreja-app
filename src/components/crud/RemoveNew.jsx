@@ -43,7 +43,7 @@ export default function RemoveNew({ id }) {
     <button
       onClick={handleSubmit}
       disabled={isDeleting}
-      className="font-bold text-red-500 md:text-lg"
+      className="rounded-lg bg-red-500  p-1 px-3 text-lg font-bold"
     >
       {isDeleting ? 'Removendo...' : 'Remover'}
     </button>
