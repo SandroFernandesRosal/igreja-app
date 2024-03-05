@@ -12,18 +12,18 @@ export const useData = create((set) => ({
 }))
 
 export const useLocal = create((set) => {
+  // Tenta obter o valor do cookie
   const cookieValue = Cookies.get('local')
-
-  const decodedValue = decodeURIComponent(cookieValue)
-
-  const initialValue = decodedValue || 'viladapenha'
+  // Se o valor existir, use-o para inicializar o estado, caso contrário, use o valor padrão
+  const initialValue = cookieValue ? JSON.parse(cookieValue) : 'viladapenha'
 
   return {
     local: initialValue,
     setLocal: (state) => {
+      // Atualiza o estado
       set({ local: state })
-
-      Cookies.set('local', state, { expires: 7 })
+      // Atualiza o cookie
+      Cookies.set('local', JSON.stringify(state), { expires: 7 }) // Define um cookie que expira em 7 dias
     },
   }
 })
