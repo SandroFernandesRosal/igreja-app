@@ -6,6 +6,11 @@ export default function SearchMd() {
   const { search } = useSearch()
   const { setSearch } = useSearch()
 
+  const handleSearchChange = (e) => {
+    const normalizedQuery = e.target.value.toLowerCase()
+    setSearch(normalizedQuery)
+  }
+
   return (
     <>
       <input
@@ -14,7 +19,7 @@ export default function SearchMd() {
         placeholder="Buscar notícia..."
         className="border:none  flex  rounded-lg border-none bg-bglight placeholder-black shadow-light outline-none hover:shadow-hover focus:ring-0 dark:bg-bgdark dark:placeholder-white dark:shadow-dark dark:hover:shadow-hover"
         value={search}
-        onChange={(e) => setSearch(e.target.value)}
+        onChange={handleSearchChange}
       />
       <FaSearch className="pointer-events-none relative -top-[27px] left-[85px] mb-1 text-primary" />
     </>

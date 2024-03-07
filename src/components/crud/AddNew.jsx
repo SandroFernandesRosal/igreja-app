@@ -125,7 +125,7 @@ export default function AddNew({ openNew, setOpenNew }) {
         name="title"
         required
         placeholder="Título da notícia"
-        onChange={(e) => setTitle(e.target.value)}
+        onChange={(e) => setTitle(e.target.value.toLowerCase())}
       />
 
       <textarea

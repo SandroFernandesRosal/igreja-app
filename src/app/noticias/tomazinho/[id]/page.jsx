@@ -22,17 +22,6 @@ export default function NoticiaTomazinho({ params }) {
   const selectedItem = data.find((item) => item.id === id)
 
   useEffect(() => {
-    const newsFromLocalStorage = localStorage.getItem('data')
-    if (newsFromLocalStorage) {
-      setData(JSON.parse(newsFromLocalStorage))
-    }
-  }, [setData])
-
-  useEffect(() => {
-    localStorage.setItem('data', JSON.stringify(data))
-  }, [data])
-
-  useEffect(() => {
     api
       .get(`/news/${local}`)
       .then((response) => {

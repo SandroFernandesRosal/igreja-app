@@ -137,7 +137,7 @@ export default function EditNew({ setOpenEdit, id, img, titulo, conteudo }) {
         required={true}
         defaultValue={titulo}
         placeholder="Você precisa digitar um título"
-        onChange={(e) => setTitle(e.target.value)}
+        onChange={(e) => setTitle(e.target.value.toLowerCase())}
       />
 
       <textarea
