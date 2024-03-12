@@ -44,7 +44,7 @@ export default function RemoveEndereco({ id }) {
     <button
       onClick={handleSubmit}
       disabled={isDeleting}
-      className="rounded-lg bg-red-500  px-1 font-bold md:px-3 md:text-lg"
+      className="rounded-lg bg-red-500  px-1 font-bold text-white hover:bg-red-700 md:px-3 md:text-lg"
     >
       {isDeleting ? 'Removendo...' : 'Remover'}
     </button>

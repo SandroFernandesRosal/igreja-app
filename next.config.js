@@ -9,6 +9,8 @@ const nextConfig = {
       'https://api-igreja-2swu.onrender.com',
       'drive.google.com',
       'https://drive.google.com',
+      'https://www.gov.br',
+      'www.gov.br',
     ],
   },
 }

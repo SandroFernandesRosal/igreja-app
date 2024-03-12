@@ -32,7 +32,7 @@ export default function Contatos() {
             <div className="flex w-full justify-center">
               {' '}
               <button
-                className="m-4 flex  w-[150px] cursor-pointer justify-center rounded-lg border-none bg-bglight p-2 font-normal placeholder-black shadow-light outline-none hover:shadow-hover focus:ring-0 dark:bg-bgdark dark:placeholder-white dark:shadow-dark dark:hover:shadow-hover"
+                className="mb-4 mt-1 flex cursor-pointer rounded-lg border-none bg-bglight p-2 text-black placeholder-black shadow-light outline-none hover:bg-gradient-to-r hover:from-blue-900 hover:to-slate-900 hover:text-white focus:ring-0 dark:bg-bgdark dark:text-white dark:placeholder-white dark:shadow-dark"
                 onClick={() => setOpenContato(true)}
               >
                 Adicionar contato

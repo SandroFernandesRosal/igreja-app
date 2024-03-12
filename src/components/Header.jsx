@@ -1,10 +1,12 @@
 'use client'
-
+import { useEffect, useState } from 'react'
+import { useActivePage } from '@/store/useStore'
+import { useRouter } from 'next/navigation'
 import { AiOutlineClose } from 'react-icons/ai'
 import { GiHamburgerMenu } from 'react-icons/gi'
 import NavBar from './NavBar'
 import NavBarMd from './NavBarMd'
-import { useState } from 'react'
+
 import Link from 'next/link'
 import ChangeTheme from './ChangeTheme'
 import Image from 'next/image'
@@ -15,6 +17,18 @@ export default function Header({ children }) {
   const [menu, setMenu] = useState(false)
   const token = useToken()
 
+  const router = useRouter()
+
+  const { activePage, setActivePage } = useActivePage()
+
+  useEffect(() => {
+    setActivePage(router.pathname)
+  }, [router.pathname, setActivePage])
+
+  const handleClick = (href) => {
+    setActivePage(href)
+  }
+
   const handleMenu = () => {
     menu === false ? setMenu(true) : setMenu(false)
   }
@@ -22,8 +36,8 @@ export default function Header({ children }) {
   return (
     <>
       <header className="font-Roboto fixed z-50 flex flex-col">
-        <div className="flex h-20 w-[100vw]  items-center justify-evenly overflow-hidden border-b-2 border-solid border-b-primary  bg-bglightsecundary       backdrop-blur-md    dark:bg-bgdarksecundary">
-          <Link href="/">
+        <div className="flex h-20 w-[100vw]  items-center justify-evenly overflow-hidden border-b-2 border-solid border-b-primary  bg-gradient-to-r from-slate-950 to-blue-900 backdrop-blur-md">
+          <Link href="/" onClick={() => handleClick('/')}>
             <Image
               src={logo}
               alt="logo do site"
@@ -36,7 +50,7 @@ export default function Header({ children }) {
           <div className="hidden  md:flex">
             <ChangeTheme />
           </div>
-          {token && <div className="hidden md:flex">{children}</div>}
+          {token && <div className="hidden text-white md:flex">{children}</div>}
 
           <div
             onClick={handleMenu}
@@ -51,7 +65,7 @@ export default function Header({ children }) {
             )}
           </div>
         </div>
-        <NavBarMd />
+        <NavBarMd activePage={activePage} handleClick={handleClick} />
       </header>
 
       {menu && <NavBar handleMenu={handleMenu} menu={menu} user={children} />}

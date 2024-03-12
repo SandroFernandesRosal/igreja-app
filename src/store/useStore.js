@@ -38,9 +38,9 @@ export const useDataSearch = create((set) => ({
   setDataSearch: (state) => set({ dataSearch: state }),
 }))
 
-export const useOpen = create((set) => ({
-  open: false,
-  openSet: (state) => set({ open: state }),
+export const useOpenNew = create((set) => ({
+  openNew: false,
+  setOpenNew: (state) => set({ openNew: state }),
 }))
 
 export const useDataContato = create((set) => ({
@@ -53,19 +53,12 @@ export const useMenu = create((set) => ({
   setMenu: (state) => set({ menu: state }),
 }))
 
-export const useSelectStyles = create((set) => {
-  // Tenta obter o valor do cookie
-  const cookieValue = Cookies.get('selecStyles')
-  // Se o valor existir, use-o para inicializar o estado, caso contrário, use o valor padrão
-  const initialValue = cookieValue ? JSON.parse(cookieValue) : ''
+export const useDataSobre = create((set) => ({
+  dataSobre: [],
+  setDataSobre: (state) => set({ dataSobre: state }),
+}))
 
-  return {
-    selecStyles: initialValue,
-    setSelecStyles: (state) => {
-      // Atualiza o estado
-      set({ selecStyles: state })
-      // Atualiza o cookie
-      Cookies.set('selecStyles', JSON.stringify(state), { expires: 7 }) // Define um cookie que expira em 7 dias
-    },
-  }
-})
+export const useActivePage = create((set) => ({
+  activePage: '',
+  setActivePage: (state) => set({ activePage: state }),
+}))

@@ -30,10 +30,10 @@ export default function TimeLineItem({ title, hora, day, id }) {
         </ul>
 
         {token && (
-          <div className="mb-1 mt-[95px] flex w-full justify-around">
+          <div className="mb-1 mt-[95px] flex w-full justify-around text-white">
             {openEdit === false && (
               <button
-                className="rounded-lg bg-green-500  px-1 font-bold md:px-3 md:text-lg"
+                className="rounded-lg bg-green-500  px-1 font-bold hover:bg-green-700 md:px-3 md:text-lg"
                 onClick={() => setOpenEdit(true)}
               >
                 Editar

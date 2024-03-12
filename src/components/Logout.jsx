@@ -13,7 +13,7 @@ export default function Logout() {
   }
   return (
     <button
-      className="w-[60px] rounded-md bg-red-500 p-1 font-bold"
+      className="w-[60px] rounded-md bg-red-500 p-1 font-bold text-white"
       onClick={Sair}
     >
       Sair

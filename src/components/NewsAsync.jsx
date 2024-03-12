@@ -1,53 +1,33 @@
-'use client'
 import Link from 'next/link'
 import Search from './Search'
 import ResultLength from './ResultLength'
-import {
-  useSearch,
-  useLocal,
-  useDataSearch,
-  useData,
-  useLoading,
-} from '../store/useStore'
-
-import { useToken } from '@/hooks/useToken'
 
 import SelectLocal from './SelectLocal'
 import { api } from '@/lib/api'
 import New from './New'
-
-import { useEffect, useState } from 'react'
 import NewSearch from './NewSearch'
-import AddNew from './crud/AddNew'
+
 import SkeletonNew from './skeleton/SkeletonNew'
+import { useSearch, useLoading, useLocal } from '@/store/useStore'
 
-export default function News() {
-  const { dataSearch, setDataSearch } = useDataSearch()
-  const { data, setData } = useData()
-  const { search, setSearch } = useSearch()
-  const { local, setLocal } = useLocal()
-  const { loading, setLoading } = useLoading()
-  const token = useToken()
-  const [openNew, setOpenNew] = useState(false)
+export default async function NewsAsync() {
+  const search = useSearch.getState().search
+  const setSearch = useSearch.getState().setSearch
+  const local = useLocal.getState().local
+  const setLocal = useLocal.getState().setLocal
+  const loading = useLoading.getState().loading
+  const setLoading = useLoading.getState().setLoading
 
-  useEffect(() => {
-    api
-      .get(`/news/${local}/search?search=${search}`)
-      .then((response) => {
-        setDataSearch(response.data)
-      })
-      .catch((err) => console.log(err))
-  }, [local, setDataSearch, search])
+  const responseData = await api.get(`/news/${local}`)
+  const data = responseData.data
+  if (data) {
+    setLoading(false)
+  }
 
-  useEffect(() => {
-    api
-      .get(`/news/${local}`)
-      .then((response) => {
-        setData(response.data)
-        setLoading(false)
-      })
-      .catch((err) => console.log(err))
-  }, [local, setData, setLoading])
+  const responseDataSeaarch = await api.get(
+    `/news/${local}/search?search=${search}`,
+  )
+  const dataSearch = responseDataSeaarch.data
 
   return (
     <section className=" my-5 flex  w-[100vw] flex-col items-center rounded-[35px] bg-bglightsecundary shadow-light dark:bg-bgdarksecundary dark:shadow-dark  md:w-[90vw] md:rounded-xl  ">
@@ -57,25 +37,6 @@ export default function News() {
         <SelectLocal />
         <Search />
       </div>
-      {token && (
-        <>
-          {openNew === false && (
-            <div
-              className="mb-4 flex cursor-pointer rounded-lg border-none bg-bglight p-2 placeholder-black shadow-light outline-none hover:bg-gradient-to-r hover:from-blue-900 hover:to-slate-900 hover:text-white focus:ring-0 dark:bg-bgdark dark:placeholder-white dark:shadow-dark"
-              onClick={() => setOpenNew(true)}
-            >
-              Adicionar Notícia
-            </div>
-          )}
-
-          {openNew && (
-            <div className="md:min-w-[35%]">
-              {' '}
-              <AddNew openNew={openNew} setOpenNew={setOpenNew} />
-            </div>
-          )}
-        </>
-      )}
 
       {search ? <ResultLength search={search} dataSearch={dataSearch} /> : null}
       <div className="relative -top-[30px] flex w-full flex-wrap justify-center gap-x-5 p-1 px-2 pt-10 md:gap-x-5">
@@ -123,7 +84,7 @@ export default function News() {
         href={`/noticias/`}
         className="mb-10 h-[30px] w-[150px] rounded-xl shadow-light dark:shadow-dark  "
       >
-        <button className="flex h-full w-full cursor-pointer items-center justify-center rounded-xl bg-gradient-to-r from-slate-950 to-blue-900  font-bold text-white  hover:from-blue-900 hover:to-slate-900  ">
+        <button className="flex h-full w-full cursor-pointer items-center justify-center rounded-xl bg-primary  font-bold text-black  hover:bg-primary/50  ">
           Mais notícias
         </button>
       </Link>

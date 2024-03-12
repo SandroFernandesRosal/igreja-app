@@ -46,10 +46,10 @@ export default function DoeItem({
         </div>
 
         {token && (
-          <div className=" mb-1 flex w-full flex-1 items-end justify-around">
+          <div className=" mb-1 flex w-full flex-1 items-end justify-around text-white">
             {openEdit === false && (
               <button
-                className="rounded-lg bg-green-500  px-1 font-bold md:px-3 md:text-lg"
+                className="rounded-lg bg-green-500 px-1  font-bold hover:bg-green-700 md:px-3 md:text-lg"
                 onClick={() => setOpenEdit(true)}
               >
                 Editar
