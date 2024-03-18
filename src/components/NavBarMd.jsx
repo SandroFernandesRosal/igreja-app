@@ -14,7 +14,7 @@ export default function NavBarMd({ activePage, handleClick }) {
       <Link href="/">
         <div
           className={`flex flex-col items-center justify-center text-lg hover:text-primary ${
-            activePage === '/' ? 'text-primary' : ''
+            activePage === '/' ? 'border-b-2 border-primary  text-primary ' : ''
           }`}
           onClick={() => handleClick('/')}
         >
@@ -25,7 +25,9 @@ export default function NavBarMd({ activePage, handleClick }) {
       <Link href="/quemsomos">
         <div
           className={`flex flex-col items-center justify-center text-lg hover:text-primary ${
-            activePage === '/quemsomos' ? 'text-primary' : ''
+            activePage === '/quemsomos'
+              ? 'border-b-2 border-primary  text-primary'
+              : ''
           }`}
           onClick={() => handleClick('/quemsomos')}
         >
@@ -35,7 +37,9 @@ export default function NavBarMd({ activePage, handleClick }) {
       <Link href="/enderecos">
         <div
           className={`flex flex-col items-center justify-center text-lg hover:text-primary ${
-            activePage === '/enderecos' ? 'text-primary' : ''
+            activePage === '/enderecos'
+              ? 'border-b-2 border-primary  text-primary'
+              : ''
           }`}
           onClick={() => handleClick('/enderecos')}
         >
@@ -45,37 +49,48 @@ export default function NavBarMd({ activePage, handleClick }) {
       <Link href="/ministerio">
         <div
           className={`flex flex-col items-center justify-center text-lg hover:text-primary ${
-            activePage === '/ministerio' ? 'text-primary' : ''
+            activePage === '/ministerio'
+              ? 'border-b-2 border-primary  text-primary'
+              : ''
           }`}
           onClick={() => handleClick('/ministerio')}
         >
-          <BsFillPersonLinesFill className="text-primary" /> <p>Ministério</p>
+          <BsFillPersonLinesFill className="border-b-2 border-primary  text-primary" />{' '}
+          <p>Ministério</p>
         </div>
       </Link>
       <Link href="/doacao">
         <div
           className={`flex flex-col items-center justify-center text-lg hover:text-primary ${
-            activePage === '/doacao' ? 'text-primary' : ''
+            activePage === '/doacao'
+              ? 'border-b-2 border-primary  text-primary'
+              : ''
           }`}
           onClick={() => handleClick('/doacao')}
         >
-          <FaHandHoldingHeart className="text-primary" /> <p>Doação</p>
+          <FaHandHoldingHeart className="border-b-2 border-primary  text-primary" />{' '}
+          <p>Doação</p>
         </div>
       </Link>
       <Link href="/agenda">
         <div
           className={`flex flex-col items-center justify-center text-lg hover:text-primary ${
-            activePage === '/agenda' ? 'text-primary' : ''
+            activePage === '/agenda'
+              ? 'border-b-2 border-primary  text-primary'
+              : ''
           }`}
           onClick={() => handleClick('/agenda')}
         >
-          <AiOutlineSchedule className="text-primary" /> <p>Agenda</p>
+          <AiOutlineSchedule className="border-b-2 border-primary  text-primary" />{' '}
+          <p>Agenda</p>
         </div>
       </Link>
       <Link href="/biblia">
         <div
           className={`flex flex-col items-center justify-center text-lg hover:text-primary ${
-            activePage === '/biblia' ? 'text-primary' : ''
+            activePage === '/biblia'
+              ? 'border-b-2 border-primary  text-primary'
+              : ''
           }`}
           onClick={() => handleClick('/biblia')}
         >
@@ -85,7 +100,9 @@ export default function NavBarMd({ activePage, handleClick }) {
       <Link href="/noticias">
         <div
           className={`flex flex-col items-center justify-center text-lg hover:text-primary ${
-            activePage === '/noticias' ? 'text-primary' : ''
+            activePage === '/noticias'
+              ? 'border-b-2 border-primary  text-primary'
+              : ''
           }`}
           onClick={() => handleClick('/noticias')}
         >
@@ -95,7 +112,9 @@ export default function NavBarMd({ activePage, handleClick }) {
       <Link href="/contato">
         <div
           className={`flex flex-col items-center justify-center text-lg hover:text-primary ${
-            activePage === '/contato' ? 'text-primary' : ''
+            activePage === '/contato'
+              ? 'border-b-2 border-primary  text-primary'
+              : ''
           }`}
           onClick={() => handleClick('/contato')}
         >

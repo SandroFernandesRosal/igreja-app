@@ -1,10 +1,13 @@
 import { api } from '@/lib/api'
-import { Suspense } from 'react'
-import Image from 'next/image'
+import LiderQuemSomos from '@/components/LiderQuemSomos'
+import ContentQuemSomos from '@/components/ContentQuemSomos'
 
 export default async function QuemSomos() {
   const response = await api.get('/sobre')
   const dataSobre = response.data
+
+  const responseLider = await api.get('/sobre/lider')
+  const dataSobreLider = responseLider.data
 
   return (
     <main className="flex min-h-screen flex-col  items-center pt-24 md:pt-[165px]">
@@ -13,37 +16,8 @@ export default async function QuemSomos() {
           <h1 className="text-lg font-bold text-primary">Nossa história</h1>
           <p className="mb-5 text-xl">A vondede de Deus</p>
         </div>
-
-        <div className="my-4 flex flex-wrap justify-center gap-4">
-          <div className="flex flex-col items-center font-bold ">
-            <div className="h-[120px] w-[120px] rounded-full bg-black md:h-[150px] md:w-[150px]"></div>{' '}
-            <p>Nome 1</p>
-            <p>Pastor fundador</p>
-          </div>{' '}
-          <div className="flex flex-col items-center font-bold ">
-            <div className="h-[120px] w-[120px] rounded-full bg-black md:h-[150px] md:w-[150px]"></div>{' '}
-            <p>Nome 2</p>
-            <p>Pastor presidente</p>
-          </div>{' '}
-        </div>
-        <Suspense fallback={<div>Carregando...</div>}>
-          {dataSobre.map((item) => (
-            <div
-              key={item.id}
-              className="my-4 flex w-[100vw] flex-col items-center gap-2"
-            >
-              <h1 className="text-lg font-bold text-primary">{item.title}</h1>
-              <p className="w-[90%] max-w-[800px]">{item.content}</p>
-              <Image
-                src={item.coverUrl}
-                height={800}
-                width={800}
-                alt=""
-                className="w-[90%] max-w-[800px] rounded-2xl"
-              />
-            </div>
-          ))}
-        </Suspense>
+        <LiderQuemSomos dataSobreLider={dataSobreLider} />
+        <ContentQuemSomos dataSobre={dataSobre} />
       </article>
     </main>
   )
