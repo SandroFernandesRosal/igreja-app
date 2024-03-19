@@ -24,8 +24,8 @@ export default function RemoveSobreLider({ id }) {
       })
 
       if (response.status === 200) {
-        router.push('/')
-        window.location.href = '/' // Recarregue a página ou atualize a interface
+        router.push('/quemsomos')
+        window.location.href = '/quemsomos' // Recarregue a página ou atualize a interface
       } else {
         console.error('Erro ao remover um líder:', response.statusText)
         // Exiba uma mensagem de erro ao usuário

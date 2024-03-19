@@ -65,8 +65,8 @@ export default function AddSobreContent({ open, setOpen }) {
 
       if (response.status === 200 && newss) {
         setOpen(false)
-        router.push('/')
-        window.location.href = '/'
+        router.push('/quemsomos')
+        window.location.href = '/quemsomos'
         return newss
       }
 
@@ -147,7 +147,7 @@ export default function AddSobreContent({ open, setOpen }) {
 
       <button
         type="submit"
-        className="z-20 my-3 flex w-[200px] cursor-pointer items-center justify-center rounded-lg  bg-primary font-bold  text-black hover:bg-primary/50"
+        className="z-20 my-3 flex w-[200px] cursor-pointer items-center justify-center rounded-lg  bg-gradient-to-r from-slate-950 to-blue-900  font-bold text-white  hover:from-blue-900 hover:to-slate-900"
       >
         Enviar
       </button>

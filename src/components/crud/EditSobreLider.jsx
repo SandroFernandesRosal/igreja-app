@@ -58,8 +58,8 @@ export default function EditSobreLider({ setOpenEdit, id, nome, titulo, img }) {
 
       if (response.status === 200) {
         setOpenEdit(false)
-        router.push('/')
-        window.location.href = '/'
+        router.push('/quemsomos')
+        window.location.href = '/quemsomos'
         return response.data
       }
 

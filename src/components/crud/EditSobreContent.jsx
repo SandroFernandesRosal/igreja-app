@@ -65,8 +65,8 @@ export default function EditSobreContent({
       )
 
       if (response.status === 200) {
-        router.push('/')
-        window.location.href = '/'
+        router.push('/quemsomos')
+        window.location.href = '/quemsomos'
         return response.data
       }
 
