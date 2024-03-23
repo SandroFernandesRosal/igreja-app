@@ -15,7 +15,7 @@ Content-Type: application/json
 
 ###
 
-POST http://localhost:3333/login
+POST https://api-igreja-2swu.onrender.com/register/igreja
 Content-Type: application/json
 
 {
