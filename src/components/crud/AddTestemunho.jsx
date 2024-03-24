@@ -1,6 +1,7 @@
 'use client'
 import Cookies from 'js-cookie'
 import { FaCameraRetro } from 'react-icons/fa'
+import { AiFillCloseCircle } from 'react-icons/ai'
 import { useState, useRef } from 'react'
 import { useRouter } from 'next/navigation'
 import Image from 'next/image'
@@ -101,7 +102,14 @@ export default function AddTestemunho({ setOpen, userIgreja }) {
       />
 
       <div className="flex w-full flex-col   gap-2 rounded-2xl bg-bglight  shadow-light  dark:bg-bgdark  dark:shadow-dark md:w-[70%]  lg:min-w-[700px]">
-        <p className="pl-3 text-lg font-bold">{name}</p>
+        <div className="flex items-center justify-between">
+          {' '}
+          <p className="pl-3 text-lg font-bold">{name}</p>
+          <button onClick={() => setOpen(false)} className="pr-1">
+            <AiFillCloseCircle className="text-2xl font-bold text-red-500" />
+          </button>{' '}
+        </div>
+
         <textarea
           className="mx-1 flex w-full  flex-col gap-2 border-none bg-bglight  outline-none ring-0 focus:ring-0  dark:bg-bgdark"
           type="text"

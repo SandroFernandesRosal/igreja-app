@@ -4,6 +4,7 @@ import { useActivePage } from '@/store/useStore'
 import { useRouter } from 'next/navigation'
 import { AiOutlineClose } from 'react-icons/ai'
 import { GiHamburgerMenu } from 'react-icons/gi'
+import { FaUserCircle } from 'react-icons/fa'
 import NavBar from './NavBar'
 import NavBarMd from './NavBarMd'
 
@@ -16,6 +17,7 @@ import { useTokenIgreja } from '@/hooks/useTokenIgreja'
 
 export default function Header({ children }) {
   const [menu, setMenu] = useState(false)
+
   const token = useToken()
   const tokenIgreja = useTokenIgreja()
 
@@ -52,9 +54,12 @@ export default function Header({ children }) {
           <div className="hidden  md:flex">
             <ChangeTheme />
           </div>
-          {token && <div className="hidden text-white md:flex">{children}</div>}
-          {tokenIgreja && (
+          {token || tokenIgreja ? (
             <div className="hidden text-white md:flex">{children}</div>
+          ) : (
+            <Link href={'/login/igreja'} className="hidden md:flex">
+              <FaUserCircle className="text-3xl font-bold text-primary" />
+            </Link>
           )}
 
           <div

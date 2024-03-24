@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Cookies from 'js-cookie'
 import { api } from '@/lib/api'
+import Link from 'next/link'
 
 export default function RegisterIgreja() {
   const [login, setLogin] = useState('')
@@ -14,7 +15,6 @@ export default function RegisterIgreja() {
   async function handleSubmit(event) {
     event.preventDefault()
 
-    // Utilize axios para fazer a requisição POST
     try {
       const response = await api.post('/login/igreja', {
         login,
@@ -38,7 +38,6 @@ export default function RegisterIgreja() {
       }
     } catch (error) {
       console.error('Erro ao fazer requisição:', error)
-      // Tratar o erro de forma adequada, por exemplo, exibindo uma mensagem ao usuário
     }
 
     return null
@@ -47,7 +46,7 @@ export default function RegisterIgreja() {
   return (
     <div className="mt-[80px] flex w-full  justify-center md:mt-[140px]">
       <div className="my-10 flex min-h-screen w-[100vw] flex-col items-center rounded-[35px] bg-bglightsecundary shadow-light dark:bg-bgdarksecundary dark:shadow-dark  md:w-[90vw] md:rounded-xl">
-        <h1 className="mt-2 text-lg font-bold text-primary ">Login igreja</h1>
+        <h1 className="mt-2 text-lg font-bold text-primary ">Login</h1>
         <p className="mb-5 text-xl">Use suas credenciais</p>
 
         <form
@@ -80,11 +79,20 @@ export default function RegisterIgreja() {
 
           <button
             type="submit"
-            className="h-[30px] w-[150px] rounded-xl bg-primary font-bold text-black  shadow-light  hover:bg-primary/50  dark:shadow-dark"
+            className="z-20  flex w-[200px] cursor-pointer items-center justify-center rounded-lg bg-gradient-to-r from-slate-950 to-blue-900  font-bold text-white  hover:from-blue-900 hover:to-slate-900"
           >
             Entrar
           </button>
         </form>
+        <Link
+          href={'/register'}
+          className="mt-4 flex flex-col items-center gap-2"
+        >
+          <p>Ainda não é membro?</p>
+          <button className="z-20  flex w-[200px] cursor-pointer items-center justify-center rounded-lg bg-gradient-to-r from-slate-950 to-blue-900  font-bold text-white  hover:from-blue-900 hover:to-slate-900">
+            Registre-se
+          </button>
+        </Link>
       </div>
     </div>
   )

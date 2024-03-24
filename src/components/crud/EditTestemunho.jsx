@@ -102,6 +102,7 @@ export default function EditTestemunho({ setOpenEdit, userIgreja, id }) {
 
       <div className="flex w-full flex-col   gap-2 rounded-2xl bg-bglight  shadow-light  dark:bg-bgdark  dark:shadow-dark md:w-[70%]  lg:min-w-[700px]">
         <p className="pl-3 text-lg font-bold">{name}</p>
+
         <textarea
           className="mx-1 flex w-full  flex-col gap-2 border-none bg-bglight  outline-none ring-0 focus:ring-0  dark:bg-bgdark"
           type="text"

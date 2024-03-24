@@ -4,7 +4,13 @@ import { BiNews, BiHomeHeart } from 'react-icons/bi'
 import { TfiEmail } from 'react-icons/tfi'
 import { AiOutlineSchedule } from 'react-icons/ai'
 import { BsBook, BsFillPersonLinesFill } from 'react-icons/bs'
-import { FaHandHoldingHeart, FaMapMarkerAlt } from 'react-icons/fa'
+import {
+  FaHandHoldingHeart,
+  FaMapMarkerAlt,
+  FaUserCircle,
+} from 'react-icons/fa'
+import { VscHeartFilled } from 'react-icons/vsc'
+
 import { useToken } from '@/hooks/useToken'
 import { useTokenIgreja } from '@/hooks/useTokenIgreja'
 
@@ -14,10 +20,25 @@ export default function NavBar({ handleMenu, user }) {
   return (
     <nav
       className={` font-Roboto
-      fixed z-40 flex min-h-screen w-[100vw] flex-col  items-center justify-center gap-10    bg-white/90   font-bold backdrop-blur-md dark:bg-black/90 md:hidden `}
+      fixed z-40 flex min-h-screen  w-[100vw] flex-col  items-center justify-center gap-10    bg-white/90   font-bold backdrop-blur-md dark:bg-black/90 md:hidden `}
     >
       <div className="flex w-full items-center justify-around">
-        {token || tokenIgreja ? <div>{user}</div> : <ChangeTheme />}
+        {token || tokenIgreja ? (
+          <div>{user}</div>
+        ) : (
+          <div className="mx-2 flex w-full items-center justify-around">
+            {' '}
+            <Link
+              href={'/login/igreja'}
+              onClick={handleMenu}
+              className="flex flex-col items-center justify-center"
+            >
+              <FaUserCircle className="text-3xl font-bold text-primary" />
+              <p className="text-center">Entrar</p>
+            </Link>{' '}
+            <ChangeTheme />{' '}
+          </div>
+        )}
       </div>
 
       <div className="flex  w-[80%] flex-col gap-5">
@@ -72,6 +93,14 @@ export default function NavBar({ handleMenu, user }) {
           onClick={handleMenu}
         >
           <BiNews className="text-primary" /> <p>Notícias</p>
+        </Link>
+
+        <Link
+          href="/testemunhos"
+          className="flex items-center gap-5 border-b-[1px] border-solid border-primary  text-2xl hover:text-primary"
+          onClick={handleMenu}
+        >
+          <VscHeartFilled className="text-primary" /> <p>Testemunhos</p>
         </Link>
 
         <Link

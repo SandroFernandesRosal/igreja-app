@@ -92,7 +92,7 @@ export default function Testemunho({ data, userIgreja }) {
                 </div>
               )}
 
-              {userIgreja.sub === item.userId && (
+              {userIgreja && userIgreja.sub === item.userId && (
                 <div className="flex justify-center gap-4">
                   {openEdit === null && (
                     <button
