@@ -4,6 +4,7 @@ import { Providers } from './providers'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import UserComponent from '@/components/User'
+import UserComponentIgreja from '@/components/UserComponentIgreja'
 
 const roboto = Roboto({
   subsets: ['latin'],
@@ -22,6 +23,7 @@ export default function RootLayout({ children }) {
         <Providers>
           <Header>
             <UserComponent />
+            <UserComponentIgreja />
           </Header>
           {children}
           <Footer />

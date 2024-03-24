@@ -12,10 +12,12 @@ import ChangeTheme from './ChangeTheme'
 import Image from 'next/image'
 import logo from '../../public/img/logo.png'
 import { useToken } from '@/hooks/useToken'
+import { useTokenIgreja } from '@/hooks/useTokenIgreja'
 
 export default function Header({ children }) {
   const [menu, setMenu] = useState(false)
   const token = useToken()
+  const tokenIgreja = useTokenIgreja()
 
   const router = useRouter()
 
@@ -51,6 +53,9 @@ export default function Header({ children }) {
             <ChangeTheme />
           </div>
           {token && <div className="hidden text-white md:flex">{children}</div>}
+          {tokenIgreja && (
+            <div className="hidden text-white md:flex">{children}</div>
+          )}
 
           <div
             onClick={handleMenu}

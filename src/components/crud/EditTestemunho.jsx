@@ -7,7 +7,7 @@ import Image from 'next/image'
 
 import { api } from '@/lib/api'
 
-export default function AddTestemunho({ setOpen, userIgreja }) {
+export default function EditTestemunho({ setOpenEdit, userIgreja, id }) {
   const [content, setContent] = useState('')
   const [preview, setPreview] = useState(null)
   const formRef = useRef(null)
@@ -41,8 +41,8 @@ export default function AddTestemunho({ setOpen, userIgreja }) {
     }
 
     try {
-      const response = await api.post(
-        `/testemunhos`,
+      const response = await api.put(
+        `/testemunhos/${id}`,
         {
           name,
           content,
@@ -60,7 +60,7 @@ export default function AddTestemunho({ setOpen, userIgreja }) {
       const newss = response.data
 
       if (response.status === 200 && newss) {
-        setOpen(false)
+        setOpenEdit(null)
         router.push('/testemunhos')
         window.location.href = '/testemunhos'
         return newss
@@ -89,7 +89,7 @@ export default function AddTestemunho({ setOpen, userIgreja }) {
   return (
     <form
       ref={formRef}
-      className="z-20 flex w-[100vw] flex-col items-start gap-3  px-6 py-4   md:flex-row md:justify-center"
+      className="fixed  left-0 top-0  flex h-[100vh]  w-[100vw] flex-col items-start  justify-center gap-3 bg-black/50 px-6  py-4 backdrop-blur-lg   md:flex-row md:items-center md:justify-center"
       onSubmit={handleSubmit}
     >
       <Image
@@ -97,7 +97,7 @@ export default function AddTestemunho({ setOpen, userIgreja }) {
         height={300}
         src={avatarUrl}
         alt={name}
-        className=" h-[100px] w-[100px] rounded-full bg-green-500 shadow-light dark:shadow-dark"
+        className=" h-[100px] w-[100px]  rounded-full bg-green-500 shadow-light dark:shadow-dark"
       />
 
       <div className="flex w-full flex-col   gap-2 rounded-2xl bg-bglight  shadow-light  dark:bg-bgdark  dark:shadow-dark md:w-[70%]  lg:min-w-[700px]">

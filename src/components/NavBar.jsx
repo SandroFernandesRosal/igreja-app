@@ -6,16 +6,18 @@ import { AiOutlineSchedule } from 'react-icons/ai'
 import { BsBook, BsFillPersonLinesFill } from 'react-icons/bs'
 import { FaHandHoldingHeart, FaMapMarkerAlt } from 'react-icons/fa'
 import { useToken } from '@/hooks/useToken'
+import { useTokenIgreja } from '@/hooks/useTokenIgreja'
 
 export default function NavBar({ handleMenu, user }) {
   const token = useToken()
+  const tokenIgreja = useTokenIgreja()
   return (
     <nav
       className={` font-Roboto
       fixed z-40 flex min-h-screen w-[100vw] flex-col  items-center justify-center gap-10    bg-white/90   font-bold backdrop-blur-md dark:bg-black/90 md:hidden `}
     >
       <div className="flex w-full items-center justify-around">
-        {token ? <div>{user}</div> : <ChangeTheme />}
+        {token || tokenIgreja ? <div>{user}</div> : <ChangeTheme />}
       </div>
 
       <div className="flex  w-[80%] flex-col gap-5">
