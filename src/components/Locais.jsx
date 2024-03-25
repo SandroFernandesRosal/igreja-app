@@ -51,7 +51,7 @@ export default function Locais() {
         </>
       )}
 
-      <div className="relative -top-[30px] mb-5 flex w-full flex-wrap justify-center gap-x-5 p-1  px-2 pt-10 md:gap-x-5">
+      <div className="relative -top-[30px] mb-2 flex w-full flex-wrap justify-center gap-x-5 p-1  px-2 pt-10 md:gap-x-5">
         {!loading ? (
           data.length < 1 ? (
             <p>Nenhum endereço cadastrado.</p>

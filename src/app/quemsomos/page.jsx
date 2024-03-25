@@ -10,7 +10,7 @@ export default async function QuemSomos() {
   const dataSobreLider = responseLider.data
 
   return (
-    <main className="flex min-h-screen flex-col  items-center pt-24 md:pt-[165px]">
+    <main className="mb-2 mt-4 flex min-h-screen flex-col items-center  pt-24 md:mt-0 md:pt-[165px]">
       <article className="mb-5 flex w-full flex-col items-center rounded-[35px]  bg-bglightsecundary pb-5 shadow-light dark:bg-bgdarksecundary dark:shadow-dark md:w-[90vw]">
         <div className="flex flex-col items-center">
           <h1 className="text-lg font-bold text-primary">Nossa história</h1>

@@ -45,7 +45,7 @@ export default function Contato() {
     setTextInput('')
   }
   return (
-    <main className="flex min-h-screen flex-col  items-center gap-5 pt-24 md:pt-[165px]">
+    <main className="flex min-h-screen flex-col  items-center gap-5 pt-24 md:pt-[145px]">
       <div className=" mb-10 mt-5 flex  min-h-screen w-[100vw] flex-col items-center rounded-[35px] bg-bglightsecundary shadow-light dark:bg-bgdarksecundary dark:shadow-dark md:w-[90vw] md:rounded-xl ">
         {alert && (
           <div className="absolute top-[50%] z-20 flex items-center justify-center rounded-lg bg-bglightsecundary font-bold dark:bg-bgdarksecundary">

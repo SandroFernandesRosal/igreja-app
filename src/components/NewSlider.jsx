@@ -64,7 +64,7 @@ export default function NewSlider() {
               autoplay={{ delay: 3000 }}
               loop={true}
               effect="fade"
-              className="h-[400px] w-[100vw] rounded-[35px]   shadow-xl  dark:shadow-dark sm:max-w-[500px] md:h-[400px] md:w-[500px] md:rounded-xl lg:h-[500px] lg:w-[800px] "
+              className="h-[400px] w-[100vw] rounded-[35px]   shadow-xl  dark:shadow-dark sm:max-w-[500px] md:h-[400px] md:w-[500px] md:rounded-xl lg:h-[500px] lg:w-[800px] lg:max-w-[700px] "
             >
               {data &&
                 data.map((item) => (
