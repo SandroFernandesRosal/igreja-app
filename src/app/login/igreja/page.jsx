@@ -84,6 +84,7 @@ export default function RegisterIgreja() {
             Entrar
           </button>
         </form>
+        <Link href={'/forgot-password'}>Esqueceu a senha?</Link>
         <Link
           href={'/register'}
           className="mt-4 flex flex-col items-center gap-2"
