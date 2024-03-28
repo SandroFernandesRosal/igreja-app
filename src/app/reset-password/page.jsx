@@ -13,7 +13,7 @@ export default function ResetPassword({ params }) {
     e.preventDefault()
 
     // Certifique-se de que a rota da API esteja correta para redefinição de senha
-    const response = await api.post(
+    const response = await api.put(
       `/reset-password/${id}`, // Ajuste a rota conforme necessário
       {
         password, // Certifique-se de que o campo da nova senha esteja correto
