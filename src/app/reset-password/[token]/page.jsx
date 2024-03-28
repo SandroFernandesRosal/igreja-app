@@ -11,7 +11,7 @@ export default function ResetPasswordPage({ params }) {
     e.preventDefault()
 
     const response = await api.post(
-      `/recover-password`,
+      `/reset-password`,
       {
         token,
         password,
