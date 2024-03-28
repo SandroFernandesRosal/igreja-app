@@ -14,7 +14,7 @@ export default function ResetPasswordPage({ params }) {
       `/reset-password`,
       {
         token,
-        password,
+        newPassword: password,
       },
       {
         headers: {
