@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { api } from '@/lib/api'
 
 export default function ResetPasswordPage({ params }) {
-  const token = params.token
+  const id = params.id
   const [password, setPassword] = useState('')
 
   const tokenIgreja = Cookies.get('tokenigreja')
@@ -14,10 +14,9 @@ export default function ResetPasswordPage({ params }) {
 
     // Certifique-se de que a rota da API esteja correta para redefinição de senha
     const response = await api.post(
-      `/reset-password`, // Ajuste a rota conforme necessário
+      `/reset-password/${id}`, // Ajuste a rota conforme necessário
       {
-        token,
-        newPassword: password, // Certifique-se de que o campo da nova senha esteja correto
+        password, // Certifique-se de que o campo da nova senha esteja correto
       },
       {
         headers: {
