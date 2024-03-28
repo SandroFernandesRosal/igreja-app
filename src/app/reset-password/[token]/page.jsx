@@ -1,5 +1,5 @@
 'use client'
-
+import Cookies from 'js-cookie'
 import { useState } from 'react'
 import { api } from '@/lib/api'
 
@@ -7,7 +7,7 @@ export default function ResetPasswordPage({ params }) {
   const token = params.token
   const [password, setPassword] = useState('')
 
-  console.log(token)
+  const tokenIgreja = Cookies.get('tokenigreja')
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -22,7 +22,7 @@ export default function ResetPasswordPage({ params }) {
       {
         headers: {
           'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${tokenIgreja}`,
         },
       },
     )
