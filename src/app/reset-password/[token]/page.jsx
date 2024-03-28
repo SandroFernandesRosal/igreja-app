@@ -4,7 +4,7 @@ import { api } from '@/lib/api'
 
 export default function ResetPasswordPage() {
   const router = useRouter()
-  const { tokenIgreja } = router.query
+  const { token } = router.query
   const [password, setPassword] = useState('')
 
   const handleSubmit = async (e) => {
@@ -14,13 +14,13 @@ export default function ResetPasswordPage() {
     const response = await api.post(
       `/recover-password`,
       {
-        tokenIgreja,
+        token,
         password,
       },
       {
         headers: {
           'Content-Type': 'application/json',
-          Authorization: `Bearer ${tokenIgreja}`,
+          Authorization: `Bearer ${token}`,
         },
       },
     )
@@ -28,7 +28,6 @@ export default function ResetPasswordPage() {
     if (response.ok) {
       // A senha foi redefinida com sucesso
       console.log('Senha redefinida com sucesso')
-      // Redirecionar o usuário para a página de login ou outra página apropriada
     } else {
       // Algo deu errado ao tentar redefinir a senha
       console.error('Erro ao redefinir a senha')
