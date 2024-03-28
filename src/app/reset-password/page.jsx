@@ -3,21 +3,18 @@
 import { useState } from 'react'
 import { api } from '@/lib/api'
 
-export default function ResetPasswordPage({ params }) {
+export default function ResetPassword({ params }) {
   const token = params.token
   const [password, setPassword] = useState('')
-
-  console.log(token)
 
   const handleSubmit = async (e) => {
     e.preventDefault()
 
-    // Certifique-se de que a rota da API esteja correta para redefinição de senha
     const response = await api.post(
-      `/reset-password`, // Ajuste a rota conforme necessário
+      `/recover-password`,
       {
         token,
-        newPassword: password, // Certifique-se de que o campo da nova senha esteja correto
+        password,
       },
       {
         headers: {
@@ -35,7 +32,7 @@ export default function ResetPasswordPage({ params }) {
   }
 
   return (
-    <div className="min-h-scren flex flex-col items-center justify-center pt-60 ">
+    <div className="min-h-scren flex flex-col items-center justify-center pt-60">
       <h1>Recuperação de Senha</h1>
       <form onSubmit={handleSubmit}>
         <input

@@ -12,14 +12,24 @@ export default function ForgotPasswordPage() {
     e.preventDefault()
 
     try {
-      const response = await api.post('/recover-password', {
-        login,
-      })
+      const response = await api.post(
+        '/recover-password',
+        {
+          login,
+        },
+        {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        },
+      )
 
-      if (response.ok) {
+      if (response) {
         console.log('email enviado')
         // Mostra uma mensagem de sucesso ou redireciona o usuário
+        alert('email enviado com sucesso!')
         router.push('/login/igreja')
+        window.location.href = '/login/igreja'
       } else {
         console.log('Erro. Email não enviado')
       }
@@ -39,6 +49,8 @@ export default function ForgotPasswordPage() {
         </h1>
         <p className="mb-5 text-xl">Digite seu email cadastrado</p>
         <input
+          name="login"
+          id="login"
           type="email"
           value={login}
           onChange={(e) => setLogin(e.target.value)}
