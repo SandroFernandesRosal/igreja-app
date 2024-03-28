@@ -32,7 +32,7 @@ export default function ResetPassword({ params }) {
   }
 
   return (
-    <div className="min-h-scren flex flex-col items-center justify-center ">
+    <div className="min-h-scren flex flex-col items-center justify-center pt-60">
       <h1>Recuperação de Senha</h1>
       <form onSubmit={handleSubmit}>
         <input
