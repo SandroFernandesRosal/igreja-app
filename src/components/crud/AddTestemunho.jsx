@@ -16,6 +16,8 @@ export default function AddTestemunho({ setOpen, userIgreja }) {
   const router = useRouter()
   const token = Cookies.get('tokenigreja')
 
+  console.log(token)
+
   const { name, avatarUrl } = userIgreja
 
   async function handleSubmit(event) {
