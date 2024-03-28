@@ -1,11 +1,10 @@
 'use client'
-import { useRouter } from 'next/router'
+
 import { useState } from 'react'
 import { api } from '@/lib/api'
 
-export default function ResetPasswordPage() {
-  const router = useRouter()
-  const { token } = router.query
+export default function ResetPasswordPage({ params }) {
+  const token = params.token
   const [password, setPassword] = useState('')
 
   const handleSubmit = async (e) => {

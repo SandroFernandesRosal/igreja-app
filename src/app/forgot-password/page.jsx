@@ -17,10 +17,11 @@ export default function ForgotPasswordPage() {
       })
 
       if (response.ok) {
+        console.log('email enviado')
         // Mostra uma mensagem de sucesso ou redireciona o usuário
         router.push('/login/igreja')
       } else {
-        // Mostra uma mensagem de erro
+        console.log('Erro. Email não enviado')
       }
     } catch (error) {
       console.error('Erro ao solicitar redefinição de senha:', error)
