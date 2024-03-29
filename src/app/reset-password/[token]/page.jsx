@@ -6,6 +6,7 @@ import { api } from '@/lib/api'
 export default function ResetPasswordPage({ params }) {
   const token = params.token
   const [password, setPassword] = useState('')
+  const [login, setLogin] = useState('')
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -13,6 +14,7 @@ export default function ResetPasswordPage({ params }) {
     const response = await api.post(
       `/reset-password`,
       {
+        login,
         password,
         passwordResetToken: token,
       },
@@ -45,13 +47,23 @@ export default function ResetPasswordPage({ params }) {
         </div>
 
         <input
-          type="password"
+          type="text"
           name="login"
+          value={login}
+          onChange={(e) => setLogin(e.target.value)}
+          placeholder="Nova senha"
+          className="mb-3 rounded-lg border-none ring-0 focus:border-none focus:text-textlight  focus:ring-0  dark:text-black focus:dark:text-black"
+        />
+
+        <input
+          type="password"
+          name="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Nova senha"
           className="mb-3 rounded-lg border-none ring-0 focus:border-none focus:text-textlight  focus:ring-0  dark:text-black focus:dark:text-black"
         />
+
         <button
           type="submit"
           className="z-20  flex w-[200px] cursor-pointer items-center justify-center rounded-lg bg-gradient-to-r from-slate-950 to-blue-900  font-bold text-white  hover:from-blue-900 hover:to-slate-900"
