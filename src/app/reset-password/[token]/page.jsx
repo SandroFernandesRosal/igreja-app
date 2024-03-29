@@ -13,7 +13,6 @@ export default function ResetPasswordPage({ params }) {
     const response = await api.post(
       `/reset-password`,
       {
-        token,
         password,
       },
       {
