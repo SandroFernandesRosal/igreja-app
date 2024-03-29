@@ -3,10 +3,10 @@
 import { useState } from 'react'
 import { api } from '@/lib/api'
 
-export default function ResetPasswordComponent({ params, userIgreja }) {
+export default function ResetPasswordComponent({ params }) {
   const token = params.token
   const [password, setPassword] = useState('')
-  const { name, avatarUrl, login } = userIgreja
+  const [login, setLogin] = useState('')
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -15,8 +15,6 @@ export default function ResetPasswordComponent({ params, userIgreja }) {
       `/reset-password`,
       {
         login,
-        name,
-        avatarUrl,
         password,
       },
       {
@@ -39,7 +37,16 @@ export default function ResetPasswordComponent({ params, userIgreja }) {
       <h1>Recuperação de Senha</h1>
       <form onSubmit={handleSubmit}>
         <input
+          type="text"
+          name="login"
+          value={login}
+          onChange={(e) => setLogin(e.target.value)}
+          placeholder="Digite seu email"
+          className="mb-3 rounded-lg border-none ring-0 focus:border-none focus:text-textlight  focus:ring-0  dark:text-black focus:dark:text-black"
+        />
+        <input
           type="password"
+          name="login"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Nova senha"
