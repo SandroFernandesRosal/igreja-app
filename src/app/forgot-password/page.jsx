@@ -55,7 +55,7 @@ export default function ForgotPasswordPage() {
           value={login}
           onChange={(e) => setLogin(e.target.value)}
           placeholder="Digite seu e-mail"
-          className="mb-3 rounded-lg border-none ring-0 focus:border-none focus:text-textlight  focus:ring-0 focus:dark:text-textdark"
+          className="mb-3 rounded-lg border-none ring-0 focus:border-none focus:text-textlight  focus:ring-0  dark:text-black focus:dark:text-black"
         />
         <button
           type="submit"

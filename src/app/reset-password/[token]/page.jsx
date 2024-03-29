@@ -14,7 +14,7 @@ export default function ResetPasswordPage({ params }) {
       `/reset-password`,
       {
         token,
-        newPassword: password,
+        password,
       },
       {
         headers: {
@@ -40,6 +40,7 @@ export default function ResetPasswordPage({ params }) {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Nova senha"
+          className="mb-3 rounded-lg border-none ring-0 focus:border-none focus:text-textlight  focus:ring-0  dark:text-black focus:dark:text-black"
         />
         <button type="submit">Redefinir Senha</button>
       </form>
