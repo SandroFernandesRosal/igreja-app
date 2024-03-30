@@ -31,30 +31,30 @@ export default function Testemunho({ data, userIgreja }) {
         <div className="text-center">
           {' '}
           <p className="mb-3">NENHUM TESTEMUNHO CADASTRADO AINDA.</p>{' '}
-          {!tokenIgreja && (
-            <>
-              {' '}
-              <p>Faça login ou resgistre-se, e envie seu testemunho. </p>
-              <Link
-                href={'/login/igreja'}
-                className="mt-4 flex flex-col items-center gap-2"
-              >
-                <button className="z-20  flex w-[200px] cursor-pointer items-center justify-center rounded-lg bg-gradient-to-r from-slate-950 to-blue-900  font-bold text-white  hover:from-blue-900 hover:to-slate-900">
-                  login
-                </button>
-              </Link>
-              <Link
-                href={'/register'}
-                className="mt-4 flex flex-col items-center gap-2"
-              >
-                <p>Ainda não é membro?</p>
-                <button className="z-20  flex w-[200px] cursor-pointer items-center justify-center rounded-lg bg-gradient-to-r from-slate-950 to-blue-900  font-bold text-white  hover:from-blue-900 hover:to-slate-900">
-                  Registre-se
-                </button>
-              </Link>{' '}
-            </>
-          )}
         </div>
+      )}
+
+      {!tokenIgreja && (
+        <>
+          {' '}
+          <div className="flex w-full flex-wrap items-end justify-center gap-1">
+            Faça
+            <Link
+              href={'/login/igreja'}
+              className="cursor-pointer items-center  rounded-lg bg-gradient-to-r from-slate-950 to-blue-900 px-2  font-bold text-white  hover:from-blue-900 hover:to-slate-900"
+            >
+              login
+            </Link>{' '}
+            ou{' '}
+            <Link
+              href={'/register'}
+              className="cursor-pointer  rounded-lg bg-gradient-to-r from-slate-950 to-blue-900 px-2  font-bold text-white  hover:from-blue-900 hover:to-slate-900"
+            >
+              Registre-se
+            </Link>
+            e envie seu testemunho.
+          </div>{' '}
+        </>
       )}
 
       {tokenIgreja && (
