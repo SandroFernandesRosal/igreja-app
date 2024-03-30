@@ -59,7 +59,7 @@ export default function Register() {
           </h1>
 
           {error && (
-            <p className="font-bold text-red-700">Login ou senha incorreta</p>
+            <p className="font-bold text-red-700">email ou senha incorreta</p>
           )}
 
           <input
