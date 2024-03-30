@@ -2,13 +2,11 @@
 import Cookies from 'js-cookie'
 import { api } from '@/lib/api'
 import { useRouter } from 'next/navigation'
-import { useLocal } from '../../store/useStore'
 import { useState } from 'react'
 
-export default function RemoveNew({ id }) {
-  const { local } = useLocal()
+export default function RemoveUserIgreja({ id }) {
   const router = useRouter()
-  const token = Cookies.get('tokennn')
+  const token = Cookies.get('tokenigreja')
   const [isDeleting, setIsDeleting] = useState(false)
 
   async function handleSubmit(event) {
@@ -18,20 +16,21 @@ export default function RemoveNew({ id }) {
     setIsDeleting(true)
 
     try {
-      const response = await api.delete(`/news/${local}/${id}`, {
+      const response = await api.delete(`/register/igreja/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       })
 
       if (response.status === 200) {
+        Cookies.remove('tokenigreja')
         router.push('/')
         window.location.href = '/'
       } else {
-        console.error('Erro ao remover notícia:', response.statusText)
+        console.error('Erro ao remover usuário:', response.statusText)
       }
     } catch (error) {
-      console.error('Erro ao remover notícia:', error)
+      console.error('Erro ao remover usuário:', error)
     } finally {
       setIsDeleting(false)
     }
@@ -43,7 +42,7 @@ export default function RemoveNew({ id }) {
       disabled={isDeleting}
       className="rounded-lg bg-red-500  p-1 px-3 text-lg font-bold text-white hover:bg-red-700"
     >
-      {isDeleting ? 'Removendo...' : 'Remover'}
+      {isDeleting ? 'Removendo...' : 'Remover perfil'}
     </button>
   )
 }

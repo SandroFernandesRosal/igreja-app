@@ -93,7 +93,7 @@ export default function EditUserIgreja({ id, nome, email, img }) {
             <h1 className="mt-2 text-lg font-bold text-primary ">
               Editar perfil
             </h1>
-            <p className="mb-5 text-xl">Use suas credenciais</p>
+            <p className="mb-5 text-xl">Faça alterações nos campos abaixo</p>
             <form
               ref={formRef}
               className="flex w-[75%] max-w-[500px] flex-col items-center gap-3 rounded-xl bg-bglight p-3 shadow-light dark:bg-bgdark dark:shadow-dark md:mb-5"

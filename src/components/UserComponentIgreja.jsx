@@ -2,6 +2,7 @@ import { getUserIgreja } from '@/lib/getUserIgreja'
 import LogoutIgreja from './LogoutIgreja'
 import Image from 'next/image'
 import ChangeTheme from './ChangeTheme'
+import Link from 'next/link'
 
 export default async function UserComponentIgreja() {
   const userIgreja = getUserIgreja()
@@ -15,7 +16,7 @@ export default async function UserComponentIgreja() {
   return (
     <>
       {userIgreja && (
-        <div className=" items-center gap-3 md:flex">
+        <div className=" items-center gap-3 md:flex ">
           <div className="flex  items-center gap-3">
             <Image
               src={avatarUrl}
@@ -26,12 +27,16 @@ export default async function UserComponentIgreja() {
             />
             <p>{name} </p>
           </div>
-          <div className="flex items-center justify-end gap-4">
-            {' '}
-            <LogoutIgreja />{' '}
+          <div className="flex items-center gap-4 pt-2 md:pt-0">
+            <Link
+              href={'/perfil'}
+              className="flex h-[32px] items-center rounded-lg bg-green-500 px-2 text-lg font-bold text-white hover:bg-green-500/50"
+            >
+              Perfil
+            </Link>
+            <LogoutIgreja />
             <div className="md:hidden">
-              {' '}
-              <ChangeTheme />{' '}
+              <ChangeTheme />
             </div>
           </div>
         </div>

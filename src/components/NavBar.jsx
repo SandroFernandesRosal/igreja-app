@@ -24,7 +24,7 @@ export default function NavBar({ handleMenu, user }) {
     >
       <div className="flex w-full items-center justify-around">
         {token || tokenIgreja ? (
-          <div>{user}</div>
+          <div onClick={handleMenu}>{user}</div>
         ) : (
           <div className="mx-2 flex w-full items-center justify-around">
             {' '}

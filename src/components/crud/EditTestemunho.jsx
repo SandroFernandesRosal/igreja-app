@@ -4,10 +4,17 @@ import { FaCameraRetro } from 'react-icons/fa'
 import { useState, useRef } from 'react'
 import { useRouter } from 'next/navigation'
 import Image from 'next/image'
+import { AiFillCloseCircle } from 'react-icons/ai'
 
 import { api } from '@/lib/api'
 
-export default function EditTestemunho({ setOpenEdit, userIgreja, id }) {
+export default function EditTestemunho({
+  setOpenEdit,
+  userIgreja,
+  id,
+  img,
+  conteudo,
+}) {
   const [content, setContent] = useState('')
   const [preview, setPreview] = useState(null)
   const formRef = useRef(null)
@@ -38,6 +45,8 @@ export default function EditTestemunho({ setOpenEdit, userIgreja, id }) {
         console.error('Erro ao carregar arquivo:', error)
         // Tratar erros de upload aqui
       }
+    } else {
+      coverUrl = img
     }
 
     try {
@@ -89,7 +98,7 @@ export default function EditTestemunho({ setOpenEdit, userIgreja, id }) {
   return (
     <form
       ref={formRef}
-      className="fixed  left-0 top-0  flex h-[100vh]  w-[100vw] flex-col items-start  justify-center gap-3 bg-black/50 px-6  py-4 backdrop-blur-lg   md:flex-row md:items-center md:justify-center"
+      className="fixed  left-0 top-0  flex min-h-screen  w-[100vw] flex-col items-start  gap-3 bg-black/50 px-6 py-4 pt-[165px]  backdrop-blur-lg   md:flex-row md:items-start md:justify-center"
       onSubmit={handleSubmit}
     >
       <Image
@@ -101,35 +110,60 @@ export default function EditTestemunho({ setOpenEdit, userIgreja, id }) {
       />
 
       <div className="flex w-full flex-col   gap-2 rounded-2xl bg-bglight  shadow-light  dark:bg-bgdark  dark:shadow-dark md:w-[70%]  lg:min-w-[700px]">
-        <p className="pl-3 text-lg font-bold">{name}</p>
+        <div className="flex items-center justify-between">
+          {' '}
+          <p className="pl-3 text-lg font-bold">{name}</p>
+          <button onClick={() => setOpenEdit(null)} className="pr-1">
+            <AiFillCloseCircle className="text-2xl font-bold text-red-500" />
+          </button>{' '}
+        </div>
 
         <textarea
           className="mx-1 flex w-full  flex-col gap-2 border-none bg-bglight  outline-none ring-0 focus:ring-0  dark:bg-bgdark"
           type="text"
           name="content"
+          defaultValue={conteudo}
           required
           placeholder="Escreva seu testemunho"
           onChange={(e) => setContent(e.target.value)}
         />
 
-        {preview && (
+        {preview ? (
           <div className="mb-4 flex w-full items-center justify-center">
             <img src={preview} alt="" className=" aspect-video w-[200px]" />
           </div>
+        ) : (
+          <>
+            {img && (
+              <label
+                htmlFor="coverUrl"
+                className=" flex cursor-pointer items-center justify-center gap-2  font-bold"
+              >
+                <Image
+                  src={img}
+                  height={200}
+                  width={200}
+                  alt=""
+                  className=" aspect-video w-[200px]"
+                />
+              </label>
+            )}
+          </>
         )}
-        <div className="mx-2 mb-2 flex w-full justify-center gap-4">
+        <div className="mx-2 mb-2 flex w-full flex-wrap justify-center gap-4">
           <label
             htmlFor="coverUrl"
-            className=" flex cursor-pointer items-center gap-2  font-bold"
+            className=" flex w-full cursor-pointer items-center justify-center gap-2  text-center font-bold"
           >
-            <FaCameraRetro className="text-xl text-primary" /> Anexar foto
+            <FaCameraRetro className="text-xl  text-primary" /> Anexar foto{' '}
+            {img && 'nova '}
             (Opcional)
           </label>
           <button
             type="submit"
             className="z-20  mr-2 flex cursor-pointer items-center justify-center rounded-lg  bg-gradient-to-r from-slate-950 to-blue-900 px-6 font-bold text-white  hover:from-blue-900 hover:to-slate-900"
           >
-            Enviar
+            Editar
           </button>
         </div>
       </div>

@@ -138,6 +138,8 @@ export default function Testemunho({ data, userIgreja }) {
                       <div>
                         <EditTestemunho
                           id={item.id}
+                          img={item.coverUrl}
+                          conteudo={item.content}
                           userIgreja={userIgreja}
                           setOpenEdit={setOpenEdit}
                         />
