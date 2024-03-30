@@ -125,7 +125,7 @@ export default function EditUserIgreja({ id, nome, email, img }) {
             className=" mt-2 w-[200px] cursor-pointer rounded-lg  border-none bg-bglightsecundary p-2 text-center font-bold placeholder-textlight shadow-light outline-none focus:ring-0 dark:bg-bgdarksecundary dark:placeholder-textdark dark:shadow-dark"
             type="text"
             name="name"
-            value={nome}
+            defaultValue={nome}
             required
             placeholder="Seu nome"
             onChange={(e) => setName(e.target.value.toLowerCase())}
@@ -136,6 +136,7 @@ export default function EditUserIgreja({ id, nome, email, img }) {
             type="text"
             name="login"
             value={email}
+            readOnly
             required
             placeholder="seu email"
             onChange={(e) => setLogin(e.target.value)}
