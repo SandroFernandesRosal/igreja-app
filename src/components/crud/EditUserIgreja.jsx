@@ -6,6 +6,7 @@ import { useTokenIgreja } from '@/hooks/useTokenIgreja'
 import { api } from '@/lib/api'
 import Image from 'next/image'
 import Link from 'next/link'
+import Cookies from 'js-cookie'
 
 export default function EditUserIgreja({ id, nome, email, img }) {
   const [name, setName] = useState('')
@@ -64,8 +65,9 @@ export default function EditUserIgreja({ id, nome, email, img }) {
       const newss = response.data
 
       if (response.status === 200 && newss) {
-        router.push('/')
-        window.location.href = '/'
+        Cookies.remove('tokenigreja')
+        router.push('/login/igreja')
+        window.location.href = '/login/igreja'
         return newss
       }
 
