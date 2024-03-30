@@ -118,7 +118,7 @@ export default function Testemunho({ data, userIgreja }) {
                       height={500}
                       src={item.coverUrl}
                       alt={item.name}
-                      className="w-full rounded-xl bg-green-500 md:max-w-[500px]"
+                      className="w-full rounded-xl  md:max-w-[500px]"
                     />
                   </div>
                 )}
