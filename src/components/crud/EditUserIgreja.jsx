@@ -133,7 +133,7 @@ export default function EditUserIgreja({ id, nome, email, img }) {
                 defaultValue={nome}
                 required
                 placeholder="Seu nome"
-                onChange={(e) => setName(e.target.value.toLowerCase())}
+                onChange={(e) => setName(e.target.value)}
               />
 
               <input
