@@ -30,7 +30,7 @@ export default function ResetPasswordPage({ params }) {
         },
       )
 
-      if (response.status === 200) {
+      if (response) {
         console.log('Senha redefinida com sucesso')
         alert('Senha redefinida com sucesso!')
         router.push('/login/igreja')
@@ -38,7 +38,14 @@ export default function ResetPasswordPage({ params }) {
         throw new Error('Erro desconhecido')
       }
     } catch (error) {
-      if (error.response && error.response.data && error.response.data.error) {
+      if (
+        error.response &&
+        (error.response.status === 400 ||
+          error.response.status === 404 ||
+          error.response.status === 500) &&
+        error.response.data &&
+        error.response.data.error
+      ) {
         setError(error.response.data.error)
       } else {
         setError('Erro ao redefinir a senha. Tente novamente mais tarde.')
@@ -59,11 +66,7 @@ export default function ResetPasswordPage({ params }) {
           <p className="mb-4 text-xl ">Digite sua nova senha</p>
         </div>
 
-        {error && (
-          <p className="text-red-500">
-            Erro ao redefinir a senha. Tente novamente mais tarde.
-          </p>
-        )}
+        {error && <p className="mb-2 text-red-500">{error}</p>}
 
         <input
           type="text"
