@@ -2,12 +2,14 @@
 
 import { useState } from 'react'
 import { api } from '@/lib/api'
+import { useRouter } from 'next/navigation'
 
 export default function ResetPasswordPage({ params }) {
   const token = params.token
   const [password, setPassword] = useState('')
   const [login, setLogin] = useState('')
   const [error, setError] = useState(false)
+  const router = useRouter()
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -30,17 +32,14 @@ export default function ResetPasswordPage({ params }) {
 
       if (response.status === 200) {
         console.log('Senha redefinida com sucesso')
-        // Redirecionar para uma página de sucesso ou limpar o formulário
+        alert('Senha redefinida com sucesso!')
+        router.push('/login/igreja')
       } else {
         throw new Error('Erro desconhecido')
       }
     } catch (error) {
-      if (
-        error.response &&
-        error.response.data &&
-        error.response.data.message
-      ) {
-        setError(error.response.data.message)
+      if (error.response && error.response.data && error.response.data.error) {
+        setError(error.response.data.error)
       } else {
         setError('Erro ao redefinir a senha. Tente novamente mais tarde.')
       }
