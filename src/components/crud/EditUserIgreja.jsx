@@ -4,6 +4,7 @@ import { useState, useRef } from 'react'
 import { useRouter } from 'next/navigation'
 import Cookies from 'js-cookie'
 import { api } from '@/lib/api'
+import Image from 'next/image'
 
 export default function EditUserIgreja({ id, nome, email, img }) {
   const [name, setName] = useState('')
@@ -86,7 +87,7 @@ export default function EditUserIgreja({ id, nome, email, img }) {
   return (
     <div className="mt-[80px] flex w-full  justify-center md:mt-[140px]">
       <div className="my-10 flex min-h-screen w-[100vw] flex-col items-center rounded-[35px] bg-bglightsecundary shadow-light dark:bg-bgdarksecundary dark:shadow-dark  md:w-[90vw] md:rounded-xl">
-        <h1 className="mt-2 text-lg font-bold text-primary ">Fazer login</h1>
+        <h1 className="mt-2 text-lg font-bold text-primary ">Editar perfil</h1>
         <p className="mb-5 text-xl">Use suas credenciais</p>
         <form
           ref={formRef}
@@ -101,10 +102,20 @@ export default function EditUserIgreja({ id, nome, email, img }) {
               <FaCameraRetro className="text-xl text-primary" /> Anexar foto de
               perfil (opcional)
             </p>
-            {preview && (
-              <img
+            {preview ? (
+              <Image
                 src={preview}
                 alt=""
+                width={150}
+                height={150}
+                className=" h-[150px] w-[150px] rounded-full border-2 border-primary"
+              />
+            ) : (
+              <Image
+                src={img}
+                alt=""
+                width={150}
+                height={150}
                 className=" h-[150px] w-[150px] rounded-full border-2 border-primary"
               />
             )}
@@ -152,7 +163,7 @@ export default function EditUserIgreja({ id, nome, email, img }) {
             type="submit"
             className="z-20 my-3 flex w-[200px] cursor-pointer items-center justify-center rounded-lg  bg-gradient-to-r from-slate-950 to-blue-900  font-bold text-white  hover:from-blue-900 hover:to-slate-900"
           >
-            Cadastrar
+            Editar
           </button>
         </form>
       </div>
