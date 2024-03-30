@@ -30,7 +30,7 @@ export default function Testemunho({ data, userIgreja }) {
       {data && data.length < 1 && (
         <div className="text-center">
           {' '}
-          <p>NENHUM TESTEMUNHO CADASTRADO AINDA.</p>{' '}
+          <p className="mb-3">NENHUM TESTEMUNHO CADASTRADO AINDA.</p>{' '}
           {!tokenIgreja && (
             <>
               {' '}

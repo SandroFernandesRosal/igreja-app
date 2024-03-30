@@ -7,29 +7,43 @@ export default function ResetPasswordPage({ params }) {
   const token = params.token
   const [password, setPassword] = useState('')
   const [login, setLogin] = useState('')
+  const [error, setError] = useState(false)
 
   const handleSubmit = async (e) => {
     e.preventDefault()
 
-    const response = await api.post(
-      `/reset-password`,
-      {
-        login,
-        password,
-        passwordResetToken: token,
-      },
-      {
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`,
+    try {
+      const response = await api.post(
+        `/reset-password`,
+        {
+          login,
+          password,
+          passwordResetToken: token,
         },
-      },
-    )
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`,
+          },
+        },
+      )
 
-    if (response) {
-      console.log('Senha redefinida com sucesso')
-    } else {
-      console.error('Erro ao redefinir a senha')
+      if (response.status === 200) {
+        console.log('Senha redefinida com sucesso')
+        // Redirecionar para uma página de sucesso ou limpar o formulário
+      } else {
+        throw new Error('Erro desconhecido')
+      }
+    } catch (error) {
+      if (
+        error.response &&
+        error.response.data &&
+        error.response.data.message
+      ) {
+        setError(error.response.data.message)
+      } else {
+        setError('Erro ao redefinir a senha. Tente novamente mais tarde.')
+      }
     }
   }
 
@@ -45,6 +59,12 @@ export default function ResetPasswordPage({ params }) {
           </h1>
           <p className="mb-4 text-xl ">Digite sua nova senha</p>
         </div>
+
+        {error && (
+          <p className="text-red-500">
+            Erro ao redefinir a senha. Tente novamente mais tarde.
+          </p>
+        )}
 
         <input
           type="text"
