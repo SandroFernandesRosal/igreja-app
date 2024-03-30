@@ -9,6 +9,6 @@ export function getUserIgreja() {
     return user
   } catch (error) {
     // O token é inválido
-    return null
+    return { name: '', login: '', avatarUrl: '', id: '' }
   }
 }

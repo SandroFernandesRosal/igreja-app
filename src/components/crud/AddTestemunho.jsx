@@ -98,7 +98,7 @@ export default function AddTestemunho({ setOpen, userIgreja }) {
         height={300}
         src={avatarUrl}
         alt={name}
-        className=" h-[100px] w-[100px] rounded-full bg-green-500 shadow-light dark:shadow-dark"
+        className=" h-[100px] w-[100px] rounded-full shadow-light dark:shadow-dark"
       />
 
       <div className="flex w-full flex-col   gap-2 rounded-2xl bg-bglight  shadow-light  dark:bg-bgdark  dark:shadow-dark md:w-[70%]  lg:min-w-[700px]">
