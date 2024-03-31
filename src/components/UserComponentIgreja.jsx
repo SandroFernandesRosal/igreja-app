@@ -23,14 +23,14 @@ export default async function UserComponentIgreja() {
               alt="imagem de perfil"
               width={40}
               height={40}
-              className="rounded-full"
+              className="rounded-full bg-gradient-to-r  from-slate-950 to-blue-900 p-[2px] hover:from-blue-900 hover:to-slate-900 "
             />
             <p>{name} </p>
           </div>
           <div className="flex items-center gap-4 pt-2 md:pt-0">
             <Link
               href={'/perfil'}
-              className="flex h-[32px] items-center rounded-lg bg-green-500 px-2 text-lg font-bold text-white hover:bg-green-500/50"
+              className="flex h-[32px] items-center rounded-lg  bg-gradient-to-r from-slate-950 to-blue-900 px-2  text-lg font-bold text-white  hover:from-blue-900 hover:to-slate-900"
             >
               Perfil
             </Link>

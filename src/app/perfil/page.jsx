@@ -14,14 +14,20 @@ export default async function Perfil() {
           <p className="mb-4 text-xl ">Verifique seus dados</p>
         </div>
         <div className="flex flex-col items-center gap-1">
-          <Image src={avatarUrl} width={200} height={200} alt="" />
+          <Image
+            src={avatarUrl}
+            width={200}
+            height={200}
+            alt=""
+            className="mt-1 rounded-full  bg-gradient-to-r from-slate-950 to-blue-900 p-[4px] hover:from-blue-900 hover:to-slate-900"
+          />
           <h1 className="text-lg font-bold">{name}</h1>
           <p>{login}</p>
 
           <div className="flex w-full justify-between gap-2">
             <Link
               href={'/perfil/editar'}
-              className="flex items-center rounded-lg bg-green-500 px-2 text-lg font-bold hover:bg-green-700"
+              className="flex items-center rounded-lg bg-gradient-to-r  from-slate-950 to-blue-900 px-2  text-lg font-bold text-white   hover:from-blue-900 hover:to-slate-900"
             >
               Editar perfil
             </Link>

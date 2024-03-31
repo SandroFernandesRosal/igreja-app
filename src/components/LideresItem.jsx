@@ -19,7 +19,7 @@ export default function LideresItem({ nome, titulo, local, img, id }) {
           height={120}
           src={img}
           alt={nome}
-          className="flex  h-[120px] w-[120px] items-center justify-center rounded-full border-2  border-primary"
+          className="flex  h-[120px] w-[120px] items-center justify-center rounded-full bg-gradient-to-r  from-slate-950 to-blue-900 p-[4px] hover:from-blue-900 hover:to-slate-900"
         />
 
         <div

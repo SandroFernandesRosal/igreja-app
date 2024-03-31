@@ -40,7 +40,7 @@ export default function RemoveUserIgreja({ id }) {
     <button
       onClick={handleSubmit}
       disabled={isDeleting}
-      className="rounded-lg bg-red-500  p-1 px-3 text-lg font-bold text-white hover:bg-red-700"
+      className="rounded-lg bg-gradient-to-r from-slate-950 to-blue-900 p-1 px-3 text-lg  font-bold text-white   hover:from-blue-900 hover:to-slate-900 "
     >
       {isDeleting ? 'Removendo...' : 'Remover perfil'}
     </button>

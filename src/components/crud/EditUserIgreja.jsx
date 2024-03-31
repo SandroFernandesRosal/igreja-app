@@ -115,7 +115,7 @@ export default function EditUserIgreja({ id, nome, email, img }) {
                     alt=""
                     width={150}
                     height={150}
-                    className=" h-[150px] w-[150px] rounded-full border-2 border-primary"
+                    className=" h-[150px] w-[150px] rounded-full  bg-gradient-to-r  from-slate-950 to-blue-900 p-[4px] hover:from-blue-900 hover:to-slate-900 "
                   />
                 ) : (
                   <Image
@@ -123,7 +123,7 @@ export default function EditUserIgreja({ id, nome, email, img }) {
                     alt=""
                     width={150}
                     height={150}
-                    className=" h-[150px] w-[150px] rounded-full border-2 border-primary"
+                    className=" h-[150px] w-[150px] rounded-full  bg-gradient-to-r  from-slate-950 to-blue-900 p-[4px] hover:from-blue-900 hover:to-slate-900 "
                   />
                 )}
               </label>

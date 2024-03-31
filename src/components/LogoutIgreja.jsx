@@ -13,7 +13,7 @@ export default function LogoutIgreja() {
   }
   return (
     <button
-      className="w-[60px] rounded-md bg-red-500 p-1 font-bold text-white hover:bg-red-500/50"
+      className="w-[60px] rounded-md bg-gradient-to-r from-slate-950 to-blue-900  p-1 font-bold text-white  hover:from-blue-900 hover:to-slate-900 "
       onClick={Sair}
     >
       Sair
