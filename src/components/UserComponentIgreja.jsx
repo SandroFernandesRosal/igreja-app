@@ -16,7 +16,7 @@ export default async function UserComponentIgreja() {
   return (
     <>
       {userIgreja && (
-        <div className=" items-center gap-3 md:flex ">
+        <div className=" flex flex-col items-center gap-3 md:flex-row  ">
           <div className="flex  items-center gap-3">
             <Image
               src={avatarUrl}
@@ -27,7 +27,7 @@ export default async function UserComponentIgreja() {
             />
             <p>{name} </p>
           </div>
-          <div className="flex items-center gap-4 pt-2 md:pt-0">
+          <div className="flex items-center gap-4">
             <Link
               href={'/perfil'}
               className="flex h-[32px] items-center rounded-lg  bg-gradient-to-r from-slate-950 to-blue-900 px-2  text-lg font-bold text-white  hover:from-blue-900 hover:to-slate-900"
@@ -35,7 +35,7 @@ export default async function UserComponentIgreja() {
               Perfil
             </Link>
             <LogoutIgreja />
-            <div className="md:hidden">
+            <div className="flex md:hidden ">
               <ChangeTheme />
             </div>
           </div>

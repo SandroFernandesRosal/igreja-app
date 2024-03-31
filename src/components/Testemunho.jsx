@@ -61,7 +61,7 @@ export default function Testemunho({ data, userIgreja }) {
         <>
           {open === false && (
             <div
-              className="mb-4 flex cursor-pointer rounded-lg border-none bg-bglight p-2 placeholder-black shadow-light outline-none hover:bg-gradient-to-r hover:from-blue-900 hover:to-slate-900 hover:text-white focus:ring-0 dark:bg-bgdark dark:placeholder-white dark:shadow-dark"
+              className="mb-4 flex cursor-pointer rounded-lg border-none bg-bglight bg-gradient-to-r from-slate-950 to-blue-900 p-2 text-white placeholder-black shadow-light outline-none hover:bg-gradient-to-r hover:from-blue-900 hover:to-slate-900  focus:ring-0 dark:bg-bgdark  dark:placeholder-white dark:shadow-dark"
               onClick={() => setOpen(true)}
             >
               Adicionar testemunho
@@ -98,7 +98,7 @@ export default function Testemunho({ data, userIgreja }) {
                 height={300}
                 src={item.avatarUrl}
                 alt={item.name}
-                className="mx-1 h-[100px] w-[100px] rounded-full shadow-light dark:shadow-dark"
+                className="mx-1 h-[100px] w-[100px] rounded-full bg-gradient-to-r from-slate-950 to-blue-900 p-[4px] text-white shadow-light  hover:from-blue-900 hover:to-slate-900 dark:shadow-dark"
               />
 
               <div className="flex w-full flex-col gap-2   rounded-2xl bg-gradient-to-r from-slate-950 to-blue-900 pb-2 text-white shadow-light   dark:shadow-dark md:w-[70%]  lg:min-w-[700px]">
@@ -127,7 +127,7 @@ export default function Testemunho({ data, userIgreja }) {
                   <div className="flex justify-center gap-4">
                     {openEdit === null && (
                       <button
-                        className="rounded-lg bg-green-500 px-1 font-bold hover:bg-green-700 md:px-3 md:text-lg"
+                        className="m-[2px] rounded-lg bg-gradient-to-r from-slate-950 to-blue-900  px-2 text-lg font-bold text-white shadow-light  hover:from-blue-900 hover:to-slate-900 md:px-3 md:text-lg"
                         onClick={() => setOpenEdit(item.id)}
                       >
                         Editar
