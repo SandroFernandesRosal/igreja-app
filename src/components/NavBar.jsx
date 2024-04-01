@@ -33,7 +33,7 @@ export default function NavBar({ handleMenu, user }) {
               onClick={handleMenu}
               className="flex flex-col items-center justify-center"
             >
-              <FaUserCircle className="text-3xl font-bold text-primary" />
+              <FaUserCircle className="text-3xl font-bold text-secundary" />
               <p className="text-center">Entrar</p>
             </Link>{' '}
             <ChangeTheme />{' '}

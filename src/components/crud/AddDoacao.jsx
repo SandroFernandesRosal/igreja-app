@@ -75,7 +75,7 @@ export default function AddDoacao({ openDoacao, setOpenDoacao }) {
         )}
       </h1>
       <input
-        className="mt-2 w-[200px] cursor-pointer rounded-lg  border-none bg-bglightsecundary p-2 text-center font-bold placeholder-textlight shadow-light outline-none focus:ring-0 dark:bg-bgdarksecundary dark:placeholder-textdark dark:shadow-dark"
+        className="mt-2 w-[80%] max-w-[600px] cursor-pointer rounded-lg  border-none bg-bglightsecundary p-2 text-center font-bold placeholder-textlight shadow-light outline-none focus:ring-0 dark:bg-bgdarksecundary dark:placeholder-textdark dark:shadow-dark"
         type="text"
         name="local"
         placeholder="Digite um local"
@@ -83,7 +83,7 @@ export default function AddDoacao({ openDoacao, setOpenDoacao }) {
       />
 
       <input
-        className="my-2 w-[200px] cursor-pointer rounded-lg  border-none bg-bglightsecundary p-2 text-center font-bold placeholder-textlight shadow-light outline-none focus:ring-0 dark:bg-bgdarksecundary dark:placeholder-textdark dark:shadow-dark"
+        className="my-2  w-[80%] max-w-[600px] cursor-pointer rounded-lg  border-none bg-bglightsecundary p-2 text-center font-bold placeholder-textlight shadow-light outline-none focus:ring-0 dark:bg-bgdarksecundary dark:placeholder-textdark dark:shadow-dark"
         type="text"
         name="banco"
         placeholder="Digite o nome do banco"
@@ -91,7 +91,7 @@ export default function AddDoacao({ openDoacao, setOpenDoacao }) {
       />
 
       <input
-        className="mb-2 w-[200px] cursor-pointer rounded-lg  border-none bg-bglightsecundary p-2 text-center font-bold placeholder-textlight shadow-light outline-none focus:ring-0 dark:bg-bgdarksecundary dark:placeholder-textdark dark:shadow-dark"
+        className="mb-2  w-[80%] max-w-[600px] cursor-pointer rounded-lg  border-none bg-bglightsecundary p-2 text-center font-bold placeholder-textlight shadow-light outline-none focus:ring-0 dark:bg-bgdarksecundary dark:placeholder-textdark dark:shadow-dark"
         type="text"
         name="conta"
         placeholder="Digite número da conta"
@@ -99,7 +99,7 @@ export default function AddDoacao({ openDoacao, setOpenDoacao }) {
       />
 
       <input
-        className="mb-2 w-[200px] cursor-pointer rounded-lg  border-none bg-bglightsecundary p-2 text-center font-bold placeholder-textlight shadow-light outline-none focus:ring-0 dark:bg-bgdarksecundary dark:placeholder-textdark dark:shadow-dark"
+        className="mb-2  w-[80%] max-w-[600px] cursor-pointer rounded-lg  border-none bg-bglightsecundary p-2 text-center font-bold placeholder-textlight shadow-light outline-none focus:ring-0 dark:bg-bgdarksecundary dark:placeholder-textdark dark:shadow-dark"
         type="text"
         name="agencia"
         placeholder="Digite a agência"
@@ -107,7 +107,7 @@ export default function AddDoacao({ openDoacao, setOpenDoacao }) {
       />
 
       <input
-        className="mb-4 w-[200px] cursor-pointer rounded-lg  border-none bg-bglightsecundary p-2 text-center font-bold placeholder-textlight shadow-light outline-none focus:ring-0 dark:bg-bgdarksecundary dark:placeholder-textdark dark:shadow-dark"
+        className="mb-2  w-[80%] max-w-[600px] cursor-pointer rounded-lg  border-none bg-bglightsecundary p-2 text-center font-bold placeholder-textlight shadow-light outline-none focus:ring-0 dark:bg-bgdarksecundary dark:placeholder-textdark dark:shadow-dark"
         type="text"
         name="nomeBanco"
         placeholder="Nome do beneficiário"
@@ -115,7 +115,7 @@ export default function AddDoacao({ openDoacao, setOpenDoacao }) {
       />
 
       <input
-        className="mb-4 w-[200px] cursor-pointer rounded-lg  border-none bg-bglightsecundary p-2 text-center font-bold placeholder-textlight shadow-light outline-none focus:ring-0 dark:bg-bgdarksecundary dark:placeholder-textdark dark:shadow-dark"
+        className="mb-2  w-[80%] max-w-[600px] cursor-pointer rounded-lg  border-none bg-bglightsecundary p-2 text-center font-bold placeholder-textlight shadow-light outline-none focus:ring-0 dark:bg-bgdarksecundary dark:placeholder-textdark dark:shadow-dark"
         type="text"
         name="pix"
         placeholder="Digite a chave pix"
@@ -123,7 +123,7 @@ export default function AddDoacao({ openDoacao, setOpenDoacao }) {
       />
 
       <input
-        className="mb-4 w-[200px] cursor-pointer rounded-lg  border-none bg-bglightsecundary p-2 text-center font-bold placeholder-textlight shadow-light outline-none focus:ring-0 dark:bg-bgdarksecundary dark:placeholder-textdark dark:shadow-dark"
+        className="mb-4  w-[80%] max-w-[600px] cursor-pointer rounded-lg  border-none bg-bglightsecundary p-2 text-center font-bold placeholder-textlight shadow-light outline-none focus:ring-0 dark:bg-bgdarksecundary dark:placeholder-textdark dark:shadow-dark"
         type="text"
         name="nomePix"
         placeholder="Nome do beneficiário"
@@ -132,7 +132,7 @@ export default function AddDoacao({ openDoacao, setOpenDoacao }) {
 
       <button
         type="submit"
-        className="z-20  flex w-[200px] cursor-pointer items-center justify-center rounded-lg  bg-gradient-to-r from-slate-950 to-blue-900  font-bold text-white  hover:from-blue-900 hover:to-slate-900"
+        className="z-20  flex w-[100px] cursor-pointer items-center justify-center rounded-lg  bg-gradient-to-r from-slate-950 to-blue-900  font-bold text-white  hover:from-blue-900 hover:to-slate-900"
       >
         Enviar
       </button>

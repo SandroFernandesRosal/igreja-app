@@ -26,7 +26,9 @@ export default function Doe() {
   return (
     <div className="mb-10 flex w-[100vw] flex-col items-center rounded-[35px]  bg-bglightsecundary  shadow-light  dark:bg-bgdarksecundary dark:shadow-dark  md:w-[90vw] md:rounded-xl">
       <div className="mb-5 flex-col items-center text-center">
-        <h1 className="m-0 text-lg font-bold text-primary ">Ajude a igreja</h1>
+        <h1 className="m-0 text-lg font-bold text-primary dark:text-secundary ">
+          Ajude a igreja
+        </h1>
         <p className="px-[5px] text-xl ">
           Faça uma doação por pix ou transferência bancária
         </p>

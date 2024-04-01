@@ -6,7 +6,7 @@ import Contatos from './Contatos'
 
 export default function Footer() {
   return (
-    <footer className="flex min-h-[100px] flex-col items-center justify-evenly border-t-2 border-solid border-y-primary bg-gradient-to-r from-slate-950  to-blue-900 pb-5 font-bold">
+    <footer className="flex min-h-[100px] flex-col items-center justify-evenly border-t-2 border-solid border-y-secundary bg-gradient-to-r from-slate-950  to-blue-900 pb-5 font-bold">
       <Link href="/" className="my-5">
         <Image src={logo} alt="logo do site" width={200} height={50} />
       </Link>

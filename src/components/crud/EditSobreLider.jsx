@@ -127,7 +127,7 @@ export default function EditSobreLider({ setOpenEdit, id, nome, titulo, img }) {
       </label>
 
       <input
-        className="mb-4 mt-2 w-[200px] cursor-pointer rounded-lg border-none bg-bglightsecundary p-2 text-center font-bold text-black placeholder-textlight shadow-light outline-none focus:ring-0 dark:bg-bgdarksecundary dark:text-white dark:placeholder-textdark dark:shadow-dark"
+        className="mb-4 mt-2  w-[80%] max-w-[600px] cursor-pointer rounded-lg border-none bg-bglightsecundary p-2 text-center font-bold text-black placeholder-textlight shadow-light outline-none focus:ring-0 dark:bg-bgdarksecundary dark:text-white dark:placeholder-textdark dark:shadow-dark"
         type="text"
         name="name"
         required={true}
@@ -137,7 +137,7 @@ export default function EditSobreLider({ setOpenEdit, id, nome, titulo, img }) {
       />
 
       <input
-        className="mb-1 w-[200px] cursor-pointer rounded-lg border-none bg-bglightsecundary p-2 text-center font-bold text-black placeholder-textlight shadow-light outline-none focus:ring-0 dark:bg-bgdarksecundary dark:text-white dark:placeholder-textdark dark:shadow-dark"
+        className="mb-1  w-[80%] max-w-[600px] cursor-pointer rounded-lg border-none bg-bglightsecundary p-2 text-center font-bold text-black placeholder-textlight shadow-light outline-none focus:ring-0 dark:bg-bgdarksecundary dark:text-white dark:placeholder-textdark dark:shadow-dark"
         type="text"
         name="title"
         required={true}
@@ -157,7 +157,7 @@ export default function EditSobreLider({ setOpenEdit, id, nome, titulo, img }) {
 
       <button
         type="submit"
-        className="z-20 my-3 flex w-[200px] cursor-pointer items-center justify-center rounded-lg  bg-gradient-to-r from-slate-950 to-blue-900  font-bold text-white  hover:from-blue-900 hover:to-slate-900"
+        className="z-20 my-3 flex w-[100px] cursor-pointer items-center justify-center rounded-lg  bg-gradient-to-r from-slate-950 to-blue-900  font-bold text-white  hover:from-blue-900 hover:to-slate-900"
       >
         Enviar
       </button>

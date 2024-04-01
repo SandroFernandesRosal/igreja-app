@@ -42,7 +42,7 @@ export default function RemoveSobreLider({ id }) {
     <button
       onClick={handleSubmit}
       disabled={isDeleting}
-      className="rounded-lg bg-red-500  px-1 font-bold text-white hover:bg-red-700 md:px-3 md:text-lg"
+      className="m-3 rounded-lg bg-gradient-to-r from-slate-950 to-blue-900  px-3 font-bold  text-white shadow-light hover:from-blue-900 hover:to-slate-900 dark:shadow-dark"
     >
       {isDeleting ? 'Removendo...' : 'Remover'}
     </button>

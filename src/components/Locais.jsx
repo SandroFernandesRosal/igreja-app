@@ -25,7 +25,9 @@ export default function Locais() {
 
   return (
     <section className="mb-5 flex w-[100vw] flex-col items-center rounded-[35px]  bg-bglightsecundary  shadow-light dark:bg-bgdarksecundary  dark:shadow-dark md:w-[90vw] md:rounded-xl">
-      <h1 className="m-0 mt-1 text-lg font-bold text-primary">Endereços</h1>
+      <h1 className="m-0 mt-1 text-lg font-bold text-primary dark:text-secundary">
+        Endereços
+      </h1>
       <p className="mb-5 text-xl">Todos os nossos endereços</p>
 
       {token && (

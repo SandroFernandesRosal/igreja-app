@@ -40,7 +40,7 @@ export default function Header({ children }) {
   return (
     <>
       <header className="font-Roboto fixed z-50 flex flex-col">
-        <div className="flex h-20 w-[100vw]  items-center justify-evenly overflow-hidden border-b-2 border-solid border-b-primary  bg-gradient-to-r from-slate-950 to-blue-900  backdrop-blur-md">
+        <div className="flex h-20 w-[100vw] items-center justify-evenly overflow-hidden border-b-2 border-solid border-b-secundary  bg-gradient-to-r from-slate-950 to-blue-900  backdrop-blur-md">
           <Link href="/" onClick={() => handleClick('/')}>
             <Image
               src={logo}
@@ -57,21 +57,25 @@ export default function Header({ children }) {
           {token || tokenIgreja ? (
             <div className="hidden text-white md:flex">{children}</div>
           ) : (
-            <Link href={'/login/igreja'} className="hidden md:flex">
-              <FaUserCircle className="text-3xl font-bold text-primary" />
+            <Link
+              href={'/login/igreja'}
+              className="hidden md:flex md:flex-col md:items-center"
+            >
+              <FaUserCircle className="text-3xl font-bold text-secundary" />
+              <span className="text-sm font-bold text-secundary">Entrar</span>
             </Link>
           )}
 
           <div
             onClick={handleMenu}
             className={
-              'flex h-[50px] w-[50px] cursor-pointer items-center justify-center rounded-full  border-[2px] border-primary hover:bg-blue-300  dark:hover:bg-gray-800 md:hidden'
+              'flex h-[50px] w-[50px] cursor-pointer items-center justify-center rounded-full  border-[2px] border-secundary hover:bg-blue-300  dark:hover:bg-gray-800 md:hidden'
             }
           >
             {menu === false ? (
-              <GiHamburgerMenu className="text-[22px] text-primary" />
+              <GiHamburgerMenu className="text-[22px] text-secundary" />
             ) : (
-              <AiOutlineClose className="text-[25px]  text-primary" />
+              <AiOutlineClose className="text-[25px]  text-secundary" />
             )}
           </div>
         </div>

@@ -134,7 +134,7 @@ export default function EditSobreContent({
       </label>
 
       <input
-        className="mb-4 mt-2 w-[70%] cursor-pointer rounded-lg border-none bg-bglightsecundary p-2  text-center font-bold text-black placeholder-textlight shadow-light outline-none focus:ring-0 dark:bg-bgdarksecundary dark:text-white dark:placeholder-textdark dark:shadow-dark md:w-[50%]"
+        className="mb-4 mt-2  w-[80%] max-w-[600px] cursor-pointer rounded-lg border-none bg-bglightsecundary p-2  text-center font-bold text-black placeholder-textlight shadow-light outline-none focus:ring-0 dark:bg-bgdarksecundary dark:text-white dark:placeholder-textdark dark:shadow-dark md:w-[50%]"
         type="text"
         name="title"
         id="title"
@@ -145,7 +145,7 @@ export default function EditSobreContent({
       />
 
       <textarea
-        className="mb-1 mt-2 w-[70%] cursor-pointer rounded-lg border-none bg-bglightsecundary p-2 text-center font-bold text-black placeholder-textlight shadow-light outline-none focus:ring-0 dark:bg-bgdarksecundary dark:text-white dark:placeholder-textdark dark:shadow-dark md:w-[50%]"
+        className="mb-1 mt-2  w-[80%] max-w-[600px] cursor-pointer rounded-lg border-none bg-bglightsecundary p-2 text-center font-bold text-black placeholder-textlight shadow-light outline-none focus:ring-0 dark:bg-bgdarksecundary dark:text-white dark:placeholder-textdark dark:shadow-dark md:w-[50%]"
         type="text"
         name="content"
         id="content"
@@ -165,7 +165,7 @@ export default function EditSobreContent({
 
       <button
         type="submit"
-        className="z-20 my-3 flex w-[200px] cursor-pointer items-center justify-center rounded-lg  bg-gradient-to-r  from-slate-950 to-blue-900 font-bold  text-white  hover:from-blue-900 hover:to-slate-900"
+        className="z-20 my-3 flex w-[100px] cursor-pointer items-center justify-center rounded-lg  bg-gradient-to-r  from-slate-950 to-blue-900 font-bold  text-white  hover:from-blue-900 hover:to-slate-900"
       >
         Enviar
       </button>

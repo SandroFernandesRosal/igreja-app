@@ -19,13 +19,13 @@ export default function LideresItem({ nome, titulo, local, img, id }) {
           height={120}
           src={img}
           alt={nome}
-          className="flex  h-[120px] w-[120px] items-center justify-center rounded-full bg-gradient-to-r  from-slate-950 to-blue-900 p-[4px] hover:from-blue-900 hover:to-slate-900"
+          className="flex  h-[120px] w-[120px] items-center justify-center rounded-full bg-gradient-to-r  from-slate-950 to-blue-900 p-[4px] hover:from-blue-900 hover:to-slate-900 "
         />
 
         <div
           className={`${
             token && 'mt-2'
-          } text-center font-bold text-primary md:text-lg`}
+          } text-center font-bold text-primary dark:text-secundary md:text-lg`}
         >
           <p>{nome}</p>
           <p>{titulo}</p>
@@ -36,7 +36,7 @@ export default function LideresItem({ nome, titulo, local, img, id }) {
           <div className="mb-2 flex w-full flex-1 items-end justify-around text-white">
             {openEdit === false && (
               <button
-                className="rounded-lg bg-green-500 px-1 font-bold hover:bg-green-700 md:px-3 md:text-lg"
+                className="m-[5px]  rounded-lg bg-gradient-to-r from-slate-950 to-blue-900  px-1 text-white  shadow-light hover:from-blue-900 hover:to-slate-900 dark:shadow-dark md:px-3 md:text-lg md:font-bold"
                 onClick={() => setOpenEdit(true)}
               >
                 Editar

@@ -21,13 +21,15 @@ export default function DoeItem({
   const token = Cookies.get('tokennn')
   return (
     <>
-      <div className="mb-5 flex h-[300px] w-[45%] max-w-[150px] flex-col items-center gap-2 rounded-xl bg-bglight p-1 shadow-light transition delay-150 duration-300  ease-in-out hover:-translate-y-1 hover:scale-110 hover:shadow-hover dark:bg-bgdark dark:shadow-dark dark:hover:shadow-hover md:mb-5 md:h-[300px] md:w-[200px] md:max-w-[200px]">
-        <h1 className="text-primary md:text-xl md:font-bold">{local}</h1>
+      <div className="mb-5 flex h-[300px] w-[45%] max-w-[150px] flex-col items-center gap-2 rounded-xl bg-bglight  shadow-light transition delay-150 duration-300  ease-in-out hover:-translate-y-1 hover:scale-110 hover:shadow-hover dark:bg-bgdark dark:shadow-dark dark:hover:shadow-hover md:mb-5 md:h-[300px] md:w-[200px] md:max-w-[200px]">
+        <h1 className="text-center font-bold text-primary dark:text-secundary md:text-xl">
+          {local}
+        </h1>
 
         <div className="flex w-full flex-col justify-center md:gap-4 md:p-2 ">
           <div className="">
             <div className="flex w-full justify-center">
-              <BsBank className="text-primary md:text-xl" />
+              <BsBank className="text-primary dark:text-secundary md:text-xl" />
             </div>
             <p>{banco}</p>
             <p>C: {conta}</p>
@@ -38,7 +40,7 @@ export default function DoeItem({
           <div className="">
             <div className="flex w-full justify-center">
               {' '}
-              <MdOutlinePix className="text-primary md:text-xl" />
+              <MdOutlinePix className="text-primary dark:text-secundary md:text-xl" />
             </div>
             <p>{pix}</p>
             <p>{nomepix}</p>
@@ -49,7 +51,7 @@ export default function DoeItem({
           <div className=" mb-1 flex w-full flex-1 items-end justify-around text-white">
             {openEdit === false && (
               <button
-                className="rounded-lg bg-green-500 px-1  font-bold hover:bg-green-700 md:px-3 md:text-lg"
+                className="m-[5px]  rounded-lg bg-gradient-to-r from-slate-950 to-blue-900  px-1 text-white  shadow-light hover:from-blue-900 hover:to-slate-900 dark:shadow-dark md:px-3 md:text-lg md:font-bold"
                 onClick={() => setOpenEdit(true)}
               >
                 Editar

@@ -56,7 +56,7 @@ export default function NoticiaCaxias({ params }) {
             <div className="mt-2 flex gap-3">
               {openEdit === false && (
                 <button
-                  className="rounded-lg bg-green-500  p-1 px-3 text-lg font-bold"
+                  className="m-[5px]  rounded-lg bg-gradient-to-r from-slate-950 to-blue-900  px-1 text-white  shadow-light hover:from-blue-900 hover:to-slate-900 md:px-3  md:text-lg md:font-bold"
                   onClick={() => setOpenEdit(true)}
                 >
                   Editar
@@ -94,7 +94,7 @@ export default function NoticiaCaxias({ params }) {
             />
 
             {selectedItem && selectedItem.createdAt ? (
-              <h1 className="flex w-[100vw] max-w-[500px] justify-between text-sm">
+              <h1 className="flex w-[100vw] max-w-[500px] justify-between px-2 text-sm">
                 <span>Postado em: {formatDate(selectedItem.createdAt)}</span>
                 {selectedItem && updated && selectedItem.updatedAt && (
                   <span>

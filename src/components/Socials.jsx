@@ -23,7 +23,7 @@ export default function Socials({
           target="blank"
           className="flex items-center gap-2"
         >
-          <FaWhatsapp className=" text-2xl text-primary hover:text-primary/50 " />
+          <FaWhatsapp className=" text-2xl text-secundary hover:text-secundary/50 " />
           <p>{numerowhatsapp}</p>
         </Link>
 
@@ -32,7 +32,7 @@ export default function Socials({
           target="blank"
           className="flex items-center gap-2"
         >
-          <FaInstagram className="text-2xl text-primary hover:text-primary/50" />
+          <FaInstagram className="text-2xl text-secundary hover:text-secundary/50" />
           <p>{nomeinstagram}</p>
         </Link>
 
@@ -41,7 +41,7 @@ export default function Socials({
           target="blank"
           className="flex items-center gap-2"
         >
-          <FaFacebook className="text-2xl text-primary hover:text-primary/50" />
+          <FaFacebook className="text-2xl text-secundary hover:text-secundary/50" />
           <p>{nomefacebook}</p>
         </Link>
 
@@ -49,7 +49,7 @@ export default function Socials({
           <div className="flex w-full justify-around md:gap-2">
             {openEdit === false && (
               <button
-                className="rounded-lg bg-green-500  px-1 font-bold md:px-3 md:text-lg"
+                className="m-[5px]  rounded-lg bg-gradient-to-r from-slate-950 to-blue-900  px-1 font-bold  text-white shadow-light hover:from-blue-900 hover:to-slate-900  md:px-3 md:text-lg"
                 onClick={() => setOpenEdit(true)}
               >
                 Editar

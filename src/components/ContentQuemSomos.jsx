@@ -36,7 +36,9 @@ export default function ContentQuemSomos({ dataSobre }) {
           key={item.id}
           className="my-4 flex w-[100vw] flex-col items-center gap-2"
         >
-          <h1 className="text-lg font-bold text-primary">{item.title}</h1>
+          <h1 className="text-lg font-bold text-primary dark:text-secundary">
+            {item.title}
+          </h1>
           <p className="w-[90%] max-w-[800px]">{item.content}</p>
           <Image
             src={item.coverUrl}
@@ -49,7 +51,7 @@ export default function ContentQuemSomos({ dataSobre }) {
             <div className="mb-2 flex w-full justify-center gap-2 text-white">
               {openEdit === null && (
                 <button
-                  className="rounded-lg bg-green-500 px-1 font-bold hover:bg-green-700 md:px-3 md:text-lg"
+                  className="m-2  rounded-lg bg-gradient-to-r from-slate-950 to-blue-900  px-3 font-bold  text-white shadow-light hover:from-blue-900 hover:to-slate-900 dark:shadow-dark md:px-3 md:text-lg"
                   onClick={() => setOpenEdit(item.id)}
                 >
                   Editar
