@@ -6,6 +6,7 @@ import Link from 'next/link'
 
 export default async function Perfil() {
   const { name, avatarUrl, login, id } = getUserIgreja()
+
   return (
     <div className="mb-2 mt-4 flex min-h-screen flex-col items-center gap-5 pt-24 md:mt-0 md:pt-[165px]">
       <div className="mb-4 flex min-h-screen w-[100vw] flex-col items-center rounded-[35px] bg-bglightsecundary  px-1  pb-4 shadow-light dark:bg-bgdarksecundary  dark:shadow-dark md:w-[90vw] md:rounded-xl">

@@ -10,10 +10,12 @@ import { api } from '@/lib/api'
 
 export default function EditTestemunho({
   setOpenEdit,
-  userIgreja,
+
   id,
   img,
   conteudo,
+  name,
+  avatarUrl,
 }) {
   const [content, setContent] = useState('')
   const [preview, setPreview] = useState(null)
@@ -21,8 +23,7 @@ export default function EditTestemunho({
 
   const router = useRouter()
   const token = Cookies.get('tokenigreja')
-
-  const { name, avatarUrl } = userIgreja
+  const tokenAdm = Cookies.get('tokennn')
 
   async function handleSubmit(event) {
     event.preventDefault()
@@ -38,12 +39,11 @@ export default function EditTestemunho({
 
       try {
         const uploadResponse = await api.post('/upload', formData, {
-          headers: { 'Content-Type': 'multipart/form-data' }, // Definir cabeçalho apropriado para uploads de arquivos
+          headers: { 'Content-Type': 'multipart/form-data' },
         })
         coverUrl = uploadResponse.data.fileUrl
       } catch (error) {
         console.error('Erro ao carregar arquivo:', error)
-        // Tratar erros de upload aqui
       }
     } else {
       coverUrl = img
@@ -54,14 +54,14 @@ export default function EditTestemunho({
         `/testemunhos/${id}`,
         {
           name,
+          avatarUrl,
           content,
           coverUrl,
-          avatarUrl,
         },
         {
           headers: {
             'Content-Type': 'application/json',
-            Authorization: `Bearer ${token}`,
+            Authorization: `Bearer ${token || tokenAdm}`,
           },
         },
       )
@@ -98,7 +98,7 @@ export default function EditTestemunho({
   return (
     <form
       ref={formRef}
-      className="fixed  left-0 top-0  flex min-h-screen  w-[100vw] flex-col items-start  gap-3 bg-black/50 px-6 py-4 pt-[165px]  backdrop-blur-lg   md:flex-row md:items-start md:justify-center"
+      className="fixed  left-0 top-0  flex min-h-screen  w-[100vw] flex-col items-start  gap-3 bg-black/50 px-6 py-4 pt-[165px]  text-black   backdrop-blur-lg dark:text-white md:flex-row md:items-start md:justify-center"
       onSubmit={handleSubmit}
     >
       <Image
@@ -106,7 +106,7 @@ export default function EditTestemunho({
         height={300}
         src={avatarUrl}
         alt={name}
-        className=" h-[100px] w-[100px]  rounded-full bg-green-500 shadow-light dark:shadow-dark"
+        className="mx-1 h-[100px] w-[100px] rounded-full bg-gradient-to-r from-slate-950 to-blue-900 p-[4px] text-white shadow-light  hover:from-blue-900 hover:to-slate-900 dark:shadow-dark"
       />
 
       <div className="flex w-full flex-col   gap-2 rounded-2xl bg-bglight  shadow-light  dark:bg-bgdark  dark:shadow-dark md:w-[70%]  lg:min-w-[700px]">

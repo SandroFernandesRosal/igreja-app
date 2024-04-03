@@ -8,11 +8,13 @@ import { format } from 'date-fns'
 import EditTestemunho from './crud/EditTestemunho'
 import RemoveTestemunho from './crud/RemoveTestemunho'
 import Link from 'next/link'
+import { useToken } from '@/hooks/useToken'
 
 export default function Testemunho({ data, userIgreja }) {
   const [open, setOpen] = useState(false)
   const [openEdit, setOpenEdit] = useState(null)
   const tokenIgreja = useTokenIgreja()
+  const token = useToken()
 
   function formatDate(dateString) {
     const date = new Date(dateString)
@@ -36,28 +38,29 @@ export default function Testemunho({ data, userIgreja }) {
         </div>
       )}
 
-      {!tokenIgreja && (
-        <>
-          {' '}
-          <div className="flex w-full flex-wrap items-end justify-center gap-1">
-            Faça
-            <Link
-              href={'/login/igreja'}
-              className="cursor-pointer items-center  rounded-lg bg-gradient-to-r from-slate-950 to-blue-900 px-2  font-bold text-white  hover:from-blue-900 hover:to-slate-900"
-            >
-              login
-            </Link>{' '}
-            ou{' '}
-            <Link
-              href={'/register'}
-              className="cursor-pointer  rounded-lg bg-gradient-to-r from-slate-950 to-blue-900 px-2  font-bold text-white  hover:from-blue-900 hover:to-slate-900"
-            >
-              Registre-se
-            </Link>
-            e envie seu testemunho.
-          </div>{' '}
-        </>
-      )}
+      {!tokenIgreja ||
+        (token && (
+          <>
+            {' '}
+            <div className="flex w-full flex-wrap items-end justify-center gap-1">
+              Faça
+              <Link
+                href={'/login/igreja'}
+                className="cursor-pointer items-center  rounded-lg bg-gradient-to-r from-slate-950 to-blue-900 px-2  font-bold text-white  hover:from-blue-900 hover:to-slate-900"
+              >
+                login
+              </Link>{' '}
+              ou{' '}
+              <Link
+                href={'/register'}
+                className="cursor-pointer  rounded-lg bg-gradient-to-r from-slate-950 to-blue-900 px-2  font-bold text-white  hover:from-blue-900 hover:to-slate-900"
+              >
+                Registre-se
+              </Link>
+              e envie seu testemunho.
+            </div>{' '}
+          </>
+        ))}
 
       {tokenIgreja && (
         <>
@@ -125,11 +128,11 @@ export default function Testemunho({ data, userIgreja }) {
                   </div>
                 )}
 
-                {userIgreja && userIgreja.sub === item.userId && (
+                {token || (userIgreja && userIgreja.sub === item.userId) ? (
                   <div className="flex justify-center gap-4">
                     {openEdit === null && (
                       <button
-                        className="m-[2px] rounded-lg bg-gradient-to-r from-slate-950 to-blue-900  px-2 text-lg font-bold text-white shadow-light  hover:from-blue-900 hover:to-slate-900 md:px-3 md:text-lg"
+                        className="m-[2px] rounded-lg bg-gradient-to-r from-slate-950 to-blue-900 px-2 text-lg font-bold text-white shadow-light hover:from-blue-900 hover:to-slate-900 md:px-3 md:text-lg"
                         onClick={() => setOpenEdit(item.id)}
                       >
                         Editar
@@ -139,6 +142,8 @@ export default function Testemunho({ data, userIgreja }) {
                     {openEdit === item.id && (
                       <div>
                         <EditTestemunho
+                          avatarUrl={item.avatarUrl}
+                          name={item.name}
                           id={item.id}
                           img={item.coverUrl}
                           conteudo={item.content}
@@ -149,7 +154,7 @@ export default function Testemunho({ data, userIgreja }) {
                     )}
                     <RemoveTestemunho id={item.id} />
                   </div>
-                )}
+                ) : null}
               </div>
             </div>
           ))}

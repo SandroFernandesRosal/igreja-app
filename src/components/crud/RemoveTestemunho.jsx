@@ -8,6 +8,9 @@ import { useState } from 'react'
 export default function RemoveTestemunho({ id }) {
   const router = useRouter()
   const token = Cookies.get('tokenigreja')
+
+  const tokenAdm = Cookies.get('tokennn')
+
   const [isDeleting, setIsDeleting] = useState(false)
 
   async function handleSubmit(event) {
@@ -19,7 +22,7 @@ export default function RemoveTestemunho({ id }) {
     try {
       const response = await api.delete(`/testemunhos/${id}`, {
         headers: {
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${token || tokenAdm}`,
         },
       })
 
