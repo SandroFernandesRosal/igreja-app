@@ -1,5 +1,5 @@
 'use client'
-
+import Link from 'next/link'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Cookies from 'js-cookie'
@@ -47,14 +47,16 @@ export default function Register() {
   return (
     <div className="mt-[80px] flex w-full  justify-center md:mt-[140px]">
       <div className="my-10 flex min-h-screen w-[100vw] flex-col items-center rounded-[35px] bg-bglightsecundary shadow-light dark:bg-bgdarksecundary dark:shadow-dark  md:w-[90vw] md:rounded-xl">
-        <h1 className="mt-2 text-lg font-bold text-primary ">Login Adm</h1>
+        <h1 className="mt-2 text-lg font-bold text-primary dark:text-secundary ">
+          Login Adm
+        </h1>
         <p className="mb-5 text-xl">Use suas credenciais</p>
 
         <form
           className="flex w-[75%] max-w-[500px] flex-col items-center gap-3 rounded-xl bg-bglight p-3 shadow-light dark:bg-bgdark dark:shadow-dark md:mb-5"
           onSubmit={handleSubmit}
         >
-          <h1 className="text-xl font-bold text-primary">
+          <h1 className="text-xl font-bold text-primary dark:text-secundary">
             Preencha os campos abaixo:
           </h1>
 
@@ -80,10 +82,17 @@ export default function Register() {
 
           <button
             type="submit"
-            className="h-[30px] w-[150px] rounded-xl bg-primary font-bold text-black  shadow-light  hover:bg-primary/50  dark:shadow-dark"
+            className="z-20  flex w-[100px] cursor-pointer items-center justify-center rounded-lg bg-gradient-to-r from-slate-950 to-blue-900  font-bold text-white  shadow-light hover:from-blue-900 hover:to-slate-900 dark:shadow-dark"
           >
             Entrar
           </button>
+
+          <Link
+            href={'/forgot-password-adm'}
+            className="font-bold text-primary dark:text-secundary"
+          >
+            Esqueceu a senha?
+          </Link>
         </form>
       </div>
     </div>

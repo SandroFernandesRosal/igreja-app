@@ -60,7 +60,7 @@ export default function ResetPasswordPage({ params }) {
         className="mb-4 flex min-h-screen w-[100vw] flex-col items-center rounded-[35px] bg-bglightsecundary  px-1  pb-4 shadow-light dark:bg-bgdarksecundary  dark:shadow-dark md:w-[90vw] md:rounded-xl"
       >
         <div className="flex flex-col items-center  md:min-w-[35%]">
-          <h1 className="m-0 text-lg font-bold text-primary ">
+          <h1 className="m-0 text-lg font-bold text-primary dark:text-primary ">
             Recuperação de senha
           </h1>
           <p className="mb-4 text-xl ">Digite sua nova senha</p>
@@ -73,7 +73,7 @@ export default function ResetPasswordPage({ params }) {
           name="login"
           value={login}
           onChange={(e) => setLogin(e.target.value)}
-          placeholder="Nova senha"
+          placeholder="Email cadastrado"
           className="mb-3 rounded-lg border-none ring-0 focus:border-none focus:text-textlight  focus:ring-0  dark:text-black focus:dark:text-black"
         />
 
@@ -88,7 +88,7 @@ export default function ResetPasswordPage({ params }) {
 
         <button
           type="submit"
-          className="z-20  flex w-[200px] cursor-pointer items-center justify-center rounded-lg bg-gradient-to-r from-slate-950 to-blue-900  font-bold text-white  hover:from-blue-900 hover:to-slate-900"
+          className="z-20  m-2 flex w-[100px] cursor-pointer items-center justify-center rounded-lg bg-gradient-to-r from-slate-950  to-blue-900 font-bold  text-white shadow-light hover:from-blue-900 hover:to-slate-900 dark:shadow-dark"
         >
           Redefinir Senha
         </button>

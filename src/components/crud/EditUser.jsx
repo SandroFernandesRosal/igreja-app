@@ -1,24 +1,25 @@
 'use client'
-import Cookies from 'js-cookie'
 import { FaCameraRetro } from 'react-icons/fa'
-import { AiFillCloseCircle } from 'react-icons/ai'
 import { useState, useRef } from 'react'
 import { useRouter } from 'next/navigation'
-
+import { useToken } from '@/hooks/useToken'
 import { api } from '@/lib/api'
 import Image from 'next/image'
+import Link from 'next/link'
+import Cookies from 'js-cookie'
 
-export default function EditUser({ id, img, nome, senha, email }) {
+export default function EditUser({ id, nome, email, img }) {
   const [name, setName] = useState('')
   const [login, setLogin] = useState('')
-  const [password, setPassword] = useState()
+  const [password, setPassword] = useState('')
+  const PlaceHolder =
+    'https://drive.google.com/uc?export=view&id=1hYXAUQfIieWGK0P9VCW8bpCgnamvnB1C'
 
   const [preview, setPreview] = useState(null)
-
   const formRef = useRef(null)
 
   const router = useRouter()
-  const token = Cookies.get('tokennn')
+  const token = useToken()
 
   async function handleSubmit(event) {
     event.preventDefault()
@@ -29,16 +30,16 @@ export default function EditUser({ id, img, nome, senha, email }) {
     let avatarUrl = ''
 
     if (fileToUpload) {
-      try {
-        const uploadFormData = new FormData()
-        uploadFormData.append('file', fileToUpload)
+      const formData = new FormData()
+      formData.append('file', fileToUpload)
 
-        const uploadResponse = await api.post('/upload', uploadFormData)
+      try {
+        const uploadResponse = await api.post('/upload', formData, {
+          headers: { 'Content-Type': 'multipart/form-data' }, //
+        })
         avatarUrl = uploadResponse.data.fileUrl
       } catch (error) {
-        console.error('Erro ao enviar imagem:', error)
-        // Exibir mensagem de erro ao usuário
-        return // Impedir envio dos dados caso o upload falhe
+        console.error('Erro ao carregar foto:', error)
       }
     } else {
       avatarUrl = img
@@ -50,36 +51,36 @@ export default function EditUser({ id, img, nome, senha, email }) {
         {
           name: name || nome,
           login: login || email,
-          avatarUrl,
-          password: password || senha,
+          avatarUrl: avatarUrl || PlaceHolder,
+          password,
         },
         {
           headers: {
+            'Content-Type': 'application/json',
             Authorization: `Bearer ${token}`,
           },
         },
       )
 
-      if (response.status === 200) {
-        router.push('/')
-        window.location.href = '/'
-        return response.data
+      const newss = response.data
+
+      if (response.status === 200 && newss) {
+        Cookies.remove('tokennn')
+        router.push('/login')
+        window.location.href = '/login'
+        return newss
       }
 
-      console.error('Erro ao editar usuário:', response.statusText)
+      console.log(newss)
+      return null
     } catch (error) {
-      console.error('Erro ao editar usuário:', error)
-      // Exibir mensagem de erro ao usuário
+      console.error('Erro ao editar', error)
+      // Tratar outros erros de requisição aqui
     }
-
-    return null
   }
+
   function onFileSelected(event) {
     const { files } = event.target
-
-    if (!files) {
-      return
-    }
 
     const previewUrl = URL.createObjectURL(files[0])
 
@@ -87,84 +88,122 @@ export default function EditUser({ id, img, nome, senha, email }) {
   }
 
   return (
-    <form
-      ref={formRef}
-      className=" fixed left-0 top-0 z-50 mt-10 flex h-[100vh] w-[100vw] flex-col items-center justify-center bg-black/50 backdrop-blur-lg md:mt-20"
-      onSubmit={handleSubmit}
-    >
-      <h1 className="z-20 mb-2 flex items-center justify-center gap-3 text-lg font-bold text-primary">
-        Editar Notícia{' '}
-        <AiFillCloseCircle className="cursor-pointer text-2xl font-bold text-black dark:text-white" />
-      </h1>
+    <>
+      {token ? (
+        <div className="mt-[80px] flex w-full  justify-center md:mt-[140px]">
+          <div className="my-10 flex min-h-screen w-[100vw] flex-col items-center rounded-[35px] bg-bglightsecundary shadow-light dark:bg-bgdarksecundary dark:shadow-dark  md:w-[90vw] md:rounded-xl">
+            <h1 className="mt-2 text-lg font-bold text-primary ">
+              Editar perfil
+            </h1>
+            <p className="mb-5 text-xl">Faça alterações nos campos abaixo</p>
+            <form
+              ref={formRef}
+              className="flex w-[75%] max-w-[500px] flex-col items-center gap-3 rounded-xl bg-bglight p-3 shadow-light dark:bg-bgdark dark:shadow-dark md:mb-5"
+              onSubmit={handleSubmit}
+            >
+              <label
+                htmlFor="avatarUrl"
+                className=" flex cursor-pointer flex-col items-center gap-2  font-bold"
+              >
+                <p className="flex gap-2">
+                  <FaCameraRetro className="text-xl text-primary" /> Anexar foto
+                  de perfil (opcional)
+                </p>
+                {preview ? (
+                  <Image
+                    src={preview}
+                    alt=""
+                    width={150}
+                    height={150}
+                    className=" h-[150px] w-[150px] rounded-full  bg-gradient-to-r  from-slate-950 to-blue-900 p-[4px] hover:from-blue-900 hover:to-slate-900 "
+                  />
+                ) : (
+                  <Image
+                    src={img}
+                    alt=""
+                    width={150}
+                    height={150}
+                    className=" h-[150px] w-[150px] rounded-full  bg-gradient-to-r  from-slate-950 to-blue-900 p-[4px] hover:from-blue-900 hover:to-slate-900 "
+                  />
+                )}
+              </label>
 
-      <label
-        htmlFor="avatarUrl"
-        className="mb-3 flex cursor-pointer flex-col items-center gap-2  font-bold"
-      >
-        <p className="flex items-center gap-3">
-          {' '}
-          <FaCameraRetro className="text-xl text-primary" /> Anexar nava imagem
-          (até 5mb){' '}
-        </p>
+              <input
+                className=" mt-2 w-[200px] cursor-pointer rounded-lg  border-none bg-bglightsecundary p-2 text-center font-bold placeholder-textlight shadow-light outline-none focus:ring-0 dark:bg-bgdarksecundary dark:placeholder-textdark dark:shadow-dark"
+                type="text"
+                name="name"
+                defaultValue={nome}
+                required
+                placeholder="Seu nome"
+                onChange={(e) => setName(e.target.value)}
+              />
 
-        {preview && (
-          <Image
-            src={preview}
-            width={200}
-            height={100}
-            alt=""
-            className=" aspect-video"
-          />
-        )}
-      </label>
+              <input
+                className="mt-2 w-[200px] cursor-pointer rounded-lg  border-none bg-bglightsecundary p-2 text-center font-bold placeholder-textlight shadow-light outline-none focus:ring-0 dark:bg-bgdarksecundary dark:placeholder-textdark dark:shadow-dark"
+                type="text"
+                name="login"
+                value={email}
+                readOnly
+                required
+                placeholder="seu email"
+                onChange={(e) => setLogin(e.target.value)}
+              />
 
-      <input
-        className="mb-4 mt-2 w-[70%] cursor-pointer rounded-lg border-none  bg-bglightsecundary p-2 text-center font-bold placeholder-textlight shadow-light outline-none focus:ring-0 dark:bg-bgdarksecundary dark:placeholder-textdark dark:shadow-dark md:w-[50%]"
-        type="text"
-        name="name"
-        id="name"
-        required={true}
-        defaultValue={nome}
-        placeholder="Você precisa um nome"
-        onChange={(e) => setName(e.target.value)}
-      />
+              <input
+                className=" mt-2 w-[200px] cursor-pointer rounded-lg  border-none bg-bglightsecundary p-2 text-center font-bold placeholder-textlight shadow-light outline-none focus:ring-0 dark:bg-bgdarksecundary dark:placeholder-textdark dark:shadow-dark"
+                type="password"
+                name="password"
+                required
+                placeholder="Crie uma senha"
+                onChange={(e) => setPassword(e.target.value)}
+              />
 
-      <input
-        className="mb-4 mt-2 w-[70%] cursor-pointer rounded-lg border-none  bg-bglightsecundary p-2 text-center font-bold placeholder-textlight shadow-light outline-none focus:ring-0 dark:bg-bgdarksecundary dark:placeholder-textdark dark:shadow-dark md:w-[50%]"
-        type="text"
-        name="login"
-        id="login"
-        required={true}
-        defaultValue={email}
-        placeholder="Você precisa de um email"
-        onChange={(e) => setLogin(e.target.value)}
-      />
+              <input
+                className="invisible h-0 w-0"
+                type="file"
+                name="avatarUrl"
+                id="avatarUrl"
+                placeholder="Digite a url da notícia"
+                onChange={onFileSelected}
+              />
 
-      <input
-        className="mb-4 mt-2 w-[70%] cursor-pointer rounded-lg border-none  bg-bglightsecundary p-2 text-center font-bold placeholder-textlight shadow-light outline-none focus:ring-0 dark:bg-bgdarksecundary dark:placeholder-textdark dark:shadow-dark md:w-[50%]"
-        type="text"
-        name="password"
-        id="password"
-        required={true}
-        defaultValue={senha}
-        placeholder="Nova senha"
-        onChange={(e) => setPassword(e.target.value)}
-      />
+              <button
+                type="submit"
+                className="z-20 my-3 flex w-[200px] cursor-pointer items-center justify-center rounded-lg  bg-gradient-to-r from-slate-950 to-blue-900  font-bold text-white  hover:from-blue-900 hover:to-slate-900"
+              >
+                Editar
+              </button>
+            </form>
+          </div>
+        </div>
+      ) : (
+        <main className="mb-2 mt-4 flex min-h-screen flex-col items-center gap-5 pt-24 md:mt-0 md:pt-[165px]">
+          <div className="mb-4 flex  min-h-screen w-[100vw] flex-col flex-wrap items-center   gap-1 rounded-[35px] bg-bglightsecundary  px-1  pb-4 shadow-light dark:bg-bgdarksecundary  dark:shadow-dark md:w-[90vw] md:rounded-xl ">
+            <div className="flex flex-col items-center  md:min-w-[35%]">
+              <h1 className="m-0 text-lg font-bold text-primary ">
+                Você não está logado
+              </h1>
+              <p className="mb-4 text-xl ">Faça login ou registre-se</p>
+            </div>
 
-      <input
-        className="invisible h-0 w-0"
-        type="file"
-        name="avatarUrl"
-        id="avatarUrl"
-        onChange={onFileSelected}
-      />
+            <div className="flex gap-3">
+              <Link
+                href={'/login/igreja'}
+                className="cursor-pointer items-center  rounded-lg bg-gradient-to-r from-slate-950 to-blue-900 px-2  font-bold text-white  hover:from-blue-900 hover:to-slate-900"
+              >
+                login
+              </Link>
 
-      <button
-        type="submit"
-        className="z-20 my-3 flex w-[200px] cursor-pointer items-center justify-center rounded-lg  bg-gradient-to-r from-slate-950 to-blue-900  font-bold text-white  hover:from-blue-900 hover:to-slate-900"
-      >
-        Enviar
-      </button>
-    </form>
+              <Link
+                href={'/register'}
+                className="cursor-pointer  rounded-lg bg-gradient-to-r from-slate-950 to-blue-900 px-2  font-bold text-white  hover:from-blue-900 hover:to-slate-900"
+              >
+                Registre-se
+              </Link>
+            </div>
+          </div>
+        </main>
+      )}
+    </>
   )
 }

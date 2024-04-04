@@ -46,14 +46,16 @@ export default function RegisterIgreja() {
   return (
     <div className="mt-[80px] flex w-full  justify-center md:mt-[140px]">
       <div className="my-10 flex min-h-screen w-[100vw] flex-col items-center rounded-[35px] bg-bglightsecundary shadow-light dark:bg-bgdarksecundary dark:shadow-dark  md:w-[90vw] md:rounded-xl">
-        <h1 className="mt-2 text-lg font-bold text-primary ">Login</h1>
+        <h1 className="mt-2 text-lg font-bold text-primary dark:text-secundary ">
+          Login
+        </h1>
         <p className="mb-5 text-xl">Use suas credenciais</p>
 
         <form
-          className="flex w-[75%] max-w-[500px] flex-col items-center gap-3 rounded-xl bg-bglight p-3 shadow-light dark:bg-bgdark dark:shadow-dark md:mb-5"
+          className="mb-2 flex w-[75%] max-w-[500px] flex-col items-center gap-3 rounded-xl bg-bglight p-3 shadow-light dark:bg-bgdark dark:shadow-dark"
           onSubmit={handleSubmit}
         >
-          <h1 className="text-xl font-bold text-primary">
+          <h1 className="text-xl font-bold text-primary dark:text-secundary">
             Preencha os campos abaixo:
           </h1>
 
@@ -79,18 +81,20 @@ export default function RegisterIgreja() {
 
           <button
             type="submit"
-            className="z-20  flex w-[200px] cursor-pointer items-center justify-center rounded-lg bg-gradient-to-r from-slate-950 to-blue-900  font-bold text-white  hover:from-blue-900 hover:to-slate-900"
+            className="z-20  flex w-[100px] cursor-pointer items-center justify-center rounded-lg bg-gradient-to-r from-slate-950 to-blue-900  font-bold text-white  shadow-light hover:from-blue-900 hover:to-slate-900 dark:shadow-dark"
           >
             Entrar
           </button>
         </form>
-        <Link href={'/forgot-password'}>Esqueceu a senha?</Link>
         <Link
-          href={'/register'}
-          className="mt-4 flex flex-col items-center gap-2"
+          href={'/forgot-password'}
+          className="mb-2 font-bold text-primary dark:text-secundary"
         >
+          Esqueceu a senha?
+        </Link>
+        <Link href={'/register'} className=" flex flex-col items-center">
           <p>Ainda não é membro?</p>
-          <button className="z-20  flex w-[200px] cursor-pointer items-center justify-center rounded-lg bg-gradient-to-r from-slate-950 to-blue-900  font-bold text-white  hover:from-blue-900 hover:to-slate-900">
+          <button className="z-20  m-2 flex w-[100px] cursor-pointer items-center justify-center rounded-lg bg-gradient-to-r from-slate-950  to-blue-900 font-bold  text-white shadow-light hover:from-blue-900 hover:to-slate-900 dark:shadow-dark">
             Registre-se
           </button>
         </Link>

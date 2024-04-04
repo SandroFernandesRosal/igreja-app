@@ -9,6 +9,6 @@ export function getUser() {
     return user
   } catch (error) {
     // O token é inválido
-    return null
+    return ''
   }
 }
