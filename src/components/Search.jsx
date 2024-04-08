@@ -21,7 +21,7 @@ export default function SearchMd() {
         value={search}
         onChange={handleSearchChange}
       />
-      <FaSearch className="pointer-events-none relative -top-[27px] left-[85px] mb-1 text-primary" />
+      <FaSearch className="pointer-events-none relative -top-[27px] left-[85px] mb-1 text-primary dark:text-secundary" />
     </>
   )
 }

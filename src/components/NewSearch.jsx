@@ -27,14 +27,14 @@ export default function NewSearch({
       </Link>
       <div className=" flex flex-1 flex-col items-center justify-between p-1">
         <Link href={`/noticias/${page}/${id}`}>
-          <p className="font-bold text-primary">{title}</p>
+          <p className="font-bold text-primary dark:text-secundary">{title}</p>
         </Link>
         <p>{description}...</p>
 
         <Link
           href={`/noticias/${page}/${id}`}
           onClick={() => setSearch('')}
-          className="flex items-center  justify-center gap-2 font-bold text-primary hover:text-primary/40"
+          className="flex items-center  justify-center gap-2 font-bold text-primary hover:text-primary/40 dark:text-secundary"
         >
           <p>Leia mais</p> <FaLongArrowAltRight className="text-xl" />
         </Link>

@@ -44,71 +44,79 @@ export default function NavBar({ handleMenu, user }) {
       <div className="flex  w-[80%] flex-col gap-5">
         <Link
           href="/quemsomos"
-          className=" flex items-center gap-5 border-b-[1px] border-solid  border-primary text-2xl hover:text-primary"
+          className=" flex items-center gap-5 border-b-[1px] border-solid  border-primary text-2xl hover:text-primary dark:border-secundary dark:hover:text-secundary"
           onClick={handleMenu}
         >
-          <BiHomeHeart className="text-primary" /> <p>Quem Somos</p>
+          <BiHomeHeart className="text-primary dark:text-secundary" />{' '}
+          <p>Quem Somos</p>
         </Link>
         <Link
           href="/enderecos"
-          className="flex items-center gap-5 border-b-[1px] border-solid  border-primary text-2xl hover:text-primary"
+          className="flex items-center gap-5 border-b-[1px] border-solid  border-primary text-2xl hover:text-primary dark:border-secundary dark:hover:text-secundary"
           onClick={handleMenu}
         >
-          <FaMapMarkerAlt className="text-primary" /> <p>Endereços</p>
+          <FaMapMarkerAlt className="text-primary dark:text-secundary" />{' '}
+          <p>Endereços</p>
         </Link>
         <Link
           href="/ministerio"
-          className="flex items-center gap-5 border-b-[1px] border-solid  border-primary text-2xl hover:text-primary"
+          className="flex items-center gap-5 border-b-[1px] border-solid  border-primary text-2xl hover:text-primary dark:border-secundary dark:hover:text-secundary"
           onClick={handleMenu}
         >
-          <BsFillPersonLinesFill className="text-primary" /> <p>Ministério</p>
+          <BsFillPersonLinesFill className="text-primary dark:text-secundary" />{' '}
+          <p>Ministério</p>
         </Link>
 
         <Link
           href="/doacao"
-          className="flex items-center gap-5 border-b-[1px] border-solid  border-primary text-2xl hover:text-primary "
+          className="flex items-center gap-5 border-b-[1px] border-solid  border-primary text-2xl hover:text-primary dark:border-secundary dark:hover:text-secundary"
           onClick={handleMenu}
         >
-          <FaHandHoldingHeart className="text-primary" /> <p>Doação</p>
+          <FaHandHoldingHeart className="text-primary dark:text-secundary" />{' '}
+          <p>Doação</p>
         </Link>
         <Link
           href="/agenda"
-          className="flex items-center gap-5 border-b-[1px] border-solid  border-primary text-2xl hover:text-primary "
+          className="flex items-center gap-5 border-b-[1px] border-solid  border-primary text-2xl hover:text-primary dark:border-secundary dark:hover:text-secundary"
           onClick={handleMenu}
         >
-          <AiOutlineSchedule className="text-primary" /> <p>Agenda</p>
+          <AiOutlineSchedule className="text-primary dark:text-secundary" />{' '}
+          <p>Agenda</p>
         </Link>
 
         <Link
           href="/biblia"
-          className="flex items-center gap-5 border-b-[1px] border-solid border-primary  text-2xl hover:text-primary"
+          className="flex items-center gap-5 border-b-[1px] border-solid border-primary  text-2xl hover:text-primary dark:border-secundary dark:hover:text-secundary"
           onClick={handleMenu}
         >
-          <BsBook className="text-primary" /> <p>Bíblia</p>
+          <BsBook className="text-primary dark:text-secundary" /> <p>Bíblia</p>
         </Link>
 
         <Link
           href="/noticias"
-          className="flex items-center gap-5 border-b-[1px] border-solid border-primary  text-2xl hover:text-primary"
+          className="flex items-center gap-5 border-b-[1px] border-solid border-primary  text-2xl hover:text-primary dark:border-secundary dark:hover:text-secundary"
           onClick={handleMenu}
         >
-          <BiNews className="text-primary" /> <p>Notícias</p>
+          <BiNews className="text-primary dark:text-secundary" />{' '}
+          <p>Notícias</p>
         </Link>
 
         <Link
           href="/testemunhos"
-          className="flex items-center gap-5 border-b-[1px] border-solid border-primary  text-2xl hover:text-primary"
+          className="flex items-center gap-5 border-b-[1px] border-solid border-primary  text-2xl hover:text-primary dark:border-secundary dark:hover:text-secundary"
           onClick={handleMenu}
         >
-          <VscHeartFilled className="text-primary" /> <p>Testemunhos</p>
+          <VscHeartFilled className="text-primary dark:text-secundary" />{' '}
+          <p>Testemunhos</p>
         </Link>
 
         <Link
           href="/contato"
-          className="flex items-center gap-5 border-b-[1px] border-solid border-primary text-2xl hover:text-primary"
+          className="flex items-center gap-5 border-b-[1px] border-solid border-primary text-2xl hover:text-primary dark:border-secundary dark:hover:text-secundary"
           onClick={handleMenu}
         >
-          <TfiEmail className="text-primary" /> <p>Contato</p>
+          <TfiEmail className="text-primary dark:text-secundary" />{' '}
+          <p>Contato</p>
         </Link>
       </div>
     </nav>
