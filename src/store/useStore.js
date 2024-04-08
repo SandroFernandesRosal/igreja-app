@@ -62,3 +62,13 @@ export const useActivePage = create((set) => ({
   activePage: '',
   setActivePage: (state) => set({ activePage: state }),
 }))
+
+export const useCurrentPage = create((set) => ({
+  currentPage: 1,
+  setCurrentPage: (state) => set({ currentPage: state }),
+}))
+
+export const useDataLine = create((set) => ({
+  dataLine: [],
+  setDataLine: (state) => set({ dataLine: state }),
+}))

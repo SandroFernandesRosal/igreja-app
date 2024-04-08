@@ -15,122 +15,130 @@ export default function NavBarMd({ activePage, handleClick }) {
       <Link href="/">
         <div
           className={`flex flex-col items-center justify-center hover:text-primary lg:text-lg ${
-            activePage === '/' ? 'border-b-2 border-primary  text-primary ' : ''
+            activePage === '/'
+              ? 'border-b-2 border-primary  text-primary dark:border-secundary dark:text-secundary dark:hover:text-secundary '
+              : ''
           }`}
           onClick={() => handleClick('/')}
         >
-          <BiHomeHeart className="text-primary" /> <p>Home</p>
+          <BiHomeHeart className="text-primary dark:text-secundary" />{' '}
+          <p>Home</p>
         </div>
       </Link>
       <Link href="/quemsomos">
         <div
-          className={`flex flex-col items-center justify-center hover:text-primary lg:text-lg ${
+          className={`flex flex-col items-center justify-center hover:text-primary dark:hover:text-secundary lg:text-lg ${
             activePage === '/quemsomos'
-              ? 'border-b-2 border-primary  text-primary'
+              ? 'border-b-2 border-primary  text-primary dark:border-secundary dark:text-secundary dark:hover:text-secundary'
               : ''
           }`}
           onClick={() => handleClick('/quemsomos')}
         >
-          <BiHomeHeart className="text-primary" /> <p>Quem Somos</p>
+          <BiHomeHeart className="text-primary dark:text-secundary" />{' '}
+          <p>Quem Somos</p>
         </div>
       </Link>
       <Link href="/enderecos">
         <div
-          className={`flex flex-col items-center justify-center hover:text-primary lg:text-lg ${
+          className={`flex flex-col items-center justify-center hover:text-primary dark:hover:text-secundary lg:text-lg ${
             activePage === '/enderecos'
-              ? 'border-b-2 border-primary  text-primary'
+              ? 'border-b-2 border-primary  text-primary dark:border-secundary dark:text-secundary dark:hover:text-secundary '
               : ''
           }`}
           onClick={() => handleClick('/enderecos')}
         >
-          <FaMapMarkerAlt className="text-primary" /> <p>Endereços</p>
+          <FaMapMarkerAlt className="text-primary dark:text-secundary" />{' '}
+          <p>Endereços</p>
         </div>
       </Link>
       <Link href="/ministerio">
         <div
-          className={`flex flex-col items-center justify-center hover:text-primary lg:text-lg ${
+          className={`flex flex-col items-center justify-center hover:text-primary dark:hover:text-secundary lg:text-lg ${
             activePage === '/ministerio'
-              ? 'border-b-2 border-primary  text-primary'
+              ? 'border-b-2 border-primary  text-primary dark:border-secundary dark:text-secundary dark:hover:text-secundary'
               : ''
           }`}
           onClick={() => handleClick('/ministerio')}
         >
-          <BsFillPersonLinesFill className="border-b-2 border-primary  text-primary" />{' '}
+          <BsFillPersonLinesFill className=" text-primary dark:text-secundary" />{' '}
           <p>Ministério</p>
         </div>
       </Link>
       <Link href="/doacao">
         <div
-          className={`flex flex-col items-center justify-center hover:text-primary lg:text-lg ${
+          className={`flex flex-col items-center justify-center hover:text-primary dark:hover:text-secundary lg:text-lg ${
             activePage === '/doacao'
-              ? 'border-b-2 border-primary  text-primary'
+              ? 'border-b-2 border-primary  text-primary dark:border-secundary dark:text-secundary dark:hover:text-secundary'
               : ''
           }`}
           onClick={() => handleClick('/doacao')}
         >
-          <FaHandHoldingHeart className="border-b-2 border-primary  text-primary" />{' '}
+          <FaHandHoldingHeart className=" text-primary dark:text-secundary" />{' '}
           <p>Doação</p>
         </div>
       </Link>
       <Link href="/agenda">
         <div
-          className={`flex flex-col items-center justify-center hover:text-primary lg:text-lg ${
+          className={`flex flex-col items-center justify-center hover:text-primary dark:hover:text-secundary lg:text-lg ${
             activePage === '/agenda'
-              ? 'border-b-2 border-primary  text-primary'
+              ? 'border-b-2 border-primary  text-primary dark:border-secundary dark:text-secundary dark:hover:text-secundary'
               : ''
           }`}
           onClick={() => handleClick('/agenda')}
         >
-          <AiOutlineSchedule className="border-b-2 border-primary  text-primary" />{' '}
+          <AiOutlineSchedule className=" text-primary dark:text-secundary" />{' '}
           <p>Agenda</p>
         </div>
       </Link>
       <Link href="/biblia">
         <div
-          className={`flex flex-col items-center justify-center hover:text-primary lg:text-lg ${
+          className={`dark:hover-text-secundary flex flex-col items-center justify-center hover:text-primary lg:text-lg ${
             activePage === '/biblia'
-              ? 'border-b-2 border-primary  text-primary'
+              ? 'border-b-2 border-primary  text-primary dark:border-secundary dark:text-secundary dark:hover:text-secundary'
               : ''
           }`}
           onClick={() => handleClick('/biblia')}
         >
-          <BsBook className="text-primary" /> <p>Bíblia</p>
+          <BsBook className="text-primary dark:text-secundary" /> <p>Bíblia</p>
         </div>
       </Link>
       <Link href="/noticias">
         <div
-          className={`flex flex-col items-center justify-center hover:text-primary lg:text-lg ${
+          className={`flex flex-col items-center justify-center hover:text-primary dark:hover:text-secundary lg:text-lg ${
             activePage === '/noticias'
-              ? 'border-b-2 border-primary  text-primary'
+              ? 'border-b-2 border-primary  text-primary dark:border-secundary dark:text-secundary dark:hover:text-secundary'
               : ''
           }`}
           onClick={() => handleClick('/noticias')}
         >
-          <BiNews className="text-primary" /> <p>Notícias</p>
+          <BiNews className="text-primary dark:text-secundary" />{' '}
+          <p>Notícias</p>
         </div>
       </Link>
       <Link href="/testemunhos">
         <div
-          className={`flex flex-col items-center justify-center hover:text-primary lg:text-lg ${
+          className={`flex flex-col items-center justify-center hover:text-primary dark:hover:text-secundary lg:text-lg ${
             activePage === '/testemunhos'
-              ? 'border-b-2 border-primary  text-primary'
+              ? 'border-b-2 border-primary  text-primary dark:border-secundary dark:text-secundary dark:hover:text-secundary'
               : ''
           }`}
           onClick={() => handleClick('/testemunhos')}
         >
-          <VscHeartFilled className="text-primary" /> <p>Testemunhos</p>
+          <VscHeartFilled className="text-primary dark:text-secundary" />{' '}
+          <p>Testemunhos</p>
         </div>
       </Link>
       <Link href="/contato">
         <div
-          className={`flex flex-col items-center justify-center hover:text-primary lg:text-lg ${
+          className={`flex flex-col items-center justify-center hover:text-primary dark:hover:text-secundary lg:text-lg ${
             activePage === '/contato'
-              ? 'border-b-2 border-primary  text-primary'
+              ? 'border-b-2 border-primary  text-primary dark:border-secundary dark:text-secundary dark:hover:text-secundary'
               : ''
           }`}
           onClick={() => handleClick('/contato')}
         >
-          <TfiEmail className="text-primary" /> <p>Contato</p>
+          <TfiEmail className="text-primary dark:text-secundary" />{' '}
+          <p>Contato</p>
         </div>
       </Link>
     </nav>

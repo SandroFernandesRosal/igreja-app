@@ -83,7 +83,9 @@ export default function RegisterIgreja() {
   return (
     <div className="mt-[80px] flex w-full  justify-center md:mt-[140px]">
       <div className="my-10 flex min-h-screen w-[100vw] flex-col items-center rounded-[35px] bg-bglightsecundary shadow-light dark:bg-bgdarksecundary dark:shadow-dark  md:w-[90vw] md:rounded-xl">
-        <h1 className="mt-2 text-lg font-bold text-primary ">Fazer login</h1>
+        <h1 className="mt-2 text-lg font-bold text-primary dark:text-secundary ">
+          Fazer login
+        </h1>
         <p className="mb-5 text-xl">Use suas credenciais</p>
         <form
           ref={formRef}
@@ -95,8 +97,8 @@ export default function RegisterIgreja() {
             className=" flex cursor-pointer flex-col items-center gap-2  font-bold"
           >
             <p className="flex gap-2">
-              <FaCameraRetro className="text-xl text-primary" /> Anexar foto de
-              perfil (opcional)
+              <FaCameraRetro className="text-xl text-primary dark:text-secundary" />{' '}
+              Anexar foto de perfil (opcional)
             </p>
             {preview && (
               <img
@@ -113,7 +115,7 @@ export default function RegisterIgreja() {
             name="name"
             required
             placeholder="Seu nome"
-            onChange={(e) => setName(e.target.value.toLowerCase())}
+            onChange={(e) => setName(e.target.value)}
           />
 
           <input
@@ -122,7 +124,7 @@ export default function RegisterIgreja() {
             name="login"
             required
             placeholder="seu email"
-            onChange={(e) => setLogin(e.target.value)}
+            onChange={(e) => setLogin(e.target.value.toLowerCase())}
           />
 
           <input
@@ -145,7 +147,7 @@ export default function RegisterIgreja() {
 
           <button
             type="submit"
-            className="z-20 my-3 flex w-[200px] cursor-pointer items-center justify-center rounded-lg  bg-gradient-to-r from-slate-950 to-blue-900  font-bold text-white  hover:from-blue-900 hover:to-slate-900"
+            className="z-20 my-3 flex w-[100px] cursor-pointer items-center justify-center rounded-lg  bg-gradient-to-r from-slate-950 to-blue-900  font-bold text-white  shadow-light hover:from-blue-900 hover:to-slate-900 dark:shadow-dark"
           >
             Cadastrar
           </button>

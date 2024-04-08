@@ -1,18 +1,19 @@
 'use client'
 import Image from 'next/image'
-import New from '@/components/New'
-import { useData, useSearch, useLocal } from '@/store/useStore'
+
+import { useData, useLocal } from '@/store/useStore'
 import { useEffect, useState } from 'react'
 import { api } from '@/lib/api'
 import RemoveNew from '@/components/crud/RemoveNew'
 import EditNew from '@/components/crud/EditNew'
 import { useToken } from '@/hooks/useToken'
 import { format } from 'date-fns'
+import NewsLine from '@/components/NewsLine'
 
 export default function NoticiaCaxias({ params }) {
   const id = params.id
-  const { setSearch } = useSearch()
-  const { setLocal, local } = useLocal()
+
+  const { local } = useLocal()
   const { data, setData } = useData()
   const [openEdit, setOpenEdit] = useState(false)
   const [updated, setUpdated] = useState(false)
@@ -114,27 +115,17 @@ export default function NoticiaCaxias({ params }) {
           <p>Carregando...</p>
         )}
       </article>
-      <article className="mb-10 flex flex-col items-center rounded-[35px] bg-bglightsecundary shadow-light dark:bg-bgdarksecundary dark:shadow-dark md:w-[90vw]">
-        <h1 className=" w-[90vw] max-w-[500px]  text-center text-2xl font-bold">
-          Leia também as últimas notícias
-        </h1>
-        <div className=" flex  w-full flex-wrap justify-center gap-x-5  p-1 pt-5   md:gap-x-5">
-          {data &&
-            data.map((item) => (
-              <New
-                key={item.id}
-                url={item.coverUrl}
-                title={item.title}
-                id={item.id}
-                setSearch={setSearch}
-                description={item.content}
-                page={item.page}
-                data={data}
-                setLocal={setLocal}
-              />
-            ))}
-        </div>
-      </article>
+      {data ? (
+        <article className="mb-10 flex flex-col items-center rounded-[35px] bg-bglightsecundary shadow-light dark:bg-bgdarksecundary dark:shadow-dark md:w-[90vw]">
+          <h1 className=" w-[90vw] max-w-[500px]  text-center text-2xl font-bold">
+            Leia também as últimas notícias
+          </h1>
+
+          <NewsLine />
+        </article>
+      ) : (
+        <p>Carregando...</p>
+      )}
     </main>
   )
 }

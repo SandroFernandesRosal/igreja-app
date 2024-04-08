@@ -67,7 +67,7 @@ export default function NewSlider() {
               className="h-[300px] w-[100vw] rounded-[35px]   shadow-xl  dark:shadow-dark sm:max-w-[500px] md:h-[400px] md:w-[500px] md:rounded-xl lg:h-[500px] lg:w-[800px] "
             >
               {data &&
-                data.map((item) => (
+                data.slice(0, 4).map((item) => (
                   <SwiperSlide key={item.id} className="overflow-hidden">
                     <Link
                       key={item.id}
