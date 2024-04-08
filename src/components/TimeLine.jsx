@@ -10,8 +10,9 @@ import AddAgenda from './crud/AddAgenda'
 import { useToken } from '@/hooks/useToken'
 
 import SkeletonAgenda from './skeleton/SkeletonAgenda'
+import AgendaLine from './AgendaLine'
 
-export default function TimeLine({ children }) {
+export default function TimeLine() {
   const { local } = useLocal()
   const [data, setData] = useState([])
   const [openNew, setOpenNew] = useState(false)
@@ -70,7 +71,7 @@ export default function TimeLine({ children }) {
         </>
       )}
 
-      <div className="relative -top-[30px] flex flex-wrap justify-center  gap-x-5 overflow-hidden rounded-xl px-5  pb-10 pt-10   md:overflow-visible ">
+      <div className="relative -top-[30px] flex flex-wrap justify-center  gap-x-5 overflow-hidden rounded-xl border-b-[1px]  border-dashed border-gray-700 px-5 pb-5 pt-10   md:overflow-visible ">
         {!loading ? (
           data.length < 1 ? (
             <p>Nenhum evento cadastrado.</p>
@@ -94,7 +95,7 @@ export default function TimeLine({ children }) {
         )}
       </div>
 
-      {children}
+      <AgendaLine data={data} setData={setData} />
     </div>
   )
 }

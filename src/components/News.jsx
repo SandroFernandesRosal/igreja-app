@@ -83,7 +83,7 @@ export default function News() {
       )}
 
       {search ? <ResultLength search={search} dataSearch={dataSearch} /> : null}
-      <div className="relative -top-[30px] flex w-full flex-wrap justify-center gap-x-5 border-b-[1px] border-dashed border-gray-700 p-1 px-2 pt-10 md:gap-x-5">
+      <div className="relative -top-[30px] flex w-full flex-wrap justify-center gap-x-5 border-b-[1px] border-dashed border-gray-700 p-1 px-2 pb-5 pt-10 md:gap-x-5">
         {search ? (
           dataSearch &&
           dataSearch.length > 0 &&
