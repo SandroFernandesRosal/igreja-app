@@ -26,7 +26,7 @@ export default function DoeItem({
           {local}
         </h1>
 
-        <div className="flex w-full flex-col justify-center md:gap-4 md:p-2 ">
+        <div className="flex w-full flex-col justify-center px-1 md:gap-4 md:p-2">
           <div className="">
             <div className="flex w-full justify-center">
               <BsBank className="text-primary dark:text-secundary md:text-xl" />

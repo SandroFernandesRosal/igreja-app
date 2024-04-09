@@ -33,7 +33,7 @@ export default function ResetPasswordAdm({ params }) {
       if (response) {
         console.log('Senha redefinida com sucesso')
         alert('Senha redefinida com sucesso!')
-        router.push('/login/igreja')
+        router.push('/login/adm')
       } else {
         throw new Error('Erro desconhecido')
       }

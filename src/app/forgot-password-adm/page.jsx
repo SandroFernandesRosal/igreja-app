@@ -26,10 +26,10 @@ export default function ForgotPasswordAdm() {
 
       if (response) {
         console.log('email enviado')
-        // Mostra uma mensagem de sucesso ou redireciona o usuário
+
         alert('email enviado com sucesso!')
-        router.push('/login')
-        window.location.href = '/login'
+        router.push('/login/adm')
+        window.location.href = '/login/adm'
       } else {
         console.log('Erro. Email não enviado')
       }

@@ -1,8 +1,6 @@
 import { useEffect, useState } from 'react'
 import { api } from '@/lib/api'
 import { useLocal } from '../store/useStore'
-import { format } from 'date-fns'
-import { pt } from 'date-fns/locale'
 import { MdArrowBack, MdArrowForward } from 'react-icons/md'
 
 export default function AgendaLine({ data, setData }) {
@@ -28,12 +26,6 @@ export default function AgendaLine({ data, setData }) {
     }
     setOffset(offset - newsPerPage)
     setIsDisabledNext(false)
-  }
-
-  function formatDate(isoDateString) {
-    const date = new Date(isoDateString)
-    const formattedDate = format(date, 'dd MMM', { locale: pt })
-    return formattedDate
   }
 
   useEffect(() => {
@@ -65,7 +57,7 @@ export default function AgendaLine({ data, setData }) {
         {newsToDisplay.map((item) => (
           <div key={item.id} className="flex gap-2">
             <p className="font bold w-[78px]  rounded-lg bg-gradient-to-r from-slate-950 to-blue-900 text-center text-white md:px-2 md:text-xl">
-              {formatDate(item.createdAt)}
+              {item.day}
             </p>
             <h1 className="font-bold">{item.name}</h1>
           </div>

@@ -71,7 +71,13 @@ export default function TimeLine() {
         </>
       )}
 
-      <div className="relative -top-[30px] flex flex-wrap justify-center  gap-x-5 overflow-hidden rounded-xl border-b-[1px]  border-dashed border-gray-700 px-5 pb-5 pt-10   md:overflow-visible ">
+      <div
+        className={`relative -top-[30px] flex w-full flex-wrap justify-center  gap-x-5 overflow-hidden rounded-xl  ${
+          data &&
+          data.length > 0 &&
+          'border-b-[1px] border-dashed border-gray-700 '
+        }   px-5 pb-5 pt-10   md:overflow-visible`}
+      >
         {!loading ? (
           data.length < 1 ? (
             <p>Nenhum evento cadastrado.</p>
@@ -94,8 +100,7 @@ export default function TimeLine() {
           <SkeletonAgenda />
         )}
       </div>
-
-      <AgendaLine data={data} setData={setData} />
+      {data && data.length > 0 && <AgendaLine data={data} setData={setData} />}
     </div>
   )
 }

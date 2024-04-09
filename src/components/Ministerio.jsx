@@ -1,15 +1,13 @@
 'use client'
-import LideresItem from './LideresItem'
-import { useLocal } from '../store/useStore'
 
+import { useLocal } from '../store/useStore'
 import { useEffect, useState } from 'react'
 import { useToken } from '@/hooks/useToken'
 import SelectLocal from './SelectLocal'
 import { api } from '@/lib/api'
-
 import AddLider from './crud/AddMinisterio'
-
 import SkeletonLider from './skeleton/SkeletonLider'
+import MinisterioLine from './MinisterioLine'
 
 export default function Ministerio() {
   const [data, setData] = useState([])
@@ -62,22 +60,12 @@ export default function Ministerio() {
         </>
       )}
 
-      <div className="relative -top-[30px] mb-5 flex w-full flex-wrap justify-center gap-x-5 p-1 pt-10 md:gap-x-5">
+      <div className="relative -top-[30px]  flex w-full flex-col flex-wrap items-center justify-center gap-x-5 p-1 pt-4 md:gap-x-5">
         {!loading ? (
           data.length < 1 ? (
             <p>Nenhum líder cadastrado.</p>
           ) : (
-            data &&
-            data.map((item) => (
-              <LideresItem
-                key={item.id}
-                nome={item.name}
-                titulo={item.title}
-                local={item.local}
-                img={item.coverUrl}
-                id={item.id}
-              />
-            ))
+            data && <MinisterioLine data={data} setData={setData} />
           )
         ) : (
           <SkeletonLider />
