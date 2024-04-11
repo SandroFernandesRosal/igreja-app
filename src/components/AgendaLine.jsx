@@ -12,8 +12,8 @@ export default function AgendaLine({ data, setData, token }) {
   const [isDisabledNext, setIsDisabledNext] = useState(false)
   const [isDisabledPrev, setIsDisabledPrev] = useState(true)
   const [openSettings, setOpenSettings] = useState(false)
-  const [selectedItem, setSelectedItem] = useState(null) // Adicionado estado para armazenar o item selecionado
-  const [editOpen, setEditOpen] = useState(false) // Estado para controlar a abertura do EditAgenda
+  const [selectedItem, setSelectedItem] = useState(null)
+  const [editOpen, setEditOpen] = useState(false)
   const newsPerPage = 6
 
   const loadNextPage = () => {

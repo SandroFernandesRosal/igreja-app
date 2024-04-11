@@ -37,8 +37,8 @@ export default function EditNew({ setOpenEdit, id, img, titulo, conteudo }) {
         coverUrl = uploadResponse.data.fileUrl
       } catch (error) {
         console.error('Erro ao enviar imagem:', error)
-        // Exibir mensagem de erro ao usuário
-        return // Impedir envio dos dados caso o upload falhe
+       
+        return 
       }
     } else {
       coverUrl = img
@@ -69,7 +69,7 @@ export default function EditNew({ setOpenEdit, id, img, titulo, conteudo }) {
       console.error('Erro ao editar notícia:', response.statusText)
     } catch (error) {
       console.error('Erro ao editar notícia:', error)
-      // Exibir mensagem de erro ao usuário
+    
     }
 
     return null
@@ -92,11 +92,11 @@ export default function EditNew({ setOpenEdit, id, img, titulo, conteudo }) {
       className="fixed left-0 top-0 mt-10 flex h-[100vh] w-[100vw] flex-col items-center justify-center bg-black/50 backdrop-blur-lg md:mt-20"
       onSubmit={handleSubmit}
     >
-      <h1 className="z-20 mb-2 flex items-center justify-center gap-3 text-lg font-bold text-primary">
+      <h1 className="z-20 mb-2 flex items-center justify-center gap-3 text-lg font-bold  text-secundary">
         Editar Notícia{' '}
         <AiFillCloseCircle
           onClick={() => setOpenEdit(false)}
-          className="cursor-pointer text-2xl font-bold text-black dark:text-white"
+          className="cursor-pointer text-2xl font-bold text-white"
         />
       </h1>
 
@@ -104,9 +104,9 @@ export default function EditNew({ setOpenEdit, id, img, titulo, conteudo }) {
         htmlFor="coverUrl"
         className="mb-3 flex cursor-pointer flex-col items-center gap-2  font-bold"
       >
-        <p className="flex items-center gap-3">
+        <p className="flex items-center gap-3 text-white">
           {' '}
-          <FaCameraRetro className="text-xl text-primary" /> Anexar nava imagem
+          <FaCameraRetro className="text-xl text-secundary" /> Anexar nava imagem
           (até 5mb){' '}
         </p>
 
