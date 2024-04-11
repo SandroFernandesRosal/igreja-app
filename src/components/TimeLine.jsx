@@ -100,7 +100,9 @@ export default function TimeLine() {
           <SkeletonAgenda />
         )}
       </div>
-      {data && data.length > 0 && <AgendaLine data={data} setData={setData} />}
+      {data && data.length > 0 && (
+        <AgendaLine data={data} setData={setData} token={token} />
+      )}
     </div>
   )
 }
