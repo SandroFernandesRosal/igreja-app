@@ -18,7 +18,7 @@ export default function Testemunho({ data, userIgreja }) {
 
   function formatDate(dateString) {
     const date = new Date(dateString)
-    const formattedDate = format(date, 'dd/MM/yyyy HH:mm') // Formato desejado
+    const formattedDate = format(date, 'dd/MM/yyyy HH:mm')
     return formattedDate
   }
 
