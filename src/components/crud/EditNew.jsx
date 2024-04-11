@@ -37,8 +37,8 @@ export default function EditNew({ setOpenEdit, id, img, titulo, conteudo }) {
         coverUrl = uploadResponse.data.fileUrl
       } catch (error) {
         console.error('Erro ao enviar imagem:', error)
-       
-        return 
+
+        return
       }
     } else {
       coverUrl = img
@@ -69,7 +69,6 @@ export default function EditNew({ setOpenEdit, id, img, titulo, conteudo }) {
       console.error('Erro ao editar notícia:', response.statusText)
     } catch (error) {
       console.error('Erro ao editar notícia:', error)
-    
     }
 
     return null
@@ -106,8 +105,8 @@ export default function EditNew({ setOpenEdit, id, img, titulo, conteudo }) {
       >
         <p className="flex items-center gap-3 text-white">
           {' '}
-          <FaCameraRetro className="text-xl text-secundary" /> Anexar nava imagem
-          (até 5mb){' '}
+          <FaCameraRetro className="text-xl text-secundary" /> Anexar nava
+          imagem (até 5mb){' '}
         </p>
 
         {preview ? (
