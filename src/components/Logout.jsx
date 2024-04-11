@@ -7,7 +7,7 @@ export default function Logout() {
 
   function Sair() {
     Cookies.remove('tokennn')
-    router.push('/login')
+    router.push('/login/adm')
 
     window.location.href = '/login'
   }
