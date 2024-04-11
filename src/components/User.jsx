@@ -2,6 +2,7 @@ import { getUser } from '@/lib/getUser'
 import Logout from './Logout'
 import Image from 'next/image'
 import ChangeTheme from './ChangeTheme'
+import Link from 'next/link'
 
 export default async function UserComponent() {
   const user = getUser()
@@ -15,7 +16,7 @@ export default async function UserComponent() {
   return (
     <>
       {user && (
-        <div className=" flex flex-col items-center gap-3 md:flex-row">
+        <div className=" flex flex-col items-start gap-3 md:flex-row md:items-center">
           <div className="flex  items-center gap-3">
             <Image
               src={avatarUrl}
@@ -26,12 +27,16 @@ export default async function UserComponent() {
             />
             <p className="text-lg font-bold">{name} </p>
           </div>
-          <div className="flex  items-end  gap-4">
-            {' '}
-            <Logout />{' '}
-            <div className="md:hidden">
-              {' '}
-              <ChangeTheme />{' '}
+          <div className="flex  items-center  gap-4">
+            <Link
+              href={'/perfil/adm'}
+              className="flex h-[32px] items-center rounded-lg  bg-gradient-to-r from-slate-950 to-blue-900 px-2  text-lg font-bold text-white  hover:from-blue-900 hover:to-slate-900"
+            >
+              Perfil
+            </Link>
+            <Logout />
+            <div className="flex md:hidden">
+              <ChangeTheme />
             </div>
           </div>
         </div>
