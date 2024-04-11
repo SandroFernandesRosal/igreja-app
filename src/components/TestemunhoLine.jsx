@@ -12,9 +12,10 @@ import { useToken } from '@/hooks/useToken'
 import { MdArrowBack, MdArrowForward } from 'react-icons/md'
 import { api } from '@/lib/api'
 
-export default function TestemunhoLine({ data, userIgreja }) {
+export default function TestemunhoLine({ data, userIgreja, setData }) {
   const [open, setOpen] = useState(false)
   const [openEdit, setOpenEdit] = useState(null)
+
   const tokenIgreja = useTokenIgreja()
   const token = useToken()
 
@@ -62,13 +63,13 @@ export default function TestemunhoLine({ data, userIgreja }) {
       .get(`/testemunhos?offset=${offset}`)
       .then((response) => {
         if (response.dataLine.length > 0) {
-          data((prevData) => [...prevData, ...response.data])
+          setData((prevData) => [...prevData, ...response.data])
         } else {
           setIsDisabledNext(true)
         }
       })
       .catch((err) => console.log(err))
-  }, [offset, data])
+  }, [offset, data, setData])
 
   return (
     <>

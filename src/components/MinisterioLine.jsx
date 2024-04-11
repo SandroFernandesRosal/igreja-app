@@ -10,6 +10,7 @@ export default function MinisterioLine({ data, setData }) {
   const [offset, setOffset] = useState(0)
   const [isDisabledNext, setIsDisabledNext] = useState(false)
   const [isDisabledPrev, setIsDisabledPrev] = useState(true)
+
   const newsPerPage = 6
 
   const loadNextPage = () => {
