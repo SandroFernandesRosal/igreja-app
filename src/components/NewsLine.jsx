@@ -99,7 +99,7 @@ export default function NewsLine() {
                 <h1 className="font-bold">{item.title}</h1>
               </Link>
               {openSettings && selectedItem && selectedItem.id === item.id && (
-                <div className="absolute flex w-full items-center justify-center   rounded-lg backdrop-blur-md">
+                <div className="absolute flex w-[100vw] items-center rounded-lg   pl-8 backdrop-blur-3xl md:w-[80vw]">
                   <button
                     className="m-[5px] rounded-lg bg-gradient-to-r from-slate-950 to-blue-900  px-2 text-white  shadow-light hover:from-blue-900 hover:to-slate-900 dark:shadow-dark md:px-3 md:text-lg  md:font-bold"
                     onClick={() => {
@@ -141,7 +141,6 @@ export default function NewsLine() {
           </button>
         </div>
 
-        {/* Exibição do número de páginas */}
         <p className=" font-bold">
           Página {displayCurrentPage} de {totalPages}
         </p>
@@ -153,7 +152,7 @@ export default function NewsLine() {
           titulo={selectedItem.title}
           conteudo={selectedItem.content}
           img={selectedItem.coverUrl}
-          setOpenEdit={setEditOpen} // Fecha o EditAgenda ao terminar a edição
+          setOpenEdit={setEditOpen}
         />
       )}
     </>
