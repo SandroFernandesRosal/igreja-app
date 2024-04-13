@@ -35,7 +35,7 @@ export default function News() {
     api
       .get(`/news/${local}/search?search=${search}`)
       .then((response) => {
-        setDataSearch(response.data.newsTotal)
+        setDataSearch(response.data)
       })
       .catch((err) => console.log(err))
   }, [local, setDataSearch, search])
