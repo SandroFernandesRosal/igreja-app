@@ -26,7 +26,7 @@ export default function NoticiaVilaDaPenha({ params }) {
     api
       .get(`/news/${local}`)
       .then((response) => {
-        setData(response.data)
+        setData(response.data.newsTotal)
       })
       .catch((err) => console.log(err))
   }, [local, setData])
@@ -55,7 +55,7 @@ export default function NoticiaVilaDaPenha({ params }) {
             <div className="mt-2 flex gap-3">
               {openEdit === false && (
                 <button
-                  className="m-[5px]  rounded-lg bg-gradient-to-r from-slate-950 to-blue-900  px-1 text-white  shadow-light hover:from-blue-900 hover:to-slate-900 md:px-3  md:text-lg md:font-bold"
+                  className="m-[5px] rounded-lg bg-gradient-to-r from-slate-950 to-blue-900 p-1  px-2 text-white  shadow-light hover:from-blue-900 hover:to-slate-900 md:px-3  md:text-lg md:font-bold"
                   onClick={() => setOpenEdit(true)}
                 >
                   Editar
@@ -114,8 +114,8 @@ export default function NoticiaVilaDaPenha({ params }) {
         )}
       </article>
 
-      <article className="mb-10 flex flex-col items-center rounded-[35px] bg-bglightsecundary shadow-light dark:bg-bgdarksecundary dark:shadow-dark md:w-[90vw]">
-        <h1 className=" w-[90vw] max-w-[500px]  text-center text-2xl font-bold">
+      <article className="mb-10 flex flex-col items-center rounded-[35px] bg-bglightsecundary pt-2 shadow-light dark:bg-bgdarksecundary dark:shadow-dark md:w-[90vw]">
+        <h1 className=" mb-4 w-[100vw] max-w-[500px]  text-center text-2xl font-bold">
           Leia também as últimas notícias
         </h1>
 

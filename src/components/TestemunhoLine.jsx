@@ -12,8 +12,9 @@ import { useToken } from '@/hooks/useToken'
 import { MdArrowBack, MdArrowForward } from 'react-icons/md'
 import { api } from '@/lib/api'
 
-export default function TestemunhoLine({ data, userIgreja, setData }) {
+export default function TestemunhoLine({ userIgreja }) {
   const [open, setOpen] = useState(false)
+  const [data, setData] = useState([])
   const [openEdit, setOpenEdit] = useState(null)
 
   const tokenIgreja = useTokenIgreja()
@@ -22,7 +23,7 @@ export default function TestemunhoLine({ data, userIgreja, setData }) {
   const [offset, setOffset] = useState(0)
   const [isDisabledNext, setIsDisabledNext] = useState(false)
   const [isDisabledPrev, setIsDisabledPrev] = useState(true)
-  const newsPerPage = 6
+  const newsPerPage = 4
 
   function formatDate(dateString) {
     const date = new Date(dateString)
@@ -62,14 +63,23 @@ export default function TestemunhoLine({ data, userIgreja, setData }) {
     api
       .get(`/testemunhos?offset=${offset}`)
       .then((response) => {
-        if (response.dataLine.length > 0) {
-          setData((prevData) => [...prevData, ...response.data])
+        if (response.data.TestemunhoTotal.length > 0) {
+          setData((prevData) => [...prevData, ...response.data.testemunhoTotal])
         } else {
           setIsDisabledNext(true)
         }
       })
       .catch((err) => console.log(err))
-  }, [offset, data, setData])
+  }, [offset, setData])
+
+  useEffect(() => {
+    api
+      .get(`/testemunhos`)
+      .then((response) => {
+        setData(response.data.testemunhoTotal)
+      })
+      .catch((err) => console.log(err))
+  }, [])
 
   return (
     <>

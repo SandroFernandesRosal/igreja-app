@@ -20,7 +20,7 @@ export default function Ministerio() {
     api
       .get(`/ministerio/${local}`)
       .then((response) => {
-        setData(response.data)
+        setData(response.data.ministerioTotal)
         setLoading(false)
       })
       .catch((err) => console.log(err))

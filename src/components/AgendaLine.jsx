@@ -14,7 +14,7 @@ export default function AgendaLine({ data, setData, token }) {
   const [openSettings, setOpenSettings] = useState(false)
   const [selectedItem, setSelectedItem] = useState(null)
   const [editOpen, setEditOpen] = useState(false)
-  const newsPerPage = 6
+  const newsPerPage = 4
 
   const loadNextPage = () => {
     if (data.length < offset + newsPerPage) {
@@ -38,8 +38,8 @@ export default function AgendaLine({ data, setData, token }) {
     api
       .get(`/agenda/${local}?offset=${offset}`)
       .then((response) => {
-        if (response.dataLine.length > 0) {
-          setData((prevData) => [...prevData, ...response.data])
+        if (response.agendaTotal.length > 0) {
+          setData((prevData) => [...prevData, ...response.data.agendaTotal])
         } else {
           setIsDisabledNext(true)
         }
@@ -144,7 +144,7 @@ export default function AgendaLine({ data, setData, token }) {
           title={selectedItem.name}
           hora={selectedItem.hour}
           dia={selectedItem.day}
-          setOpenEdit={setEditOpen} // Fecha o EditAgenda ao terminar a edição
+          setOpenEdit={setEditOpen}
         />
       )}
     </>

@@ -34,11 +34,11 @@ export default function TimeLine() {
     api
       .get(`/agenda/${local}`)
       .then((response) => {
-        setData(response.data)
+        setData(response.data.agendaTotal)
         setLoading(false)
       })
       .catch((err) => console.log(err))
-  }, [local])
+  }, [local, setData])
 
   return (
     <div className=" mb-5 flex w-[100vw] flex-col items-center rounded-[35px] bg-bglightsecundary  shadow-light dark:bg-bgdarksecundary dark:shadow-dark md:w-[90vw] md:rounded-xl ">
@@ -83,7 +83,7 @@ export default function TimeLine() {
             <p>Nenhum evento cadastrado.</p>
           ) : (
             data &&
-            data.slice(0, 6).map((item) => {
+            data.slice(0, 4).map((item) => {
               return (
                 <TimeLineItem
                   key={item.id}

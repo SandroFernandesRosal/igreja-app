@@ -11,7 +11,7 @@ export default function MinisterioLine({ data, setData }) {
   const [isDisabledNext, setIsDisabledNext] = useState(false)
   const [isDisabledPrev, setIsDisabledPrev] = useState(true)
 
-  const newsPerPage = 6
+  const newsPerPage = 4
 
   const loadNextPage = () => {
     if (data.length < offset + newsPerPage) {
@@ -35,14 +35,23 @@ export default function MinisterioLine({ data, setData }) {
     api
       .get(`/ministerio/${local}?offset=${offset}`)
       .then((response) => {
-        if (response.dataLine.length > 0) {
-          setData((prevData) => [...prevData, ...response.data])
+        if (response.ministerioTotal.length > 0) {
+          setData((prevData) => [...prevData, ...response.data.ministerioTotal])
         } else {
           setIsDisabledNext(true)
         }
       })
       .catch((err) => console.log(err))
-  }, [local, setData, offset, data])
+  }, [local, setData, offset])
+
+  useEffect(() => {
+    api
+      .get(`/ministerio/${local}`)
+      .then((response) => {
+        setData(response.data.ministerioTotal)
+      })
+      .catch((err) => console.log(err))
+  }, [local, setData])
 
   const totalNews = data.length
   const totalPages = Math.ceil(totalNews / newsPerPage)
@@ -56,18 +65,20 @@ export default function MinisterioLine({ data, setData }) {
 
   return (
     <>
-      <div className="flex   w-full flex-col flex-wrap items-center justify-center gap-2 gap-x-5  px-4 pb-1 pt-6  md:gap-x-5">
+      <div className="flex w-full flex-wrap items-center justify-center gap-2 gap-x-5  px-4 pb-1 pt-6  md:gap-x-5">
         {newsToDisplay &&
-          newsToDisplay.map((item) => (
-            <LideresItem
-              key={item.id}
-              nome={item.name}
-              titulo={item.title}
-              local={item.local}
-              img={item.coverUrl}
-              id={item.id}
-            />
-          ))}
+          newsToDisplay
+            .slice(0, 4)
+            .map((item) => (
+              <LideresItem
+                key={item.id}
+                nome={item.name}
+                titulo={item.title}
+                local={item.local}
+                img={item.coverUrl}
+                id={item.id}
+              />
+            ))}
       </div>
 
       <div className="flex">
@@ -95,7 +106,6 @@ export default function MinisterioLine({ data, setData }) {
         </button>
       </div>
 
-      {/* Exibição do número de páginas */}
       <p className=" font-bold">
         Página {displayCurrentPage} de {totalPages}
       </p>

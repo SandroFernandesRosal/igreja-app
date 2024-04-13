@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react'
-import { api } from '@/lib/api'
-import { useLocal, useData } from '../store/useStore'
+import { useState } from 'react'
+
+import { useData } from '../store/useStore'
 import { format } from 'date-fns'
 import { pt } from 'date-fns/locale'
 import { MdArrowBack, MdArrowForward, MdOutlineSettings } from 'react-icons/md'
@@ -12,9 +12,8 @@ import RemoveNew from './crud/RemoveNew'
 import EditNew from './crud/EditNew'
 
 export default function NewsLine() {
-  const { data, setData } = useData()
+  const { data } = useData()
 
-  const { local } = useLocal()
   const [offset, setOffset] = useState(0)
   const [isDisabledNext, setIsDisabledNext] = useState(false)
   const [isDisabledPrev, setIsDisabledPrev] = useState(true)
@@ -47,19 +46,6 @@ export default function NewsLine() {
     const formattedDate = format(date, 'dd MMM', { locale: pt })
     return formattedDate
   }
-
-  useEffect(() => {
-    api
-      .get(`/news/${local}?offset=${offset}`)
-      .then((response) => {
-        if (response.dataLine.length > 0) {
-          setData((prevData) => [...prevData, ...response.data])
-        } else {
-          setIsDisabledNext(true)
-        }
-      })
-      .catch((err) => console.log(err))
-  }, [local, setData, offset, data])
 
   const totalNews = data.length
   const totalPages = Math.ceil(totalNews / newsPerPage)

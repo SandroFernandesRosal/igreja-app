@@ -31,7 +31,7 @@ export default function NewSlider() {
     api
       .get(`/news/${local}`)
       .then((response) => {
-        setData(response.data)
+        setData(response.data.newsTotal)
         setLoading(false)
       })
       .catch((err) => console.log(err))
