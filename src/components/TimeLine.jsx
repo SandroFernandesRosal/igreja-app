@@ -72,7 +72,7 @@ export default function TimeLine() {
       )}
 
       <div
-        className={`relative -top-[30px] flex w-full flex-wrap justify-center  gap-x-5 overflow-hidden rounded-xl  ${
+        className={`relative -top-[30px] flex w-full flex-wrap justify-center  gap-x-5 overflow-hidden   ${
           data &&
           data.length > 0 &&
           'border-b-[1px] border-dashed border-gray-700 '
