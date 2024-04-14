@@ -43,7 +43,7 @@ export default function EditAgenda({
         },
       )
 
-      const agenda = response.data
+      const agenda = response.data.agendaTotal
 
       if (response.status === 200 && agenda) {
         setOpenEdit(false)

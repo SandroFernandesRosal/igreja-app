@@ -68,6 +68,7 @@ export default function NoticiaTomazinho({ params }) {
                   titulo={selectedItem.title}
                   conteudo={selectedItem.content}
                   id={id}
+                  destacar={selectedItem.destaque}
                   setOpenEdit={setOpenEdit}
                 />
               )}

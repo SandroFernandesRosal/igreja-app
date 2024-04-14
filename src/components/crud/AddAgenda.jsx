@@ -36,7 +36,7 @@ export default function AddAgenda({ openNew, setOpenNew }) {
         },
       )
 
-      const agenda = response.data
+      const agenda = response.data.agendaTotal
 
       if (response.status === 200 && agenda) {
         setOpenNew(false)
@@ -49,7 +49,6 @@ export default function AddAgenda({ openNew, setOpenNew }) {
       console.log(agenda)
     } catch (error) {
       console.error('Erro ao criar evento:', error)
-      // Tratar erros de requisição aqui
     }
 
     return null
