@@ -7,10 +7,18 @@ import { useLocal } from '../../store/useStore'
 import { AiFillCloseCircle } from 'react-icons/ai'
 import { api } from '@/lib/api'
 
-export default function EditAgenda({ setOpenEdit, id, title, hora, dia }) {
+export default function EditAgenda({
+  setOpenEdit,
+  id,
+  title,
+  hora,
+  dia,
+  destacar,
+}) {
   const [day, setDay] = useState('')
   const [name, setName] = useState('')
   const [hour, setHour] = useState('')
+  const [destaque, setDestaque] = useState(destacar)
   const { local } = useLocal()
   const router = useRouter()
   const token = Cookies.get('tokennn')
@@ -25,6 +33,7 @@ export default function EditAgenda({ setOpenEdit, id, title, hora, dia }) {
           day: day || dia,
           name: name || title,
           hour: hour || hora,
+          destaque,
         },
         {
           headers: {
@@ -93,6 +102,24 @@ export default function EditAgenda({ setOpenEdit, id, title, hora, dia }) {
         defaultValue={hora}
         onChange={(e) => setHour(e.target.value)}
       />
+
+      <div className="mb-4 flex items-center gap-2  p-2">
+        <input
+          type="checkbox"
+          id="destaque"
+          name="destaque"
+          checked={destaque}
+          defaultValue={destacar}
+          onChange={(e) => setDestaque(e.target.checked)}
+          className="cursor-pointer rounded-lg border-none bg-gray-300 focus:ring-primary dark:border-gray-500 dark:bg-gray-600"
+        />
+        <label
+          htmlFor="destaque"
+          className="font-bold text-gray-700 dark:text-gray-400"
+        >
+          Marcar como destaque
+        </label>
+      </div>
 
       <button
         type="submit"

@@ -71,6 +71,11 @@ export default function TimeLine() {
         </>
       )}
 
+      <h1 className="mb-4 flex gap-2 self-start text-xl font-bold ">
+        <span className="ml-5 flex  border-b-2 border-secundary">Agenda</span>{' '}
+        <p>em destaque</p>
+      </h1>
+
       <div
         className={`relative -top-[30px] flex w-full flex-wrap justify-center  gap-x-5 overflow-hidden   ${
           data &&
@@ -79,30 +84,37 @@ export default function TimeLine() {
         }   px-5 pb-5 pt-10   md:overflow-visible`}
       >
         {!loading ? (
-          data.length < 1 ? (
-            <p>Nenhum evento cadastrado.</p>
+          data && data.filter((item) => item.destaque === true).length < 1 ? (
+            <p>Nenhum evento destacado.</p>
           ) : (
             data &&
-            data.slice(0, 4).map((item) => {
-              return (
-                <TimeLineItem
-                  key={item.id}
-                  day={item.day}
-                  title={item.name}
-                  hora={item.hour}
-                  trueitem={item.isPublic}
-                  id={item.id}
-                />
-              )
-            })
+            data
+              .filter((item) => item.destaque === true)
+              .slice(0, 4)
+              .map((item) => {
+                return (
+                  <TimeLineItem
+                    key={item.id}
+                    day={item.day}
+                    title={item.name}
+                    hora={item.hour}
+                    trueitem={item.isPublic}
+                    id={item.id}
+                  />
+                )
+              })
           )
         ) : (
           <SkeletonAgenda />
         )}
       </div>
-      {data && data.length > 0 && (
-        <AgendaLine data={data} setData={setData} token={token} />
-      )}
+
+      <AgendaLine
+        loading={loading}
+        data={data}
+        setData={setData}
+        token={token}
+      />
     </div>
   )
 }

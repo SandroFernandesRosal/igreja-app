@@ -11,6 +11,7 @@ export default function AddAgenda({ openNew, setOpenNew }) {
   const [day, setDay] = useState('')
   const [name, setName] = useState('')
   const [hour, setHour] = useState('')
+  const [destaque, setDestaque] = useState(false)
   const { local } = useLocal()
   const router = useRouter()
   const token = Cookies.get('tokennn')
@@ -25,6 +26,7 @@ export default function AddAgenda({ openNew, setOpenNew }) {
           day,
           name,
           hour,
+          destaque,
         },
         {
           headers: {
@@ -55,7 +57,7 @@ export default function AddAgenda({ openNew, setOpenNew }) {
 
   return (
     <form
-      className="fixed left-0 top-0 z-20 flex h-[100vh] w-[100vw] flex-col items-center justify-center bg-black/50 backdrop-blur-lg"
+      className="fixed left-0 top-0 z-30 flex h-[100vh] w-[100vw] flex-col items-center justify-center bg-black/50 backdrop-blur-lg"
       onSubmit={handleSubmit}
     >
       <h1 className="z-20 mb-2 flex items-center justify-center gap-3 text-lg font-bold text-primary">
@@ -90,6 +92,23 @@ export default function AddAgenda({ openNew, setOpenNew }) {
         placeholder="Horário do evento"
         onChange={(e) => setHour(e.target.value)}
       />
+
+      <div className="mb-4 flex items-center gap-2  p-2">
+        <input
+          type="checkbox"
+          id="destaque"
+          name="destaque"
+          checked={destaque}
+          onChange={(e) => setDestaque(e.target.checked)}
+          className="cursor-pointer rounded-lg border-none bg-gray-300 focus:ring-primary dark:border-gray-500 dark:bg-gray-600"
+        />
+        <label
+          htmlFor="destaque"
+          className="font-bold text-gray-700 dark:text-gray-400"
+        >
+          Marcar como destaque
+        </label>
+      </div>
 
       <button
         type="submit"
