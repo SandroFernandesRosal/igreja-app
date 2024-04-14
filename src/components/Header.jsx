@@ -69,7 +69,7 @@ export default function Header({ children }) {
           <div
             onClick={handleMenu}
             className={
-              'flex h-[50px] w-[50px] cursor-pointer items-center justify-center rounded-full  border-[2px] border-secundary hover:bg-blue-300  dark:hover:bg-gray-800 md:hidden'
+              'dark:hover:blue-500/50 flex h-[50px] w-[50px] cursor-pointer items-center justify-center  rounded-full border-[2px] border-secundary  hover:bg-blue-500/50 md:hidden'
             }
           >
             {menu === false ? (

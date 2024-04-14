@@ -114,9 +114,6 @@ export default function NoticiaTomazinho({ params }) {
         )}
       </article>
       <article className="mb-10 flex  w-[100vw] flex-col items-center rounded-[35px] bg-bglightsecundary pt-2 shadow-light dark:bg-bgdarksecundary dark:shadow-dark md:w-[90vw]">
-        <h1 className="mb-4 w-[90vw] max-w-[500px]  text-center text-2xl font-bold">
-          Leia também as últimas notícias
-        </h1>
         <NewsLine />
       </article>
     </main>

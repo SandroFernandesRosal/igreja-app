@@ -10,7 +10,7 @@ import { api } from '@/lib/api'
 export default function AddNew({ openNew, setOpenNew }) {
   const [title, setTitle] = useState('')
   const [content, setContent] = useState('')
-
+  const [destaque, setDestaque] = useState(false)
   const [preview, setPreview] = useState(null)
   const formRef = useRef(null)
 
@@ -54,6 +54,7 @@ export default function AddNew({ openNew, setOpenNew }) {
           content,
           coverUrl,
           page: local,
+          destaque,
         },
         {
           headers: {
@@ -95,7 +96,7 @@ export default function AddNew({ openNew, setOpenNew }) {
   return (
     <form
       ref={formRef}
-      className="fixed left-0 top-0 z-20 flex h-[100vh] w-[100vw] flex-col items-center justify-center bg-black/50 backdrop-blur-lg"
+      className="fixed left-0 top-0  z-30 flex h-[100vh] w-[100vw] flex-col items-center justify-center bg-black/50 backdrop-blur-lg"
       onSubmit={handleSubmit}
     >
       <h1 className="mb-2 flex items-center justify-center gap-3 text-lg font-bold text-primary">
@@ -146,6 +147,23 @@ export default function AddNew({ openNew, setOpenNew }) {
         placeholder="Digite a url da notícia"
         onChange={onFileSelected}
       />
+
+      <div className="mb-4 flex items-center gap-2  p-2">
+        <input
+          type="checkbox"
+          id="destaque"
+          name="destaque"
+          checked={destaque}
+          onChange={(e) => setDestaque(e.target.checked)}
+          className="cursor-pointer rounded-lg border-none bg-gray-300 focus:ring-primary dark:border-gray-500 dark:bg-gray-600"
+        />
+        <label
+          htmlFor="destaque"
+          className="font-bold text-gray-700 dark:text-gray-400"
+        >
+          Marcar como destaque
+        </label>
+      </div>
 
       <button
         type="submit"

@@ -8,10 +8,17 @@ import { useLocal } from '../../store/useStore'
 import { api } from '@/lib/api'
 import Image from 'next/image'
 
-export default function EditNew({ setOpenEdit, id, img, titulo, conteudo }) {
+export default function EditNew({
+  setOpenEdit,
+  id,
+  img,
+  titulo,
+  conteudo,
+  destacar,
+}) {
   const [title, setTitle] = useState('')
   const [content, setContent] = useState('')
-
+  const [destaque, setDestaque] = useState(destacar)
   const [preview, setPreview] = useState(null)
 
   const formRef = useRef(null)
@@ -52,6 +59,7 @@ export default function EditNew({ setOpenEdit, id, img, titulo, conteudo }) {
           content: content || conteudo,
           coverUrl,
           page: local,
+          destaque,
         },
         {
           headers: {
@@ -88,7 +96,7 @@ export default function EditNew({ setOpenEdit, id, img, titulo, conteudo }) {
   return (
     <form
       ref={formRef}
-      className="fixed left-0 top-0 mt-10 flex h-[100vh] w-[100vw] flex-col items-center justify-center bg-black/50 backdrop-blur-lg md:mt-20"
+      className="fixed left-0 top-0 z-30 mt-10 flex h-[100vh] w-[100vw] flex-col items-center justify-center bg-black/50 backdrop-blur-lg md:mt-20"
       onSubmit={handleSubmit}
     >
       <h1 className="z-20 mb-2 flex items-center justify-center gap-3 text-lg font-bold  text-secundary">
@@ -157,6 +165,24 @@ export default function EditNew({ setOpenEdit, id, img, titulo, conteudo }) {
         id="coverUrl"
         onChange={onFileSelected}
       />
+
+      <div className="mb-4 flex items-center gap-2  p-2">
+        <input
+          type="checkbox"
+          id="destaque"
+          name="destaque"
+          checked={destaque}
+          defaultValue={destacar}
+          onChange={(e) => setDestaque(e.target.checked)}
+          className="cursor-pointer rounded-lg border-none bg-gray-300 focus:ring-primary dark:border-gray-500 dark:bg-gray-600"
+        />
+        <label
+          htmlFor="destaque"
+          className="font-bold text-gray-700 dark:text-gray-400"
+        >
+          Marcar como destaque
+        </label>
+      </div>
 
       <button
         type="submit"

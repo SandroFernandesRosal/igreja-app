@@ -10,8 +10,9 @@ import { useToken } from '@/hooks/useToken'
 import { AiOutlineClose } from 'react-icons/ai'
 import RemoveNew from './crud/RemoveNew'
 import EditNew from './crud/EditNew'
+import SkeletonMaisNoticias from './skeleton/SkeletonMaisNoticias'
 
-export default function NewsLine() {
+export default function NewsLine({ loading }) {
   const { data } = useData()
 
   const [offset, setOffset] = useState(0)
@@ -60,90 +61,111 @@ export default function NewsLine() {
   return (
     <>
       <section className="mb-4 flex w-full flex-col items-center justify-center gap-2 ">
+        <h1 className="mb-4 flex gap-2 self-start text-xl font-bold ">
+          <span className="ml-5 flex  border-b-2 border-secundary">Mais</span>{' '}
+          <p>notícias</p>
+        </h1>
         <div className="flex  w-full flex-col gap-2 px-4">
-          {newsToDisplay.map((item) => (
-            <div key={item.id} className="flex gap-2">
-              {token && (
-                <>
-                  {openSettings &&
-                  selectedItem &&
-                  selectedItem.id === item.id ? (
-                    <AiOutlineClose
-                      onClick={() => {
-                        setSelectedItem(item)
-                        setOpenSettings(false)
-                      }}
-                      className="z-10 cursor-pointer text-3xl"
-                    />
-                  ) : (
-                    <MdOutlineSettings
-                      className={`${
-                        editOpen && 'z-0'
-                      } z-10 cursor-pointer text-3xl`}
-                      onClick={() => {
-                        setSelectedItem(item)
-                        setOpenSettings(true)
-                      }}
-                    />
-                  )}
-                </>
-              )}
-              <Link
-                href={`/noticias/${item.page}/${item.id}`}
-                key={item.id}
-                className="flex gap-2"
+          {!loading ? (
+            newsToDisplay.length < 1 ? (
+              <p className="text-center">Nenhuma notícia cadastrada</p>
+            ) : (
+              <>
+                {' '}
+                {newsToDisplay.map((item) => (
+                  <div key={item.id} className="flex gap-2">
+                    {token && (
+                      <>
+                        {openSettings &&
+                        selectedItem &&
+                        selectedItem.id === item.id ? (
+                          <AiOutlineClose
+                            onClick={() => {
+                              setSelectedItem(item)
+                              setOpenSettings(false)
+                            }}
+                            className="z-10 cursor-pointer text-3xl"
+                          />
+                        ) : (
+                          <MdOutlineSettings
+                            className={`${
+                              editOpen && 'z-0'
+                            } z-10 cursor-pointer text-3xl`}
+                            onClick={() => {
+                              setSelectedItem(item)
+                              setOpenSettings(true)
+                            }}
+                          />
+                        )}
+                      </>
+                    )}
+                    <Link
+                      href={`/noticias/${item.page}/${item.id}`}
+                      key={item.id}
+                      className="flex gap-2"
+                    >
+                      <p className="font bold w-[78px]  rounded-lg bg-gradient-to-r from-slate-950 to-blue-900 text-center text-white md:px-2 md:text-xl">
+                        {formatDate(item.createdAt)}
+                      </p>
+                      <h1 className="font-bold">{item.title}</h1>
+                    </Link>
+                    {openSettings &&
+                      selectedItem &&
+                      selectedItem.id === item.id && (
+                        <div className="absolute flex w-[100vw] items-center rounded-lg   pl-8 backdrop-blur-3xl md:w-[80vw]">
+                          <button
+                            className="m-[5px] rounded-lg bg-gradient-to-r from-slate-950 to-blue-900  px-2 text-white  shadow-light hover:from-blue-900 hover:to-slate-900 dark:shadow-dark md:px-3 md:text-lg  md:font-bold"
+                            onClick={() => {
+                              setOpenSettings(false)
+                              setEditOpen(true)
+                            }}
+                          >
+                            Editar
+                          </button>
+                          <RemoveNew id={item.id} />
+                        </div>
+                      )}
+                  </div>
+                ))}{' '}
+              </>
+            )
+          ) : (
+            <SkeletonMaisNoticias />
+          )}
+        </div>
+
+        {!loading && (
+          <>
+            {' '}
+            <div className="flex">
+              <button
+                onClick={loadPreviousPage}
+                disabled={isDisabledPrev}
+                className={`m-2 mb-4 flex h-full w-[50px] cursor-pointer items-center justify-center rounded-xl  p-2 font-bold text-white shadow-light hover:from-blue-900 hover:to-slate-900 dark:shadow-dark ${
+                  isDisabledPrev
+                    ? 'bg-gradient-to-r from-slate-950/20 to-blue-900/20'
+                    : 'bg-gradient-to-r from-slate-950 to-blue-900 '
+                } `}
               >
-                <p className="font bold w-[78px]  rounded-lg bg-gradient-to-r from-slate-950 to-blue-900 text-center text-white md:px-2 md:text-xl">
-                  {formatDate(item.createdAt)}
-                </p>
-                <h1 className="font-bold">{item.title}</h1>
-              </Link>
-              {openSettings && selectedItem && selectedItem.id === item.id && (
-                <div className="absolute flex w-[100vw] items-center rounded-lg   pl-8 backdrop-blur-3xl md:w-[80vw]">
-                  <button
-                    className="m-[5px] rounded-lg bg-gradient-to-r from-slate-950 to-blue-900  px-2 text-white  shadow-light hover:from-blue-900 hover:to-slate-900 dark:shadow-dark md:px-3 md:text-lg  md:font-bold"
-                    onClick={() => {
-                      setOpenSettings(false)
-                      setEditOpen(true)
-                    }}
-                  >
-                    Editar
-                  </button>
-                  <RemoveNew id={item.id} />
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
-
-        <div className="flex">
-          <button
-            onClick={loadPreviousPage}
-            disabled={isDisabledPrev}
-            className={`m-2 mb-4 flex h-full w-[50px] cursor-pointer items-center justify-center rounded-xl  p-2 font-bold text-white shadow-light hover:from-blue-900 hover:to-slate-900 dark:shadow-dark ${
-              isDisabledPrev
-                ? 'bg-gradient-to-r from-slate-950/20 to-blue-900/20'
-                : 'bg-gradient-to-r from-slate-950 to-blue-900 '
-            } `}
-          >
-            <MdArrowBack className="text-3xl font-bold text-white" />
-          </button>
-          <button
-            onClick={loadNextPage}
-            disabled={isDisabledNext}
-            className={`m-2 mb-4 flex h-full w-[50px] cursor-pointer items-center justify-center rounded-xl  p-2 font-bold  shadow-light  hover:from-blue-900 hover:to-slate-900 dark:shadow-dark ${
-              isDisabledNext
-                ? 'bg-gradient-to-r from-slate-950/20 to-blue-900/20'
-                : 'bg-gradient-to-r from-slate-950 to-blue-900 '
-            } `}
-          >
-            <MdArrowForward className="text-3xl font-bold text-white" />
-          </button>
-        </div>
-
-        <p className=" font-bold">
-          Página {displayCurrentPage} de {totalPages}
-        </p>
+                <MdArrowBack className="text-3xl font-bold text-white" />
+              </button>
+              <button
+                onClick={loadNextPage}
+                disabled={isDisabledNext}
+                className={`m-2 mb-4 flex h-full w-[50px] cursor-pointer items-center justify-center rounded-xl  p-2 font-bold  shadow-light  hover:from-blue-900 hover:to-slate-900 dark:shadow-dark ${
+                  isDisabledNext
+                    ? 'bg-gradient-to-r from-slate-950/20 to-blue-900/20'
+                    : 'bg-gradient-to-r from-slate-950 to-blue-900 '
+                } `}
+              >
+                <MdArrowForward className="text-3xl font-bold text-white" />
+              </button>
+            </div>{' '}
+            <p className=" font-bold">
+              Página {displayCurrentPage} de {totalPages}
+            </p>{' '}
+          </>
+        )}
       </section>
 
       {editOpen && selectedItem && (
@@ -152,6 +174,7 @@ export default function NewsLine() {
           titulo={selectedItem.title}
           conteudo={selectedItem.content}
           img={selectedItem.coverUrl}
+          destacar={selectedItem.destaque}
           setOpenEdit={setEditOpen}
         />
       )}

@@ -83,6 +83,11 @@ export default function News() {
       )}
 
       {search ? <ResultLength search={search} dataSearch={dataSearch} /> : null}
+
+      <h1 className="mb-4 flex gap-2 self-start text-xl font-bold ">
+        <span className="ml-5 flex  border-b-2 border-secundary">Notícias</span>{' '}
+        <p>em destaque</p>
+      </h1>
       <div
         className={`relative -top-[30px] flex w-full flex-wrap justify-center gap-x-5  p-1 px-2 pb-5 pt-10 md:gap-x-5 ${
           data &&
@@ -107,12 +112,13 @@ export default function News() {
             />
           ))
         ) : !loading ? (
-          data && data.length < 1 ? (
-            <p>Nenhuma notícia cadastrada.</p>
+          data && data.filter((item) => item.destaque === true).length < 1 ? (
+            <p>Nenhum destaque cadastrado.</p>
           ) : (
             <>
               {data &&
                 data
+                  .filter((item) => item.destaque === true)
                   .slice(0, 4)
                   .map((item) => (
                     <New
@@ -133,7 +139,8 @@ export default function News() {
           <SkeletonNew />
         )}
       </div>
-      {data && data.length >= 1 && <NewsLine />}
+
+      <NewsLine loading={loading} />
     </section>
   )
 }
