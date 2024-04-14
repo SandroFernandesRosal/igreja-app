@@ -67,7 +67,7 @@ export default function AgendaLine({ data, setData, token, loading }) {
         </h1>
         <div className="flex w-full flex-col gap-2 px-4">
           {!loading ? (
-            newsToDisplay.length < 1 ? (
+            newsToDisplay && newsToDisplay.length < 1 ? (
               <p className="text-center">Nenhuma notícia cadastrada</p>
             ) : (
               <>
