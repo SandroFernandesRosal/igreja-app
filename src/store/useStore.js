@@ -12,18 +12,16 @@ export const useData = create((set) => ({
 }))
 
 export const useLocal = create((set) => {
-  // Tenta obter o valor do cookie
   const cookieValue = Cookies.get('local')
-  // Se o valor existir, use-o para inicializar o estado, caso contrário, use o valor padrão
+
   const initialValue = cookieValue || 'viladapenha'
 
   return {
     local: initialValue,
     setLocal: (state) => {
-      // Atualiza o estado
       set({ local: state })
-      // Atualiza o cookie
-      Cookies.set('local', state, { expires: 7 }) // Define um cookie que expira em 7 dias
+
+      Cookies.set('local', state, { expires: 7 })
     },
   }
 })
@@ -71,4 +69,19 @@ export const useCurrentPage = create((set) => ({
 export const useDataLine = create((set) => ({
   dataLine: [],
   setDataLine: (state) => set({ dataLine: state }),
+}))
+
+export const useDataMinisterio = create((set) => ({
+  dataMinisterio: [],
+  setDataMinisterio: (state) => set({ dataMinisterio: state }),
+}))
+
+export const useDataAgenda = create((set) => ({
+  dataAgenda: [],
+  setDataAgenda: (state) => set({ dataAgenda: state }),
+}))
+
+export const useDataTestemunho = create((set) => ({
+  dataTestemunho: [],
+  setDataTestemunho: (state) => set({ dataTestemunho: state }),
 }))

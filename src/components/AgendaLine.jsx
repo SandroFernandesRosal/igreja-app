@@ -1,14 +1,12 @@
-import { useEffect, useState } from 'react'
-import { api } from '@/lib/api'
-import { useLocal } from '../store/useStore'
+import { useState } from 'react'
+
 import { MdArrowBack, MdArrowForward, MdOutlineSettings } from 'react-icons/md'
 import EditAgenda from './crud/EditAgenda'
 import RemoveAgenda from './crud/RemoveAgenda'
 import { AiOutlineClose } from 'react-icons/ai'
 import SkeletonMaisNoticias from './skeleton/SkeletonMaisNoticias'
 
-export default function AgendaLine({ data, setData, token, loading }) {
-  const { local } = useLocal()
+export default function AgendaLine({ data, token, loading }) {
   const [offset, setOffset] = useState(0)
   const [isDisabledNext, setIsDisabledNext] = useState(false)
   const [isDisabledPrev, setIsDisabledPrev] = useState(true)
@@ -35,20 +33,7 @@ export default function AgendaLine({ data, setData, token, loading }) {
     setIsDisabledNext(false)
   }
 
-  useEffect(() => {
-    api
-      .get(`/agenda/${local}?offset=${offset}`)
-      .then((response) => {
-        if (response.agendaTotal.length > 0) {
-          setData((prevData) => [...prevData, ...response.data.agendaTotal])
-        } else {
-          setIsDisabledNext(true)
-        }
-      })
-      .catch((err) => console.log(err))
-  }, [local, setData, offset, data])
-
-  const totalNews = data.length
+  const totalNews = data ? data.length : 0
   const totalPages = Math.ceil(totalNews / newsPerPage)
   const currentPage = Math.ceil((offset + newsPerPage) / newsPerPage)
   const displayCurrentPage = Math.min(currentPage, totalPages)

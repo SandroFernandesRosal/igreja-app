@@ -1,6 +1,6 @@
 'use client'
 
-import { useLocal } from '../store/useStore'
+import { useLocal, useDataMinisterio } from '../store/useStore'
 import { useEffect, useState } from 'react'
 import { useToken } from '@/hooks/useToken'
 import SelectLocal from './SelectLocal'
@@ -10,7 +10,7 @@ import SkeletonLider from './skeleton/SkeletonLider'
 import MinisterioLine from './MinisterioLine'
 
 export default function Ministerio() {
-  const [data, setData] = useState([])
+  const { dataMinisterio, setDataMinisterio } = useDataMinisterio()
   const [openMinisterio, setOpenMinisterio] = useState(false)
   const [loading, setLoading] = useState(true)
   const { local } = useLocal()
@@ -20,11 +20,11 @@ export default function Ministerio() {
     api
       .get(`/ministerio/${local}`)
       .then((response) => {
-        setData(response.data.ministerioTotal)
+        setDataMinisterio(response.data.ministerioTotal)
         setLoading(false)
       })
       .catch((err) => console.log(err))
-  }, [local])
+  }, [local, setDataMinisterio])
 
   return (
     <section className="mb-5  flex w-[100vw] flex-col items-center rounded-[35px]  bg-bglightsecundary  px-1 shadow-light dark:bg-bgdarksecundary dark:shadow-dark  md:w-[90vw] md:rounded-xl">
@@ -62,10 +62,15 @@ export default function Ministerio() {
 
       <div className="relative -top-[30px]  flex w-full flex-col flex-wrap items-center justify-center gap-x-5 p-1 pt-4 md:gap-x-5">
         {!loading ? (
-          data.length < 1 ? (
+          dataMinisterio.length < 1 ? (
             <p>Nenhum líder cadastrado.</p>
           ) : (
-            data && <MinisterioLine data={data} setData={setData} />
+            dataMinisterio && (
+              <MinisterioLine
+                data={dataMinisterio}
+                setData={setDataMinisterio}
+              />
+            )
           )
         ) : (
           <SkeletonLider />

@@ -1,12 +1,9 @@
-import { useEffect, useState } from 'react'
-import { api } from '@/lib/api'
-import { useLocal } from '../store/useStore'
+import { useState } from 'react'
 
 import { MdArrowBack, MdArrowForward } from 'react-icons/md'
 import LideresItem from './LideresItem'
 
-export default function MinisterioLine({ data, setData }) {
-  const { local } = useLocal()
+export default function MinisterioLine({ data }) {
   const [offset, setOffset] = useState(0)
   const [isDisabledNext, setIsDisabledNext] = useState(false)
   const [isDisabledPrev, setIsDisabledPrev] = useState(true)
@@ -31,29 +28,8 @@ export default function MinisterioLine({ data, setData }) {
     setIsDisabledNext(false)
   }
 
-  useEffect(() => {
-    api
-      .get(`/ministerio/${local}?offset=${offset}`)
-      .then((response) => {
-        if (response.ministerioTotal.length > 0) {
-          setData((prevData) => [...prevData, ...response.data.ministerioTotal])
-        } else {
-          setIsDisabledNext(true)
-        }
-      })
-      .catch((err) => console.log(err))
-  }, [local, setData, offset])
+  const totalNews = data ? data.length : 0
 
-  useEffect(() => {
-    api
-      .get(`/ministerio/${local}`)
-      .then((response) => {
-        setData(response.data.ministerioTotal)
-      })
-      .catch((err) => console.log(err))
-  }, [local, setData])
-
-  const totalNews = data.length
   const totalPages = Math.ceil(totalNews / newsPerPage)
   const currentPage = Math.ceil((offset + newsPerPage) / newsPerPage)
   const displayCurrentPage = Math.min(currentPage, totalPages)

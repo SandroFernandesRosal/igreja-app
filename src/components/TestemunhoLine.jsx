@@ -11,10 +11,11 @@ import Link from 'next/link'
 import { useToken } from '@/hooks/useToken'
 import { MdArrowBack, MdArrowForward } from 'react-icons/md'
 import { api } from '@/lib/api'
+import { useDataTestemunho } from '@/store/useStore'
 
 export default function TestemunhoLine({ userIgreja }) {
   const [open, setOpen] = useState(false)
-  const [data, setData] = useState([])
+  const { dataTestemunho, setDataTestemunho } = useDataTestemunho()
   const [openEdit, setOpenEdit] = useState(null)
 
   const tokenIgreja = useTokenIgreja()
@@ -32,7 +33,7 @@ export default function TestemunhoLine({ userIgreja }) {
   }
 
   const loadNextPage = () => {
-    if (data.length < offset + newsPerPage) {
+    if (dataTestemunho.length < offset + newsPerPage) {
       setIsDisabledNext(true)
       return
     }
@@ -49,37 +50,24 @@ export default function TestemunhoLine({ userIgreja }) {
     setIsDisabledNext(false)
   }
 
-  const totalNews = data.length
+  const totalNews = dataTestemunho ? dataTestemunho.length : 0
   const totalPages = Math.ceil(totalNews / newsPerPage)
   const currentPage = Math.ceil((offset + newsPerPage) / newsPerPage)
   const displayCurrentPage = Math.min(currentPage, totalPages)
 
-  const newsToDisplay = data.slice(
+  const newsToDisplay = dataTestemunho.slice(
     (displayCurrentPage - 1) * newsPerPage,
     displayCurrentPage * newsPerPage,
   )
 
   useEffect(() => {
     api
-      .get(`/testemunhos?offset=${offset}`)
-      .then((response) => {
-        if (response.data.TestemunhoTotal.length > 0) {
-          setData((prevData) => [...prevData, ...response.data.testemunhoTotal])
-        } else {
-          setIsDisabledNext(true)
-        }
-      })
-      .catch((err) => console.log(err))
-  }, [offset, setData])
-
-  useEffect(() => {
-    api
       .get(`/testemunhos`)
       .then((response) => {
-        setData(response.data.testemunhoTotal)
+        setDataTestemunho(response.data.testemunhoTotal)
       })
       .catch((err) => console.log(err))
-  }, [])
+  }, [setDataTestemunho])
 
   return (
     <>
@@ -91,7 +79,7 @@ export default function TestemunhoLine({ userIgreja }) {
           <p className="mb-4 text-xl ">O agir de Deus em nossas vidas</p>
         </div>
 
-        {data && data.length < 1 && (
+        {dataTestemunho && dataTestemunho.length < 1 && (
           <div className="text-center">
             {' '}
             <p className="mb-3">NENHUM TESTEMUNHO CADASTRADO AINDA.</p>{' '}

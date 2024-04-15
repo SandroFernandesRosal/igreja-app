@@ -3,7 +3,7 @@ import TimeLineItem from './TimeLineItem'
 
 import { useEffect, useState } from 'react'
 import { api } from '@/lib/api'
-import { useLocal } from '../store/useStore'
+import { useLocal, useDataAgenda } from '../store/useStore'
 import SelectLocal from './SelectLocal'
 import AddAgenda from './crud/AddAgenda'
 
@@ -14,7 +14,7 @@ import AgendaLine from './AgendaLine'
 
 export default function TimeLine() {
   const { local } = useLocal()
-  const [data, setData] = useState([])
+  const { dataAgenda, setDataAgenda } = useDataAgenda()
   const [openNew, setOpenNew] = useState(false)
   const [loading, setLoading] = useState(true)
   const token = useToken()
@@ -22,23 +22,23 @@ export default function TimeLine() {
   useEffect(() => {
     const newsFromLocalStorage = localStorage.getItem('data')
     if (newsFromLocalStorage) {
-      setData(JSON.parse(newsFromLocalStorage))
+      setDataAgenda(JSON.parse(newsFromLocalStorage))
     }
-  }, [setData])
+  }, [setDataAgenda])
 
   useEffect(() => {
-    localStorage.setItem('data', JSON.stringify(data))
-  }, [data])
+    localStorage.setItem('data', JSON.stringify(dataAgenda))
+  }, [dataAgenda])
 
   useEffect(() => {
     api
       .get(`/agenda/${local}`)
       .then((response) => {
-        setData(response.data.agendaTotal)
+        setDataAgenda(response.data.agendaTotal)
         setLoading(false)
       })
       .catch((err) => console.log(err))
-  }, [local, setData])
+  }, [local, setDataAgenda])
 
   return (
     <div className=" mb-5 flex w-[100vw] flex-col items-center rounded-[35px] bg-bglightsecundary  shadow-light dark:bg-bgdarksecundary dark:shadow-dark md:w-[90vw] md:rounded-xl ">
@@ -78,17 +78,18 @@ export default function TimeLine() {
 
       <div
         className={`relative -top-[30px] flex w-full flex-wrap justify-center  gap-x-5 overflow-hidden   ${
-          data &&
-          data.length > 0 &&
-          'border-b-[1px] border-dashed border-gray-700 '
+          dataAgenda &&
+          dataAgenda.length > 0 &&
+          'border-b-[1px] border-solid border-gray-700/30 '
         }   px-5 pb-5 pt-10   md:overflow-visible`}
       >
         {!loading ? (
-          data && data.filter((item) => item.destaque === true).length < 1 ? (
+          dataAgenda &&
+          dataAgenda.filter((item) => item.destaque === true).length < 1 ? (
             <p>Nenhum evento destacado.</p>
           ) : (
-            data &&
-            data
+            dataAgenda &&
+            dataAgenda
               .filter((item) => item.destaque === true)
               .slice(0, 4)
               .map((item) => {
@@ -111,8 +112,8 @@ export default function TimeLine() {
 
       <AgendaLine
         loading={loading}
-        data={data}
-        setData={setData}
+        data={dataAgenda}
+        setData={setDataAgenda}
         token={token}
       />
     </div>

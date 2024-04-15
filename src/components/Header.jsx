@@ -45,8 +45,6 @@ export default function Header({ children }) {
             <Image
               src={logo}
               alt="logo do site"
-              width={200}
-              height={50}
               className="h-[50px] w-[200px]"
             />
           </Link>
