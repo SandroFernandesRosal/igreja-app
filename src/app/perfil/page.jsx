@@ -14,7 +14,7 @@ export default async function Perfil() {
           <>
             {' '}
             <div className="flex flex-col items-center  md:min-w-[35%]">
-              <h1 className="m-0 text-lg font-bold text-primary ">
+              <h1 className="m-0 text-lg font-bold text-primary dark:text-secundary ">
                 Meu perfil
               </h1>
               <p className="mb-4 text-xl ">Verifique seus dados</p>
@@ -25,7 +25,7 @@ export default async function Perfil() {
                 width={200}
                 height={200}
                 alt=""
-                className="mt-1 rounded-full  bg-gradient-to-r from-slate-950 to-blue-900 p-[4px] hover:from-blue-900 hover:to-slate-900"
+                className="mt-1 h-[200px] w-[200px] rounded-full  bg-gradient-to-r from-slate-950 to-blue-900 p-[4px] hover:from-blue-900 hover:to-slate-900"
               />
               <h1 className="text-lg font-bold">{name}</h1>
               <p>{login}</p>
@@ -33,7 +33,7 @@ export default async function Perfil() {
               <div className="flex w-full justify-between gap-2">
                 <Link
                   href={'/perfil/editar'}
-                  className="flex items-center rounded-lg bg-gradient-to-r  from-slate-950 to-blue-900 px-2  text-lg font-bold text-white   hover:from-blue-900 hover:to-slate-900"
+                  className="m-2 flex items-center rounded-lg bg-gradient-to-r from-slate-950 to-blue-900 px-2 text-lg font-bold  text-white shadow-light hover:from-blue-900   hover:to-slate-900 dark:shadow-dark"
                 >
                   Editar perfil
                 </Link>
