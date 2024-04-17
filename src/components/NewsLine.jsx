@@ -135,7 +135,7 @@ export default function NewsLine({ loading }) {
           )}
         </div>
 
-        {!loading && (
+        {!loading && newsToDisplay.length > 0 && (
           <>
             {' '}
             <div className="flex">

@@ -110,7 +110,7 @@ export default function AgendaLine({ data, token, loading }) {
           )}
         </div>
 
-        {!loading && (
+        {!loading && newsToDisplay.length > 0 && (
           <>
             {' '}
             <div className="flex">
