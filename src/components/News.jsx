@@ -52,10 +52,22 @@ export default function News() {
 
   return (
     <section className="mx-1 my-5 flex w-[100vw] flex-col items-center justify-center rounded-[35px] border-l-[1px] border-solid  border-gray-700/30 bg-bglightsecundary  px-4 shadow-light dark:bg-bgdarksecundary dark:shadow-dark md:w-[90vw] md:self-center  md:rounded-xl  lg:flex-1 lg:rounded-none lg:bg-transparent lg:shadow-none dark:lg:bg-transparent dark:lg:shadow-none ">
-      <h1 className="mb-4  hidden gap-2 self-start text-xl font-bold lg:flex ">
-        <span className="ml-5 flex  border-b-2 border-secundary">Notícias</span>{' '}
-        <p>em destaque</p>
-      </h1>
+      {search ? (
+        <h1 className="mb-4  hidden gap-2 self-start text-xl font-bold lg:flex ">
+          <span className="ml-5 flex  border-b-2 border-secundary">
+            Resultado
+          </span>{' '}
+          <p>da busca:</p>
+        </h1>
+      ) : (
+        <h1 className="mb-4  hidden gap-2 self-start text-xl font-bold lg:flex ">
+          <span className="ml-5 flex  border-b-2 border-secundary">
+            Notícias
+          </span>{' '}
+          <p>em destaque</p>
+        </h1>
+      )}
+
       <div className="flex flex-col items-center md:min-w-[35%]  lg:hidden">
         <h1 className="m-0 text-lg font-bold text-primary dark:text-secundary lg:hidden ">
           Notícias
@@ -89,10 +101,21 @@ export default function News() {
 
       {search ? <ResultLength search={search} dataSearch={dataSearch} /> : null}
 
-      <h1 className="mb-4 flex gap-2 self-start text-xl font-bold lg:hidden ">
-        <span className="ml-5 flex  border-b-2 border-secundary">Notícias</span>{' '}
-        <p>em destaque</p>
-      </h1>
+      {search ? (
+        <h1 className="mb-4 flex  gap-2 self-start text-xl font-bold lg:hidden ">
+          <span className="ml-5 flex  border-b-2 border-secundary">
+            Resultado
+          </span>{' '}
+          <p>da busca:</p>
+        </h1>
+      ) : (
+        <h1 className="mb-4 flex gap-2 self-start text-xl font-bold  lg:hidden ">
+          <span className="ml-5 flex  border-b-2 border-secundary">
+            Notícias
+          </span>{' '}
+          <p>em destaque</p>
+        </h1>
+      )}
       <div
         className={`relative -top-[30px] flex w-full flex-wrap justify-center gap-x-5  p-1 px-2  pb-5 pt-10 md:gap-x-5 ${
           data &&
