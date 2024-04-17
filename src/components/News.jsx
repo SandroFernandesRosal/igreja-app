@@ -51,7 +51,7 @@ export default function News() {
   }, [local, setData, setLoading])
 
   return (
-    <section className="mx-1 my-5 flex w-[100vw] flex-col items-center justify-center rounded-[35px] border-l-[1px] border-solid  border-gray-700/30 bg-bglightsecundary  px-4 shadow-light dark:bg-bgdarksecundary dark:shadow-dark md:w-[90vw] md:self-center  md:rounded-xl  lg:flex-1 lg:rounded-none lg:bg-transparent lg:shadow-none dark:lg:bg-transparent dark:lg:shadow-none ">
+    <section className="mx-1 my-5 flex w-[100vw] flex-col items-center justify-center rounded-[35px] border-l-[1px]  border-solid border-gray-700/30 bg-bglightsecundary  shadow-light dark:bg-bgdarksecundary dark:shadow-dark md:w-[90vw] md:self-center  md:rounded-xl  lg:flex-1 lg:rounded-none lg:bg-transparent lg:shadow-none dark:lg:bg-transparent dark:lg:shadow-none ">
       {search ? (
         <h1 className="mb-4  hidden gap-2 self-start text-xl font-bold lg:flex ">
           <span className="ml-5 flex  border-b-2 border-secundary">
