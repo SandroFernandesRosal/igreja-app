@@ -23,7 +23,7 @@ export default async function UserComponentIgreja() {
               alt="imagem de perfil"
               width={40}
               height={40}
-              className="h-[40px] w-[40px] rounded-full bg-gradient-to-r  from-slate-950 to-blue-900 p-[2px] hover:from-blue-900 hover:to-slate-900 "
+              className="m-2 h-[40px] w-[40px] rounded-full bg-gradient-to-r from-slate-950 to-blue-900  p-[2px] shadow-light hover:from-blue-900 hover:to-slate-900 dark:shadow-dark "
             />
             <p className="text-lg font-bold">{name} </p>
           </div>
