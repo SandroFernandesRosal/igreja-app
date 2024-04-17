@@ -113,7 +113,7 @@ export default function NewsLine({ loading }) {
                     {openSettings &&
                       selectedItem &&
                       selectedItem.id === item.id && (
-                        <div className="absolute flex w-[100%] items-center rounded-lg   pl-8 backdrop-blur-3xl md:w-[40%]">
+                        <div className="absolute flex w-[100%] items-center rounded-lg   pl-8 backdrop-blur-3xl md:w-[85%] lg:w-[40%]">
                           <button
                             className="m-[5px] rounded-lg bg-gradient-to-r from-slate-950 to-blue-900  px-2 text-white  shadow-light hover:from-blue-900 hover:to-slate-900 dark:shadow-dark md:px-3 md:text-lg  md:font-bold"
                             onClick={() => {
