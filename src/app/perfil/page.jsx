@@ -25,7 +25,7 @@ export default async function Perfil() {
                 width={200}
                 height={200}
                 alt=""
-                className="mt-1 h-[200px] w-[200px] rounded-full  bg-gradient-to-r from-slate-950 to-blue-900 p-[4px] hover:from-blue-900 hover:to-slate-900"
+                className="mt-1 h-[200px] w-[200px] rounded-full bg-gradient-to-r from-slate-950  to-blue-900 p-[4px] shadow-light hover:from-blue-900 hover:to-slate-900 dark:shadow-dark"
               />
               <h1 className="text-lg font-bold">{name}</h1>
               <p>{login}</p>
