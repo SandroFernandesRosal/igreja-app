@@ -9,7 +9,7 @@ export default function Logout() {
     Cookies.remove('tokennn')
     router.push('/login/adm')
 
-    window.location.href = '/login'
+    window.location.href = '/login/adm'
   }
   return (
     <button
