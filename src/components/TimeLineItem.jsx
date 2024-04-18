@@ -3,7 +3,7 @@ import EditAgenda from './crud/EditAgenda'
 import { useState } from 'react'
 import RemoveAgenda from './crud/RemoveAgenda'
 
-export default function TimeLineItem({ title, hora, day, id }) {
+export default function TimeLineItem({ title, hora, day, id, destacar }) {
   const [openEdit, setOpenEdit] = useState(false)
   const token = Cookies.get('tokennn')
   return (
@@ -50,6 +50,7 @@ export default function TimeLineItem({ title, hora, day, id }) {
           hora={hora}
           dia={day}
           setOpenEdit={setOpenEdit}
+          destacar={destacar}
         />
       )}
     </>

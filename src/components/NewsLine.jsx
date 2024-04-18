@@ -108,7 +108,7 @@ export default function NewsLine({ loading }) {
                       <p className="font bold w-[78px]  rounded-lg bg-gradient-to-r from-slate-950 to-blue-900 text-center text-white md:px-2 md:text-xl">
                         {formatDate(item.createdAt)}
                       </p>
-                      <h1 className="font-bold">{item.title}</h1>
+                      <h1 className="pl-2 font-bold">{item.title}</h1>
                     </Link>
                     {openSettings &&
                       selectedItem &&

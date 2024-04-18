@@ -19,9 +19,11 @@ export default function New({ url, title, id, description, page }) {
       </Link>
       <div className=" flex flex-1 flex-col items-center justify-between p-1">
         <Link href={`/noticias/${page}/${id}`}>
-          <p className="font-bold text-primary dark:text-secundary">{title}</p>
+          <p className="text-center font-bold text-primary dark:text-secundary">
+            {title}
+          </p>
         </Link>
-        <p>{description}...</p>
+        <p className="text-center">{description}...</p>
 
         <Link
           href={`/noticias/${page}/${id}`}

@@ -155,7 +155,7 @@ export default function News() {
                       title={item.title}
                       id={item.id}
                       setSearch={setSearch}
-                      description={item.content}
+                      description={item.content.slice(0, 40)}
                       page={item.page}
                       data={data}
                       setLocal={setLocal}

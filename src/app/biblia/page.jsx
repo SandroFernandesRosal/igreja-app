@@ -45,7 +45,7 @@ export default function Biblia() {
     <main className="flex min-h-screen flex-col items-center gap-5 pt-24 md:pt-[165px]">
       <div>
         <div className="flex flex-col content-center items-center justify-center self-center">
-          <div className="mx-5 flex gap-3 text-primary">
+          <div className="mx-5 flex gap-3 text-primary dark:text-secundary">
             {loading ? (
               <p>Carregando livros...</p>
             ) : (
@@ -86,7 +86,7 @@ export default function Biblia() {
           </div>
 
           <ul className="mb-10 mt-5 flex min-h-screen w-[100vw] flex-col gap-2 rounded-[35px] bg-bglightsecundary px-10 pb-10 pt-5 shadow-light dark:bg-bgdarksecundary dark:shadow-dark md:mx-5 md:w-[90vw] md:rounded-xl">
-            <div className="flex w-full justify-center gap-5 text-primary">
+            <div className="flex w-full justify-center gap-5 text-primary dark:text-secundary">
               {loading ? <p>Carregando livro...</p> : <p>{data.book.name}</p>}|
               {loading ? (
                 <p>Carregando capítulo...</p>

@@ -43,7 +43,9 @@ export default function EditAgenda({
         },
       )
 
-      const agenda = response.data.agendaTotal
+      console.log(response.data) // Verificar a resposta da API
+
+      const agenda = response.data
 
       if (response.status === 200 && agenda) {
         setOpenEdit(false)

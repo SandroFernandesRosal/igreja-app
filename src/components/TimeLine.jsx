@@ -20,14 +20,14 @@ export default function TimeLine() {
   const token = useToken()
 
   useEffect(() => {
-    const newsFromLocalStorage = localStorage.getItem('data')
+    const newsFromLocalStorage = localStorage.getItem('dataAgenda')
     if (newsFromLocalStorage) {
       setDataAgenda(JSON.parse(newsFromLocalStorage))
     }
   }, [setDataAgenda])
 
   useEffect(() => {
-    localStorage.setItem('data', JSON.stringify(dataAgenda))
+    localStorage.setItem('dataAgenda', JSON.stringify(dataAgenda))
   }, [dataAgenda])
 
   useEffect(() => {
@@ -101,6 +101,7 @@ export default function TimeLine() {
                     hora={item.hour}
                     trueitem={item.isPublic}
                     id={item.id}
+                    destacar={item.destaque}
                   />
                 )
               })
