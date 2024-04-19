@@ -54,7 +54,6 @@ export default function AddDoacao({ openDoacao, setOpenDoacao }) {
       console.log(doacao)
     } catch (error) {
       console.error('Erro ao criar doação:', error)
-      // Tratar erros de requisição aqui
     }
 
     return null

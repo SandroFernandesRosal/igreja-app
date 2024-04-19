@@ -52,7 +52,6 @@ export default function EditEndereco({
       console.log(endereco)
     } catch (error) {
       console.error('Erro ao editar evento:', error)
-      // Tratar erros de requisição aqui
     }
 
     return null

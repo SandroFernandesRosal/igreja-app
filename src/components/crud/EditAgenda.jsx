@@ -43,8 +43,7 @@ export default function EditAgenda({
         },
       )
 
-      console.log(response.data) // Verificar a resposta da API
-
+      console.log(response.data)
       const agenda = response.data
 
       if (response.status === 200 && agenda) {
@@ -57,7 +56,6 @@ export default function EditAgenda({
       console.log(agenda)
     } catch (error) {
       console.error('Erro ao editar evento:', error)
-      // Tratar erros de requisição aqui
     }
 
     return null

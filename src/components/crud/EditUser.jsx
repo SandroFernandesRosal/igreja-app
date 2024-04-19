@@ -75,7 +75,6 @@ export default function EditUser({ id, nome, email, img }) {
       return null
     } catch (error) {
       console.error('Erro ao editar', error)
-      // Tratar outros erros de requisição aqui
     }
   }
 

@@ -35,13 +35,12 @@ export default function AddSobreContent({ open, setOpen }) {
       formData.append('file', fileToUpload)
 
       try {
-        const uploadResponse = await api.post('/upload', formData, {
-          headers: { 'Content-Type': 'multipart/form-data' }, // Definir cabeçalho apropriado para uploads de arquivos
+        const uploadResponse = await api.post('/upload/sobre', formData, {
+          headers: { 'Content-Type': 'multipart/form-data' },
         })
         coverUrl = uploadResponse.data.fileUrl
       } catch (error) {
         console.error('Erro ao carregar arquivo:', error)
-        // Tratar erros de upload aqui
       }
     }
 
@@ -74,7 +73,6 @@ export default function AddSobreContent({ open, setOpen }) {
       return null
     } catch (error) {
       console.error('Erro ao criar notícia:', error)
-      // Tratar outros erros de requisição aqui
     }
   }
 
@@ -96,7 +94,7 @@ export default function AddSobreContent({ open, setOpen }) {
       className="fixed left-0 top-0 z-20 flex h-[100vh] w-[100vw] flex-col items-center justify-center bg-black/50 backdrop-blur-lg"
       onSubmit={handleSubmit}
     >
-      <h1 className="mb-2 flex items-center justify-center gap-3 text-lg font-bold text-primary">
+      <h1 className="mb-2 flex items-center justify-center gap-3 text-lg font-bold text-primary dark:text-secundary">
         Adicionar história{' '}
         {open === true && (
           <AiFillCloseCircle
@@ -111,7 +109,8 @@ export default function AddSobreContent({ open, setOpen }) {
         className="mb-3 flex cursor-pointer items-center gap-2  font-bold"
       >
         {' '}
-        <FaCameraRetro className="text-xl text-primary" /> Anexar foto (até 5mb)
+        <FaCameraRetro className="text-xl text-primary dark:text-secundary" />{' '}
+        Anexar foto (até 50mb)
       </label>
       {preview && (
         <img src={preview} alt="" className=" aspect-video w-[200px]" />
@@ -147,7 +146,7 @@ export default function AddSobreContent({ open, setOpen }) {
 
       <button
         type="submit"
-        className="z-20 my-3 flex w-[100px] cursor-pointer items-center justify-center rounded-lg  bg-gradient-to-r from-slate-950 to-blue-900  font-bold text-white  hover:from-blue-900 hover:to-slate-900"
+        className="z-20 my-3 flex w-[100px] cursor-pointer items-center justify-center rounded-lg bg-gradient-to-r from-slate-950  to-blue-900 font-bold text-white  shadow-light hover:from-blue-900  hover:to-slate-900 dark:shadow-dark"
       >
         Enviar
       </button>

@@ -46,7 +46,6 @@ export default function AddEndereco({ openEndereco, setOpenEndereco }) {
       console.log(endereco)
     } catch (error) {
       console.error('Erro ao criar endereço:', error)
-      // Tratar erros de requisição aqui
     }
 
     return null

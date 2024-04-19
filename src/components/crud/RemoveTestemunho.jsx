@@ -28,14 +28,12 @@ export default function RemoveTestemunho({ id }) {
 
       if (response.status === 200) {
         router.push('/testemunhos')
-        window.location.href = '/testemunhos' // Recarregue a página ou atualize a interface
+        window.location.href = '/testemunhos'
       } else {
         console.error('Erro ao remover testemunho:', response.statusText)
-        // Exiba uma mensagem de erro ao usuário
       }
     } catch (error) {
       console.error('Erro ao remover testemunho:', error)
-      // Exiba uma mensagem de erro ao usuário
     } finally {
       setIsDeleting(false)
     }

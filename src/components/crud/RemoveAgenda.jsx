@@ -28,14 +28,12 @@ export default function RemoveAgenda({ id }) {
 
       if (response.status === 200) {
         router.push('/')
-        window.location.href = '/' // Recarregue a página ou atualize a interface
+        window.location.href = '/'
       } else {
         console.error('Erro ao remover da agenda:', response.statusText)
-        // Exiba uma mensagem de erro ao usuário
       }
     } catch (error) {
       console.error('Erro ao remover da agenda:', error)
-      // Exiba uma mensagem de erro ao usuário
     } finally {
       setIsDeleting(false)
     }

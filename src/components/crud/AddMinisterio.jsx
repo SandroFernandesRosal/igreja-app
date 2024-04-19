@@ -41,7 +41,7 @@ export default function AddLider({ openMinisterio, setOpenMinisterio }) {
         coverUrl = uploadResponse.data.fileUrl
       } catch (error) {
         console.error('Error uploading file:', error)
-        // Handle the error appropriately, e.g., display an error message to the user
+
         return
       }
     }
@@ -75,7 +75,6 @@ export default function AddLider({ openMinisterio, setOpenMinisterio }) {
       return null
     } catch (error) {
       console.error('Error during API request:', error)
-      // Handle the error appropriately, e.g., display an error message to the user
     }
   }
 

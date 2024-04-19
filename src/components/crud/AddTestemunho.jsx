@@ -32,12 +32,11 @@ export default function AddTestemunho({ setOpen, userIgreja }) {
 
       try {
         const uploadResponse = await api.post('/upload', formData, {
-          headers: { 'Content-Type': 'multipart/form-data' }, // Definir cabeçalho apropriado para uploads de arquivos
+          headers: { 'Content-Type': 'multipart/form-data' },
         })
         coverUrl = uploadResponse.data.fileUrl
       } catch (error) {
         console.error('Erro ao carregar arquivo:', error)
-        // Tratar erros de upload aqui
       }
     }
 

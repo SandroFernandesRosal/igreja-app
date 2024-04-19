@@ -48,7 +48,6 @@ export default function AddContatos({ openContato, setOpenContato }) {
       console.log(contato)
     } catch (error) {
       console.error('Erro ao criar contato:', error)
-      // Tratar erros de requisição aqui
     }
 
     return null

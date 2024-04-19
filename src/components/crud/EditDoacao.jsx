@@ -64,7 +64,6 @@ export default function EditDoacao({
       console.log(doacao)
     } catch (error) {
       console.error('Erro ao editar doação:', error)
-      // Tratar erros de requisição aqui
     }
 
     return null

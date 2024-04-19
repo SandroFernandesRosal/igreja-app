@@ -25,14 +25,12 @@ export default function RemoveSobreContent({ id }) {
 
       if (response.status === 200) {
         router.push('/quemsomos')
-        window.location.href = '/quemsomos' // Recarregue a página ou atualize a interface
+        window.location.href = '/quemsomos'
       } else {
         console.error('Erro ao remover história:', response.statusText)
-        // Exiba uma mensagem de erro ao usuário
       }
     } catch (error) {
       console.error('Erro ao remover história:', error)
-      // Exiba uma mensagem de erro ao usuário
     } finally {
       setIsDeleting(false)
     }

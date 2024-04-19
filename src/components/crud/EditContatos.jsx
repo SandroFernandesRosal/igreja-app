@@ -55,7 +55,6 @@ export default function EditContatos({
       console.log(contato)
     } catch (error) {
       console.error('Erro ao editar contato:', error)
-      // Tratar erros de requisição aqui
     }
 
     return null

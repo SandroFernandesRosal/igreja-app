@@ -37,12 +37,11 @@ export default function AddNew({ openNew, setOpenNew }) {
 
       try {
         const uploadResponse = await api.post('/upload', formData, {
-          headers: { 'Content-Type': 'multipart/form-data' }, // Definir cabeçalho apropriado para uploads de arquivos
+          headers: { 'Content-Type': 'multipart/form-data' },
         })
         coverUrl = uploadResponse.data.fileUrl
       } catch (error) {
         console.error('Erro ao carregar arquivo:', error)
-        // Tratar erros de upload aqui
       }
     }
 
@@ -77,7 +76,6 @@ export default function AddNew({ openNew, setOpenNew }) {
       return null
     } catch (error) {
       console.error('Erro ao criar notícia:', error)
-      // Tratar outros erros de requisição aqui
     }
   }
 

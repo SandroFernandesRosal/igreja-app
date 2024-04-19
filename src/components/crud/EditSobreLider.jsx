@@ -34,8 +34,8 @@ export default function EditSobreLider({ setOpenEdit, id, nome, titulo, img }) {
         coverUrl = uploadResponse.data.fileUrl
       } catch (error) {
         console.error('Erro ao enviar imagem:', error)
-        // Exibir mensagem de erro ao usuário
-        return // Impedir envio dos dados caso o upload falhe
+
+        return
       }
     } else {
       coverUrl = img
@@ -66,7 +66,6 @@ export default function EditSobreLider({ setOpenEdit, id, nome, titulo, img }) {
       console.error('Erro ao editar um líder:', response.statusText)
     } catch (error) {
       console.error('Erro ao editar um líder:', error)
-      // Exibir mensagem de erro ao usuário
     }
 
     return null

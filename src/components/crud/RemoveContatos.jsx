@@ -27,14 +27,12 @@ export default function RemoveContatos({ id }) {
 
       if (response.status === 200) {
         router.push('/')
-        window.location.href = '/' // Recarregue a página ou atualize a interface
+        window.location.href = '/'
       } else {
         console.error('Erro ao remover contato:', response.statusText)
-        // Exiba uma mensagem de erro ao usuário
       }
     } catch (error) {
       console.error('Erro ao remover contato:', error)
-      // Exiba uma mensagem de erro ao usuário
     } finally {
       setIsDeleting(false)
     }

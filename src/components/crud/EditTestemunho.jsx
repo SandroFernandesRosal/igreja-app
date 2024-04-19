@@ -79,7 +79,6 @@ export default function EditTestemunho({
       return null
     } catch (error) {
       console.error('Erro ao criar testemunho:', error)
-      // Tratar outros erros de requisição aqui
     }
   }
 
