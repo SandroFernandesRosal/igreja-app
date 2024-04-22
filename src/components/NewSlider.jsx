@@ -77,6 +77,7 @@ export default function NewSlider() {
                         >
                           <Image
                             src={item.coverUrl}
+                            priority
                             width={800}
                             height={500}
                             className=" h-full rounded-[35px] object-fill md:rounded-xl"

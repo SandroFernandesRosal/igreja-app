@@ -90,6 +90,7 @@ export default function NoticiaCaxias({ params }) {
               alt={selectedItem.title}
               width={500}
               height={500}
+              prioriry
               className="w-[100vw] max-w-[500px] pt-2"
             />
 

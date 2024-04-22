@@ -44,6 +44,9 @@ export default function Header({ children }) {
           <Link href="/" onClick={() => handleClick('/')}>
             <Image
               src={logo}
+              height={50}
+              width={200}
+              priority
               alt="logo do site"
               className="h-[50px] w-[200px]"
             />
