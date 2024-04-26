@@ -46,15 +46,13 @@ export default async function PerfilAdm() {
             <h1 className="mb-4 text-lg font-bold text-secundary">
               Você não está logado como administrador
             </h1>
-            <div className="flex w-full flex-wrap items-end justify-center gap-1 font-bold">
-              Faça
-              <Link
-                href={'/login/adm'}
-                className="cursor-pointer items-center  rounded-lg bg-gradient-to-r from-slate-950 to-blue-900 px-2  font-bold text-white  hover:from-blue-900 hover:to-slate-900"
-              >
-                login
-              </Link>
-            </div>
+
+            <Link
+              href={'/login/adm'}
+              className="z-20  m-1 mr-2 mt-3 flex cursor-pointer items-center  justify-center rounded-lg bg-gradient-to-r from-slate-950 to-blue-900 px-6  font-bold text-white shadow-light hover:from-blue-900 hover:to-slate-900 dark:shadow-dark"
+            >
+              login
+            </Link>
           </>
         )}
       </div>

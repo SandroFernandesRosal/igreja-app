@@ -128,8 +128,8 @@ export default function AddTestemunho({ setOpen, userIgreja }) {
             htmlFor="coverUrl"
             className=" flex cursor-pointer items-center gap-2  font-bold"
           >
-            <FaCameraRetro className="text-xl text-primary" /> Anexar foto
-            (Opcional)
+            <FaCameraRetro className="text-xl text-primary dark:text-secundary" />{' '}
+            Anexar foto (Opcional)
           </label>
           <button
             type="submit"

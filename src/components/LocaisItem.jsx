@@ -1,6 +1,6 @@
 'use client'
 import Image from 'next/image'
-import maps from '../../public/img/mapvp3.jpg'
+import maps from '../../public/img/map.png'
 import EditEndereco from './crud/EditEndereco'
 import RemoveEndereco from './crud/RemoveEndereco'
 import Cookies from 'js-cookie'
@@ -20,6 +20,13 @@ export default function LocaisItem({ local, rua, cep, id }) {
           <p>CEP: {cep}</p>
         </div>
 
+        <Image
+          src={maps}
+          alt="mapa"
+          width={350}
+          height={100}
+          className={`${token ? 'flex-1' : 'flex-2'}  w-full`}
+        />
         {token && (
           <div className="mb-2 flex w-full justify-around text-white">
             {openEdit === false && (
@@ -33,14 +40,6 @@ export default function LocaisItem({ local, rua, cep, id }) {
             <RemoveEndereco id={id} />
           </div>
         )}
-
-        <Image
-          src={maps}
-          alt="..."
-          width={350}
-          height={100}
-          className="w-full  flex-1"
-        />
       </div>
 
       {openEdit && (

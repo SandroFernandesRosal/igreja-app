@@ -99,7 +99,7 @@ export default function EditNew({
       className="fixed left-0 top-0 z-30 mt-10 flex h-[100vh] w-[100vw] flex-col items-center justify-center bg-black/50 backdrop-blur-lg md:mt-20"
       onSubmit={handleSubmit}
     >
-      <h1 className="z-20 mb-2 flex items-center justify-center gap-3 text-lg font-bold  text-secundary">
+      <h1 className="z-20 mb-2 flex items-center justify-center gap-3 text-lg font-bold  text-primary dark:text-secundary">
         Editar Notícia{' '}
         <AiFillCloseCircle
           onClick={() => setOpenEdit(false)}
@@ -113,8 +113,8 @@ export default function EditNew({
       >
         <p className="flex items-center gap-3 text-white">
           {' '}
-          <FaCameraRetro className="text-xl text-secundary" /> Anexar nava
-          imagem (até 5mb){' '}
+          <FaCameraRetro className="text-xl text-primary dark:text-secundary" />{' '}
+          Anexar nava imagem (até 5mb){' '}
         </p>
 
         {preview ? (
@@ -178,7 +178,7 @@ export default function EditNew({
         />
         <label
           htmlFor="destaque"
-          className="font-bold text-gray-700 dark:text-gray-400"
+          className="font-bold text-black dark:text-white"
         >
           Marcar como destaque
         </label>
@@ -186,7 +186,7 @@ export default function EditNew({
 
       <button
         type="submit"
-        className="z-20 my-3 flex w-[100px] cursor-pointer items-center justify-center rounded-lg  bg-gradient-to-r from-slate-950 to-blue-900  font-bold text-white  hover:from-blue-900 hover:to-slate-900"
+        className="z-20  m-1 mr-2 flex cursor-pointer items-center justify-center  rounded-lg bg-gradient-to-r from-slate-950 to-blue-900 px-6 font-bold  text-white shadow-light hover:from-blue-900 hover:to-slate-900 dark:shadow-dark"
       >
         Enviar
       </button>

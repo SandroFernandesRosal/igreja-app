@@ -98,7 +98,7 @@ export default function EditMinisterio({
       className="fixed left-0 top-0 z-30 mt-10 flex h-[100vh] w-[100vw] flex-col items-center justify-center bg-black/50 backdrop-blur-lg md:mt-20"
       onSubmit={handleSubmit}
     >
-      <h1 className="z-20 mb-2 flex items-center justify-center gap-3 text-lg font-bold text-primary">
+      <h1 className="z-20 mb-2 flex items-center justify-center gap-3 text-lg font-bold text-primary dark:text-secundary">
         Editar Líder{' '}
         <AiFillCloseCircle
           onClick={() => setOpenEdit(false)}
@@ -113,8 +113,8 @@ export default function EditMinisterio({
         {' '}
         <p className="flex items-center gap-3">
           {' '}
-          <FaCameraRetro className="text-xl text-primary" /> Anexar nova foto
-          (até 5mb){' '}
+          <FaCameraRetro className="text-xl text-primary dark:text-secundary" />{' '}
+          Anexar nova foto (até 5mb){' '}
         </p>
         {preview ? (
           <Image
@@ -176,7 +176,7 @@ export default function EditMinisterio({
 
       <button
         type="submit"
-        className="z-20 my-3 flex w-[100px] cursor-pointer items-center justify-center rounded-lg  bg-gradient-to-r from-slate-950 to-blue-900  font-bold text-white  hover:from-blue-900 hover:to-slate-900"
+        className="z-20  m-1 mr-2 flex cursor-pointer items-center justify-center  rounded-lg bg-gradient-to-r from-slate-950 to-blue-900 px-6 font-bold  text-white shadow-light hover:from-blue-900 hover:to-slate-900 dark:shadow-dark"
       >
         Enviar
       </button>

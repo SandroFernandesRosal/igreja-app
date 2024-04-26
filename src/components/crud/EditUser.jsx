@@ -91,7 +91,7 @@ export default function EditUser({ id, nome, email, img }) {
       {token ? (
         <div className="mt-[80px] flex w-full  justify-center md:mt-[140px]">
           <div className="my-10 flex min-h-screen w-[100vw] flex-col items-center rounded-[35px] bg-bglightsecundary shadow-light dark:bg-bgdarksecundary dark:shadow-dark  md:w-[90vw] md:rounded-xl">
-            <h1 className="mt-2 text-lg font-bold text-primary ">
+            <h1 className="mt-2 text-lg font-bold text-primary dark:text-secundary">
               Editar perfil
             </h1>
             <p className="mb-5 text-xl">Faça alterações nos campos abaixo</p>
@@ -105,8 +105,8 @@ export default function EditUser({ id, nome, email, img }) {
                 className=" flex cursor-pointer flex-col items-center gap-2  font-bold"
               >
                 <p className="flex gap-2">
-                  <FaCameraRetro className="text-xl text-primary" /> Anexar foto
-                  de perfil (opcional)
+                  <FaCameraRetro className="text-xl text-primary dark:text-secundary" />{' '}
+                  Anexar foto de perfil (opcional)
                 </p>
                 {preview ? (
                   <Image
@@ -114,7 +114,7 @@ export default function EditUser({ id, nome, email, img }) {
                     alt=""
                     width={150}
                     height={150}
-                    className=" h-[150px] w-[150px] rounded-full  bg-gradient-to-r  from-slate-950 to-blue-900 p-[4px] hover:from-blue-900 hover:to-slate-900 "
+                    className="m-2 h-[150px] w-[150px] rounded-full  bg-gradient-to-r  from-slate-950 to-blue-900 p-[4px] shadow-light hover:from-blue-900 hover:to-slate-900 dark:shadow-dark"
                   />
                 ) : (
                   <Image
@@ -122,7 +122,7 @@ export default function EditUser({ id, nome, email, img }) {
                     alt=""
                     width={150}
                     height={150}
-                    className=" h-[150px] w-[150px] rounded-full  bg-gradient-to-r  from-slate-950 to-blue-900 p-[4px] hover:from-blue-900 hover:to-slate-900 "
+                    className="m-2 h-[150px] w-[150px] rounded-full  bg-gradient-to-r  from-slate-950 to-blue-900 p-[4px] shadow-light hover:from-blue-900 hover:to-slate-900 dark:shadow-dark"
                   />
                 )}
               </label>
@@ -168,7 +168,7 @@ export default function EditUser({ id, nome, email, img }) {
 
               <button
                 type="submit"
-                className="z-20 my-3 flex w-[200px] cursor-pointer items-center justify-center rounded-lg  bg-gradient-to-r from-slate-950 to-blue-900  font-bold text-white  hover:from-blue-900 hover:to-slate-900"
+                className="z-20  m-1 mr-2 flex cursor-pointer items-center justify-center  rounded-lg bg-gradient-to-r from-slate-950 to-blue-900 px-6 font-bold  text-white shadow-light hover:from-blue-900 hover:to-slate-900 dark:shadow-dark"
               >
                 Editar
               </button>
@@ -179,7 +179,7 @@ export default function EditUser({ id, nome, email, img }) {
         <main className="mb-2 mt-4 flex min-h-screen flex-col items-center gap-5 pt-24 md:mt-0 md:pt-[165px]">
           <div className="mb-4 flex  min-h-screen w-[100vw] flex-col flex-wrap items-center   gap-1 rounded-[35px] bg-bglightsecundary  px-1  pb-4 shadow-light dark:bg-bgdarksecundary  dark:shadow-dark md:w-[90vw] md:rounded-xl ">
             <div className="flex flex-col items-center  md:min-w-[35%]">
-              <h1 className="m-0 text-lg font-bold text-primary ">
+              <h1 className="m-0 text-lg font-bold text-primary dark:text-secundary">
                 Você não está logado
               </h1>
               <p className="mb-4 text-xl ">Faça login ou registre-se</p>

@@ -97,7 +97,7 @@ export default function AddNew({ openNew, setOpenNew }) {
       className="fixed left-0 top-0  z-30 flex h-[100vh] w-[100vw] flex-col items-center justify-center bg-black/50 backdrop-blur-lg"
       onSubmit={handleSubmit}
     >
-      <h1 className="mb-2 flex items-center justify-center gap-3 text-lg font-bold text-primary">
+      <h1 className="mb-2 flex items-center justify-center gap-3 text-lg font-bold text-primary dark:text-secundary">
         Adicionar Notícia{' '}
         {openNew === true && (
           <AiFillCloseCircle
@@ -112,7 +112,8 @@ export default function AddNew({ openNew, setOpenNew }) {
         className="mb-3 flex cursor-pointer items-center gap-2  font-bold"
       >
         {' '}
-        <FaCameraRetro className="text-xl text-primary" /> Anexar foto (até 5mb)
+        <FaCameraRetro className="text-xl text-primary dark:text-secundary" />{' '}
+        Anexar foto (até 5mb)
       </label>
       {preview && (
         <img src={preview} alt="" className=" aspect-video w-[200px]" />
@@ -157,7 +158,7 @@ export default function AddNew({ openNew, setOpenNew }) {
         />
         <label
           htmlFor="destaque"
-          className="font-bold text-gray-700 dark:text-gray-400"
+          className="font-bold text-black dark:text-white"
         >
           Marcar como destaque
         </label>
@@ -165,7 +166,7 @@ export default function AddNew({ openNew, setOpenNew }) {
 
       <button
         type="submit"
-        className="z-20 my-3 flex w-[100px] cursor-pointer items-center justify-center rounded-lg  bg-gradient-to-r from-slate-950 to-blue-900  font-bold text-white  hover:from-blue-900 hover:to-slate-900"
+        className="z-20  m-1 mr-2 flex cursor-pointer items-center justify-center  rounded-lg bg-gradient-to-r from-slate-950 to-blue-900 px-6 font-bold  text-white shadow-light hover:from-blue-900 hover:to-slate-900 dark:shadow-dark"
       >
         Enviar
       </button>

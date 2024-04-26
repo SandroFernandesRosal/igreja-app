@@ -96,7 +96,7 @@ export default function AddLider({ openMinisterio, setOpenMinisterio }) {
       className="fixed left-0 top-0 z-20 flex h-[100vh] w-[100vw] flex-col items-center justify-center bg-black/50 backdrop-blur-lg"
       onSubmit={handleSubmit}
     >
-      <h1 className="z-20 mb-2 flex items-center justify-center gap-3 text-lg font-bold text-primary">
+      <h1 className="z-20 mb-2 flex items-center justify-center gap-3 text-lg font-bold text-primary dark:text-secundary">
         Adicionar lider{' '}
         {openMinisterio === true && (
           <AiFillCloseCircle
@@ -111,7 +111,8 @@ export default function AddLider({ openMinisterio, setOpenMinisterio }) {
         className="mb-3 flex cursor-pointer items-center gap-2  font-bold"
       >
         {' '}
-        <FaCameraRetro className="text-xl text-primary" /> Anexar foto (até 5mb)
+        <FaCameraRetro className="text-xl text-primary dark:text-secundary" />{' '}
+        Anexar foto (até 5mb)
       </label>
       {preview && (
         <img src={preview} alt="" className=" aspect-video w-[200px]" />
@@ -152,7 +153,7 @@ export default function AddLider({ openMinisterio, setOpenMinisterio }) {
 
       <button
         type="submit"
-        className="z-20 my-3 flex w-[100px] cursor-pointer items-center justify-center rounded-lg  bg-gradient-to-r from-slate-950 to-blue-900  font-bold text-white  hover:from-blue-900 hover:to-slate-900"
+        className="z-20  m-1 mr-2 flex cursor-pointer items-center justify-center  rounded-lg bg-gradient-to-r from-slate-950 to-blue-900 px-6 font-bold  text-white shadow-light hover:from-blue-900 hover:to-slate-900 dark:shadow-dark"
       >
         Enviar
       </button>
