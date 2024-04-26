@@ -122,7 +122,7 @@ export default function Contato() {
           </button>
         </form>
 
-        <section className=" mb-5 flex w-[100%] flex-col items-center md:mb-5">
+        <section className=" mb-5 flex w-[100%] flex-col items-center font-bold md:mb-5">
           <div className="flex w-[100%] flex-col items-center gap-5 md:flex-row md:flex-wrap md:justify-center md:py-5">
             <Contatos />
           </div>

@@ -62,11 +62,11 @@ export default function EditContatos({
 
   return (
     <form
-      className="fixed left-0 top-0 z-30 flex h-[100vh] w-[100vw] flex-col items-center justify-center bg-black/50 backdrop-blur-lg md:mt-5"
+      className="fixed left-0 top-0 z-30 flex h-[100vh] w-[100vw] flex-col items-center justify-center bg-black/50 text-black backdrop-blur-lg dark:text-white md:mt-5"
       onSubmit={handleSubmit}
     >
       <h1 className="z-20 mb-2 flex items-center justify-center gap-3 text-lg font-bold text-primary dark:text-secundary">
-        Editar endereço{' '}
+        Editar contato{' '}
         <AiFillCloseCircle
           onClick={() => setOpenEdit(false)}
           className="cursor-pointer text-2xl font-bold text-black dark:text-white"
