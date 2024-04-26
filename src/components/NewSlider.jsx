@@ -41,7 +41,7 @@ export default function NewSlider() {
       <>
         {!loading ? (
           data && data.length < 1 ? (
-            <div className="my-5 flex h-[300px] w-[100vw] flex-col items-center justify-center rounded-[35px] shadow-xl dark:shadow-dark  md:h-[400px] md:w-[500px] md:rounded-xl lg:h-[500px] lg:w-[800px] ">
+            <div className="my-5 flex h-[300px] w-[100vw] flex-col items-center justify-center rounded-[35px] shadow-light dark:shadow-dark  md:h-[400px] md:w-[500px] md:rounded-xl lg:h-[500px] lg:w-[800px] ">
               {' '}
               <p>NENHUMA NOTÍCIA CADASTRADA.</p>
               <p>Aguarde as postagens.</p>
@@ -66,7 +66,7 @@ export default function NewSlider() {
                   autoplay={{ delay: 3000 }}
                   loop={true}
                   effect="fade"
-                  className="h-[300px] w-[100vw] max-w-[500px]   rounded-[35px]  shadow-xl dark:shadow-dark md:h-[400px] md:w-[500px] md:rounded-xl lg:h-[500px] lg:w-[800px]  "
+                  className="h-[300px] w-[100vw] max-w-[500px]   rounded-[35px]  shadow-light dark:shadow-dark md:h-[400px] md:w-[500px] md:rounded-xl lg:h-[500px] lg:w-[800px]  "
                 >
                   {data &&
                     data.slice(0, 4).map((item) => (
