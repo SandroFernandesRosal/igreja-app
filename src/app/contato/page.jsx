@@ -54,7 +54,7 @@ export default function Contato() {
           </div>
         )}
 
-        <h1 className="m-0 text-lg font-bold text-primary ">
+        <h1 className="m-0 text-lg font-bold text-primary dark:text-secundary ">
           Entre em contato
         </h1>
         <p className="mb-5 text-xl">Por email ou por nossas redes sociais</p>
@@ -65,7 +65,7 @@ export default function Contato() {
           name="form"
           className="mb-5 mt-3 flex w-[75%] max-w-[500px] flex-col items-center gap-3 rounded-xl bg-bglight p-3 shadow-light dark:bg-bgdark dark:shadow-dark md:mb-5"
         >
-          <h1 className="text-xl font-bold text-primary">
+          <h1 className="text-xl font-bold text-primary dark:text-secundary">
             Preencha os campos abaixo:
           </h1>
           <input
@@ -116,7 +116,7 @@ export default function Contato() {
           <button
             type="submit"
             name="submit"
-            className="mt-5 h-[30px] w-[150px] rounded-xl bg-primary font-bold text-black  shadow-light  hover:bg-primary/50  dark:shadow-dark"
+            className="m-2 flex items-center rounded-lg bg-gradient-to-r from-slate-950 to-blue-900 px-10 text-lg font-bold  text-white shadow-light hover:from-blue-900   hover:to-slate-900 dark:shadow-dark"
           >
             Enviar
           </button>

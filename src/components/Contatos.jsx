@@ -16,13 +16,21 @@ export default function Contatos() {
   const token = useToken()
 
   useEffect(() => {
-    api
-      .get(`/contato`)
-      .then((response) => {
-        setDataContato(response.data)
-        setLoading(false)
-      })
-      .catch((err) => console.log(err))
+    const fetchData = () => {
+      api
+        .get(`/contato`)
+        .then((response) => {
+          setDataContato(response.data)
+          setLoading(false)
+        })
+        .catch((err) => console.log(err))
+    }
+
+    fetchData()
+
+    const intervalId = setInterval(fetchData, 600000)
+
+    return () => clearInterval(intervalId)
   }, [setDataContato])
   return (
     <div>
