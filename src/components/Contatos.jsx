@@ -28,7 +28,7 @@ export default function Contatos() {
 
     fetchData()
 
-    const intervalId = setInterval(fetchData, 600000)
+    const intervalId = setInterval(fetchData, 600)
 
     return () => clearInterval(intervalId)
   }, [setDataContato])
