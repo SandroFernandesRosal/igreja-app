@@ -28,7 +28,7 @@ export default function Socials({
         </Link>
 
         <Link
-          href={`https://www.facebook.com/${nomeinstagram}`}
+          href={`https://www.instagram.com/${nomeinstagram}`}
           target="blank"
           className="flex items-center gap-2"
         >
