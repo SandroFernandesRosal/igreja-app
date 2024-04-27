@@ -171,7 +171,7 @@ export default function TestemunhoLine({ userIgreja }) {
                           height={500}
                           src={item.coverUrl}
                           alt={item.name}
-                          className="w-full rounded-xl  md:max-w-[500px]"
+                          className="w-[80%] rounded-xl  md:max-w-[500px]"
                         />
                       </div>
                     )}
