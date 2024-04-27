@@ -2,8 +2,7 @@
 import { useLocal } from '../store/useStore'
 
 export default function SelectLocal() {
-  const local = useLocal.getState().local
-  const setLocal = useLocal.getState().setLocal
+  const { local, setLocal } = useLocal()
 
   const handleLocalSelection = (selected) => {
     setLocal(selected)
