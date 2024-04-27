@@ -21,10 +21,10 @@ export default function Contato() {
 
     emailjs
       .sendForm(
-        'gmailapg',
-        'template_4irfdp2',
+        process.env.NEXT_PUBLIC_EMAILJS_ID,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE,
         form.current,
-        '83UVaTlKXOdZElYi_',
+        process.env.NEXT_PUBLIC_PUBLICKEY,
       )
       .then(
         () => {
