@@ -37,14 +37,16 @@ export default function NewSlider() {
       .catch((err) => console.log(err))
   }, [local, setData, setLoading])
   return (
-    <section className="m-1  flex   flex-col items-center md:w-full   lg:flex-1  ">
+    <section className="m-1  flex flex-col items-center md:w-full   lg:flex-1  ">
       <>
         {!loading ? (
           data && data.length < 1 ? (
-            <div className="my-5 flex h-[300px] w-[100vw] flex-col items-center justify-center rounded-[35px] shadow-light dark:shadow-dark  md:h-[400px] md:w-[500px] md:rounded-xl lg:h-[500px] lg:w-[800px] ">
-              {' '}
-              <p>NENHUMA NOTÍCIA CADASTRADA.</p>
-              <p>Aguarde as postagens.</p>
+            <div className="flex w-full justify-center py-5">
+              <div className="flex h-[300px] w-[100vw] max-w-[500px] flex-col items-center justify-center  rounded-[35px]  shadow-light dark:shadow-dark md:h-[400px] md:w-[500px] md:rounded-xl lg:h-[500px] lg:w-[800px]  ">
+                {' '}
+                <p>NENHUMA NOTÍCIA CADASTRADA.</p>
+                <p>Aguarde as postagens.</p>
+              </div>
             </div>
           ) : (
             <>

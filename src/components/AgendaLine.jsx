@@ -53,7 +53,7 @@ export default function AgendaLine({ data, token, loading }) {
         <div className="flex w-full flex-col gap-2 px-4">
           {!loading ? (
             newsToDisplay && newsToDisplay.length < 1 ? (
-              <p className="text-center">Nenhuma notícia cadastrada</p>
+              <p className="text-center">Nenhum evento cadastrado.</p>
             ) : (
               <>
                 {newsToDisplay.map((item) => (

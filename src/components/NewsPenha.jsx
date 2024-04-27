@@ -44,7 +44,7 @@ export default function NewsPenha() {
         </>
       )}
 
-      <div className="flex w-[100%] flex-col  lg:flex-row  lg:flex-wrap lg:items-start ">
+      <div className="flex w-[100%] flex-col  lg:flex-row  lg:flex-wrap lg:items-start">
         <NewSlider />
         <News />
       </div>

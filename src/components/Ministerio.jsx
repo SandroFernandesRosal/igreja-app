@@ -63,7 +63,7 @@ export default function Ministerio() {
       <div className="relative -top-[30px]  flex w-full flex-col flex-wrap items-center justify-center gap-x-5 p-1 pt-4 md:gap-x-5">
         {!loading ? (
           dataMinisterio.length < 1 ? (
-            <p>Nenhum líder cadastrado.</p>
+            <p className="mt-4">Nenhum líder cadastrado.</p>
           ) : (
             dataMinisterio && (
               <MinisterioLine
