@@ -34,7 +34,7 @@ export default function Header({ children }) {
   }
 
   const handleMenu = () => {
-    menu === false ? setMenu(true) : setMenu(false)
+    setMenu(!menu)
   }
 
   return (
@@ -83,14 +83,7 @@ export default function Header({ children }) {
         <NavBarMd activePage={activePage} handleClick={handleClick} />
       </header>
 
-      {menu && (
-        <NavBar
-          handleMenu={handleMenu}
-          menu={menu}
-          setMenu={setMenu}
-          user={children}
-        />
-      )}
+      {menu && <NavBar handleMenu={handleMenu} menu={menu} user={children} />}
     </>
   )
 }

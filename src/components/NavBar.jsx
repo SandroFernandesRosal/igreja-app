@@ -19,7 +19,7 @@ export default function NavBar({ handleMenu, user, menu }) {
   const tokenIgreja = useTokenIgreja()
   return (
     <nav
-      className={`font-Roboto fixed z-40 flex min-h-screen w-[100vw] flex-col items-center justify-center gap-10 bg-bglight font-bold backdrop-blur-md transition-transform duration-500 ease-in-out dark:bg-bgdark md:hidden ${
+      className={`font-Roboto fixed z-40 flex min-h-screen w-[100vw] transform flex-col items-center justify-center gap-10 bg-bglight font-bold backdrop-blur-md transition-transform duration-500 ease-in-out dark:bg-bgdark md:hidden ${
         menu ? 'translate-y-0' : '-translate-y-full'
       }`}
     >
