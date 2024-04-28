@@ -40,7 +40,7 @@ export default function Header({ children }) {
   return (
     <>
       <header className="font-Roboto fixed z-50 flex flex-col">
-        <div className="flex h-20 w-[100vw] items-center justify-evenly overflow-hidden border-b-2 border-solid border-b-secundary  bg-gradient-to-r from-slate-950 to-blue-900  backdrop-blur-md">
+        <div className="flex h-20 w-[100vw] items-center justify-evenly overflow-hidden border-b-2 border-solid border-b-secundary bg-bglight dark:bg-bgdark">
           <Link href="/" onClick={() => handleClick('/')}>
             <Image
               src={logo}
