@@ -45,7 +45,7 @@ export default function ContentQuemSomos({ dataSobre }) {
             height={800}
             width={800}
             alt=""
-            className="w-[90%] max-w-[800px] rounded-2xl"
+            className="m-2 w-[90%] max-w-[800px] rounded-2xl shadow-light dark:shadow-dark"
           />
           {token && (
             <div className="mb-2 flex w-full justify-center gap-2 text-white">
