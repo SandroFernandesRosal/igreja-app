@@ -83,7 +83,14 @@ export default function Header({ children }) {
         <NavBarMd activePage={activePage} handleClick={handleClick} />
       </header>
 
-      {menu && <NavBar handleMenu={handleMenu} menu={menu} user={children} />}
+      {menu && (
+        <NavBar
+          handleMenu={handleMenu}
+          menu={menu}
+          setMenu={setMenu}
+          user={children}
+        />
+      )}
     </>
   )
 }

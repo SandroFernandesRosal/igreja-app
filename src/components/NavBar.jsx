@@ -14,13 +14,14 @@ import { VscHeartFilled } from 'react-icons/vsc'
 import { useToken } from '@/hooks/useToken'
 import { useTokenIgreja } from '@/hooks/useTokenIgreja'
 
-export default function NavBar({ handleMenu, user }) {
+export default function NavBar({ handleMenu, user, menu }) {
   const token = useToken()
   const tokenIgreja = useTokenIgreja()
   return (
     <nav
-      className={` font-Roboto
-      fixed z-40 flex min-h-screen  w-[100vw] flex-col  items-center justify-center gap-10    bg-white/90   font-bold backdrop-blur-md dark:bg-black/90 md:hidden `}
+      className={`font-Roboto fixed z-40 flex min-h-screen w-[100vw] flex-col items-center justify-center gap-10 bg-white/90 font-bold backdrop-blur-md transition-transform duration-500 ease-in-out dark:bg-black/90 md:hidden ${
+        menu ? 'translate-y-0' : '-translate-y-full'
+      }`}
     >
       <div className="flex w-full items-center justify-around">
         {token || tokenIgreja ? (
