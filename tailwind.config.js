@@ -15,8 +15,8 @@ module.exports = {
         bgdark: '#1C2025',
         bgdarksecundary: '#1C2025',
         textdark: '#EEEEEE',
-        bglight: '#e8ffff',
-        bglightsecundary: '#e8ffff',
+        bglight: '#ffffff',
+        bglightsecundary: '#ffffff',
         textlight: '#262626',
       },
       backgroundImage: {

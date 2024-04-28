@@ -151,7 +151,7 @@ export default function TestemunhoLine({ userIgreja }) {
                     height={300}
                     src={item.avatarUrl}
                     alt={item.name}
-                    className="mx-1 h-[100px] w-[100px] rounded-full bg-gradient-to-r from-slate-950 to-blue-900 p-[4px] text-white shadow-light  hover:from-blue-900 hover:to-slate-900 dark:shadow-dark"
+                    className="mx-1 h-[100px] w-[100px] rounded-full bg-gradient-to-r from-slate-950 to-blue-900 p-[3px] text-white shadow-light  hover:from-blue-900 hover:to-slate-900 dark:shadow-dark"
                   />
 
                   <div className="flex w-full flex-col gap-2   rounded-2xl bg-bglight shadow-light  dark:bg-bgdark   dark:shadow-dark md:w-[70%]  lg:min-w-[700px]">
@@ -171,7 +171,7 @@ export default function TestemunhoLine({ userIgreja }) {
                           height={500}
                           src={item.coverUrl}
                           alt={item.name}
-                          className="w-[80%] rounded-xl  md:max-w-[500px]"
+                          className="m-2 w-[80%]  rounded-xl shadow-light dark:shadow-dark md:max-w-[500px]"
                         />
                       </div>
                     )}
