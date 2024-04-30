@@ -6,11 +6,7 @@ import Contatos from './Contatos'
 
 export default function Footer() {
   return (
-<<<<<<< HEAD
     <footer className="flex min-h-[100px] flex-col items-center justify-evenly border-t-2 border-solid border-y-secundary bg-bglightsecundary pb-5 font-bold dark:bg-bgdarksecundary">
-=======
-    <footer className="flex min-h-[100px] flex-col items-center justify-evenly border-t-2 border-solid border-y-secundary pb-5 font-bold bg-bglightsecundary dark:bg-bgdarksecundary">
->>>>>>> cf98cbfaa104bb15cec1e6c57121c1d7acd90e78
       <Link href="/" className="my-5">
         <Image
           src={logo}
