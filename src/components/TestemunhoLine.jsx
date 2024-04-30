@@ -154,7 +154,7 @@ export default function TestemunhoLine({ userIgreja }) {
                     className="mx-1 h-[100px] w-[100px] rounded-full bg-gradient-to-r from-slate-950 to-blue-900 p-[3px] text-white shadow-light  hover:from-blue-900 hover:to-slate-900 dark:shadow-dark"
                   />
 
-                  <div className="flex w-full flex-col gap-2   rounded-2xl bg-gray-300 shadow-light  dark:bg-black/30   dark:shadow-dark md:w-[70%]  lg:min-w-[700px]">
+                  <div className="flex w-full flex-col gap-2   rounded-2xl bg-gray-300 shadow-light  dark:bg-bgdark  dark:shadow-dark md:w-[70%]  lg:min-w-[700px]">
                     <div className="flex items-center justify-between px-3">
                       {' '}
                       <p className=" text-lg font-bold">{item.name}</p>
