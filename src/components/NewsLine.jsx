@@ -105,7 +105,7 @@ export default function NewsLine({ loading }) {
                       key={item.id}
                       className="flex gap-2"
                     >
-                      <p className="font bold w-[78px]  rounded-lg bg-gradient-to-r from-slate-950 to-blue-900 text-center text-white md:px-2 md:text-xl">
+                      <p className="font bold w-[78px]   rounded-lg bg-gradient-to-r from-slate-950 to-blue-900 text-center text-white md:px-2 md:text-xl">
                         {formatDate(item.createdAt)}
                       </p>
                       <h1 className="pl-2 font-bold">{item.title}</h1>

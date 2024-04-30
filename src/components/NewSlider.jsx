@@ -37,7 +37,7 @@ export default function NewSlider() {
       .catch((err) => console.log(err))
   }, [local, setData, setLoading])
   return (
-    <section className=" flex flex-col items-center md:w-full   lg:flex-1  ">
+    <section className=" flex flex-col items-center md:w-full   lg:flex-1 ">
       <>
         {!loading ? (
           data && data.length < 1 ? (
@@ -50,7 +50,7 @@ export default function NewSlider() {
             </div>
           ) : (
             <>
-              <div className="flex w-full justify-center py-2 lg:py-5">
+              <div className="flex w-full justify-center py-2 lg:p-2 lg:py-5 ">
                 <Swiper
                   modules={[
                     Navigation,
@@ -68,7 +68,7 @@ export default function NewSlider() {
                   autoplay={{ delay: 3000 }}
                   loop={true}
                   effect="fade"
-                  className="h-[300px] w-[100vw] max-w-[500px]   rounded-[35px]  shadow-light dark:shadow-dark md:h-[400px] md:w-[500px] md:rounded-xl lg:h-[500px] lg:w-[800px]  "
+                  className="h-[300px] w-[100vw] max-w-[500px]   rounded-[35px]  shadow-light dark:shadow-dark md:h-[400px] md:w-[500px] md:rounded-xl lg:h-[500px] lg:w-[800px]"
                 >
                   {data &&
                     data.slice(0, 4).map((item) => (
