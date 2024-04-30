@@ -41,7 +41,7 @@ export default function NewSlider() {
       <>
         {!loading ? (
           data && data.length < 1 ? (
-            <div className="flex w-full justify-center py-2 lg:py-5">
+            <div className="flex w-full justify-center py-2 lg:p-2 lg:py-5 ">
               <div className="flex h-[300px] w-[100vw] max-w-[500px] flex-col items-center justify-center  rounded-[35px]  shadow-light dark:shadow-dark md:h-[400px] md:w-[500px] md:rounded-xl lg:h-[500px] lg:w-[800px]  ">
                 {' '}
                 <p>NENHUMA NOTÍCIA CADASTRADA.</p>
