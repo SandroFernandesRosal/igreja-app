@@ -9,6 +9,7 @@ export default function RegisterIgreja() {
   const [name, setName] = useState('')
   const [login, setLogin] = useState('')
   const [password, setPassword] = useState('')
+  const [error, setError] = useState(false)
   const PlaceHolder =
     'https://drive.google.com/uc?export=view&id=1hYXAUQfIieWGK0P9VCW8bpCgnamvnB1C'
 
@@ -31,12 +32,13 @@ export default function RegisterIgreja() {
 
       try {
         const uploadResponse = await api.post('/upload', formData, {
-          headers: { 'Content-Type': 'multipart/form-data' }, // Definir cabeçalho apropriado para uploads de arquivos
+          headers: { 'Content-Type': 'multipart/form-data' },
         })
         avatarUrl = uploadResponse.data.fileUrl
       } catch (error) {
         console.error('Erro ao carregar foto:', error)
-        // Tratar erros de upload aqui
+        setError('Falha ao carregar a foto do perfil. Tente novamente.')
+        return
       }
     }
 
@@ -56,19 +58,31 @@ export default function RegisterIgreja() {
         },
       )
 
-      const newss = response.data
+      const user = response.data
 
-      if (response.status === 200 && newss) {
+      if (response.status === 200 && user) {
+        // Redireciona para a página de login apenas se a resposta for bem-sucedida
         router.push('/login/igreja')
         window.location.href = '/login/igreja'
-        return newss
+        return user
+      } else if (user.error) {
+        setError(user.error)
+      } else {
+        setError('Erro ao registrar. Tente novamente mais tarde.')
       }
-
-      console.log(newss)
-      return null
     } catch (error) {
-      console.error('Erro ao criar usuário', error)
-      // Tratar outros erros de requisição aqui
+      if (
+        error.response &&
+        (error.response.status === 400 ||
+          error.response.status === 404 ||
+          error.response.status === 500) &&
+        error.response.data &&
+        error.response.data.error
+      ) {
+        setError(error.response.data.error)
+      } else {
+        setError('Erro ao registrar. Tente novamente mais tarde.')
+      }
     }
   }
 
@@ -135,6 +149,8 @@ export default function RegisterIgreja() {
             placeholder="Crie uma senha"
             onChange={(e) => setPassword(e.target.value)}
           />
+
+          {error && <p className=" font-bold text-red-500">{error}</p>}
 
           <input
             className="invisible h-0 w-0"

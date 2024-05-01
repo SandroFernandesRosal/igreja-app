@@ -24,7 +24,7 @@ export default function RegisterIgreja() {
       const user = response.data
 
       if (user.error) {
-        setError(true)
+        setError(user.error)
         return null
       }
 
@@ -37,7 +37,18 @@ export default function RegisterIgreja() {
         return token
       }
     } catch (error) {
-      console.error('Erro ao fazer requisição:', error)
+      if (
+        error.response &&
+        (error.response.status === 400 ||
+          error.response.status === 404 ||
+          error.response.status === 500) &&
+        error.response.data &&
+        error.response.data.error
+      ) {
+        setError(error.response.data.error)
+      } else {
+        setError('Erro ao redefinir a senha. Tente novamente mais tarde.')
+      }
     }
 
     return null
@@ -59,9 +70,7 @@ export default function RegisterIgreja() {
             Preencha os campos abaixo:
           </h1>
 
-          {error && (
-            <p className="font-bold text-red-700">Login ou senha incorreta</p>
-          )}
+          <p className="font-bold text-red-500">{error}</p>
 
           <input
             className="shadow-ligh mb-[10px] w-[90%] cursor-pointer rounded-lg border-none  bg-bglightsecundary p-[5px] text-center font-bold placeholder-textlight shadow-light outline-none focus:ring-0  dark:bg-bgdarksecundary dark:placeholder-textdark dark:shadow-dark"
