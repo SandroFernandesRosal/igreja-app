@@ -154,13 +154,13 @@ export default function EditTestemunho({
             htmlFor="coverUrl"
             className=" flex w-full cursor-pointer items-center justify-center gap-2  text-center font-bold"
           >
-            <FaCameraRetro className="text-xl  text-primary" /> Anexar foto{' '}
-            {img && 'nova '}
+            <FaCameraRetro className="text-xl  text-primary dark:text-secundary" />{' '}
+            Anexar foto {img && 'nova '}
             (Opcional)
           </label>
           <button
             type="submit"
-            className="z-20  mr-2 flex cursor-pointer items-center justify-center rounded-lg  bg-gradient-to-r from-slate-950 to-blue-900 px-6 font-bold text-white  hover:from-blue-900 hover:to-slate-900"
+            className="z-20  m-2 mr-2 flex cursor-pointer items-center justify-center rounded-lg bg-gradient-to-r from-slate-950  to-blue-900 px-6 font-bold text-white shadow-light hover:from-blue-900  hover:to-slate-900 dark:shadow-dark"
           >
             Editar
           </button>

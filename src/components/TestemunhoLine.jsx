@@ -159,7 +159,7 @@ export default function TestemunhoLine({ userIgreja }) {
                       {' '}
                       <p className=" text-lg font-bold">{item.name}</p>
                       <span className="text-sm">
-                        Postado em: {formatDate(item.createdAt)}
+                        {formatDate(item.createdAt)}
                       </span>{' '}
                     </div>
 
