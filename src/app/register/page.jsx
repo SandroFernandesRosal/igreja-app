@@ -59,8 +59,8 @@ export default function RegisterIgreja() {
       const newss = response.data
 
       if (response.status === 200 && newss) {
-        router.push('/')
-        window.location.href = '/'
+        router.push('/login/igreja')
+        window.location.href = '/login/igreja'
         return newss
       }
 
