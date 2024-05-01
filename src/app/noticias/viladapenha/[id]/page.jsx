@@ -43,7 +43,7 @@ export default function NoticiaVilaDaPenha({ params }) {
 
   function formatDate(dateString) {
     const date = new Date(dateString)
-    const formattedDate = format(date, 'dd/MM/yyyy HH:mm') // Formato desejado
+    const formattedDate = format(date, 'dd/MM/yyyy HH:mm')
     return formattedDate
   }
 
@@ -52,10 +52,10 @@ export default function NoticiaVilaDaPenha({ params }) {
       <article className="mb-5  flex w-full flex-col items-center  rounded-[35px] bg-bglightsecundary shadow-light dark:bg-bgdarksecundary dark:shadow-dark md:w-[90vw]">
         <div className="flex w-full items-center justify-around">
           {token && selectedItem && (
-            <div className="mt-2 flex gap-3">
+            <div className="flex gap-3 p-2">
               {openEdit === false && (
                 <button
-                  className="m-[5px] rounded-lg bg-gradient-to-r from-slate-950 to-blue-900 p-1  px-2 text-white  shadow-light hover:from-blue-900 hover:to-slate-900 md:px-3  md:text-lg md:font-bold"
+                  className="m-[5px] rounded-lg bg-gradient-to-r from-slate-950 to-blue-900 p-1 px-2 text-white  shadow-light  hover:from-blue-900 hover:to-slate-900 dark:shadow-dark md:px-3  md:text-lg md:font-bold"
                   onClick={() => setOpenEdit(true)}
                 >
                   Editar
