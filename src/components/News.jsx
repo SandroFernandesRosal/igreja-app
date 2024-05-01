@@ -103,8 +103,6 @@ export default function News() {
         </>
       )}
 
-      {search ? <ResultLength search={search} dataSearch={dataSearch} /> : null}
-
       {search ? (
         <h1 className="mb-4 flex  gap-2 self-start text-xl font-bold lg:hidden ">
           <span className="ml-5 flex  border-b-2 border-secundary">
@@ -113,19 +111,22 @@ export default function News() {
           <p>da busca:</p>
         </h1>
       ) : (
-        <h1 className="mb-4 flex gap-2 self-start text-xl font-bold  lg:hidden ">
+        <h1
+          className={`mb-4 flex gap-2 self-start text-xl font-bold  lg:hidden ${
+            search ? 'hidden' : 'flex'
+          }`}
+        >
           <span className="ml-5 flex  border-b-2 border-secundary">
             Notícias
           </span>{' '}
           <p>em destaque</p>
         </h1>
       )}
+
+      {search ? <ResultLength search={search} dataSearch={dataSearch} /> : null}
       <div
-        className={`relative -top-[30px] flex w-full flex-wrap justify-center gap-x-5  p-1 px-2  pb-5 pt-10 md:gap-x-5 ${
-          data &&
-          data.length > 0 &&
-          'border-b-[1px] border-solid border-gray-700/30'
-        }
+        className={`relative -top-[30px] flex w-full flex-wrap justify-center  gap-x-5 border-b-[1px]  border-solid border-gray-700/30 p-1 px-2 pb-5 pt-10
+        md:gap-x-5
         `}
       >
         {search ? (
