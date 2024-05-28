@@ -23,7 +23,7 @@ export default function Testemunho({ data, userIgreja }) {
   }
 
   return (
-    <section className="mb-4 flex min-h-screen w-[100vw] flex-col items-center rounded-[35px] bg-bglightsecundary  px-1  pb-4 shadow-light dark:bg-bgdarksecundary  dark:shadow-dark md:w-[90vw] md:rounded-xl">
+    <section className="mb-4 flex min-h-screen w-[100vw] flex-col items-center rounded-[35px] bg-bglight  px-1  pb-4 shadow-light dark:bg-bgdark  dark:shadow-dark md:w-[90vw] md:rounded-xl">
       <div className="flex flex-col items-center  md:min-w-[35%]">
         <h1 className="m-0 text-lg font-bold text-primary dark:text-secundary ">
           Testemunhos
