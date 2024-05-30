@@ -81,7 +81,7 @@ export default function AgendaLine({ data, token, loading }) {
                         )}
                       </>
                     )}
-                    <p className="font bold max-w-[200px] basis-2/6 rounded-lg bg-gradient-to-r from-slate-950 to-blue-900 px-2 text-center m-2 shadow-ligh dark:shadow-dark text-white md:text-xl">
+                    <p className="font bold shadow-ligh m-2 max-w-[200px] basis-2/6 rounded-lg bg-gradient-to-r from-slate-950 to-blue-900 px-2 text-center text-white dark:shadow-dark md:text-xl">
                       {item.day}
                     </p>
                     <h1 className="font-bold">{item.name}</h1>
