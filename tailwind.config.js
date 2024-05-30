@@ -12,8 +12,8 @@ module.exports = {
       colors: {
         primary: '#233876',
         secundary: '#1fb6ff',
-        bgdark: '#09090B',
-        bgdarksecundary: '#18181B',
+        bgdark: '#18181B',
+        bgdarksecundary: '#09090B',
         textdark: '#EEEEEE',
         bglight: '#DCDCDC',
         bglightsecundary: '#ffffff',
@@ -38,7 +38,7 @@ module.exports = {
         },
       },
       boxShadow: {
-        dark: '0 0px 8px 0px rgba(000, 000, 000), 0 3px 4px 1px rgba(000, 000, 000, 1)',
+        dark: '0 0px 2px 2px rgba(000, 000, 000), 0 3px 4px 1px rgba(000, 000, 000, 1)',
         light:
           '0 0px 4px 0px rgba(000, 000, 000, 0.5), 0 3px 4px 1px rgba(000, 000, 000, 0.1)',
         hover:
