@@ -43,7 +43,7 @@ export default function RemoveTestemunho({ id }) {
     <button
       onClick={handleSubmit}
       disabled={isDeleting}
-      className="m-[2px]  rounded-lg bg-gradient-to-r from-slate-950 to-blue-900 p-1 px-3 text-lg font-bold text-white  shadow-light hover:from-blue-900 hover:to-slate-900"
+      className="m-2 rounded-lg bg-gradient-to-r  from-slate-950 to-blue-900 p-1 px-3 text-lg font-bold text-white  shadow-light  hover:from-blue-900 hover:to-slate-900 dark:shadow-dark"
     >
       {isDeleting ? 'Removendo...' : 'Remover'}
     </button>

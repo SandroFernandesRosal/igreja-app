@@ -182,7 +182,7 @@ export default function TestemunhoLine({ userIgreja }) {
                       <div className="mb-2 flex justify-center gap-4">
                         {openEdit === null && (
                           <button
-                            className="m-[2px] rounded-lg bg-gradient-to-r from-slate-950 to-blue-900 px-2 text-lg font-bold text-white shadow-light hover:from-blue-900 hover:to-slate-900 md:px-3 md:text-lg"
+                            className="m-2 rounded-lg bg-gradient-to-r from-slate-950 to-blue-900 p-2 px-3 text-lg font-bold text-white  shadow-light hover:from-blue-900 hover:to-slate-900 dark:shadow-dark  md:text-lg"
                             onClick={() => setOpenEdit(item.id)}
                           >
                             Editar
