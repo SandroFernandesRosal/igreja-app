@@ -13,14 +13,12 @@ export const useData = create((set) => ({
 
 export const useLocal = create((set) => {
   const cookieValue = Cookies.get('local')
-
   const initialValue = cookieValue || 'viladapenha'
 
   return {
     local: initialValue,
     setLocal: (state) => {
       set({ local: state })
-
       Cookies.set('local', state, { expires: 7 })
     },
   }

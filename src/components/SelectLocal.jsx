@@ -1,4 +1,5 @@
 'use client'
+
 import { useLocal } from '../store/useStore'
 
 export default function SelectLocal() {
