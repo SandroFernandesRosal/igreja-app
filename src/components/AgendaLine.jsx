@@ -50,14 +50,14 @@ export default function AgendaLine({ data, token, loading }) {
           <span className="ml-5 flex  border-b-2 border-secundary">Mais</span>{' '}
           <p>eventos</p>
         </h1>
-        <div className="flex w-full flex-col gap-2 px-4">
+        <div className="flex w-full flex-col px-4">
           {!loading ? (
             newsToDisplay && newsToDisplay.length < 1 ? (
               <p className="text-center">Nenhum evento cadastrado.</p>
             ) : (
               <>
                 {newsToDisplay.map((item) => (
-                  <div key={item.id} className="flex items-center gap-2">
+                  <div key={item.id} className="flex items-center">
                     {token && (
                       <>
                         {openSettings &&
@@ -81,7 +81,7 @@ export default function AgendaLine({ data, token, loading }) {
                         )}
                       </>
                     )}
-                    <p className="font bold max-w-[200px] basis-2/6 rounded-lg bg-gradient-to-r from-slate-950 to-blue-900 px-2 text-center text-white md:text-xl">
+                    <p className="font bold max-w-[200px] basis-2/6 rounded-lg bg-gradient-to-r from-slate-950 to-blue-900 px-2 text-center m-2 shadow-ligh dark:shadow-dark text-white md:text-xl">
                       {item.day}
                     </p>
                     <h1 className="font-bold">{item.name}</h1>

@@ -66,7 +66,7 @@ export default function NewsLine({ loading }) {
           <span className="ml-5 flex  border-b-2 border-secundary">Mais</span>{' '}
           <p>notícias</p>
         </h1>
-        <div className="flex  w-full flex-col gap-2 px-4">
+        <div className="flex  w-full flex-col  px-4">
           {!loading ? (
             newsToDisplay.length < 1 ? (
               <p className="text-center">Nenhuma notícia cadastrada</p>
@@ -103,12 +103,12 @@ export default function NewsLine({ loading }) {
                     <Link
                       href={`/noticias/${item.page}/${item.id}`}
                       key={item.id}
-                      className="flex gap-2"
+                      className="flex items-center"
                     >
-                      <p className="font bold w-[78px]   rounded-lg bg-gradient-to-r from-slate-950 to-blue-900 text-center text-white md:px-2 md:text-xl">
+                      <p className="font bold m-2 w-[78px] rounded-lg  bg-gradient-to-r  from-slate-950 to-blue-900 text-center text-white shadow-light dark:shadow-dark md:px-2 md:text-xl">
                         {formatDate(item.createdAt)}
                       </p>
-                      <h1 className="pl-2 font-bold">{item.title}</h1>
+                      <h1 className=" font-bold">{item.title}</h1>
                     </Link>
                     {openSettings &&
                       selectedItem &&
