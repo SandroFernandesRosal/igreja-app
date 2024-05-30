@@ -7,7 +7,7 @@ import SelectLocal from './SelectLocal'
 import { useToken } from '@/hooks/useToken'
 import AddNew from './crud/AddNew'
 
-export default function NewsPenha() {
+export default function NewsContainer() {
   const [openNew, setOpenNew] = useState(false)
   const token = useToken()
   return (
