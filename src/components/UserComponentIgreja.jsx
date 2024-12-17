@@ -32,7 +32,7 @@ export default async function UserComponentIgreja() {
           <div className="flex items-center">
             <Link
               href={'/perfil'}
-              className="border-zinc-400hover:from-blue-900 m-2 flex h-[32px] items-center  rounded-lg border-[1px] bg-gradient-to-r from-slate-950  to-blue-900 px-2 text-lg font-bold text-white hover:to-slate-900 dark:border-zinc-700 "
+              className="m-2 flex h-[32px] items-center rounded-lg border-[1px]  border-zinc-400 bg-gradient-to-r from-slate-950 to-blue-900  px-2 text-lg font-bold text-white hover:from-blue-900 hover:to-slate-900 dark:border-zinc-700 "
             >
               Perfil
             </Link>
