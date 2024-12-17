@@ -85,7 +85,7 @@ export default function Biblia() {
             )}
           </div>
 
-          <ul className="dark:border-zinc-700md:mx-5 mb-10 mt-5 flex min-h-screen w-[100vw] flex-col gap-2 rounded-[35px] border-[1px] border-zinc-400 bg-bglightsecundary  px-10 pb-10 pt-5 dark:bg-bgdarksecundary md:w-[90vw] md:rounded-xl">
+          <ul className="mb-10 mt-5 flex min-h-screen w-[100vw] flex-col gap-2 rounded-[35px] border-[1px] border-zinc-400 bg-bglightsecundary px-10 pb-10  pt-5 dark:border-zinc-700 dark:bg-bgdarksecundary md:mx-5 md:w-[90vw] md:rounded-xl">
             <div className="flex w-full justify-center gap-5 text-primary dark:text-secundary">
               {loading ? <p>Carregando livro...</p> : <p>{data.book.name}</p>}|
               {loading ? (
