@@ -52,7 +52,7 @@ export default function News() {
 
   return (
     <section
-      className={`mx-1 my-5 flex w-[100vw] flex-col items-center justify-center rounded-[35px] border-l-[1px]  border-solid border-gray-700/30 bg-bglightsecundary  shadow-light dark:bg-bgdarksecundary dark:shadow-dark md:w-[90vw] md:self-center  md:rounded-xl  lg:flex-1 lg:self-start lg:rounded-none lg:bg-transparent lg:shadow-none dark:lg:bg-transparent dark:lg:shadow-none ${
+      className={`mx-1 my-5 flex w-[100vw] flex-col items-center justify-center rounded-[35px] border-[1px] border-solid border-zinc-400  bg-bglightsecundary dark:border-zinc-700 dark:bg-bgdarksecundary md:w-[90vw]   md:self-center md:rounded-xl lg:flex-1  lg:self-start  lg:rounded-none lg:border-[0px] lg:border-l-[1px] lg:bg-transparent lg:shadow-none dark:lg:bg-transparent  ${
         data.length < 1 && 'lg:min-h-[500px] lg:justify-start'
       }`}
     >
@@ -87,7 +87,7 @@ export default function News() {
         <>
           {openNew === false && (
             <div
-              className="mb-4 flex cursor-pointer rounded-lg border-none bg-bglight p-2 placeholder-black shadow-light outline-none hover:bg-gradient-to-r hover:from-blue-900 hover:to-slate-900 hover:text-white focus:ring-0 dark:bg-bgdark dark:placeholder-white dark:shadow-dark lg:hidden"
+              className="mb-4 flex cursor-pointer rounded-lg border-[1px] border-zinc-400 bg-bglight p-2 placeholder-black outline-none  hover:bg-gradient-to-r hover:from-blue-900 hover:to-slate-900 hover:text-white focus:ring-0 dark:border-zinc-700 dark:bg-bgdark dark:placeholder-white  lg:hidden"
               onClick={() => setOpenNew(true)}
             >
               Adicionar Notícia
@@ -125,7 +125,7 @@ export default function News() {
 
       {search ? <ResultLength search={search} dataSearch={dataSearch} /> : null}
       <div
-        className={`relative -top-[30px] flex w-full flex-wrap justify-center  gap-x-5 border-b-[1px]  border-solid border-gray-700/30 p-1 px-2 pb-5 pt-10
+        className={`relative -top-[30px] flex w-full flex-wrap justify-center  gap-x-5 border-b-[1px]  border-solid border-zinc-400 p-1 px-2 pb-5 pt-10 dark:border-zinc-700
         md:gap-x-5
         `}
       >

@@ -42,8 +42,8 @@ export default function EditSobreContent({
         coverUrl = uploadResponse.data.fileUrl
       } catch (error) {
         console.error('Erro ao enviar imagem:', error)
-        // Exibir mensagem de erro ao usuário
-        return // Impedir envio dos dados caso o upload falhe
+
+        return
       }
     } else {
       coverUrl = img
@@ -73,7 +73,6 @@ export default function EditSobreContent({
       console.error('Erro ao editar notícia:', response.statusText)
     } catch (error) {
       console.error('Erro ao editar notícia:', error)
-      // Exibir mensagem de erro ao usuário
     }
 
     return null
@@ -134,7 +133,7 @@ export default function EditSobreContent({
       </label>
 
       <input
-        className="mb-4 mt-2  w-[80%] max-w-[600px] cursor-pointer rounded-lg border-none bg-bglightsecundary p-2  text-center font-bold text-black placeholder-textlight shadow-light outline-none focus:ring-0 dark:bg-bgdarksecundary dark:text-white dark:placeholder-textdark dark:shadow-dark md:w-[50%]"
+        className="mb-4 mt-2  w-[80%] max-w-[600px] cursor-pointer rounded-lg border-[1px] border-zinc-400  bg-bglightsecundary p-2 text-center font-bold text-black placeholder-textlight outline-none focus:ring-0 dark:border-zinc-700 dark:bg-bgdarksecundary dark:text-white dark:placeholder-textdark  md:w-[50%]"
         type="text"
         name="title"
         id="title"
@@ -145,7 +144,7 @@ export default function EditSobreContent({
       />
 
       <textarea
-        className="mb-1 mt-2  w-[80%] max-w-[600px] cursor-pointer rounded-lg border-none bg-bglightsecundary p-2 text-center font-bold text-black placeholder-textlight shadow-light outline-none focus:ring-0 dark:bg-bgdarksecundary dark:text-white dark:placeholder-textdark dark:shadow-dark md:w-[50%]"
+        className="mb-1 mt-2  w-[80%] max-w-[600px] cursor-pointer rounded-lg  border-[1px] border-zinc-400 bg-bglightsecundary p-2 text-center font-bold  text-black placeholder-textlight outline-none focus:ring-0 dark:border-zinc-700 dark:bg-bgdarksecundary dark:text-white dark:placeholder-textdark md:w-[50%]"
         type="text"
         name="content"
         id="content"
@@ -165,7 +164,7 @@ export default function EditSobreContent({
 
       <button
         type="submit"
-        className="z-20 my-3 flex w-[100px] cursor-pointer items-center justify-center rounded-lg bg-gradient-to-r from-slate-950  to-blue-900  font-bold text-white shadow-light  hover:from-blue-900  hover:to-slate-900 dark:shadow-dark"
+        className="z-20 my-3 flex w-[100px] cursor-pointer items-center justify-center rounded-lg border-[1px] border-zinc-400  bg-gradient-to-r  from-slate-950 to-blue-900 font-bold text-white hover:from-blue-900  hover:to-slate-900  dark:border-zinc-700 "
       >
         Enviar
       </button>

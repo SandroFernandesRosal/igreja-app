@@ -90,14 +90,14 @@ export default function EditUserIgreja({ id, nome, email, img }) {
     <>
       {token ? (
         <div className="mt-[80px] flex w-full  justify-center md:mt-[140px]">
-          <div className="my-10 flex min-h-screen w-[100vw] flex-col items-center rounded-[35px] bg-bglightsecundary shadow-light dark:bg-bgdarksecundary dark:shadow-dark  md:w-[90vw] md:rounded-xl">
+          <div className="my-10 flex min-h-screen w-[100vw] flex-col items-center rounded-[35px] border-[1px] border-zinc-400 bg-bglightsecundary dark:border-zinc-700 dark:bg-bgdarksecundary   md:w-[90vw] md:rounded-xl">
             <h1 className="mt-2 text-lg font-bold text-primary dark:text-secundary ">
               Editar perfil
             </h1>
             <p className="mb-5 text-xl">Faça alterações nos campos abaixo</p>
             <form
               ref={formRef}
-              className="flex w-[75%] max-w-[500px] flex-col items-center gap-3 rounded-xl bg-bglight p-3 shadow-light dark:bg-bgdark dark:shadow-dark md:mb-5"
+              className="flex w-[75%] max-w-[500px] flex-col items-center gap-3 rounded-xl border-[1px] border-zinc-400 bg-bglight p-3 dark:border-zinc-700 dark:bg-bgdark  md:mb-5"
               onSubmit={handleSubmit}
             >
               <label
@@ -114,7 +114,7 @@ export default function EditUserIgreja({ id, nome, email, img }) {
                     alt=""
                     width={150}
                     height={150}
-                    className=" m-2 h-[150px] w-[150px]  rounded-full  bg-gradient-to-r from-slate-950 to-blue-900 p-[4px] shadow-light hover:from-blue-900 hover:to-slate-900 dark:shadow-dark"
+                    className=" m-2 h-[150px] w-[150px]  rounded-full  border-[1px] border-zinc-400 bg-gradient-to-r from-slate-950  to-blue-900 p-[4px] hover:from-blue-900 hover:to-slate-900 dark:border-zinc-700"
                   />
                 ) : (
                   <Image
@@ -122,13 +122,13 @@ export default function EditUserIgreja({ id, nome, email, img }) {
                     alt=""
                     width={150}
                     height={150}
-                    className=" m-2 h-[150px] w-[150px]  rounded-full  bg-gradient-to-r from-slate-950 to-blue-900 p-[4px] shadow-light hover:from-blue-900 hover:to-slate-900 dark:shadow-dark "
+                    className=" m-2 h-[150px] w-[150px]  rounded-full  border-[1px] border-zinc-400 bg-gradient-to-r from-slate-950 to-blue-900 p-[4px] hover:from-blue-900 hover:to-slate-900 dark:border-zinc-700  "
                   />
                 )}
               </label>
 
               <input
-                className=" mt-2 w-[200px] cursor-pointer rounded-lg  border-none bg-bglightsecundary p-2 text-center font-bold placeholder-textlight shadow-light outline-none focus:ring-0 dark:bg-bgdarksecundary dark:placeholder-textdark dark:shadow-dark"
+                className=" mt-2 w-[200px] cursor-pointer rounded-lg  border-[1px] border-zinc-400 bg-bglightsecundary p-2 text-center font-bold placeholder-textlight outline-none  focus:ring-0 dark:border-zinc-700 dark:bg-bgdarksecundary dark:placeholder-textdark "
                 type="text"
                 name="name"
                 defaultValue={nome}
@@ -138,7 +138,7 @@ export default function EditUserIgreja({ id, nome, email, img }) {
               />
 
               <input
-                className="mt-2 w-[200px] cursor-pointer rounded-lg  border-none bg-bglightsecundary p-2 text-center font-bold placeholder-textlight shadow-light outline-none focus:ring-0 dark:bg-bgdarksecundary dark:placeholder-textdark dark:shadow-dark"
+                className="mt-2 w-[200px] cursor-pointer rounded-lg  border-[1px] border-zinc-400 bg-bglightsecundary p-2 text-center  font-bold placeholder-textlight outline-none focus:ring-0 dark:border-zinc-700 dark:bg-bgdarksecundary dark:placeholder-textdark"
                 type="text"
                 name="login"
                 value={email}
@@ -149,7 +149,7 @@ export default function EditUserIgreja({ id, nome, email, img }) {
               />
 
               <input
-                className=" mt-2 w-[200px] cursor-pointer rounded-lg  border-none bg-bglightsecundary p-2 text-center font-bold placeholder-textlight shadow-light outline-none focus:ring-0 dark:bg-bgdarksecundary dark:placeholder-textdark dark:shadow-dark"
+                className=" mt-2 w-[200px] cursor-pointer rounded-lg border-[1px] border-zinc-400 bg-bglightsecundary p-2 text-center  font-bold placeholder-textlight outline-none focus:ring-0 dark:border-zinc-700 dark:bg-bgdarksecundary dark:placeholder-textdark"
                 type="password"
                 name="password"
                 required
@@ -168,7 +168,7 @@ export default function EditUserIgreja({ id, nome, email, img }) {
 
               <button
                 type="submit"
-                className="z-20  m-1 mr-2 flex cursor-pointer items-center justify-center  rounded-lg bg-gradient-to-r from-slate-950 to-blue-900 px-6 font-bold  text-white shadow-light hover:from-blue-900 hover:to-slate-900 dark:shadow-dark"
+                className="z-20  m-1 mr-2 flex cursor-pointer items-center justify-center  rounded-lg border-[1px] border-zinc-400 bg-gradient-to-r from-slate-950 to-blue-900  px-6 font-bold text-white hover:from-blue-900 hover:to-slate-900 dark:border-zinc-700 "
               >
                 Editar
               </button>
@@ -188,14 +188,14 @@ export default function EditUserIgreja({ id, nome, email, img }) {
             <div className="flex gap-3">
               <Link
                 href={'/login/igreja'}
-                className="z-20  m-2 mr-2 mt-3 flex cursor-pointer items-center  justify-center rounded-lg bg-gradient-to-r from-slate-950 to-blue-900 px-6  font-bold text-white shadow-light hover:from-blue-900 hover:to-slate-900 dark:shadow-dark"
+                className="z-20  m-2 mr-2 mt-3 flex cursor-pointer items-center  justify-center rounded-lg border-[1px] border-zinc-400 bg-gradient-to-r from-slate-950  to-blue-900 px-6 font-bold text-white hover:from-blue-900 hover:to-slate-900 dark:border-zinc-700 "
               >
                 login
               </Link>
 
               <Link
                 href={'/register'}
-                className="z-20  m-2 mr-2 mt-3 flex cursor-pointer items-center  justify-center rounded-lg bg-gradient-to-r from-slate-950 to-blue-900 px-6  font-bold text-white shadow-light hover:from-blue-900 hover:to-slate-900 dark:shadow-dark"
+                className="z-20  m-2 mr-2 mt-3 flex cursor-pointer items-center  justify-center rounded-lg border-[1px] border-zinc-400 bg-gradient-to-r from-slate-950  to-blue-900 px-6 font-bold text-white hover:from-blue-900 hover:to-slate-900 dark:border-zinc-700 "
               >
                 Registre-se
               </Link>

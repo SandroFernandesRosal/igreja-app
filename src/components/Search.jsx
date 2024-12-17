@@ -17,7 +17,7 @@ export default function SearchMd() {
         name="search"
         type="text"
         placeholder="Buscar notícia..."
-        className="border:none  flex  cursor-pointer rounded-lg border-none bg-bglight placeholder-black shadow-light outline-none focus:ring-0 dark:bg-bgdark dark:placeholder-white dark:shadow-dark "
+        className="border:none  flex  cursor-pointer rounded-lg border-[1px] border-zinc-400 bg-bglight placeholder-black outline-none  focus:ring-0 dark:border-zinc-700 dark:bg-bgdark dark:placeholder-white "
         value={search}
         onChange={handleSearchChange}
       />

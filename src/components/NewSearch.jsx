@@ -11,7 +11,7 @@ export default function NewSearch({
   page,
 }) {
   return (
-    <article className=" mb-5  flex h-[300px] w-[45%] max-w-[150px] flex-col items-center rounded-lg bg-bglight shadow-light   transition  delay-150 duration-300  ease-in-out hover:-translate-y-1 hover:scale-110 hover:shadow-hover dark:bg-bgdark dark:shadow-dark dark:hover:shadow-hover  md:h-[300px] md:w-[200px]  md:max-w-[200px]">
+    <article className=" mb-5  flex h-[300px] w-[45%] max-w-[150px] flex-col items-center rounded-lg border-[1px]    border-zinc-400  bg-bglight transition  delay-150 duration-300 ease-in-out  hover:-translate-y-1 hover:scale-110 dark:border-zinc-700 dark:bg-bgdark  md:h-[300px] md:w-[200px]  md:max-w-[200px]">
       <Link
         href={`/noticias/${page}/${id}`}
         onClick={() => setSearch('')}

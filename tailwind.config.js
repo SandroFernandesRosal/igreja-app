@@ -12,11 +12,11 @@ module.exports = {
       colors: {
         primary: '#233876',
         secundary: '#1fb6ff',
-        bgdark: '#18181B',
-        bgdarksecundary: '#09090B',
+        bgdark: '#121214',
+        bgdarksecundary: '#1a1a1e',
         textdark: '#EEEEEE',
-        bglight: '#DCDCDC',
-        bglightsecundary: '#ffffff',
+        bglight: '#F4F4F5',
+        bglightsecundary: '#E4E4E7',
         textlight: '#262626',
       },
       backgroundImage: {

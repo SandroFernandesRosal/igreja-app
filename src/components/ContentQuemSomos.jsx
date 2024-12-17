@@ -16,7 +16,7 @@ export default function ContentQuemSomos({ dataSobre }) {
         <>
           {open === false && (
             <div
-              className="mb-4 flex cursor-pointer rounded-lg border-none bg-bglight p-2 placeholder-black shadow-light outline-none hover:bg-gradient-to-r hover:from-blue-900 hover:to-slate-900 hover:text-white focus:ring-0 dark:bg-bgdark dark:placeholder-white dark:shadow-dark"
+              className="mb-4 flex cursor-pointer rounded-lg border-[1px] border-zinc-400 bg-bglight p-2 placeholder-black outline-none  hover:bg-gradient-to-r hover:from-blue-900 hover:to-slate-900 hover:text-white focus:ring-0 dark:border-zinc-700 dark:bg-bgdark dark:placeholder-white "
               onClick={() => setOpen(true)}
             >
               Adicionar história
@@ -51,7 +51,7 @@ export default function ContentQuemSomos({ dataSobre }) {
             <div className="mb-2 flex w-full justify-center gap-2 text-white">
               {openEdit === null && (
                 <button
-                  className="m-2  rounded-lg bg-gradient-to-r from-slate-950 to-blue-900  px-3 font-bold  text-white shadow-light hover:from-blue-900 hover:to-slate-900 dark:shadow-dark md:px-3 md:text-lg"
+                  className="m-2  rounded-lg border-[1px] border-zinc-400 bg-gradient-to-r  from-slate-950 to-blue-900  px-3  font-bold text-white hover:from-blue-900 hover:to-slate-900 dark:border-zinc-700 md:px-3 md:text-lg"
                   onClick={() => setOpenEdit(item.id)}
                 >
                   Editar

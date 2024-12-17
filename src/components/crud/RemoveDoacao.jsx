@@ -42,7 +42,7 @@ export default function RemoveDoacao({ id }) {
     <button
       onClick={handleSubmit}
       disabled={isDeleting}
-      className="m-[5px]  rounded-lg bg-gradient-to-r from-slate-950 to-blue-900  px-1 text-white  shadow-light hover:from-blue-900 hover:to-slate-900 dark:shadow-dark md:px-3  md:text-lg md:font-bold"
+      className="m-[5px]  rounded-lg border-[1px] border-zinc-400 bg-gradient-to-r  from-slate-950 to-blue-900   px-1 text-white hover:from-blue-900 hover:to-slate-900 dark:border-zinc-700 md:px-3  md:text-lg md:font-bold"
     >
       {isDeleting ? 'Removendo...' : 'Remover'}
     </button>

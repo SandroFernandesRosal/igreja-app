@@ -42,7 +42,7 @@ export default function NewSlider() {
         {!loading ? (
           data && data.length < 1 ? (
             <div className="flex w-full justify-center py-2 lg:p-2 lg:py-5 ">
-              <div className="flex h-[300px] w-[100vw] max-w-[500px] flex-col items-center justify-center  rounded-[35px]  bg-bglightsecundary shadow-light dark:bg-bgdarksecundary dark:shadow-dark md:h-[400px] md:w-[500px] md:rounded-xl lg:h-[500px] lg:w-[800px] ">
+              <div className="d flex h-[300px] w-[100vw] max-w-[500px] flex-col items-center  justify-center  rounded-[35px]  bg-bglightsecundary dark:bg-bgdarksecundary md:h-[400px] md:w-[500px] md:rounded-xl lg:h-[500px] lg:w-[800px] ">
                 {' '}
                 <p>NENHUMA NOTÍCIA CADASTRADA.</p>
                 <p>Aguarde as postagens.</p>
@@ -68,7 +68,7 @@ export default function NewSlider() {
                   autoplay={{ delay: 3000 }}
                   loop={true}
                   effect="fade"
-                  className="h-[300px] w-[100vw] max-w-[500px]   rounded-[35px]  shadow-light dark:shadow-dark md:h-[400px] md:w-[500px] md:rounded-xl lg:h-[500px] lg:w-[800px]"
+                  className="h-[300px] w-[100vw] max-w-[500px]   rounded-[35px]  border-[1px] border-zinc-400 dark:border-zinc-700 md:h-[400px] md:w-[500px] md:rounded-xl lg:h-[500px] lg:w-[800px]"
                 >
                   {data &&
                     data.slice(0, 4).map((item) => (

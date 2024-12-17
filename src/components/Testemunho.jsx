@@ -23,7 +23,7 @@ export default function Testemunho({ data, userIgreja }) {
   }
 
   return (
-    <section className="mb-4 flex min-h-screen w-[100vw] flex-col items-center rounded-[35px] bg-bglight  px-1  pb-4 shadow-light dark:bg-bgdark  dark:shadow-dark md:w-[90vw] md:rounded-xl">
+    <section className="mb-4 flex min-h-screen w-[100vw] flex-col items-center rounded-[35px] border-[1px]  border-zinc-400  bg-bglight  px-1  pb-4 dark:border-zinc-700 dark:bg-bgdark md:w-[90vw] md:rounded-xl">
       <div className="flex flex-col items-center  md:min-w-[35%]">
         <h1 className="m-0 text-lg font-bold text-primary dark:text-secundary ">
           Testemunhos
@@ -66,7 +66,7 @@ export default function Testemunho({ data, userIgreja }) {
         <>
           {open === false && (
             <div
-              className="mb-4 flex cursor-pointer rounded-lg border-none bg-bglight bg-gradient-to-r from-slate-950 to-blue-900 p-2 text-white placeholder-black shadow-light outline-none hover:bg-gradient-to-r hover:from-blue-900 hover:to-slate-900  focus:ring-0 dark:bg-bgdark  dark:placeholder-white dark:shadow-dark"
+              className="mb-4 flex cursor-pointer rounded-lg border-[1px] border-zinc-400 bg-bglight bg-gradient-to-r from-slate-950 to-blue-900 p-2 text-white placeholder-black outline-none hover:bg-gradient-to-r hover:from-blue-900 hover:to-slate-900 focus:ring-0  dark:border-zinc-700 dark:bg-bgdark  dark:placeholder-white "
               onClick={() => setOpen(true)}
             >
               Adicionar testemunho

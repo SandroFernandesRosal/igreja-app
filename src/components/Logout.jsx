@@ -13,7 +13,7 @@ export default function Logout() {
   }
   return (
     <button
-      className="m-2 w-[60px] rounded-md bg-gradient-to-r from-slate-950 to-blue-900 p-1 font-bold  text-white shadow-light hover:from-blue-900  hover:to-slate-900 dark:shadow-dark "
+      className="m-2 w-[60px] rounded-md border-[1px] border-zinc-400 bg-gradient-to-r from-slate-950 to-blue-900  p-1  font-bold  text-white hover:from-blue-900 hover:to-slate-900 dark:border-zinc-700"
       onClick={Sair}
     >
       Sair

@@ -16,7 +16,7 @@ export default async function UserComponent() {
   return (
     <>
       {user && (
-        <div className=" flex flex-col items-start gap-1 md:flex-row md:items-center">
+        <div className=" flex flex-col items-start gap-1  md:flex-row md:items-center">
           <div className="flex  items-center gap-1">
             <Image
               src={avatarUrl}

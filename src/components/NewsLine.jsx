@@ -105,7 +105,7 @@ export default function NewsLine({ loading }) {
                       key={item.id}
                       className="flex items-center"
                     >
-                      <p className="font bold m-2 w-[78px] rounded-lg  bg-gradient-to-r  from-slate-950 to-blue-900 text-center text-white shadow-light dark:shadow-dark md:px-2 md:text-xl">
+                      <p className="font bold m-2 w-[78px] rounded-lg  border-[1px]  border-zinc-400 bg-gradient-to-r from-slate-950 to-blue-900  text-center text-white dark:border-zinc-700 md:px-2 md:text-xl">
                         {formatDate(item.createdAt)}
                       </p>
                       <h1 className=" font-bold">{item.title}</h1>
@@ -115,7 +115,7 @@ export default function NewsLine({ loading }) {
                       selectedItem.id === item.id && (
                         <div className="absolute flex w-[100%] items-center rounded-lg   pl-8 backdrop-blur-3xl md:w-[85%] lg:w-[40%]">
                           <button
-                            className="m-[5px] rounded-lg bg-gradient-to-r from-slate-950 to-blue-900  px-2 text-white  shadow-light hover:from-blue-900 hover:to-slate-900 dark:shadow-dark md:px-3 md:text-lg  md:font-bold"
+                            className="m-[5px] rounded-lg border-[1px] border-zinc-400 bg-gradient-to-r  from-slate-950 to-blue-900  px-2 text-white hover:from-blue-900 hover:to-slate-900 dark:border-zinc-700  md:px-3 md:text-lg  md:font-bold"
                             onClick={() => {
                               setOpenSettings(false)
                               setEditOpen(true)

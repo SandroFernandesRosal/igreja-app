@@ -105,10 +105,10 @@ export default function EditTestemunho({
         height={300}
         src={avatarUrl}
         alt={name}
-        className="mx-1 h-[100px] w-[100px] rounded-full bg-gradient-to-r from-slate-950 to-blue-900 p-[4px] text-white shadow-light  hover:from-blue-900 hover:to-slate-900 dark:shadow-dark"
+        className="mx-1 h-[100px] w-[100px] rounded-full border-[1px] border-zinc-400 bg-gradient-to-r from-slate-950 to-blue-900  p-[4px] text-white hover:from-blue-900 hover:to-slate-900 dark:border-zinc-700"
       />
 
-      <div className="flex w-full flex-col   gap-2 rounded-2xl bg-bglight  shadow-light  dark:bg-bgdark  dark:shadow-dark md:w-[70%]  lg:min-w-[700px]">
+      <div className="border-zinc-400md:w-[70%] flex w-full flex-col gap-2 rounded-2xl border-[1px]  bg-bglight dark:border-zinc-700 dark:bg-bgdark lg:min-w-[700px]">
         <div className="flex items-center justify-between">
           {' '}
           <p className="pl-3 text-lg font-bold">{name}</p>
@@ -160,7 +160,7 @@ export default function EditTestemunho({
           </label>
           <button
             type="submit"
-            className="z-20  m-2 mr-2 flex cursor-pointer items-center justify-center rounded-lg bg-gradient-to-r from-slate-950  to-blue-900 px-6 font-bold text-white shadow-light hover:from-blue-900  hover:to-slate-900 dark:shadow-dark"
+            className="z-20  m-2 mr-2 flex cursor-pointer items-center justify-center rounded-lg border-[1px] border-zinc-400  bg-gradient-to-r from-slate-950 to-blue-900 px-6  font-bold  text-white hover:from-blue-900 hover:to-slate-900 dark:border-zinc-700"
           >
             Editar
           </button>

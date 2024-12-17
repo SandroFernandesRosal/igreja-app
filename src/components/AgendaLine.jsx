@@ -81,7 +81,7 @@ export default function AgendaLine({ data, token, loading }) {
                         )}
                       </>
                     )}
-                    <p className="font bold shadow-ligh m-2 max-w-[200px] basis-2/6 rounded-lg bg-gradient-to-r from-slate-950 to-blue-900 px-2 text-center text-white dark:shadow-dark md:text-xl">
+                    <p className="font bold m-2 max-w-[200px] basis-2/6 rounded-lg border-[1px] border-zinc-400 bg-gradient-to-r from-slate-950 to-blue-900 px-2 text-center text-white dark:border-zinc-700  md:text-xl">
                       {item.day}
                     </p>
                     <h1 className="font-bold">{item.name}</h1>
@@ -90,7 +90,7 @@ export default function AgendaLine({ data, token, loading }) {
                       selectedItem.id === item.id && (
                         <div className="absolute flex w-full items-center    rounded-lg pl-8 backdrop-blur-3xl  md:w-[80vw]">
                           <button
-                            className="m-[5px] rounded-lg bg-gradient-to-r from-slate-950 to-blue-900  px-2 text-white  shadow-light hover:from-blue-900 hover:to-slate-900 dark:shadow-dark md:px-3 md:text-lg  md:font-bold"
+                            className="m-[5px] rounded-lg border-[1px] border-zinc-400 bg-gradient-to-r  from-slate-950 to-blue-900  px-2 text-white hover:from-blue-900 hover:to-slate-900 dark:border-zinc-700  md:px-3 md:text-lg  md:font-bold"
                             onClick={() => {
                               setOpenSettings(false)
                               setEditOpen(true)
@@ -117,7 +117,7 @@ export default function AgendaLine({ data, token, loading }) {
               <button
                 onClick={loadPreviousPage}
                 disabled={isDisabledPrev}
-                className={`m-2 mb-4 flex h-full w-[50px] cursor-pointer items-center justify-center rounded-xl p-2 font-bold text-white shadow-light hover:from-blue-900 hover:to-slate-900 dark:shadow-dark ${
+                className={`m-2 mb-4 flex h-full w-[50px] cursor-pointer items-center justify-center rounded-xl border-[1px] border-zinc-400 p-2 font-bold text-white hover:from-blue-900 hover:to-slate-900 dark:border-zinc-700  ${
                   isDisabledPrev
                     ? 'bg-gradient-to-r from-slate-950/20 to-blue-900/20'
                     : 'bg-gradient-to-r from-slate-950 to-blue-900'
@@ -128,7 +128,7 @@ export default function AgendaLine({ data, token, loading }) {
               <button
                 onClick={loadNextPage}
                 disabled={isDisabledNext}
-                className={`m-2 mb-4 flex h-full w-[50px] cursor-pointer items-center justify-center rounded-xl p-2 font-bold shadow-light hover:from-blue-900 hover:to-slate-900 dark:shadow-dark ${
+                className={`m-2 mb-4 flex h-full w-[50px] cursor-pointer items-center justify-center rounded-xl border-[1px] border-zinc-400  p-2 font-bold hover:from-blue-900 hover:to-slate-900 dark:border-zinc-700 ${
                   isDisabledNext
                     ? 'bg-gradient-to-r from-slate-950/20 to-blue-900/20'
                     : 'bg-gradient-to-r from-slate-950 to-blue-900'

@@ -27,7 +27,7 @@ export default function Ministerio() {
   }, [local, setDataMinisterio])
 
   return (
-    <section className="mb-5  flex w-[100vw] flex-col items-center rounded-[35px]  bg-bglightsecundary  px-1 shadow-light dark:bg-bgdarksecundary dark:shadow-dark  md:w-[90vw] md:rounded-xl">
+    <section className="mb-5  flex w-[100vw] flex-col items-center rounded-[35px]  border-[1px]  border-zinc-400 bg-bglightsecundary px-1 dark:border-zinc-700 dark:bg-bgdarksecundary   md:w-[90vw] md:rounded-xl">
       <div className="flex flex-col items-center  md:min-w-[35%]">
         <h1 className="m-0 text-lg font-bold text-primary dark:text-secundary ">
           Ministério
@@ -41,7 +41,7 @@ export default function Ministerio() {
         <>
           {openMinisterio === false && (
             <div
-              className="mb-4 flex cursor-pointer rounded-lg border-none bg-bglight p-2 placeholder-black shadow-light outline-none hover:bg-gradient-to-r hover:from-blue-900 hover:to-slate-900 hover:text-white focus:ring-0 dark:bg-bgdark dark:placeholder-white dark:shadow-dark"
+              className="mb-4 flex cursor-pointer rounded-lg  border-[1px] border-zinc-400 bg-bglight  p-2 placeholder-black outline-none hover:bg-gradient-to-r hover:from-blue-900 hover:to-slate-900 hover:text-white focus:ring-0 dark:border-zinc-700 dark:bg-bgdark dark:placeholder-white"
               onClick={() => setOpenMinisterio(true)}
             >
               Adicionar lider
