@@ -34,7 +34,7 @@ export default function Locais() {
         <>
           {openEndereco === false && (
             <div
-              className="mb-4 flex cursor-pointer rounded-lg border-[1px] border-none border-zinc-400 bg-bglight  p-2 placeholder-black outline-none hover:bg-gradient-to-r hover:from-blue-900 hover:to-slate-900 hover:text-white focus:ring-0 dark:border-zinc-700 dark:bg-bgdark dark:placeholder-white"
+              className="mb-4 flex cursor-pointer rounded-lg border-[1px] border-zinc-400 bg-bglight  p-2 placeholder-black outline-none hover:bg-gradient-to-r hover:from-blue-900 hover:to-slate-900 hover:text-white focus:ring-0 dark:border-zinc-700 dark:bg-bgdark dark:placeholder-white"
               onClick={() => setOpenEndereco(true)}
             >
               Adicionar endereço
